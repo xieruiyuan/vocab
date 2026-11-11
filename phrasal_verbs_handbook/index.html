@@ -1,0 +1,376 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>3,000 Phrasal Verbs 认知精讲总览</title><style>
+
+/* 首页现代控制台样式 */
+.index-hero {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 32px 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(15,23,42,0.03);
+}
+.index-title { font-size: 1.85em; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; letter-spacing: -0.02em; }
+.index-desc { font-size: 0.98em; color: #475569; line-height: 1.65; margin: 0; max-width: 900px; }
+.index-sec-title {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 1.25em; font-weight: 800; color: #0f172a; margin: 32px 0 16px 0;
+    padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+}
+.sec-pt-title { border-bottom-color: #c7d2fe; color: #312e81; }
+.sec-sc-title { border-bottom-color: #99f6e4; color: #134e4a; }
+
+.index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; margin-bottom: 36px; }
+
+.index-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px;
+    text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+.index-card:hover {
+    transform: translateY(-3px); box-shadow: 0 10px 25px rgba(15,23,42,0.08); border-color: #cbd5e1;
+}
+.pt-theme:hover { border-color: #6366f1; }
+.sc-theme:hover { border-color: #0d9488; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.card-badge {
+    font-size: 0.92em; font-weight: 800; padding: 4px 10px; border-radius: 7px;
+    letter-spacing: 0.02em;
+}
+.pt-badge { background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
+.sc-badge { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+
+.card-count {
+    font-size: 0.78em; font-weight: 700; color: #64748b; background: #f1f5f9;
+    padding: 3px 8px; border-radius: 99px;
+}
+.card-main-title {
+    font-size: 1.12em; font-weight: 700; color: #0f172a; margin: 0 0 6px 0;
+    line-height: 1.4; text-decoration: none;
+}
+.card-epe-ref { font-size: 0.78em; font-weight: 600; color: #6366f1; margin-bottom: 12px; }
+.sc-theme .card-epe-ref { color: #0d9488; }
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 10px; }
+.card-tag {
+    font-size: 0.75em; font-weight: 500; color: #475569; background: #f8fafc;
+    border: 1px solid #e2e8f0; padding: 2px 7px; border-radius: 5px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    max-width: 1340px; margin: 0 auto; padding: 20px 24px; background: #f1f5f9; color: #1e293b;
+    scroll-behavior: smooth; -webkit-font-smoothing: antialiased;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 32px; }
+.card { background: white; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #0d9488; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+.card.pt-card:hover { border-color: #4f46e5; }
+.card h3 { margin: 0 0 6px 0; color: #0f766e; font-size: 1.06em; }
+.card.pt-card h3 { color: #4338ca; }
+.meta { font-size: 0.85em; color: #64748b; line-height: 1.55; }
+</style>
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body>
+<div class='index-hero'>
+<h1 class='index-title'>母语者 3,000 核心短语动词全维认知矩阵</h1>
+<p class='index-desc'>全库完整收录 <b>3066</b> 个高频短语动词独立义项，深度融合 Seth Lindstromberg <b>《English Prepositions Explained》</b> 空间与隐喻认知图式。每个义项均配备 <b>专属中文释义、正式单字同义词、语法拆分标记、四级语域色彩</b> 以及 <b>3 组带词汇互换标注的中英对照例句</b>。</p>
+</div>
+<div class='index-sec-title sec-pt-title'><span>🧭 入口一：按 EPE 小品词认知图式与隐喻浏览 (Particle Cognitive View)</span><span style='font-size:0.7em;font-weight:600;color:#6366f1;'>共 13 个小品词认知族</span></div>
+<div class='index-grid'>
+<a class='index-card pt-theme' href='pt_01_UP_向上、完结体、视线显露与靠近.html'><div><div class='card-top'><span class='card-badge pt-badge'>01 UP</span><span class='card-count'>645 义项</span></div><div class='card-main-title'>向上、完结体、视线显露与靠近</div><div class='card-epe-ref'>📖 EPE Ch.16 & Ch.1 §17</div></div><div class='card-tags'><span class='card-tag'>完结体：完全、彻底、耗尽与终结</span><span class='card-tag'>垂直上升、数值暴涨与强度升级</span><span class='card-tag'>进入视野、凭空出现、构想编造与建立</span><span class='card-tag'>封锁合拢、束缚限制与彻底分割破碎</span></div></a>
+<a class='index-card pt-theme' href='pt_02_OUT_观察者三视角(消失_显露_丧失)与延展.html'><div><div class='card-top'><span class='card-badge pt-badge'>02 OUT</span><span class='card-count'>576 义项</span></div><div class='card-main-title'>观察者三视角(消失/显露/丧失)与延展</div><div class='card-epe-ref'>📖 EPE Ch.2 §7</div></div><div class='card-tags'><span class='card-tag'>室内观察者视角</span><span class='card-tag'>室外观察者视角</span><span class='card-tag'>中心向四周发散：分发、广播、呼喊与凸显</span><span class='card-tag'>突破原边界延展：铺开、膨胀、坚持到底与彻底执行</span></div></a>
+<a class='index-card pt-theme' href='pt_03_OFF_脱离支撑表面、取消切断、起飞引爆与完结.html'><div><div class='card-top'><span class='card-badge pt-badge'>03 OFF</span><span class='card-count'>305 义项</span></div><div class='card-main-title'>脱离支撑表面、取消切断、起飞引爆与完结</div><div class='card-epe-ref'>📖 EPE Ch.3 §5 & §9.2</div></div><div class='card-tags'><span class='card-tag'>物理脱离支撑表面：拿掉、脱下、擦除与偏离</span><span class='card-tag'>脱离日程与运转状态：取消、推迟、中断与下班</span><span class='card-tag'>切断连接、筑障隔离与渐进衰减</span><span class='card-tag'>脱离地面或静止点：出发、起飞、引爆与突然大响</span></div></a>
+<a class='index-card pt-theme' href='pt_04_DOWN_向下、数值减弱、压制瓦解与落笔记录.html'><div><div class='card-top'><span class='card-badge pt-badge'>04 DOWN</span><span class='card-count'>243 义项</span></div><div class='card-main-title'>向下、数值减弱、压制瓦解与落笔记录</div><div class='card-epe-ref'>📖 EPE Ch.16 & Ch.1 §17</div></div><div class='card-tags'><span class='card-tag'>数值走低、强度减弱、平息与浓缩</span><span class='card-tag'>由上而下施压：镇压、击败、拒绝与贬低消耗</span><span class='card-tag'>重力坍塌、拆毁、停转故障与吞咽</span><span class='card-tag'>落笔到纸面固定：写下记录、传代与安顿</span></div></a>
+<a class='index-card pt-theme' href='pt_05_IN_功能性包容、状态容器、吸收与向内坍塌.html'><div><div class='card-top'><span class='card-badge pt-badge'>05 IN</span><span class='card-count'>246 义项</span></div><div class='card-main-title'>功能性包容、状态容器、吸收与向内坍塌</div><div class='card-epe-ref'>📖 EPE Ch.2 §4 & Ch.4</div></div><div class='card-tags'><span class='card-tag'>进入边界与功能性包容：收纳、填满、提交与禁锢</span><span class='card-tag'>摄入大脑或欺骗圈套：吸收、理解、蒙蔽与留宿</span><span class='card-tag'>进入社交活动圈：参与、插嘴、干预、凑份与替补</span><span class='card-tag'>向中心内聚坍塌：屈服让步、内塌、盈利与开启生效</span></div></a>
+<a class='index-card pt-theme' href='pt_06_ON_前行延续(ON²)vs表面支撑_基础_负担(ON¹).html'><div><div class='card-top'><span class='card-badge pt-badge'>06 ON</span><span class='card-count'>178 义项</span></div><div class='card-main-title'>前行延续(ON²) vs 表面支撑/基础/负担(ON¹)</div><div class='card-epe-ref'>📖 EPE Ch.3</div></div><div class='card-tags'><span class='card-tag'>ON²（面向前方路径）：克服停顿持续进行与坚持推进</span><span class='card-tag'>ON¹（接触与支撑）：穿戴、开启运转、登车与承担</span><span class='card-tag'>ON¹ 基础隐喻</span><span class='card-tag'>ON¹ 负担与猛扑隐喻</span></div></a>
+<a class='index-card pt-theme' href='pt_07_OVER_弧线跨越、全面审视、翻转倒下与移交克服.html'><div><div class='card-top'><span class='card-badge pt-badge'>07 OVER</span><span class='card-count'>133 义项</span></div><div class='card-main-title'>弧线跨越、全面审视、翻转倒下与移交克服</div><div class='card-epe-ref'>📖 EPE Ch.9</div></div><div class='card-tags'><span class='card-tag'>全面覆盖与反复翻转：审视、检查、深思与重做</span><span class='card-tag'>跨越空间移交与掌控：接管、移交、说服倒戈与转变</span><span class='card-tag'>绕重心翻转、失衡倒下与满溢</span><span class='card-tag'>翻越人生障碍：克服恢复、风波过去与顺道拜访</span></div></a>
+<a class='index-card pt-theme' href='pt_08_AWAY_远离分离、彻底处置、渐进消逝与持续劳作.html'><div><div class='card-top'><span class='card-badge pt-badge'>08 AWAY</span><span class='card-count'>114 义项</span></div><div class='card-main-title'>远离分离、彻底处置、渐进消逝与持续劳作</div><div class='card-epe-ref'>📖 EPE Ch.2 §10 & Ch.1 §18</div></div><div class='card-tags'><span class='card-tag'>距离不断拉大：远离、逃逸、驱赶与规避</span><span class='card-tag'>从身边移除清理：丢弃、废除、收起、赠送与挥霍</span><span class='card-tag'>远去直至不可见/不可闻：渐进消逝、去世与不受拘束地持续干</span></div></a>
+<a class='index-card pt-theme' href='pt_09_BACK_回到起点、对等回击、向后退缩与抑制隐瞒.html'><div><div class='card-top'><span class='card-badge pt-badge'>09 BACK</span><span class='card-count'>101 义项</span></div><div class='card-main-title'>回到起点、对等回击、向后退缩与抑制隐瞒</div><div class='card-epe-ref'>📖 EPE Ch.3 §3 & Ch.13</div></div><div class='card-tags'><span class='card-tag'>回到起点或原主：返回、归还、偿还与复原</span><span class='card-tag'>逆向反作用与朝背部方向后退：回击、顶嘴、退缩与食言</span><span class='card-tag'>向后拉拽不放行：抑制情感、隐瞒、阻碍与削减回想</span></div></a>
+<a class='index-card pt-theme' href='pt_10_THROUGH_穿过三维通道、熬过难关与彻底审阅.html'><div><div class='card-top'><span class='card-badge pt-badge'>10 THROUGH</span><span class='card-count'>47 义项</span></div><div class='card-main-title'>穿过三维通道、熬过难关与彻底审阅</div><div class='card-epe-ref'>📖 EPE Ch.2 §6 & Ch.9 §6</div></div><div class='card-tags'><span class='card-tag'>从入口穿到出口：熬过苦难、促成交易、彻底完成与落空</span><span class='card-tag'>物理穿透、目光看穿伪装、从头翻检到尾与电话接通</span></div></a>
+<a class='index-card pt-theme' href='pt_11_AROUND_环绕旋转、漫无目的闲逛、规避与苏醒.html'><div><div class='card-top'><span class='card-badge pt-badge'>11 AROUND</span><span class='card-count'>72 义项</span></div><div class='card-main-title'>环绕旋转、漫无目的闲逛、规避与苏醒</div><div class='card-epe-ref'>📖 EPE Ch.10</div></div><div class='card-tags'><span class='card-tag'>非线性盘旋轨迹：四处闲逛、瞎混等待与四周传阅</span><span class='card-tag'>180度转向与绕行弧线：改变主意、苏醒、规避问题与顺道拜访</span></div></a>
+<a class='index-card pt-theme' href='pt_12_INTO_动态穿越边界、猛烈碰撞、深入调查与形态转化.html'><div><div class='card-top'><span class='card-badge pt-badge'>12 INTO</span><span class='card-count'>41 义项</span></div><div class='card-main-title'>动态穿越边界、猛烈碰撞、深入调查与形态转化</div><div class='card-epe-ref'>📖 EPE Ch.2 §4.2-4.3</div></div><div class='card-tags'><span class='card-tag'>动态进入与猛烈撞击：深入调查、偶遇碰撞、闯入与动用</span><span class='card-tag'>进入新状态或新形态容器：转化变成、说服强迫与细分为</span></div></a>
+<a class='index-card pt-theme' href='pt_13_其他常见小品词.html'><div><div class='card-top'><span class='card-badge pt-badge'>13 其他常见小品词</span><span class='card-count'>365 义项</span></div><div class='card-main-title'>其他常见小品词</div><div class='card-epe-ref'>📖 FOR / WITH / BY / AFTER / APART / ASIDE — EPE Ch.5, 11, 18, 19</div></div><div class='card-tags'><span class='card-tag'>小品词 [ABOUT] 核心短语动词</span><span class='card-tag'>小品词 [ACROSS] 核心短语动词</span><span class='card-tag'>小品词 [AFTER] 核心短语动词</span><span class='card-tag'>小品词 [ALONG] 核心短语动词</span></div></a>
+</div><div class='index-sec-title sec-sc-title'><span>🎭 入口二：按 12 大现实动作场景浏览 (Scenario View)</span><span style='font-size:0.7em;font-weight:600;color:#0d9488;'>共 12 大生活工作场景</span></div><div class='index-grid'>
+<a class='index-card sc-theme' href='sc_01_时间推进、开始结束与拖延持续.html'><div><div class='card-top'><span class='card-badge sc-badge'>01 时间推进</span><span class='card-count'>473 义项</span></div><div class='card-main-title'>时间推进、开始结束与拖延持续</div><div class='card-epe-ref'>🌐 Time, Initiation, Delay & Continuation</div></div><div class='card-tags'><span class='card-tag'>启动、着手、出发与引发</span><span class='card-tag'>推迟、耽搁、暂停与等待</span><span class='card-tag'>坚持、继续、熬过与推进</span><span class='card-tag'>结束、废除、中止与收尾</span></div></a>
+<a class='index-card sc-theme' href='sc_02_认知思考、排查发现与计划构想.html'><div><div class='card-top'><span class='card-badge sc-badge'>02 认知思考</span><span class='card-count'>270 义项</span></div><div class='card-main-title'>认知思考、排查发现与计划构想</div><div class='card-epe-ref'>🌐 Cognition, Investigation, Discovery & Planning</div></div><div class='card-tags'><span class='card-tag'>调查、审视、核实与深究</span><span class='card-tag'>理解、算出、查明与顿悟</span><span class='card-tag'>深思、权衡、回想与遗忘</span><span class='card-tag'>构想、编造、筹划与准备</span></div></a>
+<a class='index-card sc-theme' href='sc_03_言语沟通、争辩劝说与信息披露.html'><div><div class='card-top'><span class='card-badge sc-badge'>03 言语沟通</span><span class='card-count'>173 义项</span></div><div class='card-main-title'>言语沟通、争辩劝说与信息披露</div><div class='card-epe-ref'>🌐 Communication, Debate, Persuasion & Disclosure</div></div><div class='card-tags'><span class='card-tag'>提及、提出、阐明与插嘴</span><span class='card-tag'>说服、劝阻、笼络与哄骗</span><span class='card-tag'>批评、训斥、嘲弄与反驳</span><span class='card-tag'>泄露、隐瞒、传开与坦白</span></div></a>
+<a class='index-card sc-theme' href='sc_04_情绪起伏、心理爆发与安抚释放.html'><div><div class='card-top'><span class='card-badge sc-badge'>04 情绪起伏</span><span class='card-count'>252 义项</span></div><div class='card-main-title'>情绪起伏、心理爆发与安抚释放</div><div class='card-epe-ref'>🌐 Emotions, Outbursts, Calming & Coping</div></div><div class='card-tags'><span class='card-tag'>崩溃、发飙、失控与大哭</span><span class='card-tag'>平息、冷静、振作与释怀</span><span class='card-tag'>压抑、忍受、激发与着迷</span><span class='card-tag'>令人生畏、失望、羞辱与鼓舞</span></div></a>
+<a class='index-card sc-theme' href='sc_05_人际关系、社交聚散与支持背叛.html'><div><div class='card-top'><span class='card-badge sc-badge'>05 人际关系</span><span class='card-count'>95 义项</span></div><div class='card-main-title'>人际关系、社交聚散与支持背叛</div><div class='card-epe-ref'>🌐 Relationships, Socializing, Support & Betrayal</div></div><div class='card-tags'><span class='card-tag'>结交、融洽、偶遇与拜访</span><span class='card-tag'>恋爱、吸引、分手与决裂</span><span class='card-tag'>支持、依赖、照料与替补</span><span class='card-tag'>背叛、抛弃、排挤与出卖</span></div></a>
+<a class='index-card sc-theme' href='sc_06_对抗冲突、屈服妥协与防御逃避.html'><div><div class='card-top'><span class='card-badge sc-badge'>06 对抗冲突</span><span class='card-count'>124 义项</span></div><div class='card-main-title'>对抗冲突、屈服妥协与防御逃避</div><div class='card-epe-ref'>🌐 Conflict, Submission, Defense & Evasion</div></div><div class='card-tags'><span class='card-tag'>袭击、反击、对峙与镇压</span><span class='card-tag'>屈服、让步、认输与退缩</span><span class='card-tag'>逃跑、规避、侥幸逃脱与溜走</span><span class='card-tag'>强迫、限制、驱逐与消灭</span></div></a>
+<a class='index-card sc-theme' href='sc_07_商业财务、资源消耗与分配积累.html'><div><div class='card-top'><span class='card-badge sc-badge'>07 商业财务</span><span class='card-count'>176 义项</span></div><div class='card-main-title'>商业财务、资源消耗与分配积累</div><div class='card-epe-ref'>🌐 Finance, Commerce, Consumption & Allocation</div></div><div class='card-tags'><span class='card-tag'>花费、偿还、凑钱与削减开支</span><span class='card-tag'>耗尽、挥霍、囤积与储备</span><span class='card-tag'>分发、留出、收购与接管</span><span class='card-tag'>盈利、破产、成交与赖账</span></div></a>
+<a class='index-card sc-theme' href='sc_08_物理位移、进出升降与穿戴安置.html'><div><div class='card-top'><span class='card-badge sc-badge'>08 物理位移</span><span class='card-count'>298 义项</span></div><div class='card-main-title'>物理位移、进出升降与穿戴安置</div><div class='card-epe-ref'>🌐 Physical Motion, Entry/Exit & Placement</div></div><div class='card-tags'><span class='card-tag'>进入、离开、出发与抵达</span><span class='card-tag'>上升、跌落、翻倒与跨越</span><span class='card-tag'>追赶、跟随、散开与聚拢</span><span class='card-tag'>穿戴、脱下、拾起与放下</span></div></a>
+<a class='index-card sc-theme' href='sc_09_物理操控、连接拆解与清洁修缮.html'><div><div class='card-top'><span class='card-badge sc-badge'>09 物理操控</span><span class='card-count'>133 义项</span></div><div class='card-main-title'>物理操控、连接拆解与清洁修缮</div><div class='card-epe-ref'>🌐 Manipulation, Assembly, Destruction & Cleaning</div></div><div class='card-tags'><span class='card-tag'>组装、连接、固定与打包</span><span class='card-tag'>拆解、撕碎、砸毁与炸掉</span><span class='card-tag'>打扫、擦拭、整理与丢弃</span><span class='card-tag'>修补、翻新、开启与关闭</span></div></a>
+<a class='index-card sc-theme' href='sc_10_生理机能、健康疾病与饮食睡眠.html'><div><div class='card-top'><span class='card-badge sc-badge'>10 生理机能</span><span class='card-count'>57 义项</span></div><div class='card-main-title'>生理机能、健康疾病与饮食睡眠</div><div class='card-epe-ref'>🌐 Health, Bodily Functions, Eating & Sleeping</div></div><div class='card-tags'><span class='card-tag'>患病、昏厥、呕吐与发作</span><span class='card-tag'>痊愈、挺过来、苏醒与保养</span><span class='card-tag'>进食、狼吞虎咽、啜饮与戒除</span><span class='card-tag'>入睡、熬夜、热身与疲惫不堪</span></div></a>
+<a class='index-card sc-theme' href='sc_11_工作执行、职责接替与成败结果.html'><div><div class='card-top'><span class='card-badge sc-badge'>11 工作执行</span><span class='card-count'>70 义项</span></div><div class='card-main-title'>工作执行、职责接替与成败结果</div><div class='card-epe-ref'>🌐 Work, Execution, Succession & Outcomes</div></div><div class='card-tags'><span class='card-tag'>执行、承担、胜任与应付</span><span class='card-tag'>接管、移交、替班与下台</span><span class='card-tag'>成功、奏效、实现与脱颖而出</span><span class='card-tag'>失败、泡汤、搞砸与落后</span></div></a>
+<a class='index-card sc-theme' href='sc_12_数量增减、程度变化与逻辑关联.html'><div><div class='card-top'><span class='card-badge sc-badge'>12 数量增减</span><span class='card-count'>945 义项</span></div><div class='card-main-title'>数量增减、程度变化与逻辑关联</div><div class='card-epe-ref'>🌐 Quantity, Degree, Transformation & Causality</div></div><div class='card-tags'><span class='card-tag'>激增、累积、加快与强化</span><span class='card-tag'>减少、减弱、消退与平息</span><span class='card-tag'>转变、变成、归结为与抵消</span><span class='card-tag'>依赖、源于、导致与触发</span></div></a>
+</div></body></html>

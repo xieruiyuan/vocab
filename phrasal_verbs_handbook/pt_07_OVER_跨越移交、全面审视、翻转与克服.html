@@ -1,0 +1,540 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>07 · OVER 跨越移交、全面审视、翻转与克服 (OVER: Transfer, Thorough Review, Inversion & Recovery)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #0f172a; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 18px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.84em; font-weight: 500; color: #475569; background: #f1f5f9; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #0d9488; color: #fff; font-weight: 600; }
+body.pt-mode .nav-link.active { background: #c026d3; color: #fff; }
+.nav-link.home { background: #0f172a; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.14em; font-weight: 700; color: #0f172a; }
+.def-en { color: #1e293b; font-size: 0.93em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 32px; }
+.card { background: white; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #2dd4bf; }
+.card.pt-card:hover { border-color: #e879f9; }
+.card h3 { margin: 0 0 6px 0; color: #0f766e; font-size: 1.06em; }
+.card.pt-card h3 { color: #86198f; }
+.meta { font-size: 0.85em; color: #64748b; line-height: 1.55; }
+</style>
+<style>
+.mode-switch-bar {
+    display: flex; gap: 10px; margin-bottom: 16px; background: #0f172a; padding: 10px 16px;
+    border-radius: 10px; align-items: center; color: #fff; flex-wrap: wrap;
+}
+.mode-btn {
+    text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: 0.9em;
+    font-weight: 700; color: #cbd5e1; background: rgba(255,255,255,0.1); transition: all 0.15s;
+}
+.mode-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+.mode-btn.active-sc { background: #0d9488; color: #fff; }
+.mode-btn.active-pt { background: #c026d3; color: #fff; }
+
+.sep-Separable { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #dcfce7; color: #166534; border: 1px solid #86efac; margin-top: 4px; }
+.sep-Inseparable { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; margin-top: 4px; }
+.sep-Intransitive { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; margin-top: 4px; }
+
+.sense-badge {
+    display: inline-block; font-size: 0.72em; font-weight: 700; padding: 1px 6px;
+    border-radius: 4px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;
+    margin-left: 6px; vertical-align: middle;
+}
+.eq-verb {
+    display: inline-block; font-size: 1.05em; font-weight: 800; color: #7e22ce;
+    background: #f3e8ff; padding: 4px 10px; border-radius: 6px; border: 1px solid #d8b4fe;
+}
+.cn-precise { font-size: 1.02em; font-weight: 700; color: #0f172a; }
+.pt-highlight { color: #0d9488; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 4px; color: #64748b; border-radius: 4px;
+}
+.audio-btn:hover { color: #0d9488; background: #e2e8f0; transform: scale(1.15); }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #f0fdfa; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #99f6e4; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #115e59; background: #fff; border: 1px solid #5eead4; cursor: pointer; }
+.sub-pill:hover { background: #0d9488; color: #fff; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #134e4a; background: #134e4a; color: #fff; }
+.ctrl-btn.secondary { background: #fff; color: #134e4a; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #134e4a, #0d9488);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700;
+}
+body.pt-mode summary.sub-header { background: linear-gradient(90deg, #701a75, #c026d3); }
+body.pt-mode .sub-nav { background: #fdf4ff; border-color: #f5d0fe; }
+body.pt-mode .sub-pill { color: #86198f; border-color: #e879f9; }
+body.pt-mode .sub-pill:hover { background: #c026d3; color: #fff; }
+
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #ccfbf1; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+.ex-sent { color: #475569; font-style: italic; font-size: 0.9em; margin-top: 4px; border-left: 3px solid #14b8a6; padding-left: 7px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+
+function playPhrase(text) {
+    const clean = encodeURIComponent(text.trim());
+    audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${clean}&type=2`;
+    audioPlayer.play().catch(() => {
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = "en-US"; u.rate = 0.92;
+            window.speechSynthesis.speak(u);
+        }
+    });
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function filterSeparability(sepType) {
+    document.querySelectorAll("tr[data-sep]").forEach(row => {
+        row.style.display = (sepType === "all" || row.dataset.sep === sepType) ? "" : "none";
+    });
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body class='pt-mode' id='top'>
+<div class='mode-switch-bar'><a class='mode-btn' href='index.html'>🏠 双模总目录首页</a><span style='color:#475569;'>|</span><a class='mode-btn' href='sc_01_时间推进、开始结束与拖延持续.html'>🎭 视图一：按 12 大动作场景分类 (Scenario View)</a><a class='mode-btn active-pt' href='pt_07_OVER_跨越移交、全面审视、翻转与克服.html'>🧭 视图二：按介词/小品词认知隐喻分类 (UP / OUT / OFF 语义场)</a></div>
+<div class="nav-bar"><a class="nav-link" href="pt_01_UP_向上、完全耗尽与出现建立.html">01 UP 向上、完全耗尽与出现建立 (662)</a><a class="nav-link" href="pt_02_OUT_向外、耗尽熄灭、排查与分发.html">02 OUT 向外、耗尽熄灭、排查与分发 (582)</a><a class="nav-link" href="pt_03_OFF_脱离、取消推迟、切断与出发.html">03 OFF 脱离、取消推迟、切断与出发 (307)</a><a class="nav-link" href="pt_04_DOWN_向下、压制削减、瓦解与记录.html">04 DOWN 向下、压制削减、瓦解与记录 (245)</a><a class="nav-link" href="pt_05_IN_向内、吸收理解、参与插手与屈服.html">05 IN 向内、吸收理解、参与插手与屈服 (245)</a><a class="nav-link" href="pt_06_ON_接触穿戴、持续推进、依赖与攻击.html">06 ON 接触穿戴、持续推进、依赖与攻击 (178)</a><a class="nav-link active" href="pt_07_OVER_跨越移交、全面审视、翻转与克服.html">07 OVER 跨越移交、全面审视、翻转与克服 (135)</a><a class="nav-link" href="pt_08_AWAY_远离逃逸、清除丢弃、消逝与持续.html">08 AWAY 远离逃逸、清除丢弃、消逝与持续 (115)</a><a class="nav-link" href="pt_09_BACK_返回归还、回击反抗、抑制与回溯.html">09 BACK 返回归还、回击反抗、抑制与回溯 (102)</a><a class="nav-link" href="pt_10_THROUGH_穿透、熬过完成、识破与彻底审阅.html">10 THROUGH 穿透、熬过完成、识破与彻底审阅 (47)</a><a class="nav-link" href="pt_11_AROUND_环绕周旋、闲逛混日子、恢复与转向.html">11 AROUND 环绕周旋、闲逛混日子、恢复与转向 (72)</a><a class="nav-link" href="pt_12_INTO_深入调查、卷入说服、转化与碰撞.html">12 INTO 深入调查、卷入说服、转化与碰撞 (42)</a><a class="nav-link" href="pt_13_其他常见小品词.html">13 其他常见小品词 (369)</a></div>
+<h1>07 · OVER 跨越移交、全面审视、翻转与克服 (OVER: Transfer, Thorough Review, Inversion & Recovery)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本页共收录 <b>135</b> 个短语动词独立义项 • 已实现 <b>【单一精准中文释义 ⇔ 对应单字替代动词 ⇔ 英文特定定义】</b> 一对一严格对齐</p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><button class='sub-pill' onclick="filterSeparability('all')">全部语法类型</button><button class='sub-pill' onclick="filterSeparability('Separable')">🟢 仅看可拆分 (v.+O+adv.)</button><button class='sub-pill' onclick="filterSeparability('Inseparable')">🔵 仅看不可拆分</button><button class='sub-pill' onclick="filterSeparability('Intransitive')">🟠 仅看丕及物</button><span style='color:#99f6e4;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">01 全面审视、反复思考、检查与排练 (66)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">02 主权移交、接管控制、买通与转变 (38)</a><a class='sub-pill' onclick="jumpToSection('sub_2')">03 翻转、倾倒、碾压与溢出 (21)</a><a class='sub-pill' onclick="jumpToSection('sub_3')">04 克服困难、恢复健康与拜访重温 (10)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 全面审视、反复思考、检查与排练 (Review, Contemplation & Inspection — '从头到尾看一遍')</span><span class='sub-meta'>共 66 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Separable'><td class='word'>go <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>仔细检查，复习</span></td><td><span class='eq-verb'>review, survey</span></td><td class='def-en'><b>Meaning:</b> hold a review (of troops)<div class='ex-sent'>“They decided to go over (hold a review (of troops)).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>think <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>仔细考虑</span></td><td><span class='eq-verb'>meditate, ponder</span></td><td class='def-en'><b>Meaning:</b> reflect deeply on a subject<div class='ex-sent'>“I mulled over the events of the afternoon”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>仔细检查</span></td><td><span class='eq-verb'>happen, hap</span></td><td class='def-en'><b>Meaning:</b> happen in a particular manner<div class='ex-sent'>“how did your talk go over?”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>make <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>改造</span></td><td><span class='eq-verb'>remake, refashion</span></td><td class='def-en'><b>Meaning:</b> make new<div class='ex-sent'>“She is remaking her image”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>make <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>改造</span></td><td><span class='eq-verb'>rework, retread</span></td><td class='def-en'><b>Meaning:</b> use again in altered form<div class='ex-sent'>“retread an old plot”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>转变</span></td><td><span class='eq-verb'>collapse, forward</span></td><td class='def-en'><b>Meaning:</b> fall forward and down<div class='ex-sent'>“The old woman went over without a sound”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>go <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>仔细检查</span></td><td><span class='eq-verb'>check, analyze</span></td><td class='def-en'><b>Meaning:</b> examine so as to determine accuracy, quality, or condition<div class='ex-sent'>“check the brakes”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>work <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>殴打</span></td><td><span class='eq-verb'>beat, beating</span></td><td class='def-en'><b>Meaning:</b> give a beating to; subject to a beating, either as a punishment or as an act of aggression<div class='ex-sent'>“Thugs beat him up when he walked down the street late at night”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>显露，传达，感染</span></td><td><span class='eq-verb'>communicate</span></td><td class='def-en'><b>Meaning:</b> communicate successfully<div class='ex-sent'>“I couldn't get across the message”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>put <span class='pt-highlight'>one over</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>欺诈，骗，欺骗</span></td><td><span class='eq-verb'>gull, dupe</span></td><td class='def-en'><b>Meaning:</b> fool or hoax<div class='ex-sent'>“The immigrant was duped because he trusted everyone”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>live <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>再生，复活，知道</span></td><td><span class='eq-verb'>relive, know</span></td><td class='def-en'><b>Meaning:</b> experience again, often in the imagination<div class='ex-sent'>“He relived the horrors of war”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>move <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>出产，给予，让出</span></td><td><span class='eq-verb'>yield, order</span></td><td class='def-en'><b>Meaning:</b> move in order to make room for someone for something<div class='ex-sent'>“The park gave way to a supermarket”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>talk <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>讨论，说服</span></td><td><span class='eq-verb'>discuss, speak</span></td><td class='def-en'><b>Meaning:</b> speak with others about (something); talk (something) over in detail; have a discussion<div class='ex-sent'>“We discussed our household budget”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>watch <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>监督，保护，照管</span></td><td><span class='eq-verb'>watch, observe</span></td><td class='def-en'><b>Meaning:</b> follow with the eyes or the mind<div class='ex-sent'>“Keep an eye on the baby, please!”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 5/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>打翻，反复考虑</span></td><td><span class='eq-verb'>consider, debate</span></td><td class='def-en'><b>Meaning:</b> think about carefully; weigh<div class='ex-sent'>“They considered the possibility of a strike”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>check <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>核对，仔细检查</span></td><td><span class='eq-verb'>check, analyze</span></td><td class='def-en'><b>Meaning:</b> examine so as to determine accuracy, quality, or condition<div class='ex-sent'>“check the brakes”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>film <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>变朦胧</span></td><td><span class='eq-verb'>blur, become</span></td><td class='def-en'><b>Meaning:</b> become glassy; lose clear vision<div class='ex-sent'>“Her eyes glazed over from lack of sleep”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>double <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>弯腰</span></td><td><span class='eq-verb'>double, bend</span></td><td class='def-en'><b>Meaning:</b> bend over or curl up, usually with laughter or pain<div class='ex-sent'>“He doubled and vomited violently”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>lord <span class='pt-highlight'>it over</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>行动，表演，假装</span></td><td><span class='eq-verb'>act, like</span></td><td class='def-en'><b>Meaning:</b> act like the master of<div class='ex-sent'>“He is lording it over the students”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pick <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>分档挑选</span></td><td><span class='eq-verb'>choose, select</span></td><td class='def-en'><b>Meaning:</b> separate or remove<div class='ex-sent'>“The customer picked over the selection”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>ball <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使震动，使休克，使受电击</span></td><td><span class='eq-verb'>shock, floor</span></td><td class='def-en'><b>Meaning:</b> surprise greatly; knock someone's socks off<div class='ex-sent'>“I was floored when I heard that I was promoted”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>sleep <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>不在家过夜</span></td><td><span class='eq-verb'>lodge, stay</span></td><td class='def-en'><b>Meaning:</b> stay overnight<div class='ex-sent'>“The boy's friends were allowed to sleep over after the birthday party”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>spread <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>覆盖，掩饰，保护</span></td><td><span class='eq-verb'>cover, touch</span></td><td class='def-en'><b>Meaning:</b> form a cover over<div class='ex-sent'>“The grass covered the grave”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>ice <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>改变，更换，兑换</span></td><td><span class='eq-verb'>change, become</span></td><td class='def-en'><b>Meaning:</b> become covered with a layer of ice; of a surface such as a window<div class='ex-sent'>“When the wings iced up, the pilot was forced to land his plane”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>grow <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>在...上长满，种植，使长满</span></td><td><span class='eq-verb'>overgrow, grow</span></td><td class='def-en'><b>Meaning:</b> grow beyond or across<div class='ex-sent'>“The ivy overgrew the patio”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>skin <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>为皮所覆盖，愈合</span></td><td><span class='eq-verb'>heal, grow</span></td><td class='def-en'><b>Meaning:</b> grow new skin over an injury<div class='ex-sent'>“They decided to skin over (grow new skin over an injury).”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>queen <span class='pt-highlight'>it over</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>行动，表演，假装</span></td><td><span class='eq-verb'>act, like</span></td><td class='def-en'><b>Meaning:</b> act like the master of<div class='ex-sent'>“He is lording it over the students”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>glass <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>用玻璃覆盖：</span></td><td><span class='eq-verb'>glaze, glass</span></td><td class='def-en'><b>Meaning:</b> become glassy or take on a glass-like appearance<div class='ex-sent'>“Her eyes glaze over when she is bored”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bridge <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>在…上架桥，跨接</span></td><td><span class='eq-verb'>bridge, connect</span></td><td class='def-en'><b>Meaning:</b> connect or reduce the distance between<div class='ex-sent'>“They decided to bridge over (connect or reduce the distance between).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bridge <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>应付，克服</span></td><td><span class='eq-verb'>suffice, answer</span></td><td class='def-en'><b>Meaning:</b> suffice for a period between two points<div class='ex-sent'>“This money will keep us going for another year”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>lay <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>把放在另一物的上面，添上，附加</span></td><td><span class='eq-verb'>superimpose, superpose</span></td><td class='def-en'><b>Meaning:</b> place on top of<div class='ex-sent'>“can you superimpose the two images?”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>lay <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>停止，被塞住，中断</span></td><td><span class='eq-verb'>stop, interrupt</span></td><td class='def-en'><b>Meaning:</b> interrupt a journey temporarily, e.g., overnight<div class='ex-sent'>“We had to stop over in Venezuela on our flight back from Brazil”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bowl <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>击倒</span></td><td><span class='eq-verb'>overturn, upset</span></td><td class='def-en'><b>Meaning:</b> cause to overturn from an upright or normal position<div class='ex-sent'>“The cat knocked over the flower vase”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>smooth <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>视为，对待，论述</span></td><td><span class='eq-verb'>treat, handle</span></td><td class='def-en'><b>Meaning:</b> treat hurriedly or avoid dealing with properly<div class='ex-sent'>“They decided to smooth over (treat hurriedly or avoid dealing with properly).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>cloud <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>布满乌云，脸色变得阴沉</span></td><td><span class='eq-verb'>overcloud, darken</span></td><td class='def-en'><b>Meaning:</b> become covered with clouds<div class='ex-sent'>“The sky clouded over”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>print <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>套印，重印，晒印过度</span></td><td><span class='eq-verb'>overprint, print</span></td><td class='def-en'><b>Meaning:</b> print (additional text or colors) onto an already imprinted paper<div class='ex-sent'>“They decided to print over (print (additional text or colors) onto an already imprinted paper).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>cloud <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>脸色变得阴沉</span></td><td><span class='eq-verb'>become</span></td><td class='def-en'><b>Meaning:</b> become overcast<div class='ex-sent'>“the sky clouded over”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>grass <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>草，草原，牧场</span></td><td><span class='eq-verb'>grass, cover</span></td><td class='def-en'><b>Meaning:</b> cover with grass<div class='ex-sent'>“They decided to grass over (cover with grass).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>cant <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>倾斜：，倾覆</span></td><td><span class='eq-verb'>cant, tilt</span></td><td class='def-en'><b>Meaning:</b> heel over<div class='ex-sent'>“The tower is tilting”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>swing <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>摆越</span></td><td><span class='eq-verb'>swing, influence</span></td><td class='def-en'><b>Meaning:</b> influence decisively<div class='ex-sent'>“This action swung many votes over to his side”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>brick <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>用砖铺</span></td><td><span class='eq-verb'>wall</span></td><td class='def-en'><b>Meaning:</b> wall up with brick<div class='ex-sent'>“They decided to brick over (wall up with brick).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>skip <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>略过，遗漏</span></td><td><span class='eq-verb'>jump, skip</span></td><td class='def-en'><b>Meaning:</b> bypass<div class='ex-sent'>“He skipped a row in the text and so the sentence was incomprehensible”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>puzzle <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>苦苦思考</span></td><td><span class='eq-verb'>think, cogitate</span></td><td class='def-en'><b>Meaning:</b> try to solve<div class='ex-sent'>“They decided to puzzle over (try to solve).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>arch <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>拱悬于…之上，把…拱盖起来</span></td><td><span class='eq-verb'>overarch, form</span></td><td class='def-en'><b>Meaning:</b> form an arch over<div class='ex-sent'>“Big rocks overarch the stream”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>frost <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>改变，更换，兑换</span></td><td><span class='eq-verb'>change, become</span></td><td class='def-en'><b>Meaning:</b> become covered with a layer of ice; of a surface such as a window<div class='ex-sent'>“When the wings iced up, the pilot was forced to land his plane”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>glance <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>浏览</span></td><td><span class='eq-verb'>scan, skim</span></td><td class='def-en'><b>Meaning:</b> examine hastily<div class='ex-sent'>“She scanned the newspaper headlines while waiting for the taxi”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>skate <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>视为，对待，论述</span></td><td><span class='eq-verb'>treat, handle</span></td><td class='def-en'><b>Meaning:</b> treat hurriedly or avoid dealing with properly<div class='ex-sent'>“They decided to skate over (treat hurriedly or avoid dealing with properly).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>tick <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>无所事事，闲散，浪费</span></td><td><span class='eq-verb'>idle, disconnected</span></td><td class='def-en'><b>Meaning:</b> run disconnected or idle<div class='ex-sent'>“the engine is idling”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bind <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>限制，使不外出，禁闭</span></td><td><span class='eq-verb'>confine, detain</span></td><td class='def-en'><b>Meaning:</b> order a defendant to be placed in custody pending the outcome of a proceedings against him or her<div class='ex-sent'>“The defendant was bound over for trial”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>chew <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>细想，仔细考虑</span></td><td><span class='eq-verb'>meditate, ponder</span></td><td class='def-en'><b>Meaning:</b> reflect deeply on a subject<div class='ex-sent'>“I mulled over the events of the afternoon”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>mist <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>使模糊，使蒙上雾，覆盖</span></td><td><span class='eq-verb'>mist, cover</span></td><td class='def-en'><b>Meaning:</b> become covered with mist<div class='ex-sent'>“The windshield misted over”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>mound <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>覆盖，掩饰，保护</span></td><td><span class='eq-verb'>cover, form</span></td><td class='def-en'><b>Meaning:</b> form mounds over<div class='ex-sent'>“The huts can be mounded over to form shelters”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hash <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>回顾</span></td><td><span class='eq-verb'>retrograde, rehash</span></td><td class='def-en'><b>Meaning:</b> go back over<div class='ex-sent'>“retrograde arguments”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>mound <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>筑堤，用土堆防卫，形成</span></td><td><span class='eq-verb'>mound, form</span></td><td class='def-en'><b>Meaning:</b> form a mound over<div class='ex-sent'>“They decided to mound over (form a mound over).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>plaster <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>厚厚地抹或粘贴，用灰泥填塞</span></td><td><span class='eq-verb'>plaster, cover</span></td><td class='def-en'><b>Meaning:</b> apply a heavy coat to<div class='ex-sent'>“They decided to plaster over (apply a heavy coat to).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>gloss <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>视为，对待，论述</span></td><td><span class='eq-verb'>treat, handle</span></td><td class='def-en'><b>Meaning:</b> treat hurriedly or avoid dealing with properly<div class='ex-sent'>“They decided to gloss over (treat hurriedly or avoid dealing with properly).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>gloss <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>掩盖</span></td><td><span class='eq-verb'>whitewash, cover</span></td><td class='def-en'><b>Meaning:</b> cover up a misdemeanor, fault, or error<div class='ex-sent'>“Let's not whitewash the crimes of Stalin”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>plank <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>在...上铺板，撂下，立即付款</span></td><td><span class='eq-verb'>plank, cover</span></td><td class='def-en'><b>Meaning:</b> cover with planks<div class='ex-sent'>“The streets were planked”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>haze <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使变暗，隐藏，使变模糊</span></td><td><span class='eq-verb'>obscure, befog</span></td><td class='def-en'><b>Meaning:</b> make less visible or unclear<div class='ex-sent'>“The stars are obscured by the clouds”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sleek <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>白色涂料，粉饰，得零分的惨败</span></td><td><span class='eq-verb'>whitewash, cover</span></td><td class='def-en'><b>Meaning:</b> cover up a misdemeanor, fault, or error<div class='ex-sent'>“Let's not whitewash the crimes of Stalin”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>linger <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>犹豫，迟疑，踌躇</span></td><td><span class='eq-verb'>hesitate, waver</span></td><td class='def-en'><b>Meaning:</b> delay<div class='ex-sent'>“They decided to linger over (delay).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>glaze <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>装以玻璃，上釉于，装玻璃于</span></td><td><span class='eq-verb'>glaze, glass</span></td><td class='def-en'><b>Meaning:</b> become glassy or take on a glass-like appearance<div class='ex-sent'>“Her eyes glaze over when she is bored”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>glaze <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>使模糊，弄脏，变成</span></td><td><span class='eq-verb'>blur, become</span></td><td class='def-en'><b>Meaning:</b> become glassy; lose clear vision<div class='ex-sent'>“Her eyes glazed over from lack of sleep”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>keel <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>倾覆，翻身</span></td><td><span class='eq-verb'>tumble, topple</span></td><td class='def-en'><b>Meaning:</b> turn over and fall<div class='ex-sent'>“the man had a heart attack and keeled over”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>skim <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>掠过</span></td><td><span class='eq-verb'>skim, read</span></td><td class='def-en'><b>Meaning:</b> read superficially<div class='ex-sent'>“They decided to skim over (read superficially).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>slur <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>视为，对待，论述</span></td><td><span class='eq-verb'>treat, handle</span></td><td class='def-en'><b>Meaning:</b> treat hurriedly or avoid dealing with properly<div class='ex-sent'>“They decided to slur over (treat hurriedly or avoid dealing with properly).”</div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 主权移交、接管控制、买通与转变 (Transfer, Takeover & Conversion — '移交过去')</span><span class='sub-meta'>共 38 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 1/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>接管，收购，夺取控制权</span></td><td><span class='eq-verb'>usurp, acquire</span></td><td class='def-en'><b>Meaning:</b> seize and take control without authority and possibly with force; take as one's right or possession<div class='ex-sent'>“He assumed to himself the right to fill all positions in the town”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 2/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>接收，接管</span></td><td><span class='eq-verb'>assume, adopt</span></td><td class='def-en'><b>Meaning:</b> take on titles, offices, duties, responsibilities<div class='ex-sent'>“When will the new President assume office?”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 3/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>接收，接管</span></td><td><span class='eq-verb'>bear, accept</span></td><td class='def-en'><b>Meaning:</b> take on as one's own the expenses or debts of another person<div class='ex-sent'>“I'll accept the charges”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 4/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>减轻，救济，解除</span></td><td><span class='eq-verb'>relieve, free</span></td><td class='def-en'><b>Meaning:</b> free someone temporarily from his or her obligations<div class='ex-sent'>“They decided to take over (free someone temporarily from his or her obligations).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 5/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>买，获得，购买</span></td><td><span class='eq-verb'>buy, purchase</span></td><td class='def-en'><b>Meaning:</b> take over ownership of; of corporations and companies<div class='ex-sent'>“They decided to take over (take over ownership of).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 6/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>接收，接管</span></td><td><span class='eq-verb'>adopt, borrow</span></td><td class='def-en'><b>Meaning:</b> take up and practice as one's own<div class='ex-sent'>“They decided to take over (take up and practice as one's own).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 7/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>重做，重复，复述</span></td><td><span class='eq-verb'>repeat, act</span></td><td class='def-en'><b>Meaning:</b> do over<div class='ex-sent'>“They would like to take it over again”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 8/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>接收</span></td><td><span class='eq-verb'>absorb, fund</span></td><td class='def-en'><b>Meaning:</b> take up, as of debts or payments<div class='ex-sent'>“absorb the costs for something”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hand <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>移交</span></td><td><span class='eq-verb'>deliver, render</span></td><td class='def-en'><b>Meaning:</b> to surrender someone or something to another<div class='ex-sent'>“the guard delivered the criminal to the police”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 1/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>营业额达到，移交给</span></td><td><span class='eq-verb'>hand, reach</span></td><td class='def-en'><b>Meaning:</b> place into the hands or custody of<div class='ex-sent'>“hand me the spoon, please”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>推迟，拖延</span></td><td><span class='eq-verb'>postpone, prorogue</span></td><td class='def-en'><b>Meaning:</b> hold back to a later time<div class='ex-sent'>“let's postpone the exam”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>change <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>改变，变换，调换</span></td><td><span class='eq-verb'>switch, shift</span></td><td class='def-en'><b>Meaning:</b> make a shift in or exchange of<div class='ex-sent'>“First Joe led; then we switched”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>change <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>改变，变换，调换</span></td><td><span class='eq-verb'>convert, change</span></td><td class='def-en'><b>Meaning:</b> change from one system to another or to a new plan or policy<div class='ex-sent'>“We converted from 220 to 110 Volt”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 2/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>打翻，翻阅，翻身</span></td><td><span class='eq-verb'>overturn, upset</span></td><td class='def-en'><b>Meaning:</b> cause to overturn from an upright or normal position<div class='ex-sent'>“The cat knocked over the flower vase”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 3/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>打翻，移交给，翻阅</span></td><td><span class='eq-verb'>dig, delve</span></td><td class='def-en'><b>Meaning:</b> turn up, loosen, or remove earth<div class='ex-sent'>“Dig we must”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 4/8</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>周转</span></td><td><span class='eq-verb'>roll, turning</span></td><td class='def-en'><b>Meaning:</b> move by turning over or rotating<div class='ex-sent'>“The child rolled down the hill”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>win <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使改变信仰，转换，兑换</span></td><td><span class='eq-verb'>convert, convince</span></td><td class='def-en'><b>Meaning:</b> make (someone) agree, understand, or realize the truth or validity of something<div class='ex-sent'>“He had finally convinced several customers of the advantages of his product”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hold <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 1/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>以...威胁</span></td><td><span class='eq-verb'>intimidate</span></td><td class='def-en'><b>Meaning:</b> intimidate somebody (with a threat)<div class='ex-sent'>“She was holding it over him”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 6/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>打翻，翻阅，翻身</span></td><td><span class='eq-verb'>flip, down</span></td><td class='def-en'><b>Meaning:</b> turn upside down, or throw so as to reverse<div class='ex-sent'>“flip over the pork chop”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 7/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>周转，移交给</span></td><td><span class='eq-verb'>displace, cause</span></td><td class='def-en'><b>Meaning:</b> cause to move around a center so as to show another side of<div class='ex-sent'>“turn a page of a book”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 8 个核心义项'>义项 8/8</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>营业额达到</span></td><td><span class='eq-verb'>transact</span></td><td class='def-en'><b>Meaning:</b> do business worth a certain amount of money<div class='ex-sent'>“The company turns over ten million dollars a year”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hold <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 2/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>保持，保存，遵守</span></td><td><span class='eq-verb'>keep</span></td><td class='def-en'><b>Meaning:</b> hold over goods to be sold for the next season<div class='ex-sent'>“They decided to hold over (hold over goods to be sold for the next season).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>carry <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>继续，结转次页，把...留到以后处理</span></td><td><span class='eq-verb'>prevail, persist</span></td><td class='def-en'><b>Meaning:</b> transfer or persist from one stage or sphere of activity to another<div class='ex-sent'>“They decided to carry over (transfer or persist from one stage or sphere of activity to another).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pass <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 1/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>忽略，省略</span></td><td><span class='eq-verb'>jump, skip</span></td><td class='def-en'><b>Meaning:</b> bypass<div class='ex-sent'>“He skipped a row in the text and so the sentence was incomprehensible”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hold <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 3/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>拖延，以...威胁</span></td><td><span class='eq-verb'>postpone, prorogue</span></td><td class='def-en'><b>Meaning:</b> hold back to a later time<div class='ex-sent'>“let's postpone the exam”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>hold <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 4/5</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>拖延，继任</span></td><td><span class='eq-verb'>stay, continue</span></td><td class='def-en'><b>Meaning:</b> continue a term of office past the normal period of time<div class='ex-sent'>“They decided to hold over (continue a term of office past the normal period of time).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hold <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 5/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>以...威胁</span></td><td><span class='eq-verb'>maintain, position</span></td><td class='def-en'><b>Meaning:</b> keep in a position or state from an earlier period of time<div class='ex-sent'>“They decided to hold over (keep in a position or state from an earlier period of time).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pass <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 2/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>飞行在...上空，飞越，在上空飞行侦察</span></td><td><span class='eq-verb'>overfly, travel</span></td><td class='def-en'><b>Meaning:</b> fly over<div class='ex-sent'>“The plane passed over Damascus”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pass <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 3/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>转交</span></td><td><span class='eq-verb'>traverse, track</span></td><td class='def-en'><b>Meaning:</b> travel across or pass over<div class='ex-sent'>“The caravan covered almost 100 miles each day”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>pass <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 4/5</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>运送，使通过，经过</span></td><td><span class='eq-verb'>transit, journey</span></td><td class='def-en'><b>Meaning:</b> make a passage or journey from one place to another<div class='ex-sent'>“The tourists moved through the town and bought up all the souvenirs;”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sign <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>签字移交</span></td><td><span class='eq-verb'>surrender, cede</span></td><td class='def-en'><b>Meaning:</b> formally assign ownership of<div class='ex-sent'>“She signed away her rights”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>carry <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>把...留到以后处理</span></td><td><span class='eq-verb'>transport, place</span></td><td class='def-en'><b>Meaning:</b> transport from one place or state to another<div class='ex-sent'>“Adam would have been carried over into the life eternal”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pass <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 5 个核心义项'>义项 5/5</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>擦，揩，消灭</span></td><td><span class='eq-verb'>wipe, rub</span></td><td class='def-en'><b>Meaning:</b> rub with a circular motion<div class='ex-sent'>“wipe the blackboard”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>carry <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>结转次页，把...留到以后处理</span></td><td><span class='eq-verb'>transfer, shift</span></td><td class='def-en'><b>Meaning:</b> transfer from one time period to the next<div class='ex-sent'>“They decided to carry over (transfer from one time period to the next).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>carry <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>把...留到以后处理</span></td><td><span class='eq-verb'>keep</span></td><td class='def-en'><b>Meaning:</b> hold over goods to be sold for the next season<div class='ex-sent'>“They decided to carry over (hold over goods to be sold for the next season).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>switch <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>转接，切换</span></td><td><span class='eq-verb'>switch, exchange</span></td><td class='def-en'><b>Meaning:</b> change over, change around, as to a new order or sequence<div class='ex-sent'>“They decided to switch over (change over, change around, as to a new order or sequence).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>fork <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>付钱</span></td><td><span class='eq-verb'>deliver, render</span></td><td class='def-en'><b>Meaning:</b> to surrender someone or something to another<div class='ex-sent'>“the guard delivered the criminal to the police”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>deed <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>立契约转让：</span></td><td><span class='eq-verb'>grant, gift</span></td><td class='def-en'><b>Meaning:</b> transfer by deed<div class='ex-sent'>“grant land”</div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 翻转、倾倒、碾压与溢出 (Inversion, Overflowing & Collision — '翻倒/越界')</span><span class='sub-meta'>共 21 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Intransitive'><td class='word'>well <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>溢出，泛滥</span></td><td><span class='eq-verb'>overflow, overrun</span></td><td class='def-en'><b>Meaning:</b> flow or run over (a limit or brim)<div class='ex-sent'>“They decided to well over (flow or run over (a limit or brim)).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>run <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>跑过去，溢出</span></td><td><span class='eq-verb'>injure, wound</span></td><td class='def-en'><b>Meaning:</b> injure or kill by running over, as with a vehicle<div class='ex-sent'>“They decided to run over (injure or kill by running over, as with a vehicle).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>run <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>溢出，超过限度</span></td><td><span class='eq-verb'>overflow, overrun</span></td><td class='def-en'><b>Meaning:</b> flow or run over (a limit or brim)<div class='ex-sent'>“They decided to run over (flow or run over (a limit or brim)).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>stop <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>中途停留</span></td><td><span class='eq-verb'>stop, interrupt</span></td><td class='def-en'><b>Meaning:</b> interrupt a trip<div class='ex-sent'>“we stopped at Aunt Mary's house”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>stay <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>过夜</span></td><td><span class='eq-verb'>lodge, stay</span></td><td class='def-en'><b>Meaning:</b> stay overnight<div class='ex-sent'>“The boy's friends were allowed to sleep over after the birthday party”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>fall <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>被…绊倒</span></td><td><span class='eq-verb'>collapse, forward</span></td><td class='def-en'><b>Meaning:</b> fall forward and down<div class='ex-sent'>“The old woman went over without a sound”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>fall <span class='pt-highlight'>all over</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'><口>极其殷勤</span></td><td><span class='eq-verb'>interact, display</span></td><td class='def-en'><b>Meaning:</b> display excessive love or show excessive gratitude towards<div class='ex-sent'>“This student falls all over her former professor when she sees him”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>fall <span class='pt-highlight'>over backwards</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>行动，表演，假装</span></td><td><span class='eq-verb'>act, behave</span></td><td class='def-en'><b>Meaning:</b> try very hard to please someone<div class='ex-sent'>“She falls over backwards when she sees her mother-in-law”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>walk <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>走到另一地方，把…带到另一地方</span></td><td><span class='eq-verb'>beat, crush</span></td><td class='def-en'><b>Meaning:</b> beat easily<div class='ex-sent'>“The local team walked over their old rivals for the championship”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>roll <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 1/3</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>打滚</span></td><td><span class='eq-verb'>rolling</span></td><td class='def-en'><b>Meaning:</b> make a rolling motion or turn<div class='ex-sent'>“The dog rolled over”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>pull <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>开到路边</span></td><td><span class='eq-verb'>steer, maneuver</span></td><td class='def-en'><b>Meaning:</b> steer a vehicle to the side of the road<div class='ex-sent'>“The car pulled over when the ambulance approached at high speed”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>roll <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 2/3</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>投资，花费，笼罩</span></td><td><span class='eq-verb'>invest, commit</span></td><td class='def-en'><b>Meaning:</b> re-invest (a previous investment) into a similar fund or security<div class='ex-sent'>“She rolled over her IRA”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>roll <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 3/3</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>重新谈判，偿还，报答</span></td><td><span class='eq-verb'>renegociate, renegotiate</span></td><td class='def-en'><b>Meaning:</b> negociate to repay a loan at a later date for an additional fee<div class='ex-sent'>“roll over a loan”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>tip <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>使翻倒</span></td><td><span class='eq-verb'>overturn</span></td><td class='def-en'><b>Meaning:</b> turn from an upright or normal position<div class='ex-sent'>“The big vase overturned”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>knock <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>打翻</span></td><td><span class='eq-verb'>overturn, upset</span></td><td class='def-en'><b>Meaning:</b> cause to overturn from an upright or normal position<div class='ex-sent'>“The cat knocked over the flower vase”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>bubble <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>冒泡溢出，激动起来</span></td><td><span class='eq-verb'>overflow, seethe</span></td><td class='def-en'><b>Meaning:</b> overflow with a certain feeling<div class='ex-sent'>“The children bubbled over with joy”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>flip <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>突然翻转</span></td><td><span class='eq-verb'>flip, down</span></td><td class='def-en'><b>Meaning:</b> turn upside down, or throw so as to reverse<div class='ex-sent'>“flip over the pork chop”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>bend <span class='pt-highlight'>over backwards</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>矫枉过正</span></td><td><span class='eq-verb'>act, behave</span></td><td class='def-en'><b>Meaning:</b> try very hard to please someone<div class='ex-sent'>“She falls over backwards when she sees her mother-in-law”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>spill <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>泛滥，溢出，充溢</span></td><td><span class='eq-verb'>overflow, seethe</span></td><td class='def-en'><b>Meaning:</b> overflow with a certain feeling<div class='ex-sent'>“The children bubbled over with joy”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>spill <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>倒，灌，注</span></td><td><span class='eq-verb'>pour, swarm</span></td><td class='def-en'><b>Meaning:</b> be disgorged<div class='ex-sent'>“The crowds spilled out into the streets”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>boil <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>沸溢</span></td><td><span class='eq-verb'>overboil, boil</span></td><td class='def-en'><b>Meaning:</b> overflow or cause to overflow while boiling<div class='ex-sent'>“The milk is boiling over”</div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_3'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>04 · 克服困难、恢复健康与拜访重温 (Recovery, Overcoming & Visiting — '跨过坎')</span><span class='sub-meta'>共 10 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Separable'><td class='word'>get <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>横过，穿过，经过</span></td><td><span class='eq-verb'>traverse, track</span></td><td class='def-en'><b>Meaning:</b> travel across or pass over<div class='ex-sent'>“The caravan covered almost 100 miles each day”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>get <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>a. 较好的，改良，提高...的价值</span></td><td><span class='eq-verb'>better, improve</span></td><td class='def-en'><b>Meaning:</b> improve in health<div class='ex-sent'>“He got well fast”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>get <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>完成，达到，实现</span></td><td><span class='eq-verb'>accomplish, execute</span></td><td class='def-en'><b>Meaning:</b> to bring (a necessary but unpleasant task) to an end<div class='ex-sent'>“Let's get this job over with”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>get <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>克服</span></td><td><span class='eq-verb'>overcome, subdue</span></td><td class='def-en'><b>Meaning:</b> get on top of; deal with successfully<div class='ex-sent'>“He overcame his shyness”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>come <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>显露，传达，感染</span></td><td><span class='eq-verb'>communicate, intercommunicate</span></td><td class='def-en'><b>Meaning:</b> communicate the intended meaning or impression<div class='ex-sent'>“He came across very clearly”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>ask <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>请来自己家</span></td><td><span class='eq-verb'>invite, request</span></td><td class='def-en'><b>Meaning:</b> invite someone to one's house<div class='ex-sent'>“Can I invite you for dinner on Sunday night?”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bowl <span class='pt-highlight'>over</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使大吃一惊，哑然失色，犹豫</span></td><td><span class='eq-verb'>flabbergast, boggle</span></td><td class='def-en'><b>Meaning:</b> overcome with amazement<div class='ex-sent'>“This boggles the mind!”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>blow <span class='pt-highlight'>over</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>逐渐消失，消散，褪色</span></td><td><span class='eq-verb'>evanesce, fade</span></td><td class='def-en'><b>Meaning:</b> disappear gradually<div class='ex-sent'>“The pain eventually passed off”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sweep <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>淹没，受打击，制服</span></td><td><span class='eq-verb'>overwhelm, overpower</span></td><td class='def-en'><b>Meaning:</b> overcome, as with emotions or perceptual stimuli<div class='ex-sent'>“They decided to sweep over (overcome, as with emotions or perceptual stimuli).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>tide <span class='pt-highlight'>over</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>克服</span></td><td><span class='eq-verb'>suffice, answer</span></td><td class='def-en'><b>Meaning:</b> suffice for a period between two points<div class='ex-sent'>“This money will keep us going for another year”</div></td></tr>
+</table></details>
+</body></html>

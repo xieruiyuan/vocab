@@ -1,0 +1,563 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>13 · 乐器、体育器械、露营与武器装备 (Music, Sports, Camping & Weapons)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1260px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #0f172a; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; transition: all 0.15s; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #2563eb; color: #fff; font-weight: 600; }
+.nav-link.home { background: #0f172a; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.13em; font-weight: 700; color: #0f172a; }
+.badge-comp { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; vertical-align: middle; }
+.badge-conv { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #7e22ce; vertical-align: middle; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #0369a1; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #475569; font-style: italic; font-size: 0.92em; }
+</style>
+<style>
+.lang-switch-box {
+    display: inline-flex; background: #e2e8f0; padding: 3px; border-radius: 99px;
+    border: 1px solid #cbd5e1; margin-left: auto; align-items: center;
+}
+.lang-btn {
+    border: none; background: transparent; padding: 5px 14px; border-radius: 99px;
+    font-size: 0.86em; font-weight: 700; color: #475569; cursor: pointer; transition: all 0.18s;
+}
+.lang-btn.active { background: #2563eb; color: #fff; box-shadow: 0 1px 3px rgba(37,99,235,0.3); }
+body.lang-fr .lang-btn.fr-btn { background: #dc2626; color: #fff; box-shadow: 0 1px 3px rgba(220,38,38,0.3); }
+
+/* 英语与法语显示切换 */
+.word-fr-box { display: none; }
+.en-sub-hint { display: block; font-size: 0.75em; font-weight: 500; color: #64748b; margin-top: 3px; }
+body.lang-fr .word-en-box { display: none; }
+body.lang-fr .word-fr-box { display: inline; color: #0f172a; }
+
+/* 法语阴阳性与复数徽章样式 */
+.fr-pos-m { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #dbeafe; color: #1e40af; vertical-align: middle; }
+.fr-pos-f { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fce7f3; color: #be185d; vertical-align: middle; }
+.fr-pos-mf { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #6b21a8; vertical-align: middle; }
+.fr-pl-badge { display: inline-block; padding: 1px 6px; font-size: 0.71em; font-weight: 600; border-radius: 4px; margin-left: 5px; background: #fef3c7; color: #b45309; border: 1px solid #fde68a; vertical-align: middle; }
+
+.ph-fr-text { display: none; color: #b91c1c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+body.lang-fr .ph-en-text { display: none; }
+body.lang-fr .ph-fr-text { display: inline; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 5px; color: #64748b; border-radius: 4px;
+    transition: all 0.15s; vertical-align: middle;
+}
+.audio-btn:hover { color: #2563eb; background: #e2e8f0; transform: scale(1.15); }
+.img-box { position: relative; width: 115px; height: 88px; }
+.img-box img { width: 115px; height: 88px; border-radius: 6px; object-fit: cover; border: 1px solid #cbd5e1; background: #fff; display: block; }
+.swap-btn {
+    position: absolute; bottom: 4px; right: 4px; background: rgba(15,23,42,0.75);
+    color: #fff; border: none; border-radius: 4px; font-size: 11px; padding: 2px 5px;
+    cursor: pointer; opacity: 0; transition: opacity 0.2s;
+}
+.img-box:hover .swap-btn { opacity: 1; }
+.swap-btn:hover { background: #2563eb; }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #eff6ff; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #1e40af; background: #fff; border: 1px solid #93c5fd; transition: all 0.15s; cursor: pointer; }
+.sub-pill:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #1e3a8a; background: #1e3a8a; color: #fff; transition: opacity 0.15s; }
+.ctrl-btn.secondary { background: #fff; color: #1e3a8a; }
+.ctrl-btn:hover { opacity: 0.88; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700; transition: background 0.2s;
+}
+body.lang-fr summary.sub-header { background: linear-gradient(90deg, #7f1d1d, #dc2626); }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #dbeafe; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+const imgOffsetMap = {};
+let currentLang = localStorage.getItem("vocab_lang") || "en";
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("vocab_lang", lang);
+    document.body.classList.toggle("lang-fr", lang === "fr");
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+}
+
+function speakNative(text, langCode) {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = langCode;
+        u.rate = 0.92;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function playWord(enWord, frAudioText) {
+    if (currentLang === "fr") {
+        const cleanFr = frAudioText.trim() || enWord;
+        const encodedFr = encodeURIComponent(cleanFr);
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedFr}&le=fr`;
+        audioPlayer.play().catch(() => speakNative(cleanFr, "fr-FR"));
+    } else {
+        const encodedEn = encodeURIComponent(enWord.trim());
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedEn}&type=2`;
+        audioPlayer.play().catch(() => speakNative(enWord, "en-US"));
+    }
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) {
+        el.open = true;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+async function swapImage(word, topicHint, imgId) {
+    const imgEl = document.getElementById(imgId);
+    imgOffsetMap[word] = (imgOffsetMap[word] || 0) + 1;
+    const offset = imgOffsetMap[word];
+    imgEl.style.opacity = "0.4";
+    try {
+        const q = encodeURIComponent(`${word} ${topicHint}`);
+        const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=filetype:bitmap%20${q}&gsrnamespace=6&gsrlimit=6&prop=imageinfo&iiprop=url&iiurlwidth=280&format=json&origin=*`;
+        const resp = await fetch(url);
+        const data = await resp.json();
+        const pages = Object.values(data.query?.pages || {});
+        if (pages.length > 0) {
+            const pick = pages[offset % pages.length];
+            const newUrl = pick.imageinfo?.[0]?.thumburl;
+            if (newUrl) {
+                imgEl.src = newUrl;
+                localStorage.setItem("custom_img_" + word, newUrl);
+            }
+        }
+    } catch (e) { console.error(e); }
+    imgEl.style.opacity = "1";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    setLanguage(currentLang);
+    document.querySelectorAll("img[data-word]").forEach(img => {
+        const saved = localStorage.getItem("custom_img_" + img.dataset.word);
+        if (saved) img.src = saved;
+    });
+});
+</script>
+
+
+
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body id='top'>
+<div class="nav-bar"><a class="nav-link home" href="index.html">🏠 总目录</a><a class="nav-link" href="01_天文、气象与自然现象.html">01 天文、气象与自然现象 (124)</a><a class="nav-link" href="02_自然地理、水体与矿石.html">02 自然地理、水体与矿石 (201)</a><a class="nav-link" href="03_植物、树木与花果结构.html">03 植物、树木与花果结构 (547)</a><a class="nav-link" href="04_动物与生物界.html">04 动物与生物界 (689)</a><a class="nav-link" href="05_人体解剖、骨骼与体表特征.html">05 人体解剖、骨骼与体表特征 (623)</a><a class="nav-link" href="06_饮食、果蔬食材与烘焙佳肴.html">06 饮食、果蔬食材与烘焙佳肴 (742)</a><a class="nav-link" href="07_服饰、鞋帽、珠宝与面辅料.html">07 服饰、鞋帽、珠宝与面辅料 (483)</a><a class="nav-link" href="08_建筑、房屋构件、室内与家具.html">08 建筑、房屋构件、室内与家具 (1237)</a><a class="nav-link" href="09_交通工具、船舶航空与载具部件.html">09 交通工具、船舶航空与载具部件 (421)</a><a class="nav-link" href="10_工具、五金紧固件与机械装置.html">10 工具、五金紧固件与机械装置 (818)</a><a class="nav-link" href="11_厨房器皿、日常容器与清洁用品.html">11 厨房器皿、日常容器与清洁用品 (322)</a><a class="nav-link" href="12_光学、医疗、计时与电子仪器.html">12 光学、医疗、计时与电子仪器 (1082)</a><a class="nav-link active" href="13_乐器、体育器械、露营与武器装备.html">13 乐器、体育器械、露营与武器装备 (111)</a><a class="nav-link" href="14_文具、办公、印刷纸品与美术器材.html">14 文具、办公、印刷纸品与美术器材 (24)</a><div class="lang-switch-box"><button class="lang-btn en-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button><button class="lang-btn fr-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Français</button></div></div>
+<h1>13 · 乐器、体育器械、露营与武器装备 (Music, Sports, Camping & Weapons)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本大类共 <b>111</b> 词（分为 <b>2</b> 个折叠子表，已配图 <b>111</b> 张）• 法语模式已包含 <b>定冠词 le/la + 阴阳词性 (n.m./n.f.) + 雌雄双形态 + 特殊复数</b></p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><span style='color:#93c5fd;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">02 球类、球拍、健身与冰雪运动器材 (67)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">03 棋牌、玩具、钓具与户外露营装备 (44)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 球类、球拍、健身与冰雪运动器材 (Balls, Rackets, Gym & Winter Gear)</span><span class='sub-meta'>共 67 词 • 点击展开 / 收起</span></summary><table><tr><th width='22%'>单词 (英 / 法性数完整形态)</th><th width='14%'>音标 (英 / 法 IPA)</th><th width='22%'>中文释义</th><th width='24%'>英文定义 (WordNet)</th><th width='6%'>词频</th><th width='12%'>实物配图</th></tr>
+<tr><td class='word'><span class='word-en-box'>shooter</span><span class='word-fr-box'>le shooter<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 shooter</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ʃu:tә/</span><span class='ph-fr-text'>/ʃute/</span> <button class='audio-btn' onclick="playWord('shooter', 'le shooter')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 射手, 狩猎者, 手枪</td><td class='def-en'>a large marble used for shooting in the game of marbles</td><td>4.05</td><td><div class='img-box'><img id='img_1' data-word="shooter" src='images/shooter.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('shooter', 'music', 'img_1')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>buck</span><span class='word-fr-box'>le buck<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 buck</span></span></td><td class='phonetic'><span class='ph-en-text'>/bʌk/</span><span class='ph-fr-text'>/byk/</span> <button class='audio-btn' onclick="playWord('buck', 'le buck')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 元, 雄鹿, 纨绔子弟, 鞍马, 培克(赌博时的庄家标志), 碱水, 自夸, 谈话</td><td class='def-en'>a gymnastic horse without pommels and with one end elongated; used lengthwise for vaulting</td><td>4.01</td><td><div class='img-box'><img id='img_2' data-word="buck" src='images/buck.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('buck', 'music', 'img_2')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>shuttle</span><span class='word-fr-box'>la navette<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 shuttle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ʃʌtl/</span><span class='ph-fr-text'>/navɛt/</span> <button class='audio-btn' onclick="playWord('shuttle', 'la navette')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 穿梭, 梭子, 往返移动之物</td><td class='def-en'>badminton equipment consisting of a ball of cork or rubber with a crown of feathers</td><td>3.9</td><td><div class='img-box'><img id='img_3' data-word="shuttle" src='images/shuttle.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('shuttle', 'music', 'img_3')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>stall bar<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bar<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 stall bar</span></span></td><td class='phonetic'><span class='ph-en-text'>/stɔ:l bɑ:/</span><span class='ph-fr-text'>/baʁ/</span> <button class='audio-btn' onclick="playWord('stall bar', 'le bar')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[医]肋木</td><td class='def-en'>a gymnastic apparatus used for strengthening exercises; uprights fastened to a wall and connected by horizontal rungs</td><td>3.76</td><td><div class='img-box'><img id='img_4' data-word="stall bar" src='images/stall_bar.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('stall bar', 'music', 'img_4')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>polo ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le polo<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 polo ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpəʊləʊ bɔ:l/</span><span class='ph-fr-text'>/pɔlo/</span> <button class='audio-btn' onclick="playWord('polo ball', 'le polo')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>马球</td><td class='def-en'>wooden ball that is struck with mallets in playing polo</td><td>3.75</td><td><div class='img-box'><img id='img_5' data-word="polo ball" src='images/polo_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('polo ball', 'music', 'img_5')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>gym mat<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le gym mat<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 gym mat</span></span></td><td class='phonetic'><span class='ph-en-text'>/dʒim mæt/</span><span class='ph-fr-text'>/ʒim mat/</span> <button class='audio-btn' onclick="playWord('gym mat', 'le gym mat')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>体操垫子</td><td class='def-en'>sports equipment consisting of a piece of thick padding on the floor for gymnastic sports</td><td>3.74</td><td><div class='img-box'><img id='img_6' data-word="gym mat" src='images/gym_mat.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('gym mat', 'music', 'img_6')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>skate</span><span class='word-fr-box'>la skate<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/skeit/</span><span class='ph-fr-text'>/skɛt/</span> <button class='audio-btn' onclick="playWord('skate', 'la skate')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 溜冰, 冰鞋</td><td class='def-en'>sports equipment that is worn on the feet to enable the wearer to glide along and to be propelled by the alternate actions of the legs</td><td>3.74</td><td><div class='img-box'><img id='img_7' data-word="skate" src='images/skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('skate', 'music', 'img_7')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>cue ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la boule de billard<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 cue ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/kju: bɔ:l/</span><span class='ph-fr-text'>/bul də bijaʁ/</span> <button class='audio-btn' onclick="playWord('cue ball', 'la boule de billard')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. （撞球）母球（以球杆击打的白色球）</td><td class='def-en'>the ball that the billiard player or pool player strikes with his cue</td><td>3.73</td><td><div class='img-box'><img id='img_8' data-word="cue ball" src='images/cue_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('cue ball', 'music', 'img_8')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>glove</span><span class='word-fr-box'>le gant<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 glove</span></span></td><td class='phonetic'><span class='ph-en-text'>/glʌv/</span><span class='ph-fr-text'>/gɑ̃/</span> <button class='audio-btn' onclick="playWord('glove', 'le gant')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 手套</td><td class='def-en'>the handwear used by fielders in playing baseball</td><td>3.73</td><td><div class='img-box'><img id='img_9' data-word="glove" src='images/glove.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('glove', 'music', 'img_9')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>figure skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la figure skate<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 figure skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈfiɡə skeit/</span><span class='ph-fr-text'>/figyʁ skɛt/</span> <button class='audio-btn' onclick="playWord('figure skate', 'la figure skate')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>花样滑冰鞋</td><td class='def-en'>an ice skate worn for figure skating; has a slightly curved blade and a row of jagged points at the front of the blade</td><td>3.72</td><td><div class='img-box'><img id='img_10' data-word="figure skate" src='images/figure_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('figure skate', 'music', 'img_10')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>ice skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le patin à glace<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 ice skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/ais skeit/</span><span class='ph-fr-text'>/patɛ̃ a glas/</span> <button class='audio-btn' onclick="playWord('ice skate', 'le patin à glace')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>溜冰鞋</td><td class='def-en'>skate consisting of a boot with a steel blade fitted to the sole</td><td>3.72</td><td><div class='img-box'><img id='img_11' data-word="ice skate" src='images/ice_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('ice skate', 'music', 'img_11')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>speed skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le speed skate<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 speed skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/spi:d skeit/</span><span class='ph-fr-text'>/spid skɛt/</span> <button class='audio-btn' onclick="playWord('speed skate', 'le speed skate')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>速滑刀, 跑刀</td><td class='def-en'>an ice skate with a long blade; worn for racing</td><td>3.72</td><td><div class='img-box'><img id='img_12' data-word="speed skate" src='images/speed_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('speed skate', 'music', 'img_12')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>baseball glove<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le gant<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 baseball glove</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbeisbɔ:l ɡlʌv/</span><span class='ph-fr-text'>/gɑ̃/</span> <button class='audio-btn' onclick="playWord('baseball glove', 'le gant')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 棒球手套</td><td class='def-en'>the handwear used by fielders in playing baseball</td><td>3.67</td><td><div class='img-box'><img id='img_13' data-word="baseball glove" src='images/baseball_glove.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('baseball glove', 'music', 'img_13')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>racing skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le racing skate<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 racing skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'reisiŋ skeit/</span><span class='ph-fr-text'>/ʁakɛ̃ɡ skɛt/</span> <button class='audio-btn' onclick="playWord('racing skate', 'le racing skate')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>比赛用冰刀</td><td class='def-en'>an ice skate with a long blade; worn for racing</td><td>3.67</td><td><div class='img-box'><img id='img_14' data-word="racing skate" src='images/racing_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('racing skate', 'music', 'img_14')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>batting cage<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la cage<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 batting cage</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbætiŋ keidʒ/</span><span class='ph-fr-text'>/kaʒ/</span> <button class='audio-btn' onclick="playWord('batting cage', 'la cage')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]击球练习的挡网</td><td class='def-en'>a movable screen placed behind home base to catch balls during batting practice</td><td>3.66</td><td><div class='img-box'><img id='img_15' data-word="batting cage" src='images/batting_cage.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('batting cage', 'music', 'img_15')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hockey skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le patins à glace<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 hockey skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈhɔki skeit/</span><span class='ph-fr-text'>/patɛ̃ a glas/</span> <button class='audio-btn' onclick="playWord('hockey skate', 'le patins à glace')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>冰球鞋</td><td class='def-en'>an ice skate worn for playing hockey; has a short blade and a strong boot to protect the feet and ankles</td><td>3.66</td><td><div class='img-box'><img id='img_16' data-word="hockey skate" src='images/hockey_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('hockey skate', 'music', 'img_16')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>softball</span><span class='word-fr-box'>le softball<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 softball</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sɒftbɒ:l/</span><span class='ph-fr-text'>/softbal/</span> <button class='audio-btn' onclick="playWord('softball', 'le softball')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 垒球运动, 垒球</td><td class='def-en'>ball used in playing softball</td><td>3.66</td><td><div class='img-box'><img id='img_17' data-word="softball" src='images/softball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('softball', 'music', 'img_17')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>wrestling mat<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le wrestling mat<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 wrestling mat</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈreslɪŋ mæt/</span><span class='ph-fr-text'>/wʁestlɛ̃ɡ mat/</span> <button class='audio-btn' onclick="playWord('wrestling mat', 'le wrestling mat')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]摔跤护垫</td><td class='def-en'>a mat on which wrestling matches are conducted</td><td>3.66</td><td><div class='img-box'><img id='img_18' data-word="wrestling mat" src='images/wrestling_mat.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('wrestling mat', 'music', 'img_18')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>punching ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le punching-ball<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 punching ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/pʌntʃɪŋ bɒ:l/</span><span class='ph-fr-text'>/pœnʃiŋbol/</span> <button class='audio-btn' onclick="playWord('punching ball', 'le punching-ball')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>吊球</td><td class='def-en'>an inflated ball or bag that is suspended and punched for training in boxing</td><td>3.65</td><td><div class='img-box'><img id='img_19' data-word="punching ball" src='images/punching_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('punching ball', 'music', 'img_19')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>boxing glove<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le gant<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 boxing glove</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bɒksiŋ glʌv/</span><span class='ph-fr-text'>/gɑ̃/</span> <button class='audio-btn' onclick="playWord('boxing glove', 'le gant')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>拳击手套</td><td class='def-en'>boxing equipment consisting of big and padded coverings for the fists of the fighters; worn for the sport of boxing</td><td>3.6</td><td><div class='img-box'><img id='img_20' data-word="boxing glove" src='images/boxing_glove.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('boxing glove', 'music', 'img_20')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>mound</span><span class='word-fr-box'>la colline<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 mound</span></span></td><td class='phonetic'><span class='ph-en-text'>/maund/</span><span class='ph-fr-text'>/kɔlin/</span> <button class='audio-btn' onclick="playWord('mound', 'la colline')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 土墩, 堤, 小山</td><td class='def-en'>(baseball) the slight elevation on which the pitcher stands</td><td>3.6</td><td><div class='img-box'><img id='img_21' data-word="mound" src='images/mound.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('mound', 'music', 'img_21')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>roller skate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le patin à roulettes<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 roller skate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'rәulә skeit/</span><span class='ph-fr-text'>/patɛ̃ a ʁulɛt/</span> <button class='audio-btn' onclick="playWord('roller skate', 'le patin à roulettes')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>四轮滑冰鞋</td><td class='def-en'>a shoe with pairs of rollers fixed to the sole</td><td>3.59</td><td><div class='img-box'><img id='img_22' data-word="roller skate" src='images/roller_skate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('roller skate', 'music', 'img_22')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>wicket</span><span class='word-fr-box'>le guichet<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 wicket</span></span></td><td class='phonetic'><span class='ph-en-text'>/'wikit/</span><span class='ph-fr-text'>/giʃɛ/</span> <button class='audio-btn' onclick="playWord('wicket', 'le guichet')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 小门, 腰门, 售票窗</td><td class='def-en'>cricket equipment consisting of a set of three stumps topped by crosspieces; used in playing cricket</td><td>3.59</td><td><div class='img-box'><img id='img_23' data-word="wicket" src='images/wicket.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('wicket', 'music', 'img_23')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sand wedge<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le coin<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sand wedge</span></span></td><td class='phonetic'><span class='ph-en-text'>/sænd wedʒ/</span><span class='ph-fr-text'>/kwɛ̃/</span> <button class='audio-btn' onclick="playWord('sand wedge', 'le coin')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>沙楔</td><td class='def-en'>a wedge used to get out of sand traps</td><td>3.56</td><td><div class='img-box'><img id='img_24' data-word="sand wedge" src='images/sand_wedge.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sand wedge', 'music', 'img_24')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>clay pigeon<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le ball-trap<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 clay pigeon</span></span></td><td class='phonetic'><span class='ph-en-text'>/klei ˈpidʒin/</span><span class='ph-fr-text'>/baltʁap/</span> <button class='audio-btn' onclick="playWord('clay pigeon', 'le ball-trap')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 陶土飞靶（盘状, 挺身而出空中供打靶用）</td><td class='def-en'>target used in skeet or trapshooting</td><td>3.53</td><td><div class='img-box'><img id='img_25' data-word="clay pigeon" src='images/clay_pigeon.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('clay pigeon', 'music', 'img_25')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>third base<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la tierce<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 third base</span></span></td><td class='phonetic'><span class='ph-en-text'>/θɜ:d beis/</span><span class='ph-fr-text'>/tjɛʁs/</span> <button class='audio-btn' onclick="playWord('third base', 'la tierce')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 三垒; [体]连击三拳</td><td class='def-en'>the base that must be touched third by a base runner in baseball</td><td>3.4</td><td><div class='img-box'><img id='img_26' data-word="third base" src='images/third_base.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('third base', 'music', 'img_26')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>lacrosse ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bal<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 lacrosse ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/lә'krɒs bɒ:l/</span><span class='ph-fr-text'>/bal/</span> <button class='audio-btn' onclick="playWord('lacrosse ball', 'le bal')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>un. 长曲棍球</td><td class='def-en'>ball used in playing lacrosse</td><td>3.39</td><td><div class='img-box'><img id='img_27' data-word="lacrosse ball" src='images/lacrosse_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('lacrosse ball', 'music', 'img_27')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>basketball hoop<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le cerceau<span class='fr-pos-m'>n.m.</span><span class='fr-pl-badge' title='不规则复数形式'>pl. cerceaux</span><span class='en-sub-hint'>🇬🇧 basketball hoop</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbɑ:skitbɔ:l hu:p/</span><span class='ph-fr-text'>/sɛʁso/</span> <button class='audio-btn' onclick="playWord('basketball hoop', 'le cerceau')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 篮球框</td><td class='def-en'>horizontal circular metal hoop supporting a net through which players try to throw the basketball</td><td>3.38</td><td><div class='img-box'><img id='img_28' data-word="basketball hoop" src='images/basketball_hoop.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('basketball hoop', 'music', 'img_28')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pitching wedge<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le coin<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pitching wedge</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpitʃiŋ wedʒ/</span><span class='ph-fr-text'>/kwɛ̃/</span> <button class='audio-btn' onclick="playWord('pitching wedge', 'le coin')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]短挑回旋球棒</td><td class='def-en'>a wedge used to loft the golf ball over obstacles</td><td>3.38</td><td><div class='img-box'><img id='img_29' data-word="pitching wedge" src='images/pitching_wedge.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pitching wedge', 'music', 'img_29')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>home plate<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'assiette<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 home plate</span></span></td><td class='phonetic'><span class='ph-en-text'>/həum pleit/</span><span class='ph-fr-text'>/asjɛt/</span> <button class='audio-btn' onclick="playWord('home plate', 'l\'assiette')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. [体]本垒板</td><td class='def-en'>(baseball) base consisting of a rubber slab where the batter stands; it must be touched by a base runner in order to score</td><td>3.28</td><td><div class='img-box'><img id='img_30' data-word="home plate" src='images/home_plate.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('home plate', 'music', 'img_30')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>badminton equipment<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'équipement<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 badminton equipment</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bædmintәn i'kwipmәnt/</span><span class='ph-fr-text'>/ekipmɑ̃/</span> <button class='audio-btn' onclick="playWord('badminton equipment', 'l\'équipement')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>羽毛球器材</td><td class='def-en'>equipment for playing the game of badminton</td><td>3.27</td><td><div class='img-box'><img id='img_31' data-word="badminton equipment" src='images/badminton_equipment.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('badminton equipment', 'music', 'img_31')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>horizontal bar<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la barre fixe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 horizontal bar</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˌhɔriˈzɔntəl bɑ:/</span><span class='ph-fr-text'>/baʁ fiks/</span> <button class='audio-btn' onclick="playWord('horizontal bar', 'la barre fixe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>单[双]杠, 单杠; 横棒</td><td class='def-en'>gymnastic apparatus consisting of a bar supported in a horizontal position by uprights at both ends</td><td>3.24</td><td><div class='img-box'><img id='img_32' data-word="horizontal bar" src='images/horizontal_bar.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('horizontal bar', 'music', 'img_32')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>parallel bars<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bars<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 parallel bars</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpærəlel bɑ:z/</span><span class='ph-fr-text'>/baʁ/</span> <button class='audio-btn' onclick="playWord('parallel bars', 'le bars')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>双杠</td><td class='def-en'>gymnastic apparatus consisting of two parallel wooden rods supported on uprights</td><td>3.24</td><td><div class='img-box'><img id='img_33' data-word="parallel bars" src='images/parallel_bars.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('parallel bars', 'music', 'img_33')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>second base<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la deuxième base<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 second base</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈsekənd beis/</span><span class='ph-fr-text'>/døzjɛm baz/</span> <button class='audio-btn' onclick="playWord('second base', 'la deuxième base')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. [体]二垒</td><td class='def-en'>the base that must be touched second by a base runner in baseball</td><td>3.24</td><td><div class='img-box'><img id='img_34' data-word="second base" src='images/second_base.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('second base', 'music', 'img_34')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>balance beam<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la poutre<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 balance beam</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bælәns bi:m/</span><span class='ph-fr-text'>/putʁ/</span> <button class='audio-btn' onclick="playWord('balance beam', 'la poutre')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>平衡木；[机] 天平梁</td><td class='def-en'>a gymnastic apparatus used by women gymnasts</td><td>3.2</td><td><div class='img-box'><img id='img_35' data-word="balance beam" src='images/balance_beam.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('balance beam', 'music', 'img_35')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>basketball equipment<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le basket-ball<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 basketball equipment</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bɑ:skitbɒ:l i'kwipmәnt/</span><span class='ph-fr-text'>/baskɛtbol/</span> <button class='audio-btn' onclick="playWord('basketball equipment', 'le basket-ball')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>篮球器材</td><td class='def-en'>sports equipment used in playing basketball</td><td>3.2</td><td><div class='img-box'><img id='img_36' data-word="basketball equipment" src='images/basketball_equipment.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('basketball equipment', 'music', 'img_36')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>bowling ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la boule de bowling<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 bowling ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbəuliŋ bɔ:l/</span><span class='ph-fr-text'>/bul də buliŋ/</span> <button class='audio-btn' onclick="playWord('bowling ball', 'la boule de bowling')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]保龄球</td><td class='def-en'>a large ball with finger holes used in the sport of bowling</td><td>3.2</td><td><div class='img-box'><img id='img_37' data-word="bowling ball" src='images/bowling_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('bowling ball', 'music', 'img_37')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>climbing iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'alpiniste<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 climbing iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈklaimiŋ ˈaiən/</span><span class='ph-fr-text'>/alpinist/</span> <button class='audio-btn' onclick="playWord('climbing iron', 'l\'alpiniste')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>（登山用的）铁爪器, 钉鞋</td><td class='def-en'>an iron spike attached to the shoe to prevent slipping on ice when walking or climbing</td><td>3.2</td><td><div class='img-box'><img id='img_38' data-word="climbing iron" src='images/climbing_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('climbing iron', 'music', 'img_38')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>cricket ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la balle de cricket<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 cricket ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/'krikit bɒ:l/</span><span class='ph-fr-text'>/bal də kʁikɛt/</span> <button class='audio-btn' onclick="playWord('cricket ball', 'la balle de cricket')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>板球用球</td><td class='def-en'>the ball used in playing cricket</td><td>3.2</td><td><div class='img-box'><img id='img_39' data-word="cricket ball" src='images/cricket_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('cricket ball', 'music', 'img_39')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>cricket bat<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la batte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 cricket bat</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈkrikit bæt/</span><span class='ph-fr-text'>/bat/</span> <button class='audio-btn' onclick="playWord('cricket bat', 'la batte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]板球棒</td><td class='def-en'>the club used in playing cricket</td><td>3.2</td><td><div class='img-box'><img id='img_40' data-word="cricket bat" src='images/cricket_bat.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('cricket bat', 'music', 'img_40')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>driving iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la fe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 driving iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈdraiviŋ ˈaiən/</span><span class='ph-fr-text'>/f/</span> <button class='audio-btn' onclick="playWord('driving iron', 'la fe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]铁头球棒</td><td class='def-en'>(golf) the long iron with the most nearly vertical face</td><td>3.2</td><td><div class='img-box'><img id='img_41' data-word="driving iron" src='images/driving_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('driving iron', 'music', 'img_41')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>eight ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le billard américain<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 eight ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/eɪt bɔ:l/</span><span class='ph-fr-text'>/bijaʁ ameʁikɛ̃/</span> <button class='audio-btn' onclick="playWord('eight ball', 'le billard américain')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td><美>8号黑球, 有8号黑球的弹子戏； 球形全向传声器</td><td class='def-en'>a black pool ball bearing the number 8; should be the last to go in certain pool games</td><td>3.2</td><td><div class='img-box'><img id='img_42' data-word="eight ball" src='images/eight_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('eight ball', 'music', 'img_42')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>first base<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le premier but<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 first base</span></span></td><td class='phonetic'><span class='ph-en-text'>/fə:st beis/</span><span class='ph-fr-text'>/pʁəmje by/</span> <button class='audio-btn' onclick="playWord('first base', 'le premier but')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 一垒的位置</td><td class='def-en'>the base that must be touched first by a base runner in baseball</td><td>3.2</td><td><div class='img-box'><img id='img_43' data-word="first base" src='images/first_base.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('first base', 'music', 'img_43')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>free weight<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'et<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 free weight</span></span></td><td class='phonetic'><span class='ph-en-text'>/fri: weit/</span><span class='ph-fr-text'>/e/</span> <button class='audio-btn' onclick="playWord('free weight', 'l\'et')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]自由重量级</td><td class='def-en'>sports equipment used in calisthenic exercises and weightlifting; it is not attached to anything and is raised and lowered by use of the hands and arms</td><td>3.2</td><td><div class='img-box'><img id='img_44' data-word="free weight" src='images/free_weight.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('free weight', 'music', 'img_44')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>golf ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la balle de golf<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 golf ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ɡɔlf bɔ:l/</span><span class='ph-fr-text'>/bal də gɔlf/</span> <button class='audio-btn' onclick="playWord('golf ball', 'la balle de golf')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 高尔夫球</td><td class='def-en'>a small hard ball used in playing golf; dimpled to reduce wind resistance</td><td>3.2</td><td><div class='img-box'><img id='img_45' data-word="golf ball" src='images/golf_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('golf ball', 'music', 'img_45')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>high bar<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la barre fixe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 high bar</span></span></td><td class='phonetic'><span class='ph-en-text'>/hai bɑːr/</span><span class='ph-fr-text'>/baʁ fiks/</span> <button class='audio-btn' onclick="playWord('high bar', 'la barre fixe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>高单杠，（高低杠的）高杠</td><td class='def-en'>gymnastic apparatus consisting of a bar supported in a horizontal position by uprights at both ends</td><td>3.2</td><td><div class='img-box'><img id='img_46' data-word="high bar" src='images/high_bar.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('high bar', 'music', 'img_46')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hockey stick<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la crosse<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 hockey stick</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈhɔki stik/</span><span class='ph-fr-text'>/kʁɔs/</span> <button class='audio-btn' onclick="playWord('hockey stick', 'la crosse')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>曲棍</td><td class='def-en'>sports implement consisting of a stick used by hockey players to move the puck</td><td>3.2</td><td><div class='img-box'><img id='img_47' data-word="hockey stick" src='images/hockey_stick.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('hockey stick', 'music', 'img_47')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>home base<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'assiette<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 home base</span></span></td><td class='phonetic'><span class='ph-en-text'>/həum beis/</span><span class='ph-fr-text'>/asjɛt/</span> <button class='audio-btn' onclick="playWord('home base', 'l\'assiette')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 本垒, 总部</td><td class='def-en'>(baseball) base consisting of a rubber slab where the batter stands; it must be touched by a base runner in order to score</td><td>3.2</td><td><div class='img-box'><img id='img_48' data-word="home base" src='images/home_base.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('home base', 'music', 'img_48')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>long horse<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le saut de cheval<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 long horse</span></span></td><td class='phonetic'><span class='ph-en-text'>/lɔŋ hɔ:s/</span><span class='ph-fr-text'>/so də ʃval/</span> <button class='audio-btn' onclick="playWord('long horse', 'le saut de cheval')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>纵跳马</td><td class='def-en'>a gymnastic horse without pommels and with one end elongated; used lengthwise for vaulting</td><td>3.2</td><td><div class='img-box'><img id='img_49' data-word="long horse" src='images/long_horse.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('long horse', 'music', 'img_49')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>long iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la fe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 long iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/lɔŋ ˈaiən/</span><span class='ph-fr-text'>/f/</span> <button class='audio-btn' onclick="playWord('long iron', 'la fe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 长棒(1-3号铁头球棒)</td><td class='def-en'>an iron with a long shaft and a steep face; for hitting long low shots</td><td>3.2</td><td><div class='img-box'><img id='img_50' data-word="long iron" src='images/long_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('long iron', 'music', 'img_50')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>medicine ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'engins de l'athlétisme<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 medicine ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈmedisin bɔ:l/</span><span class='ph-fr-text'>/ɑ̃ʒɛ̃ də latletism/</span> <button class='audio-btn' onclick="playWord('medicine ball', 'l\'engins de l\'athlétisme')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. （体育锻炼用的）健身实心球</td><td class='def-en'>heavy ball used in physical training</td><td>3.2</td><td><div class='img-box'><img id='img_51' data-word="medicine ball" src='images/medicine_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('medicine ball', 'music', 'img_51')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>metal wood<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bois<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 metal wood</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈmetl wud/</span><span class='ph-fr-text'>/bwa/</span> <button class='audio-btn' onclick="playWord('metal wood', 'le bois')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>金属胶合木，金属胶合板</td><td class='def-en'>golf wood with a metal head instead of the traditional wooden head</td><td>3.2</td><td><div class='img-box'><img id='img_52' data-word="metal wood" src='images/metal_wood.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('metal wood', 'music', 'img_52')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>object ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bal<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 object ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈɔbdʒikt bɔ:l/</span><span class='ph-fr-text'>/bal/</span> <button class='audio-btn' onclick="playWord('object ball', 'le bal')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]目标球</td><td class='def-en'>the billiard ball that is intended to be the first ball struck by the cue ball</td><td>3.2</td><td><div class='img-box'><img id='img_53' data-word="object ball" src='images/object_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('object ball', 'music', 'img_53')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>one-iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la fe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 one-iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/wʌn 'aiәn/</span><span class='ph-fr-text'>/f/</span> <button class='audio-btn' onclick="playWord('one-iron', 'la fe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[医]富马酸亚铁，富血铁[抗贫血药]</td><td class='def-en'>(golf) the long iron with the most nearly vertical face</td><td>3.2</td><td><div class='img-box'><img id='img_54' data-word="one-iron" src='images/one_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('one-iron', 'music', 'img_54')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>punch bag<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le punching-ball<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 punch bag</span></span></td><td class='phonetic'><span class='ph-en-text'>/pʌntʃ bæɡ/</span><span class='ph-fr-text'>/pœnʃiŋbol/</span> <button class='audio-btn' onclick="playWord('punch bag', 'le punching-ball')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. [体]沙袋</td><td class='def-en'>an inflated ball or bag that is suspended and punched for training in boxing</td><td>3.2</td><td><div class='img-box'><img id='img_55' data-word="punch bag" src='images/punch_bag.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('punch bag', 'music', 'img_55')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>rugby ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le ballon de rugby<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 rugby ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈrʌɡbi bɔ:l/</span><span class='ph-fr-text'>/balɔ̃ də ʁygbi/</span> <button class='audio-btn' onclick="playWord('rugby ball', 'le ballon de rugby')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>橄榄球</td><td class='def-en'>inflated oval ball used in playing rugby</td><td>3.2</td><td><div class='img-box'><img id='img_56' data-word="rugby ball" src='images/rugby_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('rugby ball', 'music', 'img_56')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>seven iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la fe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 seven iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈsevən ˈaiən/</span><span class='ph-fr-text'>/f/</span> <button class='audio-btn' onclick="playWord('seven iron', 'la fe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]7号铁头球棒</td><td class='def-en'>iron with a lofted face for hitting high shots to the green</td><td>3.2</td><td><div class='img-box'><img id='img_57' data-word="seven iron" src='images/seven_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('seven iron', 'music', 'img_57')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>short iron<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la fe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 short iron</span></span></td><td class='phonetic'><span class='ph-en-text'>/ʃɔ:t ˈaiən/</span><span class='ph-fr-text'>/f/</span> <button class='audio-btn' onclick="playWord('short iron', 'la fe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>脆性铁</td><td class='def-en'>an iron with a short shaft and pitched face; for hitting short high shots</td><td>3.2</td><td><div class='img-box'><img id='img_58' data-word="short iron" src='images/short_iron.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('short iron', 'music', 'img_58')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>side horse<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le cheval d'arçon<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 side horse</span></span></td><td class='phonetic'><span class='ph-en-text'>/said hɒ:s/</span><span class='ph-fr-text'>/ʃval daʁsɔ̃/</span> <button class='audio-btn' onclick="playWord('side horse', 'le cheval d\'arçon')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>鞍马</td><td class='def-en'>a gymnastic horse with a cylindrical body covered with leather and two upright handles (pommels) near the center; held upright by two steel supports, one at each end</td><td>3.2</td><td><div class='img-box'><img id='img_59' data-word="side horse" src='images/side_horse.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('side horse', 'music', 'img_59')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>soccer ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le ballon<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 soccer ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sɒkә bɒ:l/</span><span class='ph-fr-text'>/balɔ̃/</span> <button class='audio-btn' onclick="playWord('soccer ball', 'le ballon')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[医]英式足球</td><td class='def-en'>an inflated ball used in playing soccer</td><td>3.2</td><td><div class='img-box'><img id='img_60' data-word="soccer ball" src='images/soccer_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('soccer ball', 'music', 'img_60')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sporting goods<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'équipement sportif<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sporting goods</span></span></td><td class='phonetic'><span class='ph-en-text'>/'spɒ:tiŋ guds/</span><span class='ph-fr-text'>/ekipmɑ̃ spɔʁtif/</span> <button class='audio-btn' onclick="playWord('sporting goods', 'l\'équipement sportif')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>体育用品</td><td class='def-en'>sports equipment sold as a commodity</td><td>3.2</td><td><div class='img-box'><img id='img_61' data-word="sporting goods" src='images/sporting_goods.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sporting goods', 'music', 'img_61')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sports equipment<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'article de sport<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 sports equipment</span></span></td><td class='phonetic'><span class='ph-en-text'>/spɔ:ts iˈkwipmənt/</span><span class='ph-fr-text'>/aʁtikl də spɔʁ/</span> <button class='audio-btn' onclick="playWord('sports equipment', 'l\'article de sport')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[体]体育用品</td><td class='def-en'>equipment needed to participate in a particular sport</td><td>3.2</td><td><div class='img-box'><img id='img_62' data-word="sports equipment" src='images/sports_equipment.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sports equipment', 'music', 'img_62')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>tennis ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la balle de tennis<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 tennis ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/'tenis bɒ:l/</span><span class='ph-fr-text'>/bal də tenis/</span> <button class='audio-btn' onclick="playWord('tennis ball', 'la balle de tennis')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>网球</td><td class='def-en'>ball about the size of a fist used in playing tennis</td><td>3.2</td><td><div class='img-box'><img id='img_63' data-word="tennis ball" src='images/tennis_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('tennis ball', 'music', 'img_63')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>trampoline</span><span class='word-fr-box'>la trampoline<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 trampoline</span></span></td><td class='phonetic'><span class='ph-en-text'>/'træmpә,li:n, -lin; ,træmpә'li:n/</span><span class='ph-fr-text'>/tʁɑ̃pɔlin/</span> <button class='audio-btn' onclick="playWord('trampoline', 'la trampoline')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 蹦床</td><td class='def-en'>gymnastic apparatus consisting of a strong canvas sheet attached with springs to a metal frame; used for tumbling</td><td>3.14</td><td><div class='img-box'><img id='img_64' data-word="trampoline" src='images/trampoline.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('trampoline', 'music', 'img_64')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>barbell</span><span class='word-fr-box'>l'haltère<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 barbell</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bɑ:bel/</span><span class='ph-fr-text'>/altɛʁ/</span> <button class='audio-btn' onclick="playWord('barbell', 'l\'haltère')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 杠铃</td><td class='def-en'>a bar to which heavy discs are attached at each end; used in weightlifting</td><td>2.65</td><td><div class='img-box'><img id='img_65' data-word="barbell" src='images/barbell.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('barbell', 'music', 'img_65')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>dumbbell</span><span class='word-fr-box'>l'haltère<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 dumbbell</span></span></td><td class='phonetic'><span class='ph-en-text'>/'dʌmbel/</span><span class='ph-fr-text'>/altɛʁ/</span> <button class='audio-btn' onclick="playWord('dumbbell', 'l\'haltère')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 哑铃</td><td class='def-en'>an exercising weight; two spheres connected by a short bar that serves as a handle</td><td>2.63</td><td><div class='img-box'><img id='img_66' data-word="dumbbell" src='images/dumbbell.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('dumbbell', 'music', 'img_66')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>racquetball</span><span class='word-fr-box'>le racquetball<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 racquetball</span></span></td><td class='phonetic'><span class='ph-en-text'>/'rækitbɔ:l/</span><span class='ph-fr-text'>/ʁaketbal/</span> <button class='audio-btn' onclick="playWord('racquetball', 'le racquetball')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. [体]短网拍墙球,手球式墙球(比赛规则和场地都与有四面墙场地的墙手球相同,但击球用以皮带拴腕的短柄球拍,球较墙手球略大而软)</td><td class='def-en'>the ball used in playing the game of racquetball</td><td>2.44</td><td><div class='img-box'><img id='img_67' data-word="racquetball" src='images/racquetball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('racquetball', 'music', 'img_67')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 棋牌、玩具、钓具与户外露营装备 (Games, Toys, Fishing & Camping)</span><span class='sub-meta'>共 44 词 • 点击展开 / 收起</span></summary><table><tr><th width='22%'>单词 (英 / 法性数完整形态)</th><th width='14%'>音标 (英 / 法 IPA)</th><th width='22%'>中文释义</th><th width='24%'>英文定义 (WordNet)</th><th width='6%'>词频</th><th width='12%'>实物配图</th></tr>
+<tr><td class='word'><span class='word-en-box'>toy</span><span class='word-fr-box'>le jouet<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 toy</span></span></td><td class='phonetic'><span class='ph-en-text'>/tɒi/</span><span class='ph-fr-text'>/ʒwɛ/</span> <button class='audio-btn' onclick="playWord('toy', 'le jouet')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 玩具, 小玩艺儿, 小型的东西, 消遣</td><td class='def-en'>an artifact designed to be played with</td><td>4.3</td><td><div class='img-box'><img id='img_68' data-word="toy" src='images/toy.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('toy', 'music', 'img_68')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>doll</span><span class='word-fr-box'>la poupée<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 doll</span></span></td><td class='phonetic'><span class='ph-en-text'>/dɒl/</span><span class='ph-fr-text'>/pupe/</span> <button class='audio-btn' onclick="playWord('doll', 'la poupée')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 洋娃娃, 无头脑的美丽女人</td><td class='def-en'>a small replica of a person; used as a toy</td><td>4.06</td><td><div class='img-box'><img id='img_69' data-word="doll" src='images/doll.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('doll', 'music', 'img_69')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>teddy</span><span class='word-fr-box'>le nounours<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 teddy</span></span></td><td class='phonetic'><span class='ph-en-text'>/'tedi/</span><span class='ph-fr-text'>/nunuʁs/</span> <button class='audio-btn' onclick="playWord('teddy', 'le nounours')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 连衫衬裤；泰迪玩具熊</td><td class='def-en'>plaything consisting of a child's toy bear (usually plush and stuffed with soft materials)</td><td>3.88</td><td><div class='img-box'><img id='img_70' data-word="teddy" src='images/teddy.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('teddy', 'music', 'img_70')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hand puppet<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la marionnette à gaine<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 hand puppet</span></span></td><td class='phonetic'><span class='ph-en-text'>/hænd ˈpʌpit/</span><span class='ph-fr-text'>/maʁjɔnɛt a gɛn/</span> <button class='audio-btn' onclick="playWord('hand puppet', 'la marionnette à gaine')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. （套在手指上表演的）布袋木偶</td><td class='def-en'>a puppet with a cloth body and hollow head; fits over the hand</td><td>3.79</td><td><div class='img-box'><img id='img_71' data-word="hand puppet" src='images/hand_puppet.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('hand puppet', 'music', 'img_71')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>rocking horse<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le cheval à bascule<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 rocking horse</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈrɔkiŋ hɔ:s/</span><span class='ph-fr-text'>/ʃval a baskyl/</span> <button class='audio-btn' onclick="playWord('rocking horse', 'le cheval à bascule')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 摇摆木马</td><td class='def-en'>a child's plaything consisting of an imitation horse mounted on rockers; the child straddles it and pretends to ride</td><td>3.68</td><td><div class='img-box'><img id='img_72' data-word="rocking horse" src='images/rocking_horse.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('rocking horse', 'music', 'img_72')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>box kite<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le cerf-volant<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 box kite</span></span></td><td class='phonetic'><span class='ph-en-text'>/bɔks kait/</span><span class='ph-fr-text'>/sɛʁvɔlɑ̃/</span> <button class='audio-btn' onclick="playWord('box kite', 'le cerf-volant')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 箱形风筝</td><td class='def-en'>a kite shaped like a box open at both ends</td><td>3.54</td><td><div class='img-box'><img id='img_73' data-word="box kite" src='images/box_kite.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('box kite', 'music', 'img_73')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>peg top<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le haut<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 peg top</span></span></td><td class='phonetic'><span class='ph-en-text'>/peg tɒp/</span><span class='ph-fr-text'>/ʼo/</span> <button class='audio-btn' onclick="playWord('peg top', 'le haut')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>陀螺形裤子</td><td class='def-en'>a pear-shaped top made of wood with a metal center pin</td><td>3.49</td><td><div class='img-box'><img id='img_74' data-word="peg top" src='images/peg_top.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('peg top', 'music', 'img_74')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>glove puppet<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la marionnette à gant<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 glove puppet</span></span></td><td class='phonetic'><span class='ph-en-text'>/ɡlʌv ˈpʌpit/</span><span class='ph-fr-text'>/maʁjɔnɛt a gɑ̃/</span> <button class='audio-btn' onclick="playWord('glove puppet', 'la marionnette à gant')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 布袋式木偶, 手套式木偶</td><td class='def-en'>a puppet with a cloth body and hollow head; fits over the hand</td><td>3.46</td><td><div class='img-box'><img id='img_75' data-word="glove puppet" src='images/glove_puppet.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('glove puppet', 'music', 'img_75')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>rag doll<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la poupée de chiffon<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 rag doll</span></span></td><td class='phonetic'><span class='ph-en-text'>/ræɡ dɔl/</span><span class='ph-fr-text'>/pupe də ʃifɔ̃/</span> <button class='audio-btn' onclick="playWord('rag doll', 'la poupée de chiffon')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 碎布制玩偶, 布洋娃娃</td><td class='def-en'>a cloth doll that is stuffed and (usually) painted</td><td>3.43</td><td><div class='img-box'><img id='img_76' data-word="rag doll" src='images/rag_doll.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('rag doll', 'music', 'img_76')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pea shooter<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le pea shooter<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pea shooter</span></span></td><td class='phonetic'><span class='ph-en-text'>/pi: 'ʃu:tә/</span><span class='ph-fr-text'>/pea ʃute/</span> <button class='audio-btn' onclick="playWord('pea shooter', 'le pea shooter')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>un. 玩具枪</td><td class='def-en'>a straight narrow tube through which pellets (as dried peas) can be blown at a target</td><td>3.42</td><td><div class='img-box'><img id='img_77' data-word="pea shooter" src='images/pea_shooter.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pea shooter', 'music', 'img_77')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>whipping top<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le trompo<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 whipping top</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈhwɪpɪŋ tɔp/</span><span class='ph-fr-text'>/tʁɔ̃po/</span> <button class='audio-btn' onclick="playWord('whipping top', 'le trompo')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 鞭抽陀螺</td><td class='def-en'>a top that is spun by whipping</td><td>3.36</td><td><div class='img-box'><img id='img_78' data-word="whipping top" src='images/whipping_top.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('whipping top', 'music', 'img_78')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>fishing tackle<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le fishing tackle<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 fishing tackle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fiʃiŋ 'tækl/</span><span class='ph-fr-text'>/fisɛ̃ɡ takl/</span> <button class='audio-btn' onclick="playWord('fishing tackle', 'le fishing tackle')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>钓具</td><td class='def-en'>gear used in fishing</td><td>3.24</td><td><div class='img-box'><img id='img_79' data-word="fishing tackle" src='images/fishing_tackle.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('fishing tackle', 'music', 'img_79')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>humming top<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le haut<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 humming top</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈhʌmiŋ tɔp/</span><span class='ph-fr-text'>/ʼo/</span> <button class='audio-btn' onclick="playWord('humming top', 'le haut')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 发响声的陀螺</td><td class='def-en'>a top that makes a humming noise as it spins</td><td>3.23</td><td><div class='img-box'><img id='img_80' data-word="humming top" src='images/humming_top.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('humming top', 'music', 'img_80')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>squirt gun<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le pistolet à eau<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 squirt gun</span></span></td><td class='phonetic'><span class='ph-en-text'>/skwә:t gʌn/</span><span class='ph-fr-text'>/pistɔlɛ a o/</span> <button class='audio-btn' onclick="playWord('squirt gun', 'le pistolet à eau')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>水枪</td><td class='def-en'>plaything consisting of a toy pistol that squirts water</td><td>3.21</td><td><div class='img-box'><img id='img_81' data-word="squirt gun" src='images/squirt_gun.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('squirt gun', 'music', 'img_81')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>beach ball<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le ballon de plage<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 beach ball</span></span></td><td class='phonetic'><span class='ph-en-text'>/bi:tʃ bɔ:l/</span><span class='ph-fr-text'>/balɔ̃ də plaʒ/</span> <button class='audio-btn' onclick="playWord('beach ball', 'le ballon de plage')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. <美>（在海滨, 游泳池等玩的）大充气球, 水皮球</td><td class='def-en'>large and light ball; for play at the seaside</td><td>3.2</td><td><div class='img-box'><img id='img_82' data-word="beach ball" src='images/beach_ball.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('beach ball', 'music', 'img_82')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>bowling equipment<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'équipement<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 bowling equipment</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbəuliŋ iˈkwipmənt/</span><span class='ph-fr-text'>/ekipmɑ̃/</span> <button class='audio-btn' onclick="playWord('bowling equipment', 'l\'équipement')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 保龄球球场设备; [体]保龄球设备</td><td class='def-en'>equipment used in bowling</td><td>3.2</td><td><div class='img-box'><img id='img_83' data-word="bowling equipment" src='images/bowling_equipment.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('bowling equipment', 'music', 'img_83')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>bowling pin<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'épingle<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 bowling pin</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈbəuliŋ pin/</span><span class='ph-fr-text'>/epɛ̃gl/</span> <button class='audio-btn' onclick="playWord('bowling pin', 'l\'épingle')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 保龄球瓶; [体]保龄瓶</td><td class='def-en'>a club-shaped wooden object used in bowling; set up in triangular groups of ten as the target</td><td>3.2</td><td><div class='img-box'><img id='img_84' data-word="bowling pin" src='images/bowling_pin.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('bowling pin', 'music', 'img_84')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>chess piece<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la pièce<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 chess piece</span></span></td><td class='phonetic'><span class='ph-en-text'>/tʃes pi:s/</span><span class='ph-fr-text'>/pjɛs/</span> <button class='audio-btn' onclick="playWord('chess piece', 'la pièce')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>国际象棋棋子</td><td class='def-en'>any of 16 white and 16 black pieces used in playing the game of chess</td><td>3.2</td><td><div class='img-box'><img id='img_85' data-word="chess piece" src='images/chess_piece.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('chess piece', 'music', 'img_85')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>fishing gear<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'engrenage<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 fishing gear</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈfɪʃɪŋ ɡiə/</span><span class='ph-fr-text'>/ɑ̃gʁənaʒ/</span> <button class='audio-btn' onclick="playWord('fishing gear', 'l\'engrenage')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>打捞装置; 鱼具</td><td class='def-en'>gear used in fishing</td><td>3.2</td><td><div class='img-box'><img id='img_86' data-word="fishing gear" src='images/fishing_gear.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('fishing gear', 'music', 'img_86')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>jumping jack<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le cric<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 jumping jack</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈdʒʌmpiŋ dʒæk/</span><span class='ph-fr-text'>/kʁik/</span> <button class='audio-btn' onclick="playWord('jumping jack', 'le cric')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>跳爆竹</td><td class='def-en'>plaything consisting of a toy figure with movable joints that can be made to dance by pulling strings</td><td>3.2</td><td><div class='img-box'><img id='img_87' data-word="jumping jack" src='images/jumping_jack.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('jumping jack', 'music', 'img_87')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>paper doll<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la poupée de papier<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 paper doll</span></span></td><td class='phonetic'><span class='ph-en-text'>/'peipә dɒl/</span><span class='ph-fr-text'>/pupe də papje/</span> <button class='audio-btn' onclick="playWord('paper doll', 'la poupée de papier')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>硬纸剪成的人形儿童玩具; [通常作 paper dolls](用折纸剪成的一系列有关的)人形儿童玩具</td><td class='def-en'>a piece of paper cut or folded into the shape of a human being</td><td>3.2</td><td><div class='img-box'><img id='img_88' data-word="paper doll" src='images/paper_doll.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('paper doll', 'music', 'img_88')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pin table<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le flipper<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pin table</span></span></td><td class='phonetic'><span class='ph-en-text'>/pin 'teibl/</span><span class='ph-fr-text'>/flipe/</span> <button class='audio-btn' onclick="playWord('pin table', 'le flipper')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 弹子机</td><td class='def-en'>game equipment on which pinball is played</td><td>3.2</td><td><div class='img-box'><img id='img_89' data-word="pin table" src='images/pin_table.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pin table', 'music', 'img_89')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sliding board<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le toboggan<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sliding board</span></span></td><td class='phonetic'><span class='ph-en-text'>/'slaidiŋ bɒ:d/</span><span class='ph-fr-text'>/tɔbɔgɑ̃/</span> <button class='audio-btn' onclick="playWord('sliding board', 'le toboggan')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>滑梯</td><td class='def-en'>plaything consisting of a sloping chute down which children can slide</td><td>3.2</td><td><div class='img-box'><img id='img_90' data-word="sliding board" src='images/sliding_board.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sliding board', 'music', 'img_90')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>spinning top<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la toupie<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 spinning top</span></span></td><td class='phonetic'><span class='ph-en-text'>/'spiniŋ tɒp/</span><span class='ph-fr-text'>/tupi/</span> <button class='audio-btn' onclick="playWord('spinning top', 'la toupie')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>[医] 陀螺</td><td class='def-en'>a conical child's plaything tapering to a steel point on which it can be made to spin</td><td>3.2</td><td><div class='img-box'><img id='img_91' data-word="spinning top" src='images/spinning_top.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('spinning top', 'music', 'img_91')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>teddy bear<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le nounours<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 teddy bear</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈtedi beə(r)/</span><span class='ph-fr-text'>/nunuʁs/</span> <button class='audio-btn' onclick="playWord('teddy bear', 'le nounours')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 玩具熊</td><td class='def-en'>plaything consisting of a child's toy bear (usually plush and stuffed with soft materials)</td><td>3.2</td><td><div class='img-box'><img id='img_92' data-word="teddy bear" src='images/teddy_bear.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('teddy bear', 'music', 'img_92')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>toy soldier<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le petits soldats<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 toy soldier</span></span></td><td class='phonetic'><span class='ph-en-text'>/tɒi 'sәuldʒә/</span><span class='ph-fr-text'>/pəti sɔlda/</span> <button class='audio-btn' onclick="playWord('toy soldier', 'le petits soldats')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>轰天少爷兵</td><td class='def-en'>a doll that resembles a soldier</td><td>3.2</td><td><div class='img-box'><img id='img_93' data-word="toy soldier" src='images/toy_soldier.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('toy soldier', 'music', 'img_93')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>train set<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le modélisme ferroviaire<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 train set</span></span></td><td class='phonetic'><span class='ph-en-text'>/trein set/</span><span class='ph-fr-text'>/mɔdelism fɛʁɔvjɛʁ/</span> <button class='audio-btn' onclick="playWord('train set', 'le modélisme ferroviaire')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>一套玩具火车</td><td class='def-en'>a toy consisting of small models of railroad trains and the track for them to run on</td><td>3.2</td><td><div class='img-box'><img id='img_94' data-word="train set" src='images/train_set.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('train set', 'music', 'img_94')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>tree house<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la maison arboricole<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 tree house</span></span></td><td class='phonetic'><span class='ph-en-text'>/tri: haus/</span><span class='ph-fr-text'>/mɛzɔ̃ aʁbɔʁikɔl/</span> <button class='audio-btn' onclick="playWord('tree house', 'la maison arboricole')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 树上小屋, 巢屋</td><td class='def-en'>a playhouse built in the branches of a tree</td><td>3.2</td><td><div class='img-box'><img id='img_95' data-word="tree house" src='images/tree_house.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('tree house', 'music', 'img_95')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>volleyball net<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'internet<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 volleyball net</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈvɔlibɔ:l net/</span><span class='ph-fr-text'>/ɛ̃tɛʁnɛt/</span> <button class='audio-btn' onclick="playWord('volleyball net', 'l\'internet')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>排球网</td><td class='def-en'>the high net that separates the two teams and over which the volleyball must pass</td><td>3.2</td><td><div class='img-box'><img id='img_96' data-word="volleyball net" src='images/volleyball_net.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('volleyball net', 'music', 'img_96')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>water gun<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le pistolet à eau<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 water gun</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈwɔ:tə ɡʌn/</span><span class='ph-fr-text'>/pistɔlɛ a o/</span> <button class='audio-btn' onclick="playWord('water gun', 'le pistolet à eau')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 玩具水枪</td><td class='def-en'>plaything consisting of a toy pistol that squirts water</td><td>3.2</td><td><div class='img-box'><img id='img_97' data-word="water gun" src='images/water_gun.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('water gun', 'music', 'img_97')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>water pistol<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le pistolet à eau<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 water pistol</span></span></td><td class='phonetic'><span class='ph-en-text'>/'wɒ:tә 'pistl/</span><span class='ph-fr-text'>/pistɔlɛ a o/</span> <button class='audio-btn' onclick="playWord('water pistol', 'le pistolet à eau')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>玩具喷水枪</td><td class='def-en'>plaything consisting of a toy pistol that squirts water</td><td>3.2</td><td><div class='img-box'><img id='img_98' data-word="water pistol" src='images/water_pistol.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('water pistol', 'music', 'img_98')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>horseshoe</span><span class='word-fr-box'>le fer à cheval<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 horseshoe</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hɒ:sʃu:/</span><span class='ph-fr-text'>/fɛʁ a ʃval/</span> <button class='audio-btn' onclick="playWord('horseshoe', 'le fer à cheval')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 马蹄铁</td><td class='def-en'>game equipment consisting of an open ring of iron used in playing horseshoes</td><td>3.16</td><td><div class='img-box'><img id='img_99' data-word="horseshoe" src='images/horseshoe.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('horseshoe', 'music', 'img_99')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>crossword</span><span class='word-fr-box'>la grille de mots croisés<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 crossword</span></span></td><td class='phonetic'><span class='ph-en-text'>/'krɔswә:d/</span><span class='ph-fr-text'>/gʁij də mo kʁwaze/</span> <button class='audio-btn' onclick="playWord('crossword', 'la grille de mots croisés')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 纵横填字游戏, 纵横填字字谜</td><td class='def-en'>a puzzle in which words corresponding to numbered clues are to be found and written in to squares in the puzzle</td><td>3.14</td><td><div class='img-box'><img id='img_100' data-word="crossword" src='images/crossword.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('crossword', 'music', 'img_100')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>tilting board<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la bascule<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 tilting board</span></span></td><td class='phonetic'><span class='ph-en-text'>/'tiltiŋ bɒ:d/</span><span class='ph-fr-text'>/baskyl/</span> <button class='audio-btn' onclick="playWord('tilting board', 'la bascule')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>un. 椽上封檐板条</td><td class='def-en'>a plaything consisting of a board balanced on a fulcrum; the board is ridden up and down by children at either end</td><td>3.12</td><td><div class='img-box'><img id='img_101' data-word="tilting board" src='images/tilting_board.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('tilting board', 'music', 'img_101')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>rook</span><span class='word-fr-box'>la tour<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 rook</span></span></td><td class='phonetic'><span class='ph-en-text'>/rʌk/</span><span class='ph-fr-text'>/tuʁ/</span> <button class='audio-btn' onclick="playWord('rook', 'la tour')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. (象棋)车, 骗子</td><td class='def-en'>(chess) the piece that can move any number of unoccupied squares in a direction parallel to the sides of the chessboard</td><td>3.1</td><td><div class='img-box'><img id='img_102' data-word="rook" src='images/rook.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('rook', 'music', 'img_102')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>jigsaw puzzle<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la puzzle<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 jigsaw puzzle</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈdʒɪgˌsɔ: ˈpʌzl/</span><span class='ph-fr-text'>/pœzl/</span> <button class='audio-btn' onclick="playWord('jigsaw puzzle', 'la puzzle')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 七巧板, 智力拼图玩具; 拼板玩具</td><td class='def-en'>a puzzle that requires you to reassemble a picture that has been mounted on a stiff base and cut into interlocking pieces</td><td>3.09</td><td><div class='img-box'><img id='img_103' data-word="jigsaw puzzle" src='images/jigsaw_puzzle.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('jigsaw puzzle', 'music', 'img_103')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pinball machine<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le flipper<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pinball machine</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpinbɔ:l məˈʃi:n/</span><span class='ph-fr-text'>/flipe/</span> <button class='audio-btn' onclick="playWord('pinball machine', 'le flipper')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 钉球机, 弹球机</td><td class='def-en'>game equipment on which pinball is played</td><td>3.09</td><td><div class='img-box'><img id='img_104' data-word="pinball machine" src='images/pinball_machine.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pinball machine', 'music', 'img_104')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>crossword puzzle<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la grille de mots croisés<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 crossword puzzle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'krɔswә:d 'pʌzl/</span><span class='ph-fr-text'>/gʁij də mo kʁwaze/</span> <button class='audio-btn' onclick="playWord('crossword puzzle', 'la grille de mots croisés')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 纵横填字游戏, 纵横填字字谜；[计] 纵横组字谜</td><td class='def-en'>a puzzle in which words corresponding to numbered clues are to be found and written in to squares in the puzzle</td><td>3.08</td><td><div class='img-box'><img id='img_105' data-word="crossword puzzle" src='images/crossword_puzzle.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('crossword puzzle', 'music', 'img_105')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>catapult</span><span class='word-fr-box'>la catapulte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 catapult</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kætәpʌlt/</span><span class='ph-fr-text'>/katapylt/</span> <button class='audio-btn' onclick="playWord('catapult', 'la catapulte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 弹射器, 弹弓, 弩炮</td><td class='def-en'>a plaything consisting of a Y-shaped stick with elastic between the arms; used to propel small stones</td><td>3.01</td><td><div class='img-box'><img id='img_106' data-word="catapult" src='images/catapult.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('catapult', 'music', 'img_106')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>slingshot</span><span class='word-fr-box'>la catapulte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 slingshot</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sliŋʃɒt/</span><span class='ph-fr-text'>/katapylt/</span> <button class='audio-btn' onclick="playWord('slingshot', 'la catapulte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 弹弓</td><td class='def-en'>a plaything consisting of a Y-shaped stick with elastic between the arms; used to propel small stones</td><td>2.95</td><td><div class='img-box'><img id='img_107' data-word="slingshot" src='images/slingshot.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('slingshot', 'music', 'img_107')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>backboard</span><span class='word-fr-box'>le backboard<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 backboard</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bækbɒ:d/</span><span class='ph-fr-text'>/bakboaʁ/</span> <button class='audio-btn' onclick="playWord('backboard', 'le backboard')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 后挡板, 背板, 脊骨矫正板, 篮板</td><td class='def-en'>a raised vertical board with basket attached; used to play basketball</td><td>2.57</td><td><div class='img-box'><img id='img_108' data-word="backboard" src='images/backboard.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('backboard', 'music', 'img_108')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>plaything</span><span class='word-fr-box'>le jouet<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 plaything</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pleiθiŋ/</span><span class='ph-fr-text'>/ʒwɛ/</span> <button class='audio-btn' onclick="playWord('plaything', 'le jouet')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 玩具, 被玩弄的人, 玩物</td><td class='def-en'>an artifact designed to be played with</td><td>2.51</td><td><div class='img-box'><img id='img_109' data-word="plaything" src='images/plaything.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('plaything', 'music', 'img_109')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>seesaw</span><span class='word-fr-box'>la bascule<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 seesaw</span></span></td><td class='phonetic'><span class='ph-en-text'>/'si:sɒ:/</span><span class='ph-fr-text'>/baskyl/</span> <button class='audio-btn' onclick="playWord('seesaw', 'la bascule')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 跷跷板, 跷跷板游戏, 起伏交替的动作</td><td class='def-en'>a plaything consisting of a board balanced on a fulcrum; the board is ridden up and down by children at either end</td><td>2.47</td><td><div class='img-box'><img id='img_110' data-word="seesaw" src='images/seesaw.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('seesaw', 'music', 'img_110')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>teeter<span class='badge-conv'>兼类词</span></span><span class='word-fr-box'>la bascule<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 teeter</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ti:tә/</span><span class='ph-fr-text'>/baskyl/</span> <button class='audio-btn' onclick="playWord('teeter', 'la bascule')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 踉跄, 摇摆, 跷跷板</td><td class='def-en'>a plaything consisting of a board balanced on a fulcrum; the board is ridden up and down by children at either end</td><td>2.43</td><td><div class='img-box'><img id='img_111' data-word="teeter" src='images/teeter.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('teeter', 'music', 'img_111')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+</table></details>
+</body></html>

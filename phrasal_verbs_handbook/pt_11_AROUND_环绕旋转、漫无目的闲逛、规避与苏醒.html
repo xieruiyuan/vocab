@@ -1,0 +1,744 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>11 · AROUND — 环绕旋转、漫无目的闲逛、规避与苏醒</title><style>
+
+/* 首页现代控制台样式 */
+.index-hero {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 32px 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(15,23,42,0.03);
+}
+.index-title { font-size: 1.85em; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; letter-spacing: -0.02em; }
+.index-desc { font-size: 0.98em; color: #475569; line-height: 1.65; margin: 0; max-width: 900px; }
+.index-sec-title {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 1.25em; font-weight: 800; color: #0f172a; margin: 32px 0 16px 0;
+    padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+}
+.sec-pt-title { border-bottom-color: #c7d2fe; color: #312e81; }
+.sec-sc-title { border-bottom-color: #99f6e4; color: #134e4a; }
+
+.index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; margin-bottom: 36px; }
+
+.index-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px;
+    text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+.index-card:hover {
+    transform: translateY(-3px); box-shadow: 0 10px 25px rgba(15,23,42,0.08); border-color: #cbd5e1;
+}
+.pt-theme:hover { border-color: #6366f1; }
+.sc-theme:hover { border-color: #0d9488; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.card-badge {
+    font-size: 0.92em; font-weight: 800; padding: 4px 10px; border-radius: 7px;
+    letter-spacing: 0.02em;
+}
+.pt-badge { background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
+.sc-badge { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+
+.card-count {
+    font-size: 0.78em; font-weight: 700; color: #64748b; background: #f1f5f9;
+    padding: 3px 8px; border-radius: 99px;
+}
+.card-main-title {
+    font-size: 1.12em; font-weight: 700; color: #0f172a; margin: 0 0 6px 0;
+    line-height: 1.4; text-decoration: none;
+}
+.card-epe-ref { font-size: 0.78em; font-weight: 600; color: #6366f1; margin-bottom: 12px; }
+.sc-theme .card-epe-ref { color: #0d9488; }
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 10px; }
+.card-tag {
+    font-size: 0.75em; font-weight: 500; color: #475569; background: #f8fafc;
+    border: 1px solid #e2e8f0; padding: 2px 7px; border-radius: 5px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    max-width: 1340px; margin: 0 auto; padding: 20px 24px; background: #f1f5f9; color: #1e293b;
+    scroll-behavior: smooth; -webkit-font-smoothing: antialiased;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 32px; }
+.card { background: white; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #0d9488; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+.card.pt-card:hover { border-color: #4f46e5; }
+.card h3 { margin: 0 0 6px 0; color: #0f766e; font-size: 1.06em; }
+.card.pt-card h3 { color: #4338ca; }
+.meta { font-size: 0.85em; color: #64748b; line-height: 1.55; }
+</style>
+<style>
+:root {
+    --primary: #0d9488;
+    --primary-light: #f0fdfa;
+    --primary-border: #ccfbf1;
+}
+body.pt-mode {
+    --primary: #4f46e5;
+    --primary-light: #eef2ff;
+    --primary-border: #e0e7ff;
+}
+
+/* 顶部模式切换栏 */
+.mode-switch-bar {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    background: #0f172a; padding: 10px 18px; border-radius: 12px; margin-bottom: 12px;
+    color: #fff; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(15,23,42,0.08);
+}
+.mode-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.mode-btn {
+    text-decoration: none; padding: 7px 14px; border-radius: 8px; font-size: 0.86em;
+    font-weight: 600; color: #cbd5e1; background: rgba(255,255,255,0.08); transition: all 0.15s;
+}
+.mode-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
+.mode-btn.active-sc { background: #0d9488; color: #fff; }
+.mode-btn.active-pt { background: #4f46e5; color: #fff; }
+
+/* 极简 1 行式顶部导航栏 */
+.nav-bar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(10px);
+    padding: 10px 14px; border-radius: 12px; box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+    margin-bottom: 18px; position: sticky; top: 8px; z-index: 30; border: 1px solid #e2e8f0;
+}
+.nav-link {
+    text-decoration: none; padding: 5px 11px; border-radius: 7px; font-size: 0.82em;
+    font-weight: 600; color: #475569; background: #f8fafc; border: 1px solid #e2e8f0;
+    transition: all 0.15s; white-space: nowrap;
+}
+.nav-link:hover { background: #f1f5f9; color: #0f172a; border-color: #cbd5e1; }
+.nav-link.active {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+}
+.nav-cnt { font-size: 0.84em; opacity: 0.8; font-weight: 500; margin-left: 2px; }
+
+/* 清爽页面主标题区 */
+.page-hero {
+    background: #fff; padding: 20px 24px; border-radius: 12px; border: 1px solid #e2e8f0;
+    margin-bottom: 14px; display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 12px;
+}
+.hero-title { font-size: 1.5em; font-weight: 800; color: #0f172a; margin: 0 0 6px 0; letter-spacing: -0.01em; }
+.hero-sub { font-size: 0.92em; color: #64748b; margin: 0; font-weight: 500; }
+.hero-badge {
+    display: inline-block; background: var(--primary-light); color: var(--primary);
+    border: 1px solid var(--primary-border); font-size: 0.78em; font-weight: 700;
+    padding: 3px 10px; border-radius: 6px; margin-left: 10px; vertical-align: middle;
+}
+
+/* 结构化工具栏：分段筛选器 + 实时搜索 + 章节直达 */
+.toolbar-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 18px;
+    margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;
+}
+.toolbar-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-label { font-size: 0.78em; font-weight: 700; color: #64748b; margin-right: 4px; }
+
+.seg-bar { display: inline-flex; background: #f1f5f9; padding: 3px; border-radius: 8px; gap: 2px; flex-wrap: wrap; }
+.seg-btn {
+    border: none; background: transparent; padding: 5px 11px; border-radius: 6px;
+    font-size: 0.82em; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.15s;
+}
+.seg-btn:hover { color: #0f172a; }
+.seg-btn.active { background: #fff; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.08); font-weight: 700; }
+
+.search-box {
+    padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.84em;
+    width: 220px; outline: none; transition: border 0.15s; background: #f8fafc;
+}
+.search-box:focus { border-color: var(--primary); background: #fff; }
+
+.anchor-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    padding-top: 10px; border-top: 1px dashed #e2e8f0;
+}
+.sub-pill {
+    text-decoration: none; padding: 4px 11px; border-radius: 6px; font-size: 0.82em;
+    font-weight: 600; color: #334155; background: #f8fafc; border: 1px solid #cbd5e1;
+    cursor: pointer; transition: all 0.15s;
+}
+.sub-pill:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* 折叠章节与低饱和度深色表头 */
+details.sub-section {
+    margin-bottom: 18px; background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(15,23,42,0.04); border: 1px solid #e2e8f0; overflow: hidden;
+}
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 20px; background: #1e293b; color: #f8fafc;
+    cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.02em; font-weight: 700; transition: background 0.15s;
+}
+body.pt-mode summary.sub-header { background: #1e1b4b; }
+summary.sub-header:hover { background: #334155; }
+body.pt-mode summary.sub-header:hover { background: #312e81; }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.82em; color: #94a3b8; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); color: #38bdf8; }
+.sub-meta { font-size: 0.8em; font-weight: 600; color: #e2e8f0; background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 99px; }
+
+
+/* EPE 原著章节精要折叠抽屉（保持首屏简洁，展开即读原书精髓） */
+details.epe-book-drawer {
+    background: #fff; border: 1px solid #c7d2fe; border-radius: 12px;
+    margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(79,70,229,0.05);
+}
+body:not(.pt-mode) details.epe-book-drawer { border-color: #99f6e4; }
+summary.epe-drawer-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 18px; background: linear-gradient(90deg, #eef2ff, #f8fafc);
+    color: #312e81; font-size: 0.92em; font-weight: 700; cursor: pointer;
+    list-style: none; user-select: none;
+}
+body:not(.pt-mode) summary.epe-drawer-bar {
+    background: linear-gradient(90deg, #f0fdfa, #f8fafc); color: #115e59;
+}
+summary.epe-drawer-bar::-webkit-details-marker { display: none; }
+.epe-drawer-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px;
+    padding: 16px 20px; border-top: 1px solid #e0e7ff; background: #fcfcff;
+    font-size: 0.88em; line-height: 1.65; color: #334155;
+}
+@media (max-width: 860px) { .epe-drawer-grid { grid-template-columns: 1fr; } }
+.epe-box-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 15px;
+}
+.epe-box-title {
+    font-size: 0.82em; font-weight: 800; color: var(--primary);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+}
+.epe-contrast-list { margin: 6px 0 0 0; padding-left: 18px; }
+.epe-contrast-list li { margin-bottom: 6px; }
+.epe-quote-chip {
+    margin-top: 8px; padding: 7px 10px; background: #f8fafc;
+    border-left: 3px solid var(--primary); font-size: 0.92em; color: #475569; border-radius: 0 6px 6px 0;
+}
+
+/* EPE 认知图式导读框 */
+.epe-explain-box {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 12px 20px; font-size: 0.9em; line-height: 1.65;
+    color: #1e293b; border-bottom: 1px solid #e2e8f0;
+}
+
+/* 词条表格与无下划线排版 */
+table { width: 100%; border-collapse: collapse; background: #fff; table-layout: fixed; }
+th {
+    background: #f8fafc; font-weight: 700; font-size: 0.82em; color: #475569;
+    padding: 11px 16px; border-bottom: 2px solid #e2e8f0; text-align: left;
+}
+td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+tr:hover { background: #fcfcfd; }
+
+.word-line { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.word { font-size: 1.16em; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+.pt-highlight { color: var(--primary); font-weight: 800; text-decoration: none; }
+.sense-badge {
+    font-size: 0.7em; font-weight: 700; padding: 1px 6px; border-radius: 4px;
+    background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0;
+}
+.badge-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 4px; }
+
+.sep-Separable { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.sep-Inseparable { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.sep-Intransitive { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+
+.reg-Formal { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+.reg-Neutral { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+.reg-Informal { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+.reg-Slang { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+
+.cn-precise { font-size: 1.02em; font-weight: 700; color: #0f172a; line-height: 1.45; display: block; margin-bottom: 6px; }
+.def-en-sub { font-size: 0.84em; color: #64748b; line-height: 1.45; }
+.eq-verb {
+    display: inline-block; font-size: 0.9em; font-weight: 700; color: #4338ca;
+    background: #eef2ff; padding: 4px 10px; border-radius: 6px; border: 1px solid #c7d2fe;
+}
+
+/* 3 组双语例句的清爽无下划线卡片 */
+.ex-list { display: flex; flex-direction: column; gap: 7px; }
+.ex-item {
+    background: #f8fafc; border-left: 3px solid #cbd5e1; padding: 6px 12px;
+    border-radius: 0 6px 6px 0; transition: border-color 0.15s;
+}
+tr:hover .ex-item { border-left-color: var(--primary); }
+.ex-num { font-weight: 700; color: var(--primary); margin-right: 5px; font-style: normal; }
+.ex-en { color: #1e293b; font-size: 0.9em; line-height: 1.45; }
+.ex-en b { color: var(--primary); font-weight: 700; text-decoration: none; }
+.orig-word { color: #64748b; border-bottom: 1px dashed #94a3b8; font-weight: 600; }
+.swap-pv-tag {
+    display: inline-block; background: var(--primary-light); color: var(--primary);
+    border: 1px solid var(--primary-border); padding: 0px 6px; border-radius: 4px;
+    font-size: 0.88em; font-weight: 600; margin: 0 2px;
+}
+.swap-tag {
+    display: inline-block; background: #f1f5f9; color: #475569;
+    border: 1px solid #e2e8f0; padding: 0px 6px; border-radius: 4px;
+    font-size: 0.85em; font-weight: 600; margin: 0 2px;
+}
+.ex-zh { color: #64748b; font-size: 0.84em; margin-top: 2px; line-height: 1.4; padding-left: 18px; }
+</style>
+
+<script>
+let currentSep = "all";
+let currentReg = "all";
+let currentQuery = "";
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function applyDualFilter() {
+    const q = currentQuery.trim().toLowerCase();
+    document.querySelectorAll("tr[data-sep]").forEach(row => {
+        const matchSep = (currentSep === "all" || row.dataset.sep === currentSep);
+        const matchReg = (currentReg === "all" || row.dataset.reg === currentReg);
+        const matchQ = (!q || row.innerText.toLowerCase().includes(q));
+        row.style.display = (matchSep && matchReg && matchQ) ? "" : "none";
+    });
+}
+
+function filterSeparability(sepType, btn) {
+    currentSep = sepType;
+    if (btn) {
+        btn.parentElement.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    }
+    applyDualFilter();
+}
+
+function filterRegister(regType, btn) {
+    currentReg = regType;
+    if (btn) {
+        btn.parentElement.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    }
+    applyDualFilter();
+}
+
+function filterSearch(val) {
+    currentQuery = val;
+    toggleAllSections(true);
+    applyDualFilter();
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body class='pt-mode' id='top'>
+<div class='mode-switch-bar'><div class='mode-group'><a class='mode-btn' href='index.html'>🏠 总目录首页</a><a class='mode-btn' href='sc_01_时间推进、开始结束与拖延持续.html'>🎭 视图一：12 大动作场景</a><a class='mode-btn active-pt' href='pt_11_AROUND_环绕旋转、漫无目的闲逛、规避与苏醒.html'>🧭 视图二：EPE 小品词认知图式</a></div><div style='font-size:0.82em;color:#94a3b8;'>💡 悬停语域标签可看判定依据 • 100% 真实词典与语料库例句（零机械拼凑）</div></div>
+<div class="nav-bar"><a class="nav-link" href="pt_01_UP_向上、完结体、视线显露与靠近.html" title="01_UP_向上、完结体、视线显露与靠近">01 UP <span class="nav-cnt">(645)</span></a><a class="nav-link" href="pt_02_OUT_观察者三视角(消失_显露_丧失)与延展.html" title="02_OUT_观察者三视角(消失/显露/丧失)与延展">02 OUT <span class="nav-cnt">(576)</span></a><a class="nav-link" href="pt_03_OFF_脱离支撑表面、取消切断、起飞引爆与完结.html" title="03_OFF_脱离支撑表面、取消切断、起飞引爆与完结">03 OFF <span class="nav-cnt">(305)</span></a><a class="nav-link" href="pt_04_DOWN_向下、数值减弱、压制瓦解与落笔记录.html" title="04_DOWN_向下、数值减弱、压制瓦解与落笔记录">04 DOWN <span class="nav-cnt">(243)</span></a><a class="nav-link" href="pt_05_IN_功能性包容、状态容器、吸收与向内坍塌.html" title="05_IN_功能性包容、状态容器、吸收与向内坍塌">05 IN <span class="nav-cnt">(246)</span></a><a class="nav-link" href="pt_06_ON_前行延续(ON²)vs表面支撑_基础_负担(ON¹).html" title="06_ON_前行延续(ON²) vs 表面支撑/基础/负担(ON¹)">06 ON <span class="nav-cnt">(178)</span></a><a class="nav-link" href="pt_07_OVER_弧线跨越、全面审视、翻转倒下与移交克服.html" title="07_OVER_弧线跨越、全面审视、翻转倒下与移交克服">07 OVER <span class="nav-cnt">(133)</span></a><a class="nav-link" href="pt_08_AWAY_远离分离、彻底处置、渐进消逝与持续劳作.html" title="08_AWAY_远离分离、彻底处置、渐进消逝与持续劳作">08 AWAY <span class="nav-cnt">(114)</span></a><a class="nav-link" href="pt_09_BACK_回到起点、对等回击、向后退缩与抑制隐瞒.html" title="09_BACK_回到起点、对等回击、向后退缩与抑制隐瞒">09 BACK <span class="nav-cnt">(101)</span></a><a class="nav-link" href="pt_10_THROUGH_穿过三维通道、熬过难关与彻底审阅.html" title="10_THROUGH_穿过三维通道、熬过难关与彻底审阅">10 THROUGH <span class="nav-cnt">(47)</span></a><a class="nav-link active" href="pt_11_AROUND_环绕旋转、漫无目的闲逛、规避与苏醒.html" title="11_AROUND_环绕旋转、漫无目的闲逛、规避与苏醒">11 AROUND <span class="nav-cnt">(72)</span></a><a class="nav-link" href="pt_12_INTO_动态穿越边界、猛烈碰撞、深入调查与形态转化.html" title="12_INTO_动态穿越边界、猛烈碰撞、深入调查与形态转化">12 INTO <span class="nav-cnt">(41)</span></a><a class="nav-link" href="pt_13_其他常见小品词.html" title="13_其他常见小品词">13 其他小品词 <span class="nav-cnt">(365)</span></a></div>
+<div class='page-hero'><div><h1 class='hero-title'>11 · AROUND — 环绕旋转、漫无目的闲逛、规避与苏醒<span class='hero-badge'>📖 EPE Ch.10</span></h1><p class='hero-sub'>AROUND: Circular Path, Aimlessness, Circumvention & Recovery</p></div><div style='font-size:0.88em;color:#475569;font-weight:600;'>共 <b>72</b> 个独立义项 • <b>216</b> 句中英对照例句</div></div>
+<details class='epe-book-drawer' open><summary class='epe-drawer-bar'><span>📚 《English Prepositions Explained》(Seth Lindstromberg) 原著核心精讲 — Chapter 10 (Around/Round, by, past: Over, all around, all over, all across, about)</span><span style='font-size:0.84em;color:#6366f1;font-weight:600;'>点击收起 / 展开原书理论图式 ▾</span></summary><div class='epe-drawer-grid'><div class='epe-box-card'><div class='epe-box-title'>🧭 原著空间与功能核心图式 (Core Schema)</div><div><b>半圆/全圆环绕路径 (Fig. 10.1)、绕轴自转与非线性漫游 (Fig. 10.5)</b>：AROUND（英式常作 ROUND）是一个仅约 400 年历史的年轻介词（莎士比亚与钦定版圣经中尚未出现，当时用 ABOUT）。正因为它的轨迹是弯曲或画圈的，天然排斥“笔直奔向目标的急迫感”。</div><div class='epe-box-title' style='margin-top:12px;'>📝 原书典型语料例句 (Authentic Examples from EPE)</div><div class='epe-quote-chip'>📌 <i>Many students waste time fooling around. / Tired of waiting around for people who didn't show up?</i> [Ch.10 (8)-(9)]</div><div class='epe-quote-chip'>📌 <i>Lo and behold, he finally came around to my way of thinking.</i> (态度旋转 180° 转变过来) [Ch.10 (12)]</div></div><div class='epe-box-card'><div class='epe-box-title'>⚖️ 原书近义小品词深度辨析与隐喻机制 (Key Contrasts & Metaphors)</div><ul class='epe-contrast-list'><li><b>AROUND vs STRAIGHT / ABOUT (Ch.10 §2.7 Fig.10.5)</b>：因为路径不走直线，AROUND 成为表达<b>漫无目的、闲散、拖延或瞎混</b>的最佳小品词（<i>wander/fool/wait/lounge around</i>），比 ABOUT 更强调悠闲不紧迫；<i>get around to doing</i> 因“绕弯路不走捷径”而转喻“拖延很久才抽出时间做”。</li><li><b>绕过障碍 vs 翻越障碍 (Ch.10 §2.8 Fig.10.6)</b>：<i>get over a problem</i> 是从上方翻越困难，而 <i>get around a problem/regulation</i> 是从侧面画弧线绕开规避。</li><li><b>Spin/Turn around vs Roll over (Ch.10 §2.5)</b>：AROUND 的隐含参照物是垂直自转轴（在水平面上转身或改变心意 <i>come around to my way of thinking</i>），而 OVER 是绕水平重心轴上下翻转。</li></ul></div></div></details>
+
+        <div class='toolbar-card'>
+            <div class='toolbar-row'>
+                <div class='filter-group'>
+                    <span class='filter-label'>语法属性</span>
+                    <div class='seg-bar'>
+                        <button class='seg-btn active' onclick="filterSeparability('all', this)">全部 (72)</button>
+                        <button class='seg-btn' onclick="filterSeparability('Separable', this)">🟢 可拆分</button>
+                        <button class='seg-btn' onclick="filterSeparability('Inseparable', this)">🔵 不可拆分</button>
+                        <button class='seg-btn' onclick="filterSeparability('Intransitive', this)">🟠 不及物</button>
+                    </div>
+                </div>
+                <div class='filter-group'>
+                    <span class='filter-label'>语域色彩</span>
+                    <div class='seg-bar'>
+                        <button class='seg-btn active' onclick="filterRegister('all', this)">全部语域</button>
+                        <button class='seg-btn' onclick="filterRegister('Formal', this)">🏛️ 正式</button>
+                        <button class='seg-btn' onclick="filterRegister('Neutral', this)">⚖️ 通用</button>
+                        <button class='seg-btn' onclick="filterRegister('Informal', this)">💬 口语</button>
+                        <button class='seg-btn' onclick="filterRegister('Slang', this)">🌶️ 俚语</button>
+                    </div>
+                </div>
+                <div class='filter-group'>
+                    <input type='text' class='search-box' placeholder='🔍 搜索短语、释义或例句...' oninput="filterSearch(this.value)">
+                    <div class='seg-bar'>
+                        <button class='seg-btn' onclick="toggleAllSections(true)">展开</button>
+                        <button class='seg-btn' onclick="toggleAllSections(false)">收起</button>
+                    </div>
+                </div>
+            </div>
+            <div class='anchor-row'><span class='filter-label'>📌 章节直达：</span><a class="sub-pill" onclick="jumpToSection("sub_0")">01 非线性盘旋轨迹：四处闲逛、瞎混等待与四周传阅 (65)</a><a class="sub-pill" onclick="jumpToSection("sub_1")">02 180度转向与绕行弧线：改变主意、苏醒、规避问题与顺道拜访 (7)</a></div>
+        </div>
+        
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 非线性盘旋轨迹：四处闲逛、瞎混等待与四周传阅 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Aimless / Unhurried Movement & All Directions — EPE Ch.10 §2.6-2.7 Fig.10.5</span></span><span class='sub-meta'>65 义项</span></summary><div class='epe-explain-box'>📖 <b>EPE 认知机制 (Lindstromberg Ch.10 §2.6 & §2.7 Figure 10.5)：</b>正如 EPE Figure 10.5 所示，因为 AROUND 的轨迹是转圈或弯曲的（而非笔直冲向目标的直线），它天然适合表达<b>「漫无目的、不慌不忙、闲散或瞎混的行为（Aimless, casual or unhurried behavior）」</b>！如四处闲逛或瞎搞（<i>wander/hang/wait/fool/mess/play around</i>）；转头向四周各个方向看或传阅分发则为（<i>look/pass/hand/ask around</i>）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>look <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>look about oneself</span></td><td><span class='eq-verb'>look</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Look</b> <b>around</b> to see whether you can find the missing document.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>1/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be released or become known; of news</span></td><td><span class='eq-verb'>break, unwrap</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>News of her death broke in the morning.</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>around to</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>do something despite obstacles such as lack of time</span></td><td><span class='eq-verb'>do</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He finally got around to painting the windows.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>2/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [bypass] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>avoid something unpleasant or laborious</span></td><td><span class='eq-verb'>bypass, avoid</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>You cannot bypass these rules!</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>3/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move around; move from place to place</span></td><td><span class='eq-verb'>travel, locomote</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>How does she <b>get</b> <b>around</b> without a car?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>4/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be a social swinger; socialize a lot</span></td><td><span class='eq-verb'>swing, socialize</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>get</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>go <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>1/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>become widely known and passed on</span></td><td><span class='eq-verb'>spread, circulate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The rumor spread.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The story went around in the office.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>go <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>2/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [suffice] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be sufficient</span></td><td><span class='eq-verb'>suffice, answer</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>There's not enough to <b>go</b> <b>around</b>.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>go <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>3/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [bypass] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>avoid something unpleasant or laborious</span></td><td><span class='eq-verb'>bypass, avoid</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>You cannot bypass these rules!</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>go <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>4/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [revolve] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>turn on or around an axis or a center</span></td><td><span class='eq-verb'>revolve, rotate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The Earth revolves around the Sun.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The lamb roast rotates on a spit over the fire.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>go <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>5/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [outflank] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>go around the flank of (an opposing army)</span></td><td><span class='eq-verb'>outflank, travel</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>go</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>run <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + [AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>play boisterously</span></td><td><span class='eq-verb'>frolic, lark</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The children frolicked in the garden.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The gamboling lambs in the meadows.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>The toddlers romped in the playroom.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>play <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: cheat)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>commit adultery</span></td><td><span class='eq-verb'>cheat, cuckold</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He <b>plays</b> <b>around</b> a lot.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>play <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: dabble)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>work with in an amateurish manner</span></td><td><span class='eq-verb'>dabble, smatter</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>She dabbles in astronomy.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>He <b>plays</b> <b>around</b> with investments but he never makes any money.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>walk <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>1/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [perambulate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>walk with no particular goal</span></td><td><span class='eq-verb'>perambulate, walk</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>We were <b>walking</b> <b>around</b> in the garden.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>After breakfast, she walked about in the park.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>move <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: travel)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>pass to the other side of</span></td><td><span class='eq-verb'>travel, locomote</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Turn the corner.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span><b>Move</b> <b>around</b> the obstacle.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>walk <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>2/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [circumambulate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>walk around something</span></td><td><span class='eq-verb'>circumambulate, circle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>walk</b> it <b>around</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>drive <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [chauffeur] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>drive someone in a vehicle</span></td><td><span class='eq-verb'>chauffeur, drive</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>drive</b> it <b>around</b> right away.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>hang <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be about</span></td><td><span class='eq-verb'>loiter, lounge</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The high school students like to loiter in the Central Square.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Who is this man that is <b>hanging</b> <b>around</b> the department?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>drive <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>drive without any particular aim</span></td><td><span class='eq-verb'>drive</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We were driving around in the countryside on a fine Sunday morning.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>send <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [circulate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>forward to others</span></td><td><span class='eq-verb'>circulate, distribute</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He is <b>sending</b> <b>around</b> an appeal for funds.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>walk <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>3/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>walk randomly</span></td><td><span class='eq-verb'>walk</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We were <b>walking</b> <b>around</b> in the neighborhood to see whether we could find an open drugstore.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>walk <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>4/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>behave in a certain manner or have certain properties</span></td><td><span class='eq-verb'>behave, acquit</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>He <b>walks</b> <b>around</b> with his nose in the air.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>She <b>walks</b> <b>around</b> with this strange boyfriend.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>pass <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [circulate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to become widely known</span></td><td><span class='eq-verb'>circulate, circularize</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Spread information.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Circulate a rumor.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Broadcast the news.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>sleep <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be sexually active with more than one partner</span></td><td><span class='eq-verb'>bedhop, fornicate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>His wife bed hops.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>lie <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: idle)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>hang around idly</span></td><td><span class='eq-verb'>idle, laze</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>She did all the work while he lay around.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>sit <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be around, often idly or without specific purpose</span></td><td><span class='eq-verb'>sit</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The object sat in the corner.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>We sat around chatting for another hour.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>push <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: bully)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be bossy towards</span></td><td><span class='eq-verb'>bully, browbeat</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her big brother always bullied her when she was young.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x) + 作为正式词 [research] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>search anxiously</span></td><td><span class='eq-verb'>research, search</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>cast</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>boss <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be bossy towards</span></td><td><span class='eq-verb'>bully, browbeat</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her big brother always bullied her when she was young.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Slang'><td><div class='word-line'><span class='word'>horse <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Slang' title='🤖 自动判定依据：含鲜明俚俗词素 [horse]' style='cursor:help;'>🌶️ 俚语/俚俗 (Slang)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>indulge in horseplay</span></td><td><span class='eq-verb'>fool, joke</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Enough horsing around--let's get back to work!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The bored children were fooling about.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>roll <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>happen regularly</span></td><td><span class='eq-verb'>hap</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Christmas <b>rolled</b> <b>around</b> again.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>stick <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>stay put (in a certain place)</span></td><td><span class='eq-verb'>stay, stick</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>We are staying in Detroit; we are not moving to Cincinnati.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Stay put in the corner here!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span><b>Stick</b> <b>around</b> and you will learn something!</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>stick <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be available or ready for a certain function or service</span></td><td><span class='eq-verb'>wait</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>stick</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>kick <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>1/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [discuss] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>discuss lightly</span></td><td><span class='eq-verb'>discuss</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We bandied around these difficult questions.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>kick <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [mistreat] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>treat badly; abuse</span></td><td><span class='eq-verb'>mistreat, maltreat</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They won't have me to <b>kick</b> <b>around</b> any more!</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>kick <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [exist] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be around; be alive or active</span></td><td><span class='eq-verb'>exist</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Does the old man still <b>kick</b> <b>around</b>?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>mess <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>do random, unplanned work or activities or spend time idly</span></td><td><span class='eq-verb'>putter, potter</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The old lady is usually mucking about in her little house.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>moon <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (2.777x)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be apathetic, gloomy, or dazed</span></td><td><span class='eq-verb'>mope</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>moon</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>moon <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (2.777x) + [AROUND] 非线性闲散口语图式' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be idle in a listless or dreamy way</span></td><td><span class='eq-verb'>moon, idle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>moon</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>bob <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move up and down with no specific path</span></td><td><span class='eq-verb'>bob</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The cork <b>bobbed</b> <b>around</b> in the pool.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>tool <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.757x) + 作为正式词 [joyride] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>ride in a car with no particular goal and just for the pleasure of it</span></td><td><span class='eq-verb'>joyride, tool</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We tooled down the street.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>spin <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: spin)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>revolve quickly and repeatedly around one's own axis</span></td><td><span class='eq-verb'>spin, whirl</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The dervishes whirl around and around without getting dizzy.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>circle <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move around in a circular motion</span></td><td><span class='eq-verb'>circle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The Earth revolves around the Sun.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>wheel <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: wheel)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>change directions as if revolving on a pivot</span></td><td><span class='eq-verb'>wheel, revolve</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They <b>wheeled</b> their horses <b>around</b> and left.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>swing <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: turn)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>turn abruptly and face the other way, either physically or metaphorically</span></td><td><span class='eq-verb'>turn</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>He turned around to face his opponent.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>My conscience told me to turn around before I made a mistake.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>fool <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + [AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>indulge in horseplay</span></td><td><span class='eq-verb'>fool, joke</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Enough horsing around--let's get back to work!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The bored children were fooling about.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>mill <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: mill)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move about in a confused manner</span></td><td><span class='eq-verb'>mill</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>mill</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>mill <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: loiter)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be about</span></td><td><span class='eq-verb'>loiter, lounge</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The high school students like to loiter in the Central Square.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Who is this man that is hanging around the department?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>jazz <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库学术/公文分布比高 (12.014x) + [AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wander aimlessly in search of pleasure</span></td><td><span class='eq-verb'>gallivant, gad</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>jazz</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>fool <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>commit adultery</span></td><td><span class='eq-verb'>cheat, cuckold</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He plays around a lot.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>twist <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: twist)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>practice sophistry; change the meaning of or be vague about in order to mislead or deceive</span></td><td><span class='eq-verb'>twist, pervert</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Don't twist my words.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>potter <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (2.067x) + [AROUND] 非线性闲散口语图式' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move around aimlessly</span></td><td><span class='eq-verb'>putter, potter</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>potter</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Slang'><td><div class='word-line'><span class='word'>monkey <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Slang' title='🤖 自动判定依据：含鲜明俚俗词素 [monkey]' style='cursor:help;'>🌶️ 俚语/俚俗 (Slang)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>do random, unplanned work or activities or spend time idly</span></td><td><span class='eq-verb'>putter, potter</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The old lady is usually mucking about in her little house.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bump <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>shock physically</span></td><td><span class='eq-verb'>jar, displace</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Georgia was shaken up in the Tech game.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>clown <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>act as or like a clown</span></td><td><span class='eq-verb'>clown, antic</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>clown</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>lounge <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + [AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be lazy or idle</span></td><td><span class='eq-verb'>bum, loaf</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her son is just bumming around all day.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>splash <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + [AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>play in or as if in water, as of small children</span></td><td><span class='eq-verb'>dabble, paddle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>splash</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Slang'><td><div class='word-line'><span class='word'>bum <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Slang' title='🤖 自动判定依据：含鲜明俚俗词素 [bum]' style='cursor:help;'>🌶️ 俚语/俚俗 (Slang)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be lazy or idle</span></td><td><span class='eq-verb'>bum, loaf</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her son is just <b>bumming</b> <b>around</b> all day.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>arse <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：[AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>indulge in horseplay</span></td><td><span class='eq-verb'>fool, joke</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Enough horsing around--let's get back to work!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The bored children were fooling about.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>arse <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：[AROUND] 非线性闲散口语图式' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be lazy or idle</span></td><td><span class='eq-verb'>bum, loaf</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her son is just bumming around all day.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Formal'><td><div class='word-line'><span class='word'>revolve <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Formal' title='🤖 自动判定依据：拉丁/法语学术词根 [revolve]' style='cursor:help;'>🏛️ 正式/书面 (Formal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>center upon</span></td><td><span class='eq-verb'>center, refer</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Her entire attention centered on her children.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Our day <b>revolved</b> <b>around</b> our work.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>waltz <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>dance a waltz</span></td><td><span class='eq-verb'>waltz, dance</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The situation began to <b>waltz</b> <b>around</b> unexpectedly.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Formal'><td><div class='word-line'><span class='word'>revolve <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Formal' title='🤖 自动判定依据：拉丁/法语学术词根 [revolve]' style='cursor:help;'>🏛️ 正式/书面 (Formal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>move around in a circular motion</span></td><td><span class='eq-verb'>circle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The Earth <b>revolves</b> <b>around</b> the Sun.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>muck <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: putter)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>do random, unplanned work or activities or spend time idly</span></td><td><span class='eq-verb'>putter, potter</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The old lady is usually mucking about in her little house.</div></div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 180度转向与绕行弧线：改变主意、苏醒、规避问题与顺道拜访 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Reversal, Circumvention & Detour — EPE Ch.10 §2.5, §2.7-2.8 Fig.10.6</span></span><span class='sub-meta'>7 义项</span></summary><div class='epe-explain-box'>📖 <b>EPE 认知机制 (Lindstromberg Ch.10 §2.5, §2.7 & §2.8 Figure 10.6)：</b>① <b>旋转改变朝向</b>：不仅身体可以转过来（<i>turn around</i>），人的观点态度也可以转过来同意对方（<i>come/bring/win sb around</i>），昏迷者意识转回来即为苏醒（<i>come around</i>）；② <b>绕过障碍物（Figure 10.6）</b>：遇到岩石或法规限制不硬闯，而是画半圆弧线绕过去即为规避智取（<i>get/work/skirt around a problem</i>）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>turn <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: turn)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>turn abruptly and face the other way, either physically or metaphorically</span></td><td><span class='eq-verb'>turn</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>He <b>turned</b> <b>around</b> to face his opponent.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>My conscience told me to <b>turn</b> <b>around</b> before I made a mistake.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>come <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>change one's position or opinion</span></td><td><span class='eq-verb'>change</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He came around to our point of view.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>come <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>happen regularly</span></td><td><span class='eq-verb'>hap</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Christmas rolled around again.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>turn <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: better)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>improve significantly; go from bad to good</span></td><td><span class='eq-verb'>better, improve</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her performance in school picked up.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bring <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>1/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: awaken)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>return to consciousness</span></td><td><span class='eq-verb'>awaken, wake</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>These pictures bring back sad memories.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bring <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: cure)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>provide a cure for, make healthy again</span></td><td><span class='eq-verb'>cure, heal</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The treatment cured the boy's acne.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>The quack pretended to heal patients but never managed to.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>bring <span class='pt-highlight'>around</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [persuade] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to adopt an opinion or course of action</span></td><td><span class='eq-verb'>persuade</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>His urgent letter finally brought me around to give money to the school.</div></div></div></td></tr>
+</table></details>
+</body></html>

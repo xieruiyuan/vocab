@@ -1,0 +1,478 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>06 · 情绪起伏、心理反应与人际感召 (Emotions, Psychological Reactions & Empathy)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #78350f; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #b45309; color: #fff; font-weight: 600; }
+.nav-link.home { background: #78350f; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.14em; font-weight: 700; color: #0f172a; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #b45309; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #334155; font-size: 0.91em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #f59e0b; }
+.card h3 { margin: 0 0 8px 0; color: #92400e; font-size: 1.08em; }
+.meta { font-size: 0.86em; color: #64748b; line-height: 1.6; }
+</style>
+<style>
+.lang-switch-box {
+    display: inline-flex; background: #e2e8f0; padding: 3px; border-radius: 99px;
+    border: 1px solid #cbd5e1; margin-left: auto; align-items: center;
+}
+.lang-btn {
+    border: none; background: transparent; padding: 5px 14px; border-radius: 99px;
+    font-size: 0.86em; font-weight: 700; color: #475569; cursor: pointer; transition: all 0.18s;
+}
+.lang-btn.active { background: #b45309; color: #fff; box-shadow: 0 1px 3px rgba(180,83,9,0.3); }
+body.lang-fr .lang-btn.fr-btn { background: #dc2626; color: #fff; }
+
+.word-fr-box { display: none; }
+.en-sub-hint { display: block; font-size: 0.75em; font-weight: 500; color: #64748b; margin-top: 3px; }
+body.lang-fr .word-en-box { display: none; }
+body.lang-fr .word-fr-box { display: inline; color: #0f172a; }
+
+/* 语域徽章：Formal(紫金)、Neutral(宝蓝)、Vivid(玫瑰红)、法语变位组(勃艮第红) */
+.reg-Formal { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+.reg-Neutral { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.reg-Vivid { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+.fr-gr-badge { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fee2e2; color: #991b1b; }
+
+.ph-fr-text { display: none; color: #b91c1c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+body.lang-fr .ph-en-text { display: none; }
+body.lang-fr .ph-fr-text { display: inline; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 5px; color: #64748b; border-radius: 4px;
+}
+.audio-btn:hover { color: #b45309; background: #e2e8f0; transform: scale(1.15); }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #fffbeb; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #fde68a; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #92400e; background: #fff; border: 1px solid #fcd34d; cursor: pointer; }
+.sub-pill:hover { background: #b45309; color: #fff; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #78350f; background: #78350f; color: #fff; }
+.ctrl-btn.secondary { background: #fff; color: #78350f; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #78350f, #b45309);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700;
+}
+body.lang-fr summary.sub-header { background: linear-gradient(90deg, #7f1d1d, #dc2626); }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #fef3c7; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+
+/* 语域阶梯与 Phrasal Verb 胶囊样式 */
+.ladder-box { font-size: 0.86em; line-height: 1.65; }
+.pv-pill { display: inline-block; background: #dcfce7; color: #166534; font-weight: 700; padding: 1px 7px; border-radius: 4px; border: 1px solid #86efac; margin-right: 4px; }
+.fm-pill { display: inline-block; background: #f3e8ff; color: #6b21a8; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid #e9d5ff; margin-right: 4px; }
+.nt-pill { display: inline-block; background: #f1f5f9; color: #334155; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid #cbd5e1; margin-right: 4px; }
+.ex-line { color: #475569; font-style: italic; font-size: 0.92em; margin-top: 4px; border-left: 3px solid #f59e0b; padding-left: 7px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+let currentLang = localStorage.getItem("verbs_vocab_lang") || "en";
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("verbs_vocab_lang", lang);
+    document.body.classList.toggle("lang-fr", lang === "fr");
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+}
+
+function speakNative(text, langCode) {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = langCode; u.rate = 0.92;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function playWord(enWord, frAudioText) {
+    if (currentLang === "fr") {
+        const cleanFr = frAudioText.trim() || enWord;
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanFr)}&le=fr`;
+        audioPlayer.play().catch(() => speakNative(cleanFr, "fr-FR"));
+    } else {
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(enWord.trim())}&type=2`;
+        audioPlayer.play().catch(() => speakNative(enWord, "en-US"));
+    }
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function filterRegister(filterType) {
+    document.querySelectorAll("tr[data-reg]").forEach(row => {
+        if (filterType === "all") row.style.display = "";
+        else if (filterType === "phrasal") row.style.display = (row.dataset.pv === "1") ? "" : "none";
+        else row.style.display = (row.dataset.reg === filterType) ? "" : "none";
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => setLanguage(currentLang));
+</script>
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body id='top'>
+<div class="nav-bar"><a class="nav-link home" href="index.html">⚡ 4000动词总目录</a><a class="nav-link" href="01_物理位移、步态姿势与空间运动.html">01 物理位移、步态姿势与空间运动 (226)</a><a class="nav-link" href="02_物理接触、操控抓握与形变破坏.html">02 物理接触、操控抓握与形变破坏 (69)</a><a class="nav-link" href="03_数量增减、程度兴衰与状态演变.html">03 数量增减、程度兴衰与状态演变 (387)</a><a class="nav-link" href="04_认知思维、逻辑推理与记忆评估.html">04 认知思维、逻辑推理与记忆评估 (168)</a><a class="nav-link" href="05_言语表达、修辞争辩与信息传递.html">05 言语表达、修辞争辩与信息传递 (197)</a><a class="nav-link active" href="06_情绪起伏、心理反应与人际感召.html">06 情绪起伏、心理反应与人际感召 (58)</a><a class="nav-link" href="07_对抗冲突、压制防御与胜负博弈.html">07 对抗冲突、压制防御与胜负博弈 (52)</a><a class="nav-link" href="08_法律规范、行政指令与社会交互.html">08 法律规范、行政指令与社会交互 (100)</a><a class="nav-link" href="09_经济交易、资产配置与资源消耗.html">09 经济交易、资产配置与资源消耗 (100)</a><a class="nav-link" href="10_创造构建、修饰拼合与清除销毁.html">10 创造构建、修饰拼合与清除销毁 (150)</a><a class="nav-link" href="11_感官知觉、生理机能与日常照料.html">11 感官知觉、生理机能与日常照料 (30)</a><a class="nav-link" href="12_因果触发、阻碍促进与时间存续.html">12 因果触发、阻碍促进与时间存续 (726)</a><div class="lang-switch-box"><button class="lang-btn en-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 English Verbs</button><button class="lang-btn fr-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Verbes Français</button></div></div>
+<h1>06 · 情绪起伏、心理反应与人际感召 (Emotions, Psychological Reactions & Empathy)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本领域共 <b>58</b> 个核心动词 • 右侧直接展示 <b>💬 口语 Phrasal Verb 短语替换 ↔ ⚖️ 通用同义词 ↔ 🏛️ 正式学术升级词</b></p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><button class='sub-pill' onclick="filterRegister('all')">全部动词</button><button class='sub-pill' onclick="filterRegister('phrasal')">🔄 仅看含 Phrasal Verb 替换</button><button class='sub-pill' onclick="filterRegister('Formal')">🏛️ 仅看正式/学术语域</button><button class='sub-pill' onclick="filterRegister('Vivid')">🎨 仅看生动/叙事动词</button><span style='color:#fcd34d;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">01 喜爱、钦佩、迷恋与同情怜悯 (6)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">02 激怒、憎恶、恐惧、羞辱与绝望 (23)</a><a class='sub-pill' onclick="jumpToSection('sub_2')">03 安抚、慰藉、鼓舞与振奋人心 (11)</a><a class='sub-pill' onclick="jumpToSection('sub_3')">04 震惊、挫败、恐吓与情绪宣泄 (18)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 喜爱、钦佩、迷恋与同情怜悯 (Cherishing, Admiring, Sympathizing & Revering)</span><span class='sub-meta'>共 6 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>compassionate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>compassionate<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to compassionate</span></span></td><td class='phonetic'><span class='ph-en-text'>/kәm'pæʃәnit/</span><span class='ph-fr-text'>/compassionate/</span> <button class='audio-btn' onclick="playWord('compassionate', 'compassionate')">🔊</button></td><td>vt. 怜悯, 同情</td><td class='def-en'>share the suffering of</td><td>3.55</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>condole with</span><span class='pv-pill'>feel for</span><span class='pv-pill'>sympathize with</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pity</span></div><div class='ex-line'>“They decided to compassionate (share the suffering of).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>cherish<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>aimer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to cherish</span></span></td><td class='phonetic'><span class='ph-en-text'>/'tʃeriʃ/</span><span class='ph-fr-text'>/ɛme/</span> <button class='audio-btn' onclick="playWord('cherish', 'aimer')">🔊</button></td><td>vt. 珍爱, 怀有, 爱护</td><td class='def-en'>be fond of; be attached to</td><td>3.52</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>care for</span><span class='pv-pill'>hold dear</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>treasure</span></div><div class='ex-line'>“They decided to cherish (be fond of).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>revere<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>adorer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to revere</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'viә/</span><span class='ph-fr-text'>/adɔʁe/</span> <button class='audio-btn' onclick="playWord('revere', 'adorer')">🔊</button></td><td>vt. 崇敬, 敬畏, 尊敬</td><td class='def-en'>love unquestioningly and uncritically or to excess; venerate as an idol</td><td>3.09</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>drool over</span><span class='pv-pill'>slobber over</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>idolize</span><span class='fm-pill'>idolise</span><span class='fm-pill'>reverence</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>worship</span><span class='nt-pill'>hero-worship</span><span class='nt-pill'>fear</span></div><div class='ex-line'>“Many teenagers idolized the Beatles”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>idolize<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>adorer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to idolize</span></span></td><td class='phonetic'><span class='ph-en-text'>/'aidәlaiz/</span><span class='ph-fr-text'>/adɔʁe/</span> <button class='audio-btn' onclick="playWord('idolize', 'adorer')">🔊</button></td><td>vt. 把...当偶像崇拜, 极端崇拜, 醉心于；vi. 崇拜偶像</td><td class='def-en'>love unquestioningly and uncritically or to excess; venerate as an idol</td><td>2.48</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>drool over</span><span class='pv-pill'>slobber over</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>idolise</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>worship</span><span class='nt-pill'>hero-worship</span><span class='nt-pill'>revere</span></div><div class='ex-line'>“Many teenagers idolized the Beatles”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>prefer<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>aimer mieux<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to prefer</span></span></td><td class='phonetic'><span class='ph-en-text'>/pri'fә:/</span><span class='ph-fr-text'>/ɛme mjø/</span> <button class='audio-btn' onclick="playWord('prefer', 'aimer mieux')">🔊</button></td><td>vt. 宁可, 较喜欢, 提出</td><td class='def-en'>like better; value more highly</td><td>4.57</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>choose</span><span class='nt-pill'>opt</span></div><div class='ex-line'>“Some people prefer camping to staying in hotels”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>adore<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>adorer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to adore</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'dɒ:/</span><span class='ph-fr-text'>/adɔʁe/</span> <button class='audio-btn' onclick="playWord('adore', 'adorer')">🔊</button></td><td>vt. 崇拜, 爱慕, 喜爱；vi. 崇拜, 爱慕</td><td class='def-en'>love intensely</td><td>3.7</td><td><div class='ladder-box'><div class='ex-line'>“he just adored his wife”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 激怒、憎恶、恐惧、羞辱与绝望 (Infuriating, Despising, Dreading & Humiliating)</span><span class='sub-meta'>共 23 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>offend<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>offend<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to offend</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'fend/</span><span class='ph-fr-text'>/offend/</span> <button class='audio-btn' onclick="playWord('offend', 'offend')">🔊</button></td><td>v. 犯罪, 冒犯, 违反, 进攻</td><td class='def-en'>cause to feel resentment or indignation</td><td>3.57</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>go against</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>transgress</span><span class='fm-pill'>infract</span><span class='fm-pill'>violate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pique</span><span class='nt-pill'>breach</span><span class='nt-pill'>break</span></div><div class='ex-line'>“Her tactless remark offended me”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>chevy<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>harceler<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to chevy</span></span></td><td class='phonetic'><span class='ph-en-text'>/tʃevi/</span><span class='ph-fr-text'>/ʼaʁsəle/</span> <button class='audio-btn' onclick="playWord('chevy', 'harceler')">🔊</button></td><td>vt. 追赶, 追猎；vi. 奔跑</td><td class='def-en'>annoy continually or chronically</td><td>3.53</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>provoke</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>harass</span><span class='nt-pill'>hassle</span><span class='nt-pill'>harry</span></div><div class='ex-line'>“He is known to harry his staff when he is overworked”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>despise<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>dédaigner<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to despise</span></span></td><td class='phonetic'><span class='ph-en-text'>/di'spaiz/</span><span class='ph-fr-text'>/dedeɲe/</span> <button class='audio-btn' onclick="playWord('despise', 'dédaigner')">🔊</button></td><td>vt. 轻视</td><td class='def-en'>look down on with disdain</td><td>3.5</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>look down on</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>contemn</span><span class='fm-pill'>disdain</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>scorn</span></div><div class='ex-line'>“He despises the people he has to work for”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>annoy<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>agacer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to annoy</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'nɒi/</span><span class='ph-fr-text'>/agase/</span> <button class='audio-btn' onclick="playWord('annoy', 'agacer')">🔊</button></td><td>vt. 使恼怒, 骚扰</td><td class='def-en'>cause annoyance in; disturb, especially by minor irritations</td><td>3.46</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span><span class='pv-pill'>get under one's skin</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>irritate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>rag</span><span class='nt-pill'>bother</span><span class='nt-pill'>rile</span></div><div class='ex-line'>“Mosquitoes buzzing in my ear really bothers me”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>grieve<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>grieve<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to grieve</span></span></td><td class='phonetic'><span class='ph-en-text'>/gri:v/</span><span class='ph-fr-text'>/grieve/</span> <button class='audio-btn' onclick="playWord('grieve', 'grieve')">🔊</button></td><td>vt. 使悲伤；vi. 悲痛, 伤心</td><td class='def-en'>feel grief</td><td>3.33</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>condole with</span><span class='pv-pill'>feel for</span><span class='pv-pill'>sympathize with</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>aggrieve</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>sorrow</span></div><div class='ex-line'>“They decided to grieve (feel grief).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>harass<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>harceler<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to harass</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hærәs/</span><span class='ph-fr-text'>/ʼaʁsəle/</span> <button class='audio-btn' onclick="playWord('harass', 'harceler')">🔊</button></td><td>vt. 使困扰, 使烦恼, 折磨</td><td class='def-en'>annoy continually or chronically</td><td>3.28</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>provoke</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>hassle</span><span class='nt-pill'>harry</span><span class='nt-pill'>chivy</span></div><div class='ex-line'>“He is known to harry his staff when he is overworked”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>beset<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>harceler<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to beset</span></span></td><td class='phonetic'><span class='ph-en-text'>/bi'set/</span><span class='ph-fr-text'>/ʼaʁsəle/</span> <button class='audio-btn' onclick="playWord('beset', 'harceler')">🔊</button></td><td>vt. 围绕, 使苦恼, 镶嵌</td><td class='def-en'>annoy continually or chronically</td><td>3.08</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span><span class='pv-pill'>set upon</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>provoke</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>harass</span><span class='nt-pill'>hassle</span><span class='nt-pill'>harry</span></div><div class='ex-line'>“He is known to harry his staff when he is overworked”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>humiliate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>humilier<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to humiliate</span></span></td><td class='phonetic'><span class='ph-en-text'>/hju:'milieit/</span><span class='ph-fr-text'>/ymilje/</span> <button class='audio-btn' onclick="playWord('humiliate', 'humilier')">🔊</button></td><td>vt. 使丢脸, 使蒙羞, 屈辱</td><td class='def-en'>cause to feel shame; hurt the pride of</td><td>3.08</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>put down</span><span class='pv-pill'>show up</span><span class='pv-pill'>take down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>mortify</span><span class='fm-pill'>chagrin</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>humble</span><span class='nt-pill'>abase</span></div><div class='ex-line'>“He humiliated his colleague by criticising him in front of the boss”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>irritate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>agacer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to irritate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'iriteit/</span><span class='ph-fr-text'>/agase/</span> <button class='audio-btn' onclick="playWord('irritate', 'agacer')">🔊</button></td><td>vt. 激怒, 使发怒, 使兴奋, 使发炎；vi. 引起不快</td><td class='def-en'>cause annoyance in; disturb, especially by minor irritations</td><td>3.08</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span><span class='pv-pill'>get under one's skin</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>annoy</span><span class='nt-pill'>rag</span><span class='nt-pill'>bother</span></div><div class='ex-line'>“Mosquitoes buzzing in my ear really bothers me”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>chagrin<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>humilier<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to chagrin</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ʃægrin/</span><span class='ph-fr-text'>/ymilje/</span> <button class='audio-btn' onclick="playWord('chagrin', 'humilier')">🔊</button></td><td>vt. 使懊恼</td><td class='def-en'>cause to feel shame; hurt the pride of</td><td>2.86</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>put down</span><span class='pv-pill'>take down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>humiliate</span><span class='fm-pill'>mortify</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>humble</span><span class='nt-pill'>abase</span></div><div class='ex-line'>“He humiliated his colleague by criticising him in front of the boss”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>vex<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>agacer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to vex</span></span></td><td class='phonetic'><span class='ph-en-text'>/veks/</span><span class='ph-fr-text'>/agase/</span> <button class='audio-btn' onclick="playWord('vex', 'agacer')">🔊</button></td><td>vt. 使烦恼, 使苦恼；vi. 烦恼</td><td class='def-en'>cause annoyance in; disturb, especially by minor irritations</td><td>2.85</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span><span class='pv-pill'>get under one's skin</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>irritate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>annoy</span><span class='nt-pill'>rag</span><span class='nt-pill'>bother</span></div><div class='ex-line'>“Mosquitoes buzzing in my ear really bothers me”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>peeve<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>peeve<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to peeve</span></span></td><td class='phonetic'><span class='ph-en-text'>/pi:v/</span><span class='ph-fr-text'>/peeve/</span> <button class='audio-btn' onclick="playWord('peeve', 'peeve')">🔊</button></td><td>v. (使)气恼, (使)焦躁, (使)忿怒</td><td class='def-en'>cause to be annoyed, irritated, or resentful</td><td>2.8</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span></div><div class='ex-line'>“They decided to peeve (cause to be annoyed, irritated, or resentful).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>antagonize<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>antagonize<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to antagonize</span></span></td><td class='phonetic'><span class='ph-en-text'>/æn'tægәnaiz/</span><span class='ph-fr-text'>/antagonize/</span> <button class='audio-btn' onclick="playWord('antagonize', 'antagonize')">🔊</button></td><td>vt. 使对抗, 使敌对, 反对；vi. 引起反抗</td><td class='def-en'>provoke the hostility of</td><td>2.58</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>antagonise</span><span class='fm-pill'>counteract</span></div><div class='ex-line'>“Don't antagonize your boss”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>demean<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>rabaisser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to demean</span></span></td><td class='phonetic'><span class='ph-en-text'>/di'mi:n/</span><span class='ph-fr-text'>/ʁabɛse/</span> <button class='audio-btn' onclick="playWord('demean', 'rabaisser')">🔊</button></td><td>vt. 贬低身分, 贬损</td><td class='def-en'>reduce in worth or character, usually verbally</td><td>2.58</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>put down</span><span class='pv-pill'>take down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>degrade</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>disgrace</span></div><div class='ex-line'>“She tends to put down younger women colleagues”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>rile<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>agacer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to rile</span></span></td><td class='phonetic'><span class='ph-en-text'>/rail/</span><span class='ph-fr-text'>/agase/</span> <button class='audio-btn' onclick="playWord('rile', 'agacer')">🔊</button></td><td>vt. 搅浑, 惹怒, 使焦急</td><td class='def-en'>cause annoyance in; disturb, especially by minor irritations</td><td>2.49</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get at</span><span class='pv-pill'>get to</span><span class='pv-pill'>get under one's skin</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>irritate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>annoy</span><span class='nt-pill'>rag</span><span class='nt-pill'>bother</span></div><div class='ex-line'>“Mosquitoes buzzing in my ear really bothers me”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>dread<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>craindre<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to dread</span></span></td><td class='phonetic'><span class='ph-en-text'>/dred/</span><span class='ph-fr-text'>/kʁɛ̃dʁ/</span> <button class='audio-btn' onclick="playWord('dread', 'craindre')">🔊</button></td><td>v. 恐惧, 害怕</td><td class='def-en'>be afraid or scared of; be frightened of</td><td>3.64</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>fear</span></div><div class='ex-line'>“I fear the winters in Moscow”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>mourn<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>mourn<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to mourn</span></span></td><td class='phonetic'><span class='ph-en-text'>/mɒ:n/</span><span class='ph-fr-text'>/mourn/</span> <button class='audio-btn' onclick="playWord('mourn', 'mourn')">🔊</button></td><td>v. 哀悼, 忧伤, 服丧</td><td class='def-en'>feel sadness</td><td>3.43</td><td><div class='ladder-box'><div class='ex-line'>“She is mourning her dead child”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>hamstring<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>hamstring<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to hamstring</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hæmstriŋ/</span><span class='ph-fr-text'>/hamstring/</span> <button class='audio-btn' onclick="playWord('hamstring', 'hamstring')">🔊</button></td><td>vt. 切断腿腱使成跛腿, 使瘫痪</td><td class='def-en'>make ineffective or powerless</td><td>3.16</td><td><div class='ladder-box'><div class='ex-line'>“The teachers were hamstrung by the overly rigid schedules”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>loathe<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>abhorrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to loathe</span></span></td><td class='phonetic'><span class='ph-en-text'>/lәuð/</span><span class='ph-fr-text'>/abɔʁe/</span> <button class='audio-btn' onclick="playWord('loathe', 'abhorrer')">🔊</button></td><td>vt. 厌恶, 憎恶</td><td class='def-en'>find repugnant</td><td>3.11</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>abominate</span><span class='fm-pill'>execrate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>abhor</span></div><div class='ex-line'>“I loathe that man”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>detest<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>abhorrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to detest</span></span></td><td class='phonetic'><span class='ph-en-text'>/di'test/</span><span class='ph-fr-text'>/abɔʁe/</span> <button class='audio-btn' onclick="playWord('detest', 'abhorrer')">🔊</button></td><td>vt. 厌恶, 憎恨</td><td class='def-en'>dislike intensely; feel antipathy or aversion towards</td><td>2.87</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>hate</span></div><div class='ex-line'>“I hate Mexican food”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>persecute<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>opprimer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to persecute</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pә:sikju:t/</span><span class='ph-fr-text'>/ɔpʁime/</span> <button class='audio-btn' onclick="playWord('persecute', 'opprimer')">🔊</button></td><td>vt. 迫害, 虐待, 困扰, 同...捣乱</td><td class='def-en'>cause to suffer</td><td>2.79</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>oppress</span></div><div class='ex-line'>“Jews were persecuted in the former Soviet Union”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>abhor<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>abhorrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to abhor</span></span></td><td class='phonetic'><span class='ph-en-text'>/әb'hɒ:/</span><span class='ph-fr-text'>/abɔʁe/</span> <button class='audio-btn' onclick="playWord('abhor', 'abhorrer')">🔊</button></td><td>vt. 憎恶, 痛恨, 回避, 拒绝</td><td class='def-en'>find repugnant</td><td>2.64</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>abominate</span><span class='fm-pill'>execrate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>loathe</span></div><div class='ex-line'>“I loathe that man”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>pester<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>blaireau<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to pester</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pestә/</span><span class='ph-fr-text'>/blɛʁo/</span> <button class='audio-btn' onclick="playWord('pester', 'blaireau')">🔊</button></td><td>vt. 不断打扰, 纠缠</td><td class='def-en'>annoy persistently</td><td>2.57</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>beleaguer</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>tease</span><span class='nt-pill'>badger</span><span class='nt-pill'>bug</span></div><div class='ex-line'>“The children teased the boy because of his stammer”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 安抚、慰藉、鼓舞与振奋人心 (Appeasing, Consoling, Inspiring & Reassuring)</span><span class='sub-meta'>共 11 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>console<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to console</span></span></td><td class='phonetic'><span class='ph-en-text'>/kәn'sәul/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('console', 'apaiser')">🔊</button></td><td>vt. 安慰, 藉慰</td><td class='def-en'>give moral or emotional strength to</td><td>4.08</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>comfort</span><span class='nt-pill'>soothe</span><span class='nt-pill'>solace</span></div><div class='ex-line'>“They decided to console (give moral or emotional strength to).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>inspire<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>animer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to inspire</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'spaiә/</span><span class='ph-fr-text'>/anime/</span> <button class='audio-btn' onclick="playWord('inspire', 'animer')">🔊</button></td><td>vt. 使感动, 激发, 启示, 吸入, 鼓舞, 产生, 使生灵感；vi. 吸入, 赋予灵感</td><td class='def-en'>heighten or intensify</td><td>4.0</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>shake up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>animate</span><span class='fm-pill'>invigorate</span><span class='fm-pill'>enliven</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>exalt</span></div><div class='ex-line'>“These paintings exalt the imagination”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>reassure<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>assurer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to reassure</span></span></td><td class='phonetic'><span class='ph-en-text'>/.ri:ә'ʃuә/</span><span class='ph-fr-text'>/asyʁe/</span> <button class='audio-btn' onclick="playWord('reassure', 'assurer')">🔊</button></td><td>vt. 使...安心, 向...再保证</td><td class='def-en'>cause to feel sure; give reassurance to</td><td>3.3</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>assure</span></div><div class='ex-line'>“The airline tried to reassure the customers that the planes were safe”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>appease<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to appease</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'pi:z/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('appease', 'apaiser')">🔊</button></td><td>vt. 抚慰, 缓解, 平息, 姑息</td><td class='def-en'>cause to be more favorably inclined; gain the good will of</td><td>3.2</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>conciliate</span><span class='fm-pill'>assuage</span><span class='fm-pill'>mollify</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pacify</span><span class='nt-pill'>lenify</span><span class='nt-pill'>gentle</span></div><div class='ex-line'>“She managed to mollify the angry customer”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>soothe<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to soothe</span></span></td><td class='phonetic'><span class='ph-en-text'>/su:ð/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('soothe', 'apaiser')">🔊</button></td><td>vt. 缓和, 使安静, 安慰, 奉承；vi. 起安慰作用</td><td class='def-en'>give moral or emotional strength to</td><td>3.18</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>comfort</span><span class='nt-pill'>console</span><span class='nt-pill'>solace</span></div><div class='ex-line'>“They decided to soothe (give moral or emotional strength to).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>animate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>animer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to animate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ænimeit/</span><span class='ph-fr-text'>/anime/</span> <button class='audio-btn' onclick="playWord('animate', 'animer')">🔊</button></td><td>vt. 使有生气, 赋予生命</td><td class='def-en'>heighten or intensify</td><td>3.14</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>shake up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>invigorate</span><span class='fm-pill'>enliven</span><span class='fm-pill'>animize</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>inspire</span><span class='nt-pill'>exalt</span></div><div class='ex-line'>“These paintings exalt the imagination”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>placate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to placate</span></span></td><td class='phonetic'><span class='ph-en-text'>/plә'keit/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('placate', 'apaiser')">🔊</button></td><td>vt. 抚慰, 平息, 使和解, 怀柔</td><td class='def-en'>cause to be more favorably inclined; gain the good will of</td><td>2.77</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>conciliate</span><span class='fm-pill'>assuage</span><span class='fm-pill'>appease</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pacify</span><span class='nt-pill'>lenify</span><span class='nt-pill'>gentle</span></div><div class='ex-line'>“She managed to mollify the angry customer”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>pacify<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to pacify</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pæsifai/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('pacify', 'apaiser')">🔊</button></td><td>vt. 使平静, 安慰, 绥靖, 使服从</td><td class='def-en'>cause to be more favorably inclined; gain the good will of</td><td>2.73</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>conciliate</span><span class='fm-pill'>assuage</span><span class='fm-pill'>appease</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>lenify</span><span class='nt-pill'>gentle</span></div><div class='ex-line'>“She managed to mollify the angry customer”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>assuage<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to assuage</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'sweidʒ/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('assuage', 'apaiser')">🔊</button></td><td>vt. 平息, 缓和, 减轻</td><td class='def-en'>cause to be more favorably inclined; gain the good will of</td><td>2.63</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>calm down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>conciliate</span><span class='fm-pill'>appease</span><span class='fm-pill'>mollify</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pacify</span><span class='nt-pill'>lenify</span><span class='nt-pill'>gentle</span></div><div class='ex-line'>“She managed to mollify the angry customer”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>allay<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>apaiser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to allay</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'lei/</span><span class='ph-fr-text'>/apɛze/</span> <button class='audio-btn' onclick="playWord('allay', 'apaiser')">🔊</button></td><td>vt. 使平静, 使缓和</td><td class='def-en'>lessen the intensity of or calm</td><td>2.69</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>assuage</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>still</span><span class='nt-pill'>relieve</span><span class='nt-pill'>ease</span></div><div class='ex-line'>“The news eased my conscience”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>enchant<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>enchanter<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to enchant</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'tʃænt/</span><span class='ph-fr-text'>/ɑ̃ʃɑ̃te/</span> <button class='audio-btn' onclick="playWord('enchant', 'enchanter')">🔊</button></td><td>vt. 施魔法, 使入迷</td><td class='def-en'>hold spellbound</td><td>2.57</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>enrapture</span><span class='fm-pill'>transport</span><span class='fm-pill'>enthrall</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>ravish</span><span class='nt-pill'>delight</span><span class='nt-pill'>capture</span></div><div class='ex-line'>“They decided to enchant (hold spellbound).”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_3'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>04 · 震惊、挫败、恐吓与情绪宣泄 (Startling, Frustrating, Intimidating & Venting)</span><span class='sub-meta'>共 18 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>queer<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>contrecarrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to queer</span></span></td><td class='phonetic'><span class='ph-en-text'>/kwiә/</span><span class='ph-fr-text'>/kɔ̃tʁəkaʁe/</span> <button class='audio-btn' onclick="playWord('queer', 'contrecarrer')">🔊</button></td><td>vt. 搞糟</td><td class='def-en'>hinder or prevent (the efforts, plans, or desires) of</td><td>3.76</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>let down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>frustrate</span><span class='fm-pill'>scupper</span><span class='fm-pill'>endanger</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>thwart</span><span class='nt-pill'>spoil</span><span class='nt-pill'>scotch</span></div><div class='ex-line'>“What ultimately frustrated every challenger was Ruth's amazing September surge”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>distract<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>distraire<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to distract</span></span></td><td class='phonetic'><span class='ph-en-text'>/dis'trækt/</span><span class='ph-fr-text'>/distʁɛʁ/</span> <button class='audio-btn' onclick="playWord('distract', 'distraire')">🔊</button></td><td>vt. 转移, 分心, 使发狂</td><td class='def-en'>draw someone's attention away from something</td><td>3.71</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>put off</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>deflect</span><span class='fm-pill'>perturb</span><span class='fm-pill'>unhinge</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>trouble</span><span class='nt-pill'>cark</span><span class='nt-pill'>disorder</span></div><div class='ex-line'>“The thief distracted the bystanders”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>disappoint<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>décevoir<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to disappoint</span></span></td><td class='phonetic'><span class='ph-en-text'>/.disә'pɒint/</span><span class='ph-fr-text'>/desvwaʁ/</span> <button class='audio-btn' onclick="playWord('disappoint', 'décevoir')">🔊</button></td><td>vt. 使失望</td><td class='def-en'>fail to meet the hopes or expectations of</td><td>3.67</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>come short</span><span class='pv-pill'>fall short</span><span class='pv-pill'>let down</span></div><div class='ex-line'>“Her boyfriend let her down when he did not propose marriage”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>hector<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>tourmenter<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to hector</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hektә/</span><span class='ph-fr-text'>/tuʁmɑ̃te/</span> <button class='audio-btn' onclick="playWord('hector', 'tourmenter')">🔊</button></td><td>vt.vi. 说大话, 吓唬, 折磨, 愚弄</td><td class='def-en'>be bossy towards</td><td>3.57</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>boss around</span><span class='pv-pill'>push around</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>browbeat</span><span class='fm-pill'>bullyrag</span><span class='fm-pill'>ballyrag</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>strong-arm</span><span class='nt-pill'>bully</span></div><div class='ex-line'>“Her big brother always bullied her when she was young”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>rejoice<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>allégresse<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to rejoice</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'dʒɒis/</span><span class='ph-fr-text'>/alegʁɛs/</span> <button class='audio-btn' onclick="playWord('rejoice', 'allégresse')">🔊</button></td><td>vt. 使欢喜；vi. 欣喜, 高兴, 庆祝</td><td class='def-en'>feel happiness or joy</td><td>3.46</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>be on cloud nine</span><span class='pv-pill'>cheer up</span><span class='pv-pill'>chirk up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>exuberate</span><span class='fm-pill'>jubilate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>joy</span><span class='nt-pill'>exult</span><span class='nt-pill'>triumph</span></div><div class='ex-line'>“They decided to rejoice (feel happiness or joy).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>embarrass<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>confondre<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to embarrass</span></span></td><td class='phonetic'><span class='ph-en-text'>/im'bærәs/</span><span class='ph-fr-text'>/kɔ̃fɔ̃dʁ/</span> <button class='audio-btn' onclick="playWord('embarrass', 'confondre')">🔊</button></td><td>vt. 使困窘, 使局促不安, 阻碍</td><td class='def-en'>cause to be embarrassed; cause to feel self-conscious</td><td>3.41</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>put off</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>obstruct</span><span class='fm-pill'>blockade</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>abash</span><span class='nt-pill'>block</span><span class='nt-pill'>hinder</span></div><div class='ex-line'>“They decided to embarrass (cause to be embarrassed).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>intimidate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>intimider<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to intimidate</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'timideit/</span><span class='ph-fr-text'>/ɛ̃timide/</span> <button class='audio-btn' onclick="playWord('intimidate', 'intimider')">🔊</button></td><td>vt. 威胁, 恐吓</td><td class='def-en'>make timid or fearful</td><td>3.31</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>boss around</span><span class='pv-pill'>hold over</span><span class='pv-pill'>push around</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>restrain</span></div><div class='ex-line'>“Her boss intimidates her”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>frighten<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>effrayer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to frighten</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fraitn/</span><span class='ph-fr-text'>/efʁɛje/</span> <button class='audio-btn' onclick="playWord('frighten', 'effrayer')">🔊</button></td><td>vt. 使惊吓；vi. 惊恐</td><td class='def-en'>cause fear in</td><td>3.08</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>shake up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>affright</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>fright</span><span class='nt-pill'>scare</span></div><div class='ex-line'>“The stranger who hangs around the building frightens me”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>thwart<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>contrecarrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to thwart</span></span></td><td class='phonetic'><span class='ph-en-text'>/θwɒ:t/</span><span class='ph-fr-text'>/kɔ̃tʁəkaʁe/</span> <button class='audio-btn' onclick="playWord('thwart', 'contrecarrer')">🔊</button></td><td>vt. 反对, 阻挠, 横过</td><td class='def-en'>hinder or prevent (the efforts, plans, or desires) of</td><td>3.06</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>let down</span><span class='pv-pill'>throw off</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>frustrate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>queer</span><span class='nt-pill'>spoil</span><span class='nt-pill'>scotch</span></div><div class='ex-line'>“What ultimately frustrated every challenger was Ruth's amazing September surge”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>frustrate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>contrecarrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to frustrate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'frʌstreit/</span><span class='ph-fr-text'>/kɔ̃tʁəkaʁe/</span> <button class='audio-btn' onclick="playWord('frustrate', 'contrecarrer')">🔊</button></td><td>vt. 挫败, 击败, 破坏</td><td class='def-en'>hinder or prevent (the efforts, plans, or desires) of</td><td>2.99</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>let down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>torment</span><span class='fm-pill'>bedevil</span><span class='fm-pill'>crucify</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>thwart</span><span class='nt-pill'>queer</span><span class='nt-pill'>spoil</span></div><div class='ex-line'>“What ultimately frustrated every challenger was Ruth's amazing September surge”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>startle<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>abasourdir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to startle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'stɑ:tl/</span><span class='ph-fr-text'>/abazuʁdiʁ/</span> <button class='audio-btn' onclick="playWord('startle', 'abasourdir')">🔊</button></td><td>vt. 吃惊, 使惊愕；vi. 惊起</td><td class='def-en'>to stimulate to action</td><td>2.69</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>ball over</span><span class='pv-pill'>blow out of the water</span><span class='pv-pill'>take aback</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>galvanize</span><span class='fm-pill'>galvanise</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>jump</span><span class='nt-pill'>start</span></div><div class='ex-line'>“..startled him awake”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>regret<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>lasser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to regret</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'gret/</span><span class='ph-fr-text'>/lase/</span> <button class='audio-btn' onclick="playWord('regret', 'lasser')">🔊</button></td><td>vt. 为...感到遗憾, 后悔, 惋惜, 懊悔, 抱歉；vi. 感到抱歉</td><td class='def-en'>feel remorse for; feel sorry for; be contrite about</td><td>4.37</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>repent</span><span class='nt-pill'>rue</span></div><div class='ex-line'>“They decided to regret (feel remorse for).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>amaze<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>abasourdir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to amaze</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'meiz/</span><span class='ph-fr-text'>/abazuʁdiʁ/</span> <button class='audio-btn' onclick="playWord('amaze', 'abasourdir')">🔊</button></td><td>vt. 使吃惊</td><td class='def-en'>affect with wonder</td><td>3.19</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>astonish</span><span class='fm-pill'>astound</span><span class='fm-pill'>perplex</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>vex</span><span class='nt-pill'>stick</span><span class='nt-pill'>get</span></div><div class='ex-line'>“Your ability to speak six languages amazes me!”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>sympathize<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>sympathize<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to sympathize</span></span></td><td class='phonetic'><span class='ph-en-text'>/'simpәθaiz/</span><span class='ph-fr-text'>/sympathize/</span> <button class='audio-btn' onclick="playWord('sympathize', 'sympathize')">🔊</button></td><td>vi. 同情, 怜悯, 同意, 体谅</td><td class='def-en'>share the feelings of; understand the sentiments of</td><td>3.06</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>sympathise</span><span class='fm-pill'>empathize</span><span class='fm-pill'>empathise</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>understand</span></div><div class='ex-line'>“They decided to sympathize (share the feelings of).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>terrify<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>terrifier<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to terrify</span></span></td><td class='phonetic'><span class='ph-en-text'>/'terifai/</span><span class='ph-fr-text'>/tɛʁifje/</span> <button class='audio-btn' onclick="playWord('terrify', 'terrifier')">🔊</button></td><td>vt. 使恐惧, 恐吓</td><td class='def-en'>fill with terror; frighten greatly</td><td>2.8</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>terrorize</span><span class='fm-pill'>terrorise</span></div><div class='ex-line'>“They decided to terrify (fill with terror).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>sympathise<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>sympathise<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to sympathise</span></span></td><td class='phonetic'><span class='ph-en-text'>/'simpәθaiz/</span><span class='ph-fr-text'>/sɛ̃patiz/</span> <button class='audio-btn' onclick="playWord('sympathise', 'sympathise')">🔊</button></td><td>vi. 同情, 表示同情, 同感, 一致, 共鸣, 同意, 赞同, 赞成, 吊唁, 吊慰</td><td class='def-en'>share the feelings of; understand the sentiments of</td><td>2.71</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>sympathize</span><span class='fm-pill'>commiserate</span></div><div class='ex-line'>“They decided to sympathise (share the feelings of).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>fume<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>fume<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to fume</span></span></td><td class='phonetic'><span class='ph-en-text'>/fju:m/</span><span class='ph-fr-text'>/fym/</span> <button class='audio-btn' onclick="playWord('fume', 'fume')">🔊</button></td><td>vt. 熏；vi. 冒烟</td><td class='def-en'>be mad, angry, or furious</td><td>2.63</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>smoke</span></div><div class='ex-line'>“They decided to fume (be mad, angry, or furious).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>astonish<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>abasourdir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to astonish</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'stɒniʃ/</span><span class='ph-fr-text'>/abazuʁdiʁ/</span> <button class='audio-btn' onclick="playWord('astonish', 'abasourdir')">🔊</button></td><td>vt. 使惊讶</td><td class='def-en'>affect with wonder</td><td>2.47</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>astound</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>amaze</span></div><div class='ex-line'>“Your ability to speak six languages amazes me!”</div></div></td></tr>
+</table></details>
+</body></html>

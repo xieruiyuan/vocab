@@ -1,0 +1,486 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>11 · 时间纪元、阶段周期与空间方位 (Time, Eras, Intervals & Spatial Concepts)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #1e1b4b; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; transition: all 0.15s; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #4f46e5; color: #fff; font-weight: 600; }
+.nav-link.home { background: #1e1b4b; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.13em; font-weight: 700; color: #0f172a; }
+.badge-comp { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; vertical-align: middle; }
+.badge-conv { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #7e22ce; vertical-align: middle; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #4338ca; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #334155; font-size: 0.92em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #818cf8; }
+.card h3 { margin: 0 0 8px 0; color: #3730a3; font-size: 1.08em; }
+.meta { font-size: 0.86em; color: #64748b; line-height: 1.6; }
+</style>
+<style>
+.lang-switch-box {
+    display: inline-flex; background: #e2e8f0; padding: 3px; border-radius: 99px;
+    border: 1px solid #cbd5e1; margin-left: auto; align-items: center;
+}
+.lang-btn {
+    border: none; background: transparent; padding: 5px 14px; border-radius: 99px;
+    font-size: 0.86em; font-weight: 700; color: #475569; cursor: pointer; transition: all 0.18s;
+}
+.lang-btn.active { background: #4f46e5; color: #fff; box-shadow: 0 1px 3px rgba(79,70,229,0.3); }
+body.lang-fr .lang-btn.fr-btn { background: #dc2626; color: #fff; box-shadow: 0 1px 3px rgba(220,38,38,0.3); }
+
+.word-fr-box { display: none; }
+.en-sub-hint { display: block; font-size: 0.75em; font-weight: 500; color: #64748b; margin-top: 3px; }
+body.lang-fr .word-en-box { display: none; }
+body.lang-fr .word-fr-box { display: inline; color: #0f172a; }
+
+.fr-pos-m { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #dbeafe; color: #1e40af; vertical-align: middle; }
+.fr-pos-f { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fce7f3; color: #be185d; vertical-align: middle; }
+
+.ph-fr-text { display: none; color: #b91c1c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+body.lang-fr .ph-en-text { display: none; }
+body.lang-fr .ph-fr-text { display: inline; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 5px; color: #64748b; border-radius: 4px;
+    transition: all 0.15s; vertical-align: middle;
+}
+.audio-btn:hover { color: #4f46e5; background: #e2e8f0; transform: scale(1.15); }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #eef2ff; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #c7d2fe; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #3730a3; background: #fff; border: 1px solid #a5b4fc; transition: all 0.15s; cursor: pointer; }
+.sub-pill:hover { background: #4f46e5; color: #fff; border-color: #4f46e5; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #312e81; background: #312e81; color: #fff; }
+.ctrl-btn.secondary { background: #fff; color: #312e81; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #312e81, #4f46e5);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700;
+}
+body.lang-fr summary.sub-header { background: linear-gradient(90deg, #7f1d1d, #dc2626); }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #e0e7ff; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+
+.ctx-box { font-size: 0.88em; line-height: 1.5; color: #334155; }
+.ctx-ex { color: #0f172a; font-style: italic; margin-bottom: 4px; border-left: 3px solid #818cf8; padding-left: 8px; }
+.ctx-syn { font-size: 0.85em; color: #475569; }
+.syn-tag { display: inline-block; background: #f1f5f9; color: #0369a1; padding: 1px 6px; border-radius: 4px; margin-right: 4px; font-weight: 500; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+let currentLang = localStorage.getItem("abstract_vocab_lang") || "en";
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("abstract_vocab_lang", lang);
+    document.body.classList.toggle("lang-fr", lang === "fr");
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+}
+
+function speakNative(text, langCode) {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = langCode;
+        u.rate = 0.92;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function playWord(enWord, frAudioText) {
+    if (currentLang === "fr") {
+        const cleanFr = frAudioText.trim() || enWord;
+        const encodedFr = encodeURIComponent(cleanFr);
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedFr}&le=fr`;
+        audioPlayer.play().catch(() => speakNative(cleanFr, "fr-FR"));
+    } else {
+        const encodedEn = encodeURIComponent(enWord.trim());
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedEn}&type=2`;
+        audioPlayer.play().catch(() => speakNative(enWord, "en-US"));
+    }
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) {
+        el.open = true;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+window.addEventListener("DOMContentLoaded", () => setLanguage(currentLang));
+</script>
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body id='top'>
+<div class="nav-bar"><a class="nav-link home" href="index.html">🏛️ 抽象库总目录</a><a class="nav-link" href="01_学校教育、学科专业与学术理论.html">01 学校教育、学科专业与学术理论 (1279)</a><a class="nav-link" href="02_情绪感受、心理状态与性格特质.html">02 情绪感受、心理状态与性格特质 (590)</a><a class="nav-link" href="03_认知思维、逻辑推理与智力才华.html">03 认知思维、逻辑推理与智力才华 (1109)</a><a class="nav-link" href="04_语言修辞、言谈表达与信息传播.html">04 语言修辞、言谈表达与信息传播 (1955)</a><a class="nav-link" href="05_法律规范、犯罪惩戒与权利义务.html">05 法律规范、犯罪惩戒与权利义务 (207)</a><a class="nav-link" href="06_政治体制、意识形态与权力治理.html">06 政治体制、意识形态与权力治理 (95)</a><a class="nav-link" href="07_经济金融、商业贸易与资产收支.html">07 经济金融、商业贸易与资产收支 (446)</a><a class="nav-link" href="08_社会关系、文化习俗与道德伦理.html">08 社会关系、文化习俗与道德伦理 (199)</a><a class="nav-link" href="09_境遇状态、命运祸福与危机困境.html">09 境遇状态、命运祸福与危机困境 (1020)</a><a class="nav-link" href="10_变化过程、兴衰趋势与行为动作.html">10 变化过程、兴衰趋势与行为动作 (2008)</a><a class="nav-link active" href="11_时间纪元、阶段周期与空间方位.html">11 时间纪元、阶段周期与空间方位 (70)</a><a class="nav-link" href="12_系统属性、优劣特征与因果关联.html">12 系统属性、优劣特征与因果关联 (1207)</a><div class="lang-switch-box"><button class="lang-btn en-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button><button class="lang-btn fr-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Français</button></div></div>
+<h1>11 · 时间纪元、阶段周期与空间方位 (Time, Eras, Intervals & Spatial Concepts)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本大类共 <b>70</b> 个高阶抽象概念词（分为 <b>4</b> 个折叠子表）• 支持右上角 <b>🇬🇧 英语 / 🇫🇷 法语（含冠词与阴阳性）</b> 一键切换</p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><span style='color:#a5b4fc;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">01 时代、纪元、千禧年与历史时期 (5)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">02 间隔、期限、瞬间与持久永恒 (10)</a><a class='sub-pill' onclick="jumpToSection('sub_2')">03 开端、巅峰、尾声与转折节点 (24)</a><a class='sub-pill' onclick="jumpToSection('sub_3')">04 维度、距离、范围、边界与方位概念 (31)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 时代、纪元、千禧年与历史时期 (Eras, Epochs, Centuries & Antiquity)</span><span class='sub-meta'>共 5 词 • 点击展开 / 收起</span></summary><table><tr><th width='20%'>抽象词 (英 / 法切换)</th><th width='13%'>音标 / 发音</th><th width='21%'>中文释义</th><th width='21%'>英文精准定义 (WordNet)</th><th width='5%'>词频</th><th width='20%'>语境例句 & 同义思辨网</th></tr>
+<tr><td class='word'><span class='word-en-box'>posterity</span><span class='word-fr-box'>la postérité<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 posterity</span></span></td><td class='phonetic'><span class='ph-en-text'>/pɒ'steriti/</span><span class='ph-fr-text'>/pɔsteʁite/</span> <button class='audio-btn' onclick="playWord('posterity', 'la postérité')" title='播放发音'>🔊</button></td><td>n. 子孙, 后裔</td><td class='def-en'>all of the offspring of a given progenitor</td><td>2.97</td><td><div class='ctx-box'><div class='ctx-ex'>“we must secure the benefits of freedom for ourselves and our posterity”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>descendants</span></div><div class='ctx-syn'><b>上位概念:</b> biological group</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>bygone</span><span class='word-fr-box'>la bygone<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 bygone</span></span></td><td class='phonetic'><span class='ph-en-text'>/'baigɒn/</span><span class='ph-fr-text'>/bygon/</span> <button class='audio-btn' onclick="playWord('bygone', 'la bygone')" title='播放发音'>🔊</button></td><td>n. 过去的事, 往事</td><td class='def-en'>past events to be put aside</td><td>2.83</td><td><div class='ctx-box'><div class='ctx-ex'>“let bygones be bygones”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>water under the bridge</span></div><div class='ctx-syn'><b>上位概念:</b> past</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>yore</span><span class='word-fr-box'>l'yore<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 yore</span></span></td><td class='phonetic'><span class='ph-en-text'>/jɔ:, jɔә/</span><span class='ph-fr-text'>/yoʁ/</span> <button class='audio-btn' onclick="playWord('yore', 'l\'yore')" title='播放发音'>🔊</button></td><td>n. 从前, 往昔</td><td class='def-en'>time long past</td><td>2.64</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of yore (time long past).”</div><div class='ctx-syn'><b>上位概念:</b> past</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>yesteryear</span><span class='word-fr-box'>le passé<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 yesteryear</span></span></td><td class='phonetic'><span class='ph-en-text'>/'jestәjiә(r)/</span><span class='ph-fr-text'>/pase/</span> <button class='audio-btn' onclick="playWord('yesteryear', 'le passé')" title='播放发音'>🔊</button></td><td>n. 去年, 不久以前</td><td class='def-en'>the time that has elapsed</td><td>2.62</td><td><div class='ctx-box'><div class='ctx-ex'>“forget the past”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>past</span><span class='syn-tag'>past times</span></div><div class='ctx-syn'><b>上位概念:</b> time</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>offing</span><span class='word-fr-box'>l'offing<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 offing</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ɒ:fiŋ/</span><span class='ph-fr-text'>/offɛ̃g/</span> <button class='audio-btn' onclick="playWord('offing', 'l\'offing')" title='播放发音'>🔊</button></td><td>n. 海面, 离岸距离</td><td class='def-en'>the near or foreseeable future</td><td>2.61</td><td><div class='ctx-box'><div class='ctx-ex'>“there was a wedding in the offing”</div><div class='ctx-syn'><b>上位概念:</b> future</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 间隔、期限、瞬间与持久永恒 (Intervals, Deadlines, Eternity & Duration)</span><span class='sub-meta'>共 10 词 • 点击展开 / 收起</span></summary><table><tr><th width='20%'>抽象词 (英 / 法切换)</th><th width='13%'>音标 / 发音</th><th width='21%'>中文释义</th><th width='21%'>英文精准定义 (WordNet)</th><th width='5%'>词频</th><th width='20%'>语境例句 & 同义思辨网</th></tr>
+<tr><td class='word'><span class='word-en-box'>frequency</span><span class='word-fr-box'>la fréquence<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 frequency</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fri:kwәnsi/</span><span class='ph-fr-text'>/fʁekɑ̃s/</span> <button class='audio-btn' onclick="playWord('frequency', 'la fréquence')" title='播放发音'>🔊</button></td><td>n. 频率, 频数</td><td class='def-en'>the number of occurrences within a given time period</td><td>4.36</td><td><div class='ctx-box'><div class='ctx-ex'>“the frequency of modulation was 40 cycles per second”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>frequence</span><span class='syn-tag'>oftenness</span></div><div class='ctx-syn'><b>上位概念:</b> rate</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>infinity</span><span class='word-fr-box'>l'infini<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 infinity</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'finiti/</span><span class='ph-fr-text'>/ɛ̃fini/</span> <button class='audio-btn' onclick="playWord('infinity', 'l\'infini')" title='播放发音'>🔊</button></td><td>n. 无限大, 无限</td><td class='def-en'>time without end</td><td>3.82</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of infinity (time without end).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>eternity</span></div><div class='ctx-syn'><b>上位概念:</b> time</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>eternity</span><span class='word-fr-box'>l'infini<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 eternity</span></span></td><td class='phonetic'><span class='ph-en-text'>/i'tә:niti/</span><span class='ph-fr-text'>/ɛ̃fini/</span> <button class='audio-btn' onclick="playWord('eternity', 'l\'infini')" title='播放发音'>🔊</button></td><td>n. 永远, 来世, 不朽</td><td class='def-en'>time without end</td><td>3.8</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of eternity (time without end).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>infinity</span></div><div class='ctx-syn'><b>上位概念:</b> time</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>infrared<span class='badge-conv'>兼类词</span></span><span class='word-fr-box'>l'infrarouge<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 infrared</span></span></td><td class='phonetic'><span class='ph-en-text'>/.infrә'red/</span><span class='ph-fr-text'>/ɛ̃fʁaʁuʒ/</span> <button class='audio-btn' onclick="playWord('infrared', 'l\'infrarouge')" title='播放发音'>🔊</button></td><td>n. 红外线</td><td class='def-en'>the infrared region of the electromagnetic spectrum; electromagnetic wave frequencies below the visible range</td><td>3.71</td><td><div class='ctx-box'><div class='ctx-ex'>“they could sense radiation in the infrared”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>infrared frequency</span></div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sampling frequency<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le sampling frequency<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sampling frequency</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈsæmplɪŋ ˈfri:kwənsi/</span><span class='ph-fr-text'>/samplɛ̃g fʁekɑ̃sy/</span> <button class='audio-btn' onclick="playWord('sampling frequency', 'le sampling frequency')" title='播放发音'>🔊</button></td><td>取样频率; 量化频率; 采样率; 采样频率</td><td class='def-en'>(telecommunication) the frequency of sampling a continuously varying signal</td><td>3.66</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of sampling frequency ((telecommunication) the frequency of sampling a continuously varying signal).”</div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>infrared frequency<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'infrarouge<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 infrared frequency</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈinfrəˈred ˈfri:kwənsi/</span><span class='ph-fr-text'>/ɛ̃fʁaʁuʒ/</span> <button class='audio-btn' onclick="playWord('infrared frequency', 'l\'infrarouge')" title='播放发音'>🔊</button></td><td>[医]红外频率</td><td class='def-en'>the infrared region of the electromagnetic spectrum; electromagnetic wave frequencies below the visible range</td><td>3.62</td><td><div class='ctx-box'><div class='ctx-ex'>“they could sense radiation in the infrared”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>infrared</span></div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>longevity</span><span class='word-fr-box'>le longevity<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 longevity</span></span></td><td class='phonetic'><span class='ph-en-text'>/lɒn'dʒeviti/</span><span class='ph-fr-text'>/lɔ̃ʒevity/</span> <button class='audio-btn' onclick="playWord('longevity', 'le longevity')" title='播放发音'>🔊</button></td><td>n. 长命, 长寿, 寿命</td><td class='def-en'>duration of service</td><td>3.55</td><td><div class='ctx-box'><div class='ctx-ex'>“her longevity as a star”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>length of service</span></div><div class='ctx-syn'><b>上位概念:</b> longness</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>audio frequency<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'audio frequency<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 audio frequency</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ɒ:diou 'fri:kwәnsi/</span><span class='ph-fr-text'>/odio fʁekɑ̃sy/</span> <button class='audio-btn' onclick="playWord('audio frequency', 'l\'audio frequency')" title='播放发音'>🔊</button></td><td>音频；[计] 声频</td><td class='def-en'>an audible acoustic wave frequency</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of audio frequency (an audible acoustic wave frequency).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>audio</span></div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>radio frequency<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'onde radio<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 radio frequency</span></span></td><td class='phonetic'><span class='ph-en-text'>/'reidiәu 'fri:kwәnsi/</span><span class='ph-fr-text'>/ɔ̃d ʁadjo/</span> <button class='audio-btn' onclick="playWord('radio frequency', 'l\'onde radio')" title='播放发音'>🔊</button></td><td>无线电频率；[计] 射频</td><td class='def-en'>an electromagnetic wave frequency between audio and infrared</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of radio frequency (an electromagnetic wave frequency between audio and infrared).”</div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>wave number<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la wave number<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 wave number</span></span></td><td class='phonetic'><span class='ph-en-text'>/weiv 'nʌmbә/</span><span class='ph-fr-text'>/wav nymbeʁ/</span> <button class='audio-btn' onclick="playWord('wave number', 'la wave number')" title='播放发音'>🔊</button></td><td>[医] 波数</td><td class='def-en'>the reciprocal of the wavelength of a wave</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of wave number (the reciprocal of the wavelength of a wave).”</div><div class='ctx-syn'><b>上位概念:</b> frequency</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 开端、巅峰、尾声与转折节点 (Inception, Climax, Aftermath & Milestones)</span><span class='sub-meta'>共 24 词 • 点击展开 / 收起</span></summary><table><tr><th width='20%'>抽象词 (英 / 法切换)</th><th width='13%'>音标 / 发音</th><th width='21%'>中文释义</th><th width='21%'>英文精准定义 (WordNet)</th><th width='5%'>词频</th><th width='20%'>语境例句 & 同义思辨网</th></tr>
+<tr><td class='word'><span class='word-en-box'>fundamental</span><span class='word-fr-box'>le fundamental<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 fundamental</span></span></td><td class='phonetic'><span class='ph-en-text'>/.fʌndә'mentәl/</span><span class='ph-fr-text'>/fyndamɑ̃tal/</span> <button class='audio-btn' onclick="playWord('fundamental', 'le fundamental')" title='播放发音'>🔊</button></td><td>n. 基本原理, 原则, 基波</td><td class='def-en'>any factor that could be considered important to the understanding of a particular business</td><td>4.33</td><td><div class='ctx-box'><div class='ctx-ex'>“fundamentals include a company's growth, revenues, earnings, management, and capital structure”</div><div class='ctx-syn'><b>上位概念:</b> factor</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>opener</span><span class='word-fr-box'>l'opener<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 opener</span></span></td><td class='phonetic'><span class='ph-en-text'>/'әupәnә/</span><span class='ph-fr-text'>/openeʁ/</span> <button class='audio-btn' onclick="playWord('opener', 'l\'opener')" title='播放发音'>🔊</button></td><td>n. 开...的人, 开局人, 开创人, 开具, 开启工具, 首项</td><td class='def-en'>the first event in a series</td><td>3.88</td><td><div class='ctx-box'><div class='ctx-ex'>“she played Chopin for her opener”</div><div class='ctx-syn'><b>上位概念:</b> start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>genesis</span><span class='word-fr-box'>la genèse<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 genesis</span></span></td><td class='phonetic'><span class='ph-en-text'>/'dʒenisis/</span><span class='ph-fr-text'>/ʒənɛz/</span> <button class='audio-btn' onclick="playWord('genesis', 'la genèse')" title='播放发音'>🔊</button></td><td>n. 发生, 起源, 创世记</td><td class='def-en'>a coming into being</td><td>3.85</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of genesis (a coming into being).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>generation</span></div><div class='ctx-syn'><b>上位概念:</b> beginning</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>emergence</span><span class='word-fr-box'>la croissance<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 emergence</span></span></td><td class='phonetic'><span class='ph-en-text'>/i'mә:dʒәns/</span><span class='ph-fr-text'>/kʁwasɑ̃s/</span> <button class='audio-btn' onclick="playWord('emergence', 'la croissance')" title='播放发音'>🔊</button></td><td>n. 出现, 浮现, 发生</td><td class='def-en'>the gradual beginning or coming forth</td><td>3.74</td><td><div class='ctx-box'><div class='ctx-ex'>“figurines presage the emergence of sculpture in Greece”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>outgrowth</span><span class='syn-tag'>growth</span></div><div class='ctx-syn'><b>上位概念:</b> beginning</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>onset</span><span class='word-fr-box'>l'attaque<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 onset</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ɒnset/</span><span class='ph-fr-text'>/atak/</span> <button class='audio-btn' onclick="playWord('onset', 'l\'attaque')" title='播放发音'>🔊</button></td><td>n. 开始, 攻击, 进攻</td><td class='def-en'>the beginning or early stages</td><td>3.72</td><td><div class='ctx-box'><div class='ctx-ex'>“the onset of pneumonia”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>oncoming</span></div><div class='ctx-syn'><b>上位概念:</b> start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>inception</span><span class='word-fr-box'>le commencement<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 inception</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'sepʃәn/</span><span class='ph-fr-text'>/kɔmɑ̃smɑ̃/</span> <button class='audio-btn' onclick="playWord('inception', 'le commencement')" title='播放发音'>🔊</button></td><td>n. 起初, 获得学位</td><td class='def-en'>an event that is a beginning; a first part or stage of subsequent events</td><td>3.65</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of inception (an event that is a beginning).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>origin</span><span class='syn-tag'>origination</span></div><div class='ctx-syn'><b>上位概念:</b> beginning</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>climax</span><span class='word-fr-box'>le climax<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 climax</span></span></td><td class='phonetic'><span class='ph-en-text'>/'klaimæks/</span><span class='ph-fr-text'>/klima/</span> <button class='audio-btn' onclick="playWord('climax', 'le climax')" title='播放发音'>🔊</button></td><td>n. 高潮, 极点, 层进法</td><td class='def-en'>the highest point of anything conceived of as growing or developing or unfolding</td><td>3.6</td><td><div class='ctx-box'><div class='ctx-ex'>“the climax of the artist's career”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>flood tide</span></div><div class='ctx-syn'><b>上位概念:</b> juncture</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>procession</span><span class='word-fr-box'>le lever<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 procession</span></span></td><td class='phonetic'><span class='ph-en-text'>/prә'seʃәn/</span><span class='ph-fr-text'>/ləve/</span> <button class='audio-btn' onclick="playWord('procession', 'le lever')" title='播放发音'>🔊</button></td><td>n. 队伍, 连续, 列队行进, 涌出</td><td class='def-en'>(theology) the origination of the Holy Spirit at Pentecost</td><td>3.57</td><td><div class='ctx-box'><div class='ctx-ex'>“the emanation of the Holy Spirit”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>emanation</span><span class='syn-tag'>rise</span></div><div class='ctx-syn'><b>上位概念:</b> origin</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>intrinsic factor<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'intrinsic factor<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 intrinsic factor</span></span></td><td class='phonetic'><span class='ph-en-text'>/in'trinsik 'fæktә/</span><span class='ph-fr-text'>/ɛ̃tʁɛ̃sik faktoʁ/</span> <button class='audio-btn' onclick="playWord('intrinsic factor', 'l\'intrinsic factor')" title='播放发音'>🔊</button></td><td>[医] [造血]内因子</td><td class='def-en'>a substance produced by the mucosa of the stomach and intestines that is essential for the absorption of vitamin B12</td><td>3.44</td><td><div class='ctx-box'><div class='ctx-ex'>“lack of intrinsic factor can result in pernicious anemia”</div><div class='ctx-syn'><b>上位概念:</b> factor</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>prelude</span><span class='word-fr-box'>l'ouverture<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 prelude</span></span></td><td class='phonetic'><span class='ph-en-text'>/'prelju:d/</span><span class='ph-fr-text'>/uvɛʁtyʁ/</span> <button class='audio-btn' onclick="playWord('prelude', 'l\'ouverture')" title='播放发音'>🔊</button></td><td>n. 前奏, 序幕, 序诗, 前奏曲</td><td class='def-en'>something that serves as a preceding event or introduces what follows</td><td>3.3</td><td><div class='ctx-box'><div class='ctx-ex'>“training is a necessary preliminary to employment”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>preliminary</span><span class='syn-tag'>overture</span></div><div class='ctx-syn'><b>上位概念:</b> origin</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>unknown quantity<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'unknown quantity<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 unknown quantity</span></span></td><td class='phonetic'><span class='ph-en-text'>/.ʌn'nәun 'kwɒntәti/</span><span class='ph-fr-text'>/ynknown kɑ̃tity/</span> <button class='audio-btn' onclick="playWord('unknown quantity', 'l\'unknown quantity')" title='播放发音'>🔊</button></td><td>[化] 未知量</td><td class='def-en'>a factor in a given situation whose bearing and importance is not apparent</td><td>3.24</td><td><div class='ctx-box'><div class='ctx-ex'>“I don't know what the new man will do; he's still an unknown quantity”</div><div class='ctx-syn'><b>上位概念:</b> factor</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>crime wave<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la crime wave<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 crime wave</span></span></td><td class='phonetic'><span class='ph-en-text'>/kraim weiv/</span><span class='ph-fr-text'>/kʁim wav/</span> <button class='audio-btn' onclick="playWord('crime wave', 'la crime wave')" title='播放发音'>🔊</button></td><td>恶浪</td><td class='def-en'>a sudden rise in the crime rate</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of crime wave (a sudden rise in the crime rate).”</div><div class='ctx-syn'><b>上位概念:</b> rise</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>flood tide<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le flood tide<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 flood tide</span></span></td><td class='phonetic'><span class='ph-en-text'>/flʌd taid/</span><span class='ph-fr-text'>/floo ti/</span> <button class='audio-btn' onclick="playWord('flood tide', 'le flood tide')" title='播放发音'>🔊</button></td><td>涨潮, 高峰</td><td class='def-en'>the highest point of anything conceived of as growing or developing or unfolding</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“the climax of the artist's career”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>climax</span></div><div class='ctx-syn'><b>上位概念:</b> juncture</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>flying start<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le flying start<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 flying start</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈflaɪɪŋ stɑ:t/</span><span class='ph-fr-text'>/flyɛ̃g staʁ/</span> <button class='audio-btn' onclick="playWord('flying start', 'le flying start')" title='播放发音'>🔊</button></td><td>n. 快速起跑; 快速起动; 迅速起步; 迅速发展</td><td class='def-en'>a racing start in which the contestants are already in full motion when they pass the starting line</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of flying start (a racing start in which the contestants are already in full motion when they pass the starting line).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>running start</span></div><div class='ctx-syn'><b>上位概念:</b> racing start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>opening night<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'opening night<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 opening night</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈəupəniŋ nait/</span><span class='ph-fr-text'>/openɛ̃g nig/</span> <button class='audio-btn' onclick="playWord('opening night', 'l\'opening night')" title='播放发音'>🔊</button></td><td>（戏等）上演的第一夜</td><td class='def-en'>the first performance (as of a theatrical production)</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“the opening received good critical reviews”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>opening</span><span class='syn-tag'>curtain raising</span></div><div class='ctx-syn'><b>上位概念:</b> start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>racing start<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le racing start<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 racing start</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈreisiŋ stɑ:t/</span><span class='ph-fr-text'>/ʁakɛ̃g staʁ/</span> <button class='audio-btn' onclick="playWord('racing start', 'le racing start')" title='播放发音'>🔊</button></td><td>[体]比赛出发</td><td class='def-en'>the start of a race</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of racing start (the start of a race).”</div><div class='ctx-syn'><b>上位概念:</b> start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>running start<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le running start<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 running start</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈrʌnɪŋ stɑ:t/</span><span class='ph-fr-text'>/ʁynnɛ̃g staʁ/</span> <button class='audio-btn' onclick="playWord('running start', 'le running start')" title='播放发音'>🔊</button></td><td>良好的开端</td><td class='def-en'>a racing start in which the contestants are already in full motion when they pass the starting line</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of running start (a racing start in which the contestants are already in full motion when they pass the starting line).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>flying start</span></div><div class='ctx-syn'><b>上位概念:</b> racing start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>wild card<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le wild card<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 wild card</span></span></td><td class='phonetic'><span class='ph-en-text'>/waild kɑ:d/</span><span class='ph-fr-text'>/wil kaʁ/</span> <button class='audio-btn' onclick="playWord('wild card', 'le wild card')" title='播放发音'>🔊</button></td><td>n. 未知数; 外卡; 通配符</td><td class='def-en'>an unpredictable factor</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“the weather was a wild card”</div><div class='ctx-syn'><b>上位概念:</b> factor</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>oncoming<span class='badge-conv'>兼类词</span></span><span class='word-fr-box'>l'attaque<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 oncoming</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ɒnkʌmiŋ/</span><span class='ph-fr-text'>/atak/</span> <button class='audio-btn' onclick="playWord('oncoming', 'l\'attaque')" title='播放发音'>🔊</button></td><td>n. 来临</td><td class='def-en'>the beginning or early stages</td><td>3.07</td><td><div class='ctx-box'><div class='ctx-ex'>“the onset of pneumonia”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>onset</span></div><div class='ctx-syn'><b>上位概念:</b> start</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>fertilization</span><span class='word-fr-box'>la fécondation<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 fertilization</span></span></td><td class='phonetic'><span class='ph-en-text'>/.fә:tilai'zeiʃәn/</span><span class='ph-fr-text'>/fekɔ̃dasjɔ̃/</span> <button class='audio-btn' onclick="playWord('fertilization', 'la fécondation')" title='播放发音'>🔊</button></td><td>n. 使肥沃, 土地肥沃法, 施肥</td><td class='def-en'>creation by the physical union of male and female gametes; of sperm and ova in an animal or pollen and ovule in a plant</td><td>3.05</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of fertilization (creation by the physical union of male and female gametes).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>fertilisation</span><span class='syn-tag'>fecundation</span><span class='syn-tag'>impregnation</span></div><div class='ctx-syn'><b>上位概念:</b> creation</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pollination</span><span class='word-fr-box'>la pollinisation<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 pollination</span></span></td><td class='phonetic'><span class='ph-en-text'>/.pɒli'neiʃәn/</span><span class='ph-fr-text'>/pɔlinizasjɔ̃/</span> <button class='audio-btn' onclick="playWord('pollination', 'la pollinisation')" title='播放发音'>🔊</button></td><td>n. 授粉</td><td class='def-en'>transfer of pollen from the anther to the stigma of a plant</td><td>2.98</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of pollination (transfer of pollen from the anther to the stigma of a plant).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>pollenation</span></div><div class='ctx-syn'><b>上位概念:</b> fertilization</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>origination</span><span class='word-fr-box'>le commencement<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 origination</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә.ridʒi'neiʃәn/</span><span class='ph-fr-text'>/kɔmɑ̃smɑ̃/</span> <button class='audio-btn' onclick="playWord('origination', 'le commencement')" title='播放发音'>🔊</button></td><td>n. 开始, 起始, 起源</td><td class='def-en'>an event that is a beginning; a first part or stage of subsequent events</td><td>2.71</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of origination (an event that is a beginning).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>origin</span><span class='syn-tag'>inception</span></div><div class='ctx-syn'><b>上位概念:</b> beginning</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>etiology</span><span class='word-fr-box'>l'étiologie<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 etiology</span></span></td><td class='phonetic'><span class='ph-en-text'>/,i:ti'ɔlәdʒi/</span><span class='ph-fr-text'>/etjɔlɔʒi/</span> <button class='audio-btn' onclick="playWord('etiology', 'l\'étiologie')" title='播放发音'>🔊</button></td><td>n. 病原学, 病因学</td><td class='def-en'>the cause of a disease</td><td>2.61</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of etiology (the cause of a disease).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>aetiology</span></div><div class='ctx-syn'><b>上位概念:</b> cause</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>fertilisation</span><span class='word-fr-box'>la fécondation<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 fertilisation</span></span></td><td class='phonetic'><span class='ph-en-text'>/,f\\\\:tilai'zeiʃən;-li'z-/</span><span class='ph-fr-text'>/fekɔ̃dasjɔ̃/</span> <button class='audio-btn' onclick="playWord('fertilisation', 'la fécondation')" title='播放发音'>🔊</button></td><td>n. <主英>=fertilization</td><td class='def-en'>creation by the physical union of male and female gametes; of sperm and ova in an animal or pollen and ovule in a plant</td><td>2.54</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of fertilisation (creation by the physical union of male and female gametes).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>fertilization</span><span class='syn-tag'>fecundation</span><span class='syn-tag'>impregnation</span></div><div class='ctx-syn'><b>上位概念:</b> creation</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_3'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>04 · 维度、距离、范围、边界与方位概念 (Dimensions, Scope, Proximity & Boundaries)</span><span class='sub-meta'>共 31 词 • 点击展开 / 收起</span></summary><table><tr><th width='20%'>抽象词 (英 / 法切换)</th><th width='13%'>音标 / 发音</th><th width='21%'>中文释义</th><th width='21%'>英文精准定义 (WordNet)</th><th width='5%'>词频</th><th width='20%'>语境例句 & 同义思辨网</th></tr>
+<tr><td class='word'><span class='word-en-box'>scope</span><span class='word-fr-box'>l'ampleur<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 scope</span></span></td><td class='phonetic'><span class='ph-en-text'>/skәup/</span><span class='ph-fr-text'>/ɑ̃plœʁ/</span> <button class='audio-btn' onclick="playWord('scope', 'l\'ampleur')" title='播放发音'>🔊</button></td><td>n. 范围, 机会, 广度, 眼界, 观察仪器, 导弹射程</td><td class='def-en'>an area in which something acts or operates or has power or control:</td><td>4.26</td><td><div class='ctx-box'><div class='ctx-ex'>“the range of a supersonic jet”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>range</span><span class='syn-tag'>reach</span><span class='syn-tag'>orbit</span><span class='syn-tag'>compass</span></div><div class='ctx-syn'><b>上位概念:</b> extent</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sweep</span><span class='word-fr-box'>le balayer<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sweep</span></span></td><td class='phonetic'><span class='ph-en-text'>/swi:p/</span><span class='ph-fr-text'>/baleje/</span> <button class='audio-btn' onclick="playWord('sweep', 'le balayer')" title='播放发音'>🔊</button></td><td>n. 扫除, 打扫, 肃清, 视野, 范围, 全胜</td><td class='def-en'>a wide scope</td><td>3.97</td><td><div class='ctx-box'><div class='ctx-ex'>“the sweep of the plains”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>expanse</span></div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>clearance</span><span class='word-fr-box'>la clearance<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 clearance</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kliәrәns/</span><span class='ph-fr-text'>/kleaʁɑ̃/</span> <button class='audio-btn' onclick="playWord('clearance', 'la clearance')" title='播放发音'>🔊</button></td><td>n. 清除, 间隙</td><td class='def-en'>the distance by which one thing clears another; the space between them</td><td>3.96</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of clearance (the distance by which one thing clears another).”</div><div class='ctx-syn'><b>上位概念:</b> interval</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>altitude</span><span class='word-fr-box'>l'altitude<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 altitude</span></span></td><td class='phonetic'><span class='ph-en-text'>/'æltitju:d/</span><span class='ph-fr-text'>/altityd/</span> <button class='audio-btn' onclick="playWord('altitude', 'l\'altitude')" title='播放发音'>🔊</button></td><td>n. 高度, 海拔, 高处</td><td class='def-en'>elevation especially above sea level or above the earth's surface</td><td>3.92</td><td><div class='ctx-box'><div class='ctx-ex'>“the altitude gave her a headache”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>height</span></div><div class='ctx-syn'><b>上位概念:</b> elevation</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>horizontal</span><span class='word-fr-box'>l'horizontal<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 horizontal</span></span></td><td class='phonetic'><span class='ph-en-text'>/.hɒri'zɒntәl/</span><span class='ph-fr-text'>/ɔʁizɔ̃tal/</span> <button class='audio-btn' onclick="playWord('horizontal', 'l\'horizontal')" title='播放发音'>🔊</button></td><td>n. 水平线, 水平面, 水平位置；n. 水平</td><td class='def-en'>something that is oriented horizontally</td><td>3.9</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of horizontal (something that is oriented horizontally).”</div><div class='ctx-syn'><b>上位概念:</b> orientation</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>proximity</span><span class='word-fr-box'>le voisinage<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 proximity</span></span></td><td class='phonetic'><span class='ph-en-text'>/prɒk'simiti/</span><span class='ph-fr-text'>/vwazinaʒ/</span> <button class='audio-btn' onclick="playWord('proximity', 'le voisinage')" title='播放发音'>🔊</button></td><td>n. 接近, 亲近</td><td class='def-en'>the property of being close together</td><td>3.88</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of proximity (the property of being close together).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>propinquity</span></div><div class='ctx-syn'><b>上位概念:</b> nearness</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>thermal barrier<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le thermal barrier<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 thermal barrier</span></span></td><td class='phonetic'><span class='ph-en-text'>/'θә:ml 'bæriә/</span><span class='ph-fr-text'>/tɛʁmal baʁʁieʁ/</span> <button class='audio-btn' onclick="playWord('thermal barrier', 'le thermal barrier')" title='播放发音'>🔊</button></td><td>[化] 保温层; 绝热层</td><td class='def-en'>a limit to high speed flight imposed by aerodynamic heating</td><td>3.79</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of thermal barrier (a limit to high speed flight imposed by aerodynamic heating).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>heat barrier</span></div><div class='ctx-syn'><b>上位概念:</b> limit</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>palette</span><span class='word-fr-box'>la palette<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 palette</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pælit/</span><span class='ph-fr-text'>/palɛt/</span> <button class='audio-btn' onclick="playWord('palette', 'la palette')" title='播放发音'>🔊</button></td><td>n. 调色板, 颜料</td><td class='def-en'>the range of colour characteristic of a particular artist or painting or school of art</td><td>3.74</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of palette (the range of colour characteristic of a particular artist or painting or school of art).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>pallet</span></div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>focal distance<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la distance focale<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 focal distance</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fәukl 'distәns/</span><span class='ph-fr-text'>/distɑ̃s fɔkal/</span> <button class='audio-btn' onclick="playWord('focal distance', 'la distance focale')" title='播放发音'>🔊</button></td><td>[计] 焦距；[化] 焦距</td><td class='def-en'>the distance from a lens to its focus</td><td>3.64</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of focal distance (the distance from a lens to its focus).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>focal length</span></div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>focal length<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la distance focale<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 focal length</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fәukl leŋθ/</span><span class='ph-fr-text'>/distɑ̃s fɔkal/</span> <button class='audio-btn' onclick="playWord('focal length', 'la distance focale')" title='播放发音'>🔊</button></td><td>[计] 焦距；[化] 焦距</td><td class='def-en'>the distance from a lens to its focus</td><td>3.64</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of focal length (the distance from a lens to its focus).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>focal distance</span></div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>mileage</span><span class='word-fr-box'>le kilométrage<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 mileage</span></span></td><td class='phonetic'><span class='ph-en-text'>/'mailidʒ/</span><span class='ph-fr-text'>/kilɔmetʁaʒ/</span> <button class='audio-btn' onclick="playWord('mileage', 'le kilométrage')" title='播放发音'>🔊</button></td><td>n. 英里数</td><td class='def-en'>distance measured in miles</td><td>3.64</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of mileage (distance measured in miles).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>milage</span></div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>utmost</span><span class='word-fr-box'>l'extrême<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 utmost</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ʌtmәust/</span><span class='ph-fr-text'>/ɛkstʁɛm/</span> <button class='audio-btn' onclick="playWord('utmost', 'l\'extrême')" title='播放发音'>🔊</button></td><td>n. 极限, 最大限度, 极度</td><td class='def-en'>the greatest possible degree</td><td>3.61</td><td><div class='ctx-box'><div class='ctx-ex'>“he tried his utmost”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>uttermost</span><span class='syn-tag'>maximum</span><span class='syn-tag'>level best</span></div><div class='ctx-syn'><b>上位概念:</b> limit</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>ground level<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la grade<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 ground level</span></span></td><td class='phonetic'><span class='ph-en-text'>/graund 'levl/</span><span class='ph-fr-text'>/gʁad/</span> <button class='audio-btn' onclick="playWord('ground level', 'la grade')" title='播放发音'>🔊</button></td><td>地平面；[化] 地面标高</td><td class='def-en'>the height of the ground on which something stands</td><td>3.28</td><td><div class='ctx-box'><div class='ctx-ex'>“the base of the tower was below grade”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>grade</span></div><div class='ctx-syn'><b>上位概念:</b> elevation</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>confines</span><span class='word-fr-box'>le confins<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 confines</span></span></td><td class='phonetic'><span class='ph-en-text'>/kәn'fains/</span><span class='ph-fr-text'>/kɔ̃fɛ̃/</span> <button class='audio-btn' onclick="playWord('confines', 'le confins')" title='播放发音'>🔊</button></td><td>n. 疆界, 界线, 范围</td><td class='def-en'>a bounded scope</td><td>3.24</td><td><div class='ctx-box'><div class='ctx-ex'>“he stayed within the confines of the city”</div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hour angle<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le hour angle<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 hour angle</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈauə ˈæŋɡl/</span><span class='ph-fr-text'>/yʁ ɑ̃gl/</span> <button class='audio-btn' onclick="playWord('hour angle', 'le hour angle')" title='播放发音'>🔊</button></td><td>时角, 相位角</td><td class='def-en'>the angular distance along the celestial equator from the observer's meridian to the hour circle of a given celestial body</td><td>3.24</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of hour angle (the angular distance along the celestial equator from the observer's meridian to the hour circle of a given celestial body).”</div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>water level<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le water level<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 water level</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈwɔ:tə ˈlevl/</span><span class='ph-fr-text'>/wateʁ level/</span> <button class='audio-btn' onclick="playWord('water level', 'le water level')" title='播放发音'>🔊</button></td><td>n. 水准, 水位, 水平; 水平面; 吃水线; 潜水面</td><td class='def-en'>the level of the surface of a body of water</td><td>3.24</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of water level (the level of the surface of a body of water).”</div><div class='ctx-syn'><b>上位概念:</b> elevation</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>absolute ceiling<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'absolute ceiling<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 absolute ceiling</span></span></td><td class='phonetic'><span class='ph-en-text'>/'æbsәlu:t 'si:liŋ/</span><span class='ph-fr-text'>/absoly sɛlɛ̃g/</span> <button class='audio-btn' onclick="playWord('absolute ceiling', 'l\'absolute ceiling')" title='播放发音'>🔊</button></td><td>[机] 绝对升限</td><td class='def-en'>the maximum altitude at which an airplane can maintain horizontal flight</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of absolute ceiling (the maximum altitude at which an airplane can maintain horizontal flight).”</div><div class='ctx-syn'><b>上位概念:</b> ceiling</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>combat ceiling<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le combat ceiling<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 combat ceiling</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kɒmbæt 'si:liŋ/</span><span class='ph-fr-text'>/kɔ̃ba sɛlɛ̃g/</span> <button class='audio-btn' onclick="playWord('combat ceiling', 'le combat ceiling')" title='播放发音'>🔊</button></td><td>un. 战斗升限</td><td class='def-en'>altitude above which a plane cannot climb faster than a given rate</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of combat ceiling (altitude above which a plane cannot climb faster than a given rate).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>service ceiling</span></div><div class='ctx-syn'><b>上位概念:</b> ceiling</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>expanse</span><span class='word-fr-box'>le balayer<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 expanse</span></span></td><td class='phonetic'><span class='ph-en-text'>/ik'spæns/</span><span class='ph-fr-text'>/baleje/</span> <button class='audio-btn' onclick="playWord('expanse', 'le balayer')" title='播放发音'>🔊</button></td><td>n. 宽阔区域, 宽阔, 天空</td><td class='def-en'>a wide scope</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“the sweep of the plains”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>sweep</span></div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>far cry<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le far cry<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 far cry</span></span></td><td class='phonetic'><span class='ph-en-text'>/fɑ: krai/</span><span class='ph-fr-text'>/faʁ kʁy/</span> <button class='audio-btn' onclick="playWord('far cry', 'le far cry')" title='播放发音'>🔊</button></td><td>n. 长距离; 天壤之别</td><td class='def-en'>distance estimated in terms of the audibility of a cry</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“it's a far cry from here”</div><div class='ctx-syn'><b>上位概念:</b> farness</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>heat barrier<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le heat barrier<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 heat barrier</span></span></td><td class='phonetic'><span class='ph-en-text'>/hi:t ˈbæriə/</span><span class='ph-fr-text'>/ea baʁʁieʁ/</span> <button class='audio-btn' onclick="playWord('heat barrier', 'le heat barrier')" title='播放发音'>🔊</button></td><td>n. 热障，速度极限</td><td class='def-en'>a limit to high speed flight imposed by aerodynamic heating</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of heat barrier (a limit to high speed flight imposed by aerodynamic heating).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>thermal barrier</span></div><div class='ctx-syn'><b>上位概念:</b> limit</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>level best<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'extrême<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 level best</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈlevl best/</span><span class='ph-fr-text'>/ɛkstʁɛm/</span> <button class='audio-btn' onclick="playWord('level best', 'l\'extrême')" title='播放发音'>🔊</button></td><td>全力</td><td class='def-en'>the greatest possible degree</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“he tried his utmost”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>utmost</span><span class='syn-tag'>uttermost</span><span class='syn-tag'>maximum</span></div><div class='ctx-syn'><b>上位概念:</b> limit</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>mean distance<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le mean distance<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 mean distance</span></span></td><td class='phonetic'><span class='ph-en-text'>/mi:n ˈdistəns/</span><span class='ph-fr-text'>/meɑ̃ distɑ̃s/</span> <button class='audio-btn' onclick="playWord('mean distance', 'le mean distance')" title='播放发音'>🔊</button></td><td>平均距离</td><td class='def-en'>the arithmetic mean of the maximum and minimum distances of a celestial body (satellite or secondary star) from its primary</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of mean distance (the arithmetic mean of the maximum and minimum distances of a celestial body (satellite or secondary star) from its primary).”</div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sea level<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le niveau de la mer<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sea level</span></span></td><td class='phonetic'><span class='ph-en-text'>/si: 'levl/</span><span class='ph-fr-text'>/nivo də la mɛʁ/</span> <button class='audio-btn' onclick="playWord('sea level', 'le niveau de la mer')" title='播放发音'>🔊</button></td><td>海平面</td><td class='def-en'>level of the ocean's surface (especially that halfway between mean high and low tide); used as a standard in reckoning land elevation or sea depth</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of sea level (level of the ocean's surface (especially that halfway between mean high and low tide)).”</div><div class='ctx-syn'><b>上位概念:</b> water level</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>service ceiling<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la service ceiling<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 service ceiling</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈsɜːvɪs ˈsi:liŋ/</span><span class='ph-fr-text'>/sɛʁvis sɛlɛ̃g/</span> <button class='audio-btn' onclick="playWord('service ceiling', 'la service ceiling')" title='播放发音'>🔊</button></td><td>实用升限</td><td class='def-en'>altitude above which a plane cannot climb faster than a given rate</td><td>3.2</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of service ceiling (altitude above which a plane cannot climb faster than a given rate).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>combat ceiling</span></div><div class='ctx-syn'><b>上位概念:</b> ceiling</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pallet</span><span class='word-fr-box'>la palette<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 pallet</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pælit/</span><span class='ph-fr-text'>/palɛt/</span> <button class='audio-btn' onclick="playWord('pallet', 'la palette')" title='播放发音'>🔊</button></td><td>n. 草铺, 简陋小床, 调色板, 棘爪</td><td class='def-en'>the range of colour characteristic of a particular artist or painting or school of art</td><td>3.12</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of pallet (the range of colour characteristic of a particular artist or painting or school of art).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>palette</span></div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>gamut</span><span class='word-fr-box'>la gamme<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 gamut</span></span></td><td class='phonetic'><span class='ph-en-text'>/'gæmәt/</span><span class='ph-fr-text'>/gam/</span> <button class='audio-btn' onclick="playWord('gamut', 'la gamme')" title='播放发音'>🔊</button></td><td>n. 音阶, 整个范围, 全部, 音域</td><td class='def-en'>a complete extent or range:</td><td>2.87</td><td><div class='ctx-box'><div class='ctx-ex'>“a face that expressed a gamut of emotions”</div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>purview</span><span class='word-fr-box'>l'horizon<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 purview</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pә:vju:/</span><span class='ph-fr-text'>/ɔʁizɔ̃/</span> <button class='audio-btn' onclick="playWord('purview', 'l\'horizon')" title='播放发音'>🔊</button></td><td>n. 范围, 权限, 视界</td><td class='def-en'>the range of interest or activity that can be anticipated</td><td>2.86</td><td><div class='ctx-box'><div class='ctx-ex'>“It is beyond the horizon of present knowledge”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>horizon</span><span class='syn-tag'>view</span></div><div class='ctx-syn'><b>上位概念:</b> scope</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>yardage</span><span class='word-fr-box'>l'yardage<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 yardage</span></span></td><td class='phonetic'><span class='ph-en-text'>/'jɑ:didʒ/</span><span class='ph-fr-text'>/yaʁdaʒ/</span> <button class='audio-btn' onclick="playWord('yardage', 'l\'yardage')" title='播放发音'>🔊</button></td><td>n. 车站旁牲畜栏的使用, 牲畜栏使用费</td><td class='def-en'>distance measured in the aggregate number of yards</td><td>2.78</td><td><div class='ctx-box'><div class='ctx-ex'>“what is the yardage of this golf course?”</div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>remoteness</span><span class='word-fr-box'>le remoteness<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 remoteness</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'mәutnis/</span><span class='ph-fr-text'>/ʁemoten/</span> <button class='audio-btn' onclick="playWord('remoteness', 'le remoteness')" title='播放发音'>🔊</button></td><td>n. 远离, 远隔, 微少</td><td class='def-en'>the property of being remote</td><td>2.57</td><td><div class='ctx-box'><div class='ctx-ex'>“The case highlighted the significance of remoteness (the property of being remote).”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>farness</span><span class='syn-tag'>farawayness</span></div><div class='ctx-syn'><b>上位概念:</b> distance</div></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>ambit</span><span class='word-fr-box'>l'ampleur<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 ambit</span></span></td><td class='phonetic'><span class='ph-en-text'>/'æmbit/</span><span class='ph-fr-text'>/ɑ̃plœʁ/</span> <button class='audio-btn' onclick="playWord('ambit', 'l\'ampleur')" title='播放发音'>🔊</button></td><td>n. 周围, 范围, 界限, 领域</td><td class='def-en'>an area in which something acts or operates or has power or control:</td><td>2.45</td><td><div class='ctx-box'><div class='ctx-ex'>“the range of a supersonic jet”</div><div class='ctx-syn'><b>同义:</b> <span class='syn-tag'>scope</span><span class='syn-tag'>range</span><span class='syn-tag'>reach</span><span class='syn-tag'>orbit</span></div><div class='ctx-syn'><b>上位概念:</b> extent</div></div></td></tr>
+</table></details>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>14_文具、办公、印刷纸品与美术器材 (Stationery, Paper & Art Supplies)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1260px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #0f172a; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; transition: all 0.15s; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #2563eb; color: #fff; font-weight: 600; }
+.nav-link.home { background: #0f172a; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.13em; font-weight: 700; color: #0f172a; }
+.badge-comp { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; vertical-align: middle; }
+.badge-conv { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #7e22ce; vertical-align: middle; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #0369a1; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #475569; font-style: italic; font-size: 0.92em; }
+</style>
+<style>
+.lang-switch-box {
+    display: inline-flex; background: #e2e8f0; padding: 3px; border-radius: 99px;
+    border: 1px solid #cbd5e1; margin-left: auto; align-items: center;
+}
+.lang-btn {
+    border: none; background: transparent; padding: 5px 14px; border-radius: 99px;
+    font-size: 0.86em; font-weight: 700; color: #475569; cursor: pointer; transition: all 0.18s;
+}
+.lang-btn.active { background: #2563eb; color: #fff; box-shadow: 0 1px 3px rgba(37,99,235,0.3); }
+body.lang-fr .lang-btn.fr-btn { background: #dc2626; color: #fff; box-shadow: 0 1px 3px rgba(220,38,38,0.3); }
+
+/* 英语与法语显示切换 */
+.word-fr-box { display: none; }
+.en-sub-hint { display: block; font-size: 0.75em; font-weight: 500; color: #64748b; margin-top: 3px; }
+body.lang-fr .word-en-box { display: none; }
+body.lang-fr .word-fr-box { display: inline; color: #0f172a; }
+
+/* 法语阴阳性与复数徽章样式 */
+.fr-pos-m { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #dbeafe; color: #1e40af; vertical-align: middle; }
+.fr-pos-f { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fce7f3; color: #be185d; vertical-align: middle; }
+.fr-pos-mf { display: inline-block; padding: 1px 6px; font-size: 0.72em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #6b21a8; vertical-align: middle; }
+.fr-pl-badge { display: inline-block; padding: 1px 6px; font-size: 0.71em; font-weight: 600; border-radius: 4px; margin-left: 5px; background: #fef3c7; color: #b45309; border: 1px solid #fde68a; vertical-align: middle; }
+
+.ph-fr-text { display: none; color: #b91c1c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+body.lang-fr .ph-en-text { display: none; }
+body.lang-fr .ph-fr-text { display: inline; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 5px; color: #64748b; border-radius: 4px;
+    transition: all 0.15s; vertical-align: middle;
+}
+.audio-btn:hover { color: #2563eb; background: #e2e8f0; transform: scale(1.15); }
+.img-box { position: relative; width: 115px; height: 88px; }
+.img-box img { width: 115px; height: 88px; border-radius: 6px; object-fit: cover; border: 1px solid #cbd5e1; background: #fff; display: block; }
+.swap-btn {
+    position: absolute; bottom: 4px; right: 4px; background: rgba(15,23,42,0.75);
+    color: #fff; border: none; border-radius: 4px; font-size: 11px; padding: 2px 5px;
+    cursor: pointer; opacity: 0; transition: opacity 0.2s;
+}
+.img-box:hover .swap-btn { opacity: 1; }
+.swap-btn:hover { background: #2563eb; }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #eff6ff; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #bfdbfe; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #1e40af; background: #fff; border: 1px solid #93c5fd; transition: all 0.15s; cursor: pointer; }
+.sub-pill:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #1e3a8a; background: #1e3a8a; color: #fff; transition: opacity 0.15s; }
+.ctrl-btn.secondary { background: #fff; color: #1e3a8a; }
+.ctrl-btn:hover { opacity: 0.88; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700; transition: background 0.2s;
+}
+body.lang-fr summary.sub-header { background: linear-gradient(90deg, #7f1d1d, #dc2626); }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #dbeafe; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+const imgOffsetMap = {};
+let currentLang = localStorage.getItem("vocab_lang") || "en";
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("vocab_lang", lang);
+    document.body.classList.toggle("lang-fr", lang === "fr");
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+}
+
+function speakNative(text, langCode) {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = langCode;
+        u.rate = 0.92;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function playWord(enWord, frAudioText) {
+    if (currentLang === "fr") {
+        const cleanFr = frAudioText.trim() || enWord;
+        const encodedFr = encodeURIComponent(cleanFr);
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedFr}&le=fr`;
+        audioPlayer.play().catch(() => speakNative(cleanFr, "fr-FR"));
+    } else {
+        const encodedEn = encodeURIComponent(enWord.trim());
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodedEn}&type=2`;
+        audioPlayer.play().catch(() => speakNative(enWord, "en-US"));
+    }
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) {
+        el.open = true;
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+async function swapImage(word, topicHint, imgId) {
+    const imgEl = document.getElementById(imgId);
+    imgOffsetMap[word] = (imgOffsetMap[word] || 0) + 1;
+    const offset = imgOffsetMap[word];
+    imgEl.style.opacity = "0.4";
+    try {
+        const q = encodeURIComponent(`${word} ${topicHint}`);
+        const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=filetype:bitmap%20${q}&gsrnamespace=6&gsrlimit=6&prop=imageinfo&iiprop=url&iiurlwidth=280&format=json&origin=*`;
+        const resp = await fetch(url);
+        const data = await resp.json();
+        const pages = Object.values(data.query?.pages || {});
+        if (pages.length > 0) {
+            const pick = pages[offset % pages.length];
+            const newUrl = pick.imageinfo?.[0]?.thumburl;
+            if (newUrl) {
+                imgEl.src = newUrl;
+                localStorage.setItem("custom_img_" + word, newUrl);
+            }
+        }
+    } catch (e) { console.error(e); }
+    imgEl.style.opacity = "1";
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    setLanguage(currentLang);
+    document.querySelectorAll("img[data-word]").forEach(img => {
+        const saved = localStorage.getItem("custom_img_" + img.dataset.word);
+        if (saved) img.src = saved;
+    });
+});
+</script>
+</head><body id='top'>
+<div class="nav-bar"><a class="nav-link home" href="index.html">🏠 总目录</a><a class="nav-link" href="01_天文、气象与自然现象.html">01_天文、气象与自然现象 (124)</a><a class="nav-link" href="02_自然地理、水体与矿石.html">02_自然地理、水体与矿石 (201)</a><a class="nav-link" href="03_植物、树木与花果结构.html">03_植物、树木与花果结构 (547)</a><a class="nav-link" href="04_动物与生物界.html">04_动物与生物界 (689)</a><a class="nav-link" href="05_人体解剖、骨骼与体表特征.html">05_人体解剖、骨骼与体表特征 (623)</a><a class="nav-link" href="06_饮食、果蔬食材与烘焙佳肴.html">06_饮食、果蔬食材与烘焙佳肴 (742)</a><a class="nav-link" href="07_服饰、鞋帽、珠宝与面辅料.html">07_服饰、鞋帽、珠宝与面辅料 (483)</a><a class="nav-link" href="08_建筑、房屋构件、室内与家具.html">08_建筑、房屋构件、室内与家具 (1237)</a><a class="nav-link" href="09_交通工具、船舶航空与载具部件.html">09_交通工具、船舶航空与载具部件 (421)</a><a class="nav-link" href="10_工具、五金紧固件与机械装置.html">10_工具、五金紧固件与机械装置 (818)</a><a class="nav-link" href="11_厨房器皿、日常容器与清洁用品.html">11_厨房器皿、日常容器与清洁用品 (322)</a><a class="nav-link" href="12_光学、医疗、计时与电子仪器.html">12_光学、医疗、计时与电子仪器 (1082)</a><a class="nav-link" href="13_乐器、体育器械、露营与武器装备.html">13_乐器、体育器械、露营与武器装备 (111)</a><a class="nav-link active" href="14_文具、办公、印刷纸品与美术器材.html">14_文具、办公、印刷纸品与美术器材 (24)</a><div class="lang-switch-box"><button class="lang-btn en-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 English</button><button class="lang-btn fr-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Français</button></div></div>
+<h1>14_文具、办公、印刷纸品与美术器材 (Stationery, Paper & Art Supplies)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本大类共 <b>24</b> 词（分为 <b>1</b> 个折叠子表，已配图 <b>24</b> 张）• 法语模式已包含 <b>定冠词 le/la + 阴阳词性 (n.m./n.f.) + 雌雄双形态 + 特殊复数</b></p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><span style='color:#93c5fd;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">03_书籍、卡片、票据、地图与印刷纸品 (24)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03_书籍、卡片、票据、地图与印刷纸品 (Books, Maps, Cards & Printed Matter)</span><span class='sub-meta'>共 24 词 • 点击展开 / 收起</span></summary><table><tr><th width='22%'>单词 (英 / 法性数完整形态)</th><th width='14%'>音标 (英 / 法 IPA)</th><th width='22%'>中文释义</th><th width='24%'>英文定义 (WordNet)</th><th width='6%'>词频</th><th width='12%'>实物配图</th></tr>
+<tr><td class='word'><span class='word-en-box'>sketch pad<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le comprimé<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sketch pad</span></span></td><td class='phonetic'><span class='ph-en-text'>/sketʃ pæd/</span><span class='ph-fr-text'>/kɔ̃pʁime/</span> <button class='audio-btn' onclick="playWord('sketch pad', 'le comprimé')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>速写本</td><td class='def-en'>a book containing sheets of paper on which sketches can be drawn</td><td>3.76</td><td><div class='img-box'><img id='img_1' data-word="sketch pad" src='images/sketch_pad.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sketch pad', 'stationery', 'img_1')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>notebook</span><span class='word-fr-box'>le bloc-note<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 notebook</span></span></td><td class='phonetic'><span class='ph-en-text'>/'nәutbuk/</span><span class='ph-fr-text'>/blɔk nɔt/</span> <button class='audio-btn' onclick="playWord('notebook', 'le bloc-note')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 笔记本, 手册, 期票簿</td><td class='def-en'>a book with blank pages for recording notes or memoranda</td><td>3.74</td><td><div class='img-box'><img id='img_2' data-word="notebook" src='images/notebook.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('notebook', 'stationery', 'img_2')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>coloring book<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la livre de coloriage<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 coloring book</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kʌlәriŋ buk/</span><span class='ph-fr-text'>/livʁ də kɔlɔʁjaʒ/</span> <button class='audio-btn' onclick="playWord('coloring book', 'la livre de coloriage')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>儿童彩色画册</td><td class='def-en'>a picture book with line drawings intended to be colored with crayons by children</td><td>3.58</td><td><div class='img-box'><img id='img_3' data-word="coloring book" src='images/coloring_book.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('coloring book', 'stationery', 'img_3')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>autograph album<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le liber amicorum<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 autograph album</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈɔ:təˌgræf ˈælbəm/</span><span class='ph-fr-text'>/lib amikoʁym/</span> <button class='audio-btn' onclick="playWord('autograph album', 'le liber amicorum')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 亲笔签名簿; 纪念册</td><td class='def-en'>an album for autographs</td><td>3.48</td><td><div class='img-box'><img id='img_4' data-word="autograph album" src='images/autograph_album.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('autograph album', 'stationery', 'img_4')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>commonplace book<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la livre<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 commonplace book</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈkɔmənpleis buk/</span><span class='ph-fr-text'>/livʁ/</span> <button class='audio-btn' onclick="playWord('commonplace book', 'la livre')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 摘录簿</td><td class='def-en'>a notebook in which you enter memorabilia</td><td>3.41</td><td><div class='img-box'><img id='img_5' data-word="commonplace book" src='images/commonplace_book.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('commonplace book', 'stationery', 'img_5')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>contour map<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'isoplèthe<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 contour map</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kɒntuә mæp/</span><span class='ph-fr-text'>/izoplɛ/</span> <button class='audio-btn' onclick="playWord('contour map', 'l\'isoplèthe')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>等高线地图；[计] 等值线图</td><td class='def-en'>a map having contour lines through points of equal elevation</td><td>3.35</td><td><div class='img-box'><img id='img_6' data-word="contour map" src='images/contour_map.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('contour map', 'stationery', 'img_6')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hardcover<span class='badge-conv'>兼类词</span></span><span class='word-fr-box'>le hardcover<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 hardcover</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hɑ:dkʌvә/</span><span class='ph-fr-text'>/aʁdkov/</span> <button class='audio-btn' onclick="playWord('hardcover', 'le hardcover')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 硬封面的书, 精装书</td><td class='def-en'>a book with cardboard or cloth or leather covers</td><td>3.32</td><td><div class='img-box'><img id='img_7' data-word="hardcover" src='images/hardcover.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('hardcover', 'stationery', 'img_7')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>playbook</span><span class='word-fr-box'>le playbook<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 playbook</span></span></td><td class='phonetic'><span class='ph-en-text'></span><span class='ph-fr-text'>/plaibook/</span> <button class='audio-btn' onclick="playWord('playbook', 'le playbook')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 剧本, 剧本集</td><td class='def-en'>a notebook containing descriptions and diagrams of the plays that a team has practiced (especially an American football team)</td><td>3.29</td><td><div class='img-box'><img id='img_8' data-word="playbook" src='images/playbook.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('playbook', 'stationery', 'img_8')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>picture book<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'album illustré<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 picture book</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpiktʃə buk/</span><span class='ph-fr-text'>/albɔm ilystʁe/</span> <button class='audio-btn' onclick="playWord('picture book', 'l\'album illustré')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 图画书</td><td class='def-en'>a book consisting chiefly of pictures</td><td>3.24</td><td><div class='img-box'><img id='img_9' data-word="picture book" src='images/picture_book.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('picture book', 'stationery', 'img_9')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sketch map<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la carte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 sketch map</span></span></td><td class='phonetic'><span class='ph-en-text'>/sketʃ mæp/</span><span class='ph-fr-text'>/kaʁt/</span> <button class='audio-btn' onclick="playWord('sketch map', 'la carte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>草图, 示意图</td><td class='def-en'>a map drawn from observation (rather than from exact measurements) and representing the main features of an area</td><td>3.24</td><td><div class='img-box'><img id='img_10' data-word="sketch map" src='images/sketch_map.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sketch map', 'stationery', 'img_10')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>photograph album<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'album photo<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 photograph album</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fәutәgrɑ:f 'ælbәm/</span><span class='ph-fr-text'>/albɔm fɔto/</span> <button class='audio-btn' onclick="playWord('photograph album', 'l\'album photo')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>影集</td><td class='def-en'>an album for photographs</td><td>3.2</td><td><div class='img-box'><img id='img_11' data-word="photograph album" src='images/photograph_album.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('photograph album', 'stationery', 'img_11')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pilot chart<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la graphique<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 pilot chart</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpailət tʃɑ:t/</span><span class='ph-fr-text'>/gʁafik/</span> <button class='audio-btn' onclick="playWord('pilot chart', 'la graphique')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>引航（海）图</td><td class='def-en'>a chart for a navigator showing the prevailing meteorological and hydrographic and navigational conditions</td><td>3.2</td><td><div class='img-box'><img id='img_12' data-word="pilot chart" src='images/pilot_chart.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pilot chart', 'stationery', 'img_12')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pocket book<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le calepin<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pocket book</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈpɔkit buk/</span><span class='ph-fr-text'>/kalpɛ̃/</span> <button class='audio-btn' onclick="playWord('pocket book', 'le calepin')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 小笔记簿, 袖珍普及本</td><td class='def-en'>pocket-sized paperback book</td><td>3.2</td><td><div class='img-box'><img id='img_13' data-word="pocket book" src='images/pocket_book.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pocket book', 'stationery', 'img_13')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>pocket edition<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le calepin<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 pocket edition</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pɒkit i'diʃәn/</span><span class='ph-fr-text'>/kalpɛ̃/</span> <button class='audio-btn' onclick="playWord('pocket edition', 'le calepin')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>袖珍本, 小型物</td><td class='def-en'>pocket-sized paperback book</td><td>3.2</td><td><div class='img-box'><img id='img_14' data-word="pocket edition" src='images/pocket_edition.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('pocket edition', 'stationery', 'img_14')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>relief map<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la carte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 relief map</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'li:f mæp/</span><span class='ph-fr-text'>/kaʁt/</span> <button class='audio-btn' onclick="playWord('relief map', 'la carte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>地势图</td><td class='def-en'>a map having contour lines through points of equal elevation</td><td>3.2</td><td><div class='img-box'><img id='img_15' data-word="relief map" src='images/relief_map.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('relief map', 'stationery', 'img_15')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sketch block<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>le bloc<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sketch block</span></span></td><td class='phonetic'><span class='ph-en-text'>/sketʃ blɔk/</span><span class='ph-fr-text'>/blɔk/</span> <button class='audio-btn' onclick="playWord('sketch block', 'le bloc')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 写生簿</td><td class='def-en'>a book containing sheets of paper on which sketches can be drawn</td><td>3.2</td><td><div class='img-box'><img id='img_16' data-word="sketch block" src='images/sketch_block.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sketch block', 'stationery', 'img_16')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>stamp album<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>l'album de timbres<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 stamp album</span></span></td><td class='phonetic'><span class='ph-en-text'>/stæmp ˈælbəm/</span><span class='ph-fr-text'>/albɔm də tɛ̃bʁ/</span> <button class='audio-btn' onclick="playWord('stamp album', 'l\'album de timbres')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 集邮册</td><td class='def-en'>an album for stamps</td><td>3.2</td><td><div class='img-box'><img id='img_17' data-word="stamp album" src='images/stamp_album.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('stamp album', 'stationery', 'img_17')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>weather chart<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la carte météorologique<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 weather chart</span></span></td><td class='phonetic'><span class='ph-en-text'>/ˈweðə tʃɑ:t/</span><span class='ph-fr-text'>/kaʁt meteɔʁɔlɔʒik/</span> <button class='audio-btn' onclick="playWord('weather chart', 'la carte météorologique')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 气象图; 天气图</td><td class='def-en'>(meteorology) a map showing the principal meteorological elements at a given time and over an extended region</td><td>3.2</td><td><div class='img-box'><img id='img_18' data-word="weather chart" src='images/weather_chart.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('weather chart', 'stationery', 'img_18')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>weather map<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la carte<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 weather map</span></span></td><td class='phonetic'><span class='ph-en-text'>/'weðә mæp/</span><span class='ph-fr-text'>/kaʁt/</span> <button class='audio-btn' onclick="playWord('weather map', 'la carte')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>天气图</td><td class='def-en'>(meteorology) a map showing the principal meteorological elements at a given time and over an extended region</td><td>3.2</td><td><div class='img-box'><img id='img_19' data-word="weather map" src='images/weather_map.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('weather map', 'stationery', 'img_19')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>wind rose<span class='badge-comp'>复合词</span></span><span class='word-fr-box'>la rose des vents<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 wind rose</span></span></td><td class='phonetic'><span class='ph-en-text'>/wind rəuz/</span><span class='ph-fr-text'>/ʁoz de vɑ̃/</span> <button class='audio-btn' onclick="playWord('wind rose', 'la rose des vents')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>风向频率图, 风向风速图, 风向玫瑰图; 风玫瑰; 风图</td><td class='def-en'>weather map showing the frequency and strength of winds from different directions</td><td>3.2</td><td><div class='img-box'><img id='img_20' data-word="wind rose" src='images/wind_rose.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('wind rose', 'stationery', 'img_20')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>plat</span><span class='word-fr-box'>le plat<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 plat</span></span></td><td class='phonetic'><span class='ph-en-text'>/plæt/</span><span class='ph-fr-text'>/pla/</span> <button class='audio-btn' onclick="playWord('plat', 'le plat')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 小块地, 地图</td><td class='def-en'>a map showing planned or actual features of an area (streets and building lots etc.)</td><td>3.1</td><td><div class='img-box'><img id='img_21' data-word="plat" src='images/plat.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('plat', 'stationery', 'img_21')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>scrapbook</span><span class='word-fr-box'>le scrapbook<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 scrapbook</span></span></td><td class='phonetic'><span class='ph-en-text'>/'skræpbuk/</span><span class='ph-fr-text'>/skʁapbook/</span> <button class='audio-btn' onclick="playWord('scrapbook', 'le scrapbook')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 剪贴簿</td><td class='def-en'>an album into which clippings or notes or pictures can be pasted</td><td>2.93</td><td><div class='img-box'><img id='img_22' data-word="scrapbook" src='images/scrapbook.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('scrapbook', 'stationery', 'img_22')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>hardback<span class='badge-conv'>兼类词</span></span><span class='word-fr-box'>la reliure occidentale<span class='fr-pos-f'>n.f.</span><span class='en-sub-hint'>🇬🇧 hardback</span></span></td><td class='phonetic'><span class='ph-en-text'>/'hɑ:dbæk/</span><span class='ph-fr-text'>/ʁəljyʁ ɔksidɑ̃tal/</span> <button class='audio-btn' onclick="playWord('hardback', 'la reliure occidentale')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 精装本</td><td class='def-en'>a book with cardboard or cloth or leather covers</td><td>2.8</td><td><div class='img-box'><img id='img_23' data-word="hardback" src='images/hardback.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('hardback', 'stationery', 'img_23')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+<tr><td class='word'><span class='word-en-box'>sketchbook</span><span class='word-fr-box'>le carnet de croquis<span class='fr-pos-m'>n.m.</span><span class='en-sub-hint'>🇬🇧 sketchbook</span></span></td><td class='phonetic'><span class='ph-en-text'>/sketʃˌbʊk/</span><span class='ph-fr-text'>/kaʁnɛ də kʁɔki/</span> <button class='audio-btn' onclick="playWord('sketchbook', 'le carnet de croquis')" title='播放当前语言发音 (法语连读冠词)'>🔊</button></td><td>n. 写生簿, 素描簿, 短文集, 随笔集</td><td class='def-en'>a book containing sheets of paper on which sketches can be drawn</td><td>2.78</td><td><div class='img-box'><img id='img_24' data-word="sketchbook" src='images/sketchbook.jpg' loading='lazy'/><button class='swap-btn' onclick="swapImage('sketchbook', 'stationery', 'img_24')" title='点击切换下一张图'>🔄 换图</button></div></td></tr>
+</table></details>
+</body></html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>08 · AWAY 远离逃逸、清除丢弃、消逝与持续 (AWAY: Distance, Disposal, Disappearance & Persistence)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #0f172a; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 18px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.84em; font-weight: 500; color: #475569; background: #f1f5f9; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #0d9488; color: #fff; font-weight: 600; }
+body.pt-mode .nav-link.active { background: #c026d3; color: #fff; }
+.nav-link.home { background: #0f172a; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.14em; font-weight: 700; color: #0f172a; }
+.def-en { color: #1e293b; font-size: 0.93em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 32px; }
+.card { background: white; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #2dd4bf; }
+.card.pt-card:hover { border-color: #e879f9; }
+.card h3 { margin: 0 0 6px 0; color: #0f766e; font-size: 1.06em; }
+.card.pt-card h3 { color: #86198f; }
+.meta { font-size: 0.85em; color: #64748b; line-height: 1.55; }
+</style>
+<style>
+.mode-switch-bar {
+    display: flex; gap: 10px; margin-bottom: 16px; background: #0f172a; padding: 10px 16px;
+    border-radius: 10px; align-items: center; color: #fff; flex-wrap: wrap;
+}
+.mode-btn {
+    text-decoration: none; padding: 6px 14px; border-radius: 6px; font-size: 0.9em;
+    font-weight: 700; color: #cbd5e1; background: rgba(255,255,255,0.1); transition: all 0.15s;
+}
+.mode-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+.mode-btn.active-sc { background: #0d9488; color: #fff; }
+.mode-btn.active-pt { background: #c026d3; color: #fff; }
+
+.sep-Separable { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #dcfce7; color: #166534; border: 1px solid #86efac; margin-top: 4px; }
+.sep-Inseparable { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; margin-top: 4px; }
+.sep-Intransitive { display: inline-block; padding: 2px 7px; font-size: 0.72em; font-weight: 700; border-radius: 4px; background: #ffedd5; color: #9a3412; border: 1px solid #fdba74; margin-top: 4px; }
+
+.sense-badge {
+    display: inline-block; font-size: 0.72em; font-weight: 700; padding: 1px 6px;
+    border-radius: 4px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1;
+    margin-left: 6px; vertical-align: middle;
+}
+.eq-verb {
+    display: inline-block; font-size: 1.05em; font-weight: 800; color: #7e22ce;
+    background: #f3e8ff; padding: 4px 10px; border-radius: 6px; border: 1px solid #d8b4fe;
+}
+.cn-precise { font-size: 1.02em; font-weight: 700; color: #0f172a; }
+.pt-highlight { color: #0d9488; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 4px; color: #64748b; border-radius: 4px;
+}
+.audio-btn:hover { color: #0d9488; background: #e2e8f0; transform: scale(1.15); }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #f0fdfa; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #99f6e4; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #115e59; background: #fff; border: 1px solid #5eead4; cursor: pointer; }
+.sub-pill:hover { background: #0d9488; color: #fff; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #134e4a; background: #134e4a; color: #fff; }
+.ctrl-btn.secondary { background: #fff; color: #134e4a; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #134e4a, #0d9488);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700;
+}
+body.pt-mode summary.sub-header { background: linear-gradient(90deg, #701a75, #c026d3); }
+body.pt-mode .sub-nav { background: #fdf4ff; border-color: #f5d0fe; }
+body.pt-mode .sub-pill { color: #86198f; border-color: #e879f9; }
+body.pt-mode .sub-pill:hover { background: #c026d3; color: #fff; }
+
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #ccfbf1; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+.ex-sent { color: #475569; font-style: italic; font-size: 0.9em; margin-top: 4px; border-left: 3px solid #14b8a6; padding-left: 7px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+
+function playPhrase(text) {
+    const clean = encodeURIComponent(text.trim());
+    audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${clean}&type=2`;
+    audioPlayer.play().catch(() => {
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = "en-US"; u.rate = 0.92;
+            window.speechSynthesis.speak(u);
+        }
+    });
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function filterSeparability(sepType) {
+    document.querySelectorAll("tr[data-sep]").forEach(row => {
+        row.style.display = (sepType === "all" || row.dataset.sep === sepType) ? "" : "none";
+    });
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body class='pt-mode' id='top'>
+<div class='mode-switch-bar'><a class='mode-btn' href='index.html'>🏠 双模总目录首页</a><span style='color:#475569;'>|</span><a class='mode-btn' href='sc_01_时间推进、开始结束与拖延持续.html'>🎭 视图一：按 12 大动作场景分类 (Scenario View)</a><a class='mode-btn active-pt' href='pt_08_AWAY_远离逃逸、清除丢弃、消逝与持续.html'>🧭 视图二：按介词/小品词认知隐喻分类 (UP / OUT / OFF 语义场)</a></div>
+<div class="nav-bar"><a class="nav-link" href="pt_01_UP_向上、完全耗尽与出现建立.html">01 UP 向上、完全耗尽与出现建立 (662)</a><a class="nav-link" href="pt_02_OUT_向外、耗尽熄灭、排查与分发.html">02 OUT 向外、耗尽熄灭、排查与分发 (582)</a><a class="nav-link" href="pt_03_OFF_脱离、取消推迟、切断与出发.html">03 OFF 脱离、取消推迟、切断与出发 (307)</a><a class="nav-link" href="pt_04_DOWN_向下、压制削减、瓦解与记录.html">04 DOWN 向下、压制削减、瓦解与记录 (245)</a><a class="nav-link" href="pt_05_IN_向内、吸收理解、参与插手与屈服.html">05 IN 向内、吸收理解、参与插手与屈服 (245)</a><a class="nav-link" href="pt_06_ON_接触穿戴、持续推进、依赖与攻击.html">06 ON 接触穿戴、持续推进、依赖与攻击 (178)</a><a class="nav-link" href="pt_07_OVER_跨越移交、全面审视、翻转与克服.html">07 OVER 跨越移交、全面审视、翻转与克服 (135)</a><a class="nav-link active" href="pt_08_AWAY_远离逃逸、清除丢弃、消逝与持续.html">08 AWAY 远离逃逸、清除丢弃、消逝与持续 (115)</a><a class="nav-link" href="pt_09_BACK_返回归还、回击反抗、抑制与回溯.html">09 BACK 返回归还、回击反抗、抑制与回溯 (102)</a><a class="nav-link" href="pt_10_THROUGH_穿透、熬过完成、识破与彻底审阅.html">10 THROUGH 穿透、熬过完成、识破与彻底审阅 (47)</a><a class="nav-link" href="pt_11_AROUND_环绕周旋、闲逛混日子、恢复与转向.html">11 AROUND 环绕周旋、闲逛混日子、恢复与转向 (72)</a><a class="nav-link" href="pt_12_INTO_深入调查、卷入说服、转化与碰撞.html">12 INTO 深入调查、卷入说服、转化与碰撞 (42)</a><a class="nav-link" href="pt_13_其他常见小品词.html">13 其他常见小品词 (369)</a></div>
+<h1>08 · AWAY 远离逃逸、清除丢弃、消逝与持续 (AWAY: Distance, Disposal, Disappearance & Persistence)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本页共收录 <b>115</b> 个短语动词独立义项 • 已实现 <b>【单一精准中文释义 ⇔ 对应单字替代动词 ⇔ 英文特定定义】</b> 一对一严格对齐</p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><button class='sub-pill' onclick="filterSeparability('all')">全部语法类型</button><button class='sub-pill' onclick="filterSeparability('Separable')">🟢 仅看可拆分 (v.+O+adv.)</button><button class='sub-pill' onclick="filterSeparability('Inseparable')">🔵 仅看不可拆分</button><button class='sub-pill' onclick="filterSeparability('Intransitive')">🟠 仅看丕及物</button><span style='color:#99f6e4;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">01 远离、逃跑、驱逐与保持距离 (76)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">02 丢弃、消除、赠送、收好与泄露 (25)</a><a class='sub-pill' onclick="jumpToSection('sub_2')">03 逐渐消逝、枯萎、去世与埋头苦干 (14)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 远离、逃跑、驱逐与保持距离 (Departure, Escape & Avoidance — '离开原地')</span><span class='sub-meta'>共 76 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Intransitive'><td class='word'>get <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，逃脱，起跑</span></td><td><span class='eq-verb'>escape, flee</span></td><td class='def-en'><b>Meaning:</b> run away from confinement<div class='ex-sent'>“The convicted murderer escaped from a high security prison”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>have <span class='pt-highlight'>it away</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>爱，爱好，爱慕</span></td><td><span class='eq-verb'>love, know</span></td><td class='def-en'><b>Meaning:</b> have sexual intercourse with<div class='ex-sent'>“This student sleeps with everyone in her dorm”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>run <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>潜逃</span></td><td><span class='eq-verb'>scat, scarper</span></td><td class='def-en'><b>Meaning:</b> flee; take to one's heels; cut and run<div class='ex-sent'>“If you see this man, run!”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>走开</span></td><td><span class='eq-verb'>depart, exit</span></td><td class='def-en'><b>Meaning:</b> move away from a place into another direction<div class='ex-sent'>“Go away before I start to cry”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>turn <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>不准...入内</span></td><td><span class='eq-verb'>face</span></td><td class='def-en'><b>Meaning:</b> move so as not face somebody or something<div class='ex-sent'>“They decided to turn away (move so as not face somebody or something).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>取走</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove something concrete, as by lifting, pushing, or taking off, or remove something abstract<div class='ex-sent'>“remove a threat”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>走开</span></td><td><span class='eq-verb'>leave, place</span></td><td class='def-en'><b>Meaning:</b> go away from a place<div class='ex-sent'>“At what time does your train leave?”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>back <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>逐渐后退</span></td><td><span class='eq-verb'>retreat, crawfish</span></td><td class='def-en'><b>Meaning:</b> make a retreat from an earlier commitment or activity<div class='ex-sent'>“We'll have to crawfish out from meeting with him”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>取走</span></td><td><span class='eq-verb'>take</span></td><td class='def-en'><b>Meaning:</b> take from a person or place<div class='ex-sent'>“We took the abused child away from its parents”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>消失，不见，成为零</span></td><td><span class='eq-verb'>disappear, vanish</span></td><td class='def-en'><b>Meaning:</b> get lost, as without warning or explanation<div class='ex-sent'>“He disappeared without a trace”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>go <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>消失，不见，成为零</span></td><td><span class='eq-verb'>vanish, disappear</span></td><td class='def-en'><b>Meaning:</b> become invisible or unnoticeable<div class='ex-sent'>“The effect vanished when day broke”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>look <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>转开，避免，防止</span></td><td><span class='eq-verb'>avert</span></td><td class='def-en'><b>Meaning:</b> avert one's gaze<div class='ex-sent'>“She looked away when the nurse pricked her arm with the needle”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>come <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>脱开</span></td><td><span class='eq-verb'>detach, separate</span></td><td class='def-en'><b>Meaning:</b> come to be detached<div class='ex-sent'>“His retina detached and he had to be rushed into surgery”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>while <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>消磨</span></td><td><span class='eq-verb'>spend</span></td><td class='def-en'><b>Meaning:</b> spend or pass, as with boredom or in a pleasant manner; of time<div class='ex-sent'>“They decided to while away (spend or pass, as with boredom or in a pleasant manner).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>减去，贬低，减少</span></td><td><span class='eq-verb'>detract, reduce</span></td><td class='def-en'><b>Meaning:</b> take away a part from; diminish<div class='ex-sent'>“His bad manners detract from his good character”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>take <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>吃，腐蚀，消耗</span></td><td><span class='eq-verb'>eat, consume</span></td><td class='def-en'><b>Meaning:</b> buy and consume food from a restaurant or establishment that sells prepared food<div class='ex-sent'>“We'll take out pizza, since I am too tired to cook”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>come <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>脱开</span></td><td><span class='eq-verb'>leave, condition</span></td><td class='def-en'><b>Meaning:</b> leave in a certain condition<div class='ex-sent'>“She came away angry”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>keep <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>防范</span></td><td><span class='eq-verb'>prevent, coming</span></td><td class='def-en'><b>Meaning:</b> prevent from coming close<div class='ex-sent'>“I tried to keep the child away from the pool”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 1/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>放好，储存...备用，放弃</span></td><td><span class='eq-verb'>lock, confine</span></td><td class='def-en'><b>Meaning:</b> place in a place where something cannot be removed or someone cannot escape<div class='ex-sent'>“The parents locked her daughter up for the weekend”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>不准...入内，转过脸</span></td><td><span class='eq-verb'>deflect, bend</span></td><td class='def-en'><b>Meaning:</b> turn from a straight course, fixed direction, or line of interest<div class='ex-sent'>“They decided to turn away (turn from a straight course, fixed direction, or line of interest).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>run <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>潜逃</span></td><td><span class='eq-verb'>escape, control</span></td><td class='def-en'><b>Meaning:</b> escape from the control of<div class='ex-sent'>“Industry is running away with us all”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>走开，转过脸，避开</span></td><td><span class='eq-verb'>avert</span></td><td class='def-en'><b>Meaning:</b> turn away or aside<div class='ex-sent'>“They averted their eyes when the King entered”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>turn <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>不准...入内</span></td><td><span class='eq-verb'>reject, refuse</span></td><td class='def-en'><b>Meaning:</b> refuse entrance or membership<div class='ex-sent'>“They turned away hundreds of fans”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>carry <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使失去自制力</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove from a certain place, environment, or mental or emotional state; transport into a new location or state<div class='ex-sent'>“Their dreams carried the Romantics away into distant lands”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>break <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>突然离开，脱离，放弃</span></td><td><span class='eq-verb'>break, escape</span></td><td class='def-en'><b>Meaning:</b> move away or escape suddenly<div class='ex-sent'>“The horses broke from the stable”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>stay <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>制止，延缓，坚持</span></td><td><span class='eq-verb'>stay</span></td><td class='def-en'><b>Meaning:</b> stay clear of, avoid<div class='ex-sent'>“Keep your hands off my wife!”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>fall <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>消失</span></td><td><span class='eq-verb'>slip, worsen</span></td><td class='def-en'><b>Meaning:</b> get worse<div class='ex-sent'>“My grades are slipping”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>break <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>突然离开，放弃</span></td><td><span class='eq-verb'>chip, separate</span></td><td class='def-en'><b>Meaning:</b> break off (a piece from a whole)<div class='ex-sent'>“Her tooth chipped”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>clear <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>清除，消失</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove from sight<div class='ex-sent'>“They decided to clear away (remove from sight).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>drive <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>驱车离开，把…驱开</span></td><td><span class='eq-verb'>dispel, displace</span></td><td class='def-en'><b>Meaning:</b> force to go away; used both with concrete and metaphoric meanings<div class='ex-sent'>“Drive away potential burglars”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>break <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>脱离</span></td><td><span class='eq-verb'>scat, scarper</span></td><td class='def-en'><b>Meaning:</b> flee; take to one's heels; cut and run<div class='ex-sent'>“If you see this man, run!”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>break <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>突然离开，脱离</span></td><td><span class='eq-verb'>secede, splinter</span></td><td class='def-en'><b>Meaning:</b> withdraw from an organization or communion<div class='ex-sent'>“After the break up of the Soviet Union, many republics broke away”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>send <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>解雇</span></td><td><span class='eq-verb'>dismiss, drop</span></td><td class='def-en'><b>Meaning:</b> stop associating with<div class='ex-sent'>“They dropped her after she had a child out of wedlock”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>eat <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>连续不断地吃，侵蚀，腐蚀</span></td><td><span class='eq-verb'>erode, fret</span></td><td class='def-en'><b>Meaning:</b> remove soil or rock<div class='ex-sent'>“Rain eroded the terraces”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>send <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>发送，打发走，解雇</span></td><td><span class='eq-verb'>displace, fire</span></td><td class='def-en'><b>Meaning:</b> terminate the employment of; discharge from an office or position<div class='ex-sent'>“The boss fired his secretary today”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>walk <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>走开</span></td><td><span class='eq-verb'>leave</span></td><td class='def-en'><b>Meaning:</b> go away from<div class='ex-sent'>“The actor walked off before he got his cue”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>ride <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，剩下，遗忘</span></td><td><span class='eq-verb'>leave, ride</span></td><td class='def-en'><b>Meaning:</b> ride away on a horse, for example<div class='ex-sent'>“They decided to ride away (ride away on a horse, for example).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>drop <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>滑动，滑倒，失足</span></td><td><span class='eq-verb'>slip, worsen</span></td><td class='def-en'><b>Meaning:</b> get worse<div class='ex-sent'>“My grades are slipping”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>square <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>摆好姿势，把一切弄整齐</span></td><td><span class='eq-verb'>tidy, neaten</span></td><td class='def-en'><b>Meaning:</b> put (things or places) in order<div class='ex-sent'>“Tidy up your room!”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>wear <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 2/3</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>消磨</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> diminish, as by friction<div class='ex-sent'>“Erosion wore away the surface”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>pull <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>离开</span></td><td><span class='eq-verb'>withdraw, retreat</span></td><td class='def-en'><b>Meaning:</b> pull back or move away or backward<div class='ex-sent'>“The enemy withdrew”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>push <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>继续推，推开</span></td><td><span class='eq-verb'>push, force</span></td><td class='def-en'><b>Meaning:</b> push out of the way<div class='ex-sent'>“They decided to push away (push out of the way).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>draw <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>拉开，引开，离开</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove by drawing or pulling<div class='ex-sent'>“She placed the tray down and drew off the cloth”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>draw <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>引开</span></td><td><span class='eq-verb'>lead, head</span></td><td class='def-en'><b>Meaning:</b> move ahead of (one's competitors) in a race<div class='ex-sent'>“They decided to draw away (move ahead of (one's competitors) in a race).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>shut <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>锁，锁上，拘禁</span></td><td><span class='eq-verb'>lock, confine</span></td><td class='def-en'><b>Meaning:</b> place in a place where something cannot be removed or someone cannot escape<div class='ex-sent'>“The parents locked her daughter up for the weekend”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>spirit <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>携带，运送，支持</span></td><td><span class='eq-verb'>carry</span></td><td class='def-en'><b>Meaning:</b> carry away rapidly and secretly, as if mysteriously<div class='ex-sent'>“They decided to spirit away (carry away rapidly and secretly, as if mysteriously).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>bear <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>移动，调动，除去</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove from a certain place, environment, or mental or emotional state; transport into a new location or state<div class='ex-sent'>“Their dreams carried the Romantics away into distant lands”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>flow <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>流逝，流失</span></td><td><span class='eq-verb'>empty, discharge</span></td><td class='def-en'><b>Meaning:</b> flow off or away gradually<div class='ex-sent'>“The water flowed off from the pipe”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>lay <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>积蓄</span></td><td><span class='eq-verb'>hoard, stash</span></td><td class='def-en'><b>Meaning:</b> save up as for future use<div class='ex-sent'>“They decided to lay away (save up as for future use).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>lock <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>把…锁起来</span></td><td><span class='eq-verb'>lock, confine</span></td><td class='def-en'><b>Meaning:</b> place in a place where something cannot be removed or someone cannot escape<div class='ex-sent'>“The parents locked her daughter up for the weekend”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>tear <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>勉强使离开，硬行拉走</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> rip off violently and forcefully<div class='ex-sent'>“The passing bus tore off her side mirror”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>steal <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，剩下，遗忘</span></td><td><span class='eq-verb'>leave</span></td><td class='def-en'><b>Meaning:</b> leave furtively and stealthily<div class='ex-sent'>“The lecture was boring and many students slipped out when the instructor turned towards the blackboard”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>rush <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，剩下，遗忘</span></td><td><span class='eq-verb'>leave, depart</span></td><td class='def-en'><b>Meaning:</b> depart in a hurry<div class='ex-sent'>“They decided to rush away (depart in a hurry).”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>shy <span class='pt-highlight'>away from</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>避免，防止，撤消</span></td><td><span class='eq-verb'>avoid, having</span></td><td class='def-en'><b>Meaning:</b> avoid having to deal with some unpleasant task<div class='ex-sent'>“I shy away from this task”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>wash <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>冲走，清洗，消除</span></td><td><span class='eq-verb'>wash, remove</span></td><td class='def-en'><b>Meaning:</b> remove by the application of water or other liquid and soap or some other cleaning agent<div class='ex-sent'>“he washed the dirt from his coat”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>wash <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>消除，涤除</span></td><td><span class='eq-verb'>remove, eliminate</span></td><td class='def-en'><b>Meaning:</b> eliminate<div class='ex-sent'>“wash away all the differences”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>chase <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>驱逐</span></td><td><span class='eq-verb'>dispel, displace</span></td><td class='def-en'><b>Meaning:</b> force to go away; used both with concrete and metaphoric meanings<div class='ex-sent'>“Drive away potential burglars”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>slip <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>逝去，过去，犯错</span></td><td><span class='eq-verb'>elapse, lapse</span></td><td class='def-en'><b>Meaning:</b> pass by<div class='ex-sent'>“three years elapsed”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>slip <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，剩下，遗忘</span></td><td><span class='eq-verb'>leave</span></td><td class='def-en'><b>Meaning:</b> leave furtively and stealthily<div class='ex-sent'>“The lecture was boring and many students slipped out when the instructor turned towards the blackboard”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>chip <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>铲除，逐步瓦解</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove or withdraw gradually:<div class='ex-sent'>“These new customs are chipping away at the quality of life”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>chip <span class='pt-highlight'>away at</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>削去...</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove or withdraw gradually:<div class='ex-sent'>“These new customs are chipping away at the quality of life”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>fool <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>浪费，虚度</span></td><td><span class='eq-verb'>fritter, dissipate</span></td><td class='def-en'><b>Meaning:</b> spend frivolously and unwisely<div class='ex-sent'>“Fritter away one's inheritance”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sweep <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>扫除，清除</span></td><td><span class='eq-verb'>destroy, destruct</span></td><td class='def-en'><b>Meaning:</b> eliminate completely and without a trace<div class='ex-sent'>“The old values have been wiped out”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>pine <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>消瘦，憔悴</span></td><td><span class='eq-verb'>waste, languish</span></td><td class='def-en'><b>Meaning:</b> lose vigor, health, or flesh, as through grief<div class='ex-sent'>“After her husband died, she just pined away”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>scare <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>吓跑…</span></td><td><span class='eq-verb'>daunt, dash</span></td><td class='def-en'><b>Meaning:</b> cause to lose courage<div class='ex-sent'>“dashed by the refusal”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sweep <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>冲走</span></td><td><span class='eq-verb'>affect, impress</span></td><td class='def-en'><b>Meaning:</b> overwhelm emotionally<div class='ex-sent'>“Her swept her away”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>wipe <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>擦去...</span></td><td><span class='eq-verb'>remove, withdraw</span></td><td class='def-en'><b>Meaning:</b> remove by wiping<div class='ex-sent'>“They decided to wipe away (remove by wiping).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>cart <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>方法，手段，工具</span></td><td><span class='eq-verb'>means</span></td><td class='def-en'><b>Meaning:</b> take away by means of a vehicle<div class='ex-sent'>“They carted off the old furniture”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>sneak <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>离开，剩下，遗忘</span></td><td><span class='eq-verb'>leave</span></td><td class='def-en'><b>Meaning:</b> leave furtively and stealthily<div class='ex-sent'>“The lecture was boring and many students slipped out when the instructor turned towards the blackboard”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>grind <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>用坏…，苦干，反复不断地干</span></td><td><span class='eq-verb'>cram, drum</span></td><td class='def-en'><b>Meaning:</b> study intensively, as before an exam<div class='ex-sent'>“I had to bone up on my Latin verbs before the final exam”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>haul <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>方法，手段，工具</span></td><td><span class='eq-verb'>means</span></td><td class='def-en'><b>Meaning:</b> take away by means of a vehicle<div class='ex-sent'>“They carted off the old furniture”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>drift <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>渐渐离开，慢慢散去，游离</span></td><td><span class='eq-verb'>estrange, alienate</span></td><td class='def-en'><b>Meaning:</b> lose personal contact over time<div class='ex-sent'>“The two women, who had been roommates in college, drifted apart after they got married”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>blink <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>眨眼以除去</span></td><td><span class='eq-verb'>wink, blink</span></td><td class='def-en'><b>Meaning:</b> force to go away by blinking<div class='ex-sent'>“blink away tears”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>beaver <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>海狸，a. 坚硬的，硬的</span></td><td><span class='eq-verb'>beaver</span></td><td class='def-en'><b>Meaning:</b> work hard on something<div class='ex-sent'>“They decided to beaver away (work hard on something).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>peg <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>坚持不懈地工作，勤奋地工作</span></td><td><span class='eq-verb'>slog</span></td><td class='def-en'><b>Meaning:</b> work doggedly or persistently<div class='ex-sent'>“She keeps plugging away at her dissertation”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>whisk <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>拂去，扫去，掸去</span></td><td><span class='eq-verb'>take away</span></td><td class='def-en'><b>Meaning:</b> take away quickly and suddenly<div class='ex-sent'>“They decided to whisk away (take away quickly and suddenly).”</div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 丢弃、消除、赠送、收好与泄露 (Disposal, Elimination, Storage & Giving — '处理掉')</span><span class='sub-meta'>共 25 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Separable'><td class='word'>give <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 1/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>泄露，出卖</span></td><td><span class='eq-verb'>unwrap, disclose</span></td><td class='def-en'><b>Meaning:</b> make known to the public information that was previously known only to a few people or that was meant to be kept a secret<div class='ex-sent'>“The auction house would not disclose the price at which the van Gogh had sold”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>give <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 2/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>出卖</span></td><td><span class='eq-verb'>gift, present</span></td><td class='def-en'><b>Meaning:</b> make a gift of<div class='ex-sent'>“She gave away her antique furniture”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>give <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 3/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>分发，泄露，出卖</span></td><td><span class='eq-verb'>denounce, betray</span></td><td class='def-en'><b>Meaning:</b> give away information about somebody<div class='ex-sent'>“He told on his classmate who had cheated on the exam”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>give <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 4 个核心义项'>义项 4/4</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>分发，放弃，出卖</span></td><td><span class='eq-verb'>deliver, render</span></td><td class='def-en'><b>Meaning:</b> formally hand over to the bridegroom in marriage; of a bride by her father<div class='ex-sent'>“They decided to give away (formally hand over to the bridegroom in marriage).”</div></td></tr>
+<tr data-sep='Inseparable'><td class='word'>do <span class='pt-highlight'>away with</span><div><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span></div></td><td><span class='cn-precise'>废除</span></td><td><span class='eq-verb'>extinguish, eliminate</span></td><td class='def-en'><b>Meaning:</b> terminate, end, or take out<div class='ex-sent'>“Let's eliminate the course on Akkadian hieroglyphics”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 2/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>抛弃，放弃</span></td><td><span class='eq-verb'>discard, fling</span></td><td class='def-en'><b>Meaning:</b> throw or cast away<div class='ex-sent'>“Put away your worries”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 3/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存...备用</span></td><td><span class='eq-verb'>interrupt, disrupt</span></td><td class='def-en'><b>Meaning:</b> turn away from and put aside, perhaps temporarily<div class='ex-sent'>“it's time for you to put away childish things”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 4/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存...备用</span></td><td><span class='eq-verb'>finish, refers</span></td><td class='def-en'><b>Meaning:</b> eat up; usually refers to a considerable quantity of food<div class='ex-sent'>“My son tucked in a whole pizza”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 5/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>杀，破坏，消灭</span></td><td><span class='eq-verb'>kill</span></td><td class='def-en'><b>Meaning:</b> kill gently, as with an injection<div class='ex-sent'>“the cat was very ill and we had to put it to sleep”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 6/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存...备用</span></td><td><span class='eq-verb'>stop</span></td><td class='def-en'><b>Meaning:</b> stop using<div class='ex-sent'>“the children were told to put away their toys”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>put <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 7 个核心义项'>义项 7/7</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>使下狱，关闭，拘禁</span></td><td><span class='eq-verb'>imprison, incarcerate</span></td><td class='def-en'><b>Meaning:</b> lock up or confine, in or as in a jail<div class='ex-sent'>“The suspects were imprisoned without trial”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>cut <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>切掉</span></td><td><span class='eq-verb'>cut</span></td><td class='def-en'><b>Meaning:</b> move quickly to another scene or focus when filming<div class='ex-sent'>“`cut away now!' the director shouted”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>throw <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>丢弃</span></td><td><span class='eq-verb'>discard, fling</span></td><td class='def-en'><b>Meaning:</b> throw or cast away<div class='ex-sent'>“Put away your worries”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>sign <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>签字放弃</span></td><td><span class='eq-verb'>surrender, cede</span></td><td class='def-en'><b>Meaning:</b> formally assign ownership of<div class='ex-sent'>“She signed away her rights”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>file <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>存档，锉掉，锉削</span></td><td><span class='eq-verb'>file, record</span></td><td class='def-en'><b>Meaning:</b> place in a container for keeping records<div class='ex-sent'>“File these bills, please”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>throw <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>丢弃</span></td><td><span class='eq-verb'>shed, cast</span></td><td class='def-en'><b>Meaning:</b> get rid of<div class='ex-sent'>“he shed his image as a pushy boss”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>cast <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>抛弃，使漂流到岸上</span></td><td><span class='eq-verb'>discard, fling</span></td><td class='def-en'><b>Meaning:</b> throw or cast away<div class='ex-sent'>“Put away your worries”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>file <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>存档</span></td><td><span class='eq-verb'>archive, collect</span></td><td class='def-en'><b>Meaning:</b> put into an archive<div class='ex-sent'>“They decided to file away (put into an archive).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>salt <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存，贮藏，供给</span></td><td><span class='eq-verb'>store</span></td><td class='def-en'><b>Meaning:</b> keep or lay aside for future use<div class='ex-sent'>“store grain for the winter”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>toss <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>丢弃，抛弃，投</span></td><td><span class='eq-verb'>discard, fling</span></td><td class='def-en'><b>Meaning:</b> throw or cast away<div class='ex-sent'>“Put away your worries”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>stack <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存，贮藏，供给</span></td><td><span class='eq-verb'>store</span></td><td class='def-en'><b>Meaning:</b> keep or lay aside for future use<div class='ex-sent'>“store grain for the winter”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>squirrel <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>贮存</span></td><td><span class='eq-verb'>hoard, stash</span></td><td class='def-en'><b>Meaning:</b> save up as for future use<div class='ex-sent'>“They decided to squirrel away (save up as for future use).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>tuck <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>大嚼</span></td><td><span class='eq-verb'>finish, refers</span></td><td class='def-en'><b>Meaning:</b> eat up; usually refers to a considerable quantity of food<div class='ex-sent'>“My son tucked in a whole pizza”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>stash <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>隐藏处，藏起，隐藏</span></td><td><span class='eq-verb'>store</span></td><td class='def-en'><b>Meaning:</b> keep or lay aside for future use<div class='ex-sent'>“store grain for the winter”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>hive <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>储存，贮藏，供给</span></td><td><span class='eq-verb'>store</span></td><td class='def-en'><b>Meaning:</b> keep or lay aside for future use<div class='ex-sent'>“store grain for the winter”</div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 逐渐消逝、枯萎、去世与埋头苦干 (Fading, Dying & Continuous Toiling — '渐渐没了/一直干')</span><span class='sub-meta'>共 14 个独立义项 • 点击展开 / 收起</span></summary><table><tr><th width='23%'>Phrasal Verb & 可拆分性</th><th width='21%'>🎯 该义项专属中文释义</th><th width='18%'>🔄 对应单字替代动词</th><th width='38%'>特定英文定义 & 语境例句</th></tr>
+<tr data-sep='Intransitive'><td class='word'>fall <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>消瘦，消失</span></td><td><span class='eq-verb'>disappear, vanish</span></td><td class='def-en'><b>Meaning:</b> diminish in size or intensity<div class='ex-sent'>“They decided to fall away (diminish in size or intensity).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>pass <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>去世，消逝</span></td><td><span class='eq-verb'>die, decease</span></td><td class='def-en'><b>Meaning:</b> pass from physical life and lose all bodily attributes and functions necessary to sustain life<div class='ex-sent'>“She died from cancer”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>die <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>减少，减轻，减弱</span></td><td><span class='eq-verb'>abate, slack</span></td><td class='def-en'><b>Meaning:</b> become less in amount or intensity<div class='ex-sent'>“The storm abated”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>eat <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>连续不断地吃，侵蚀，腐蚀</span></td><td><span class='eq-verb'>fret, corrode</span></td><td class='def-en'><b>Meaning:</b> wear away or erode<div class='ex-sent'>“They decided to eat away (wear away or erode).”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>pass <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>停止</span></td><td><span class='eq-verb'>end, stop</span></td><td class='def-en'><b>Meaning:</b> go out of existence<div class='ex-sent'>“She hoped that the problem would eventually pass away”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>wear <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 1/3</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>磨损，消磨</span></td><td><span class='eq-verb'>erode, gnaw</span></td><td class='def-en'><b>Meaning:</b> become ground down or deteriorate<div class='ex-sent'>“Her confidence eroded”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>wear <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 3/3</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>磨损</span></td><td><span class='eq-verb'>damage, pieces</span></td><td class='def-en'><b>Meaning:</b> cut away in small pieces<div class='ex-sent'>“They decided to wear away (cut away in small pieces).”</div></td></tr>
+<tr data-sep='Separable'><td class='word'>laugh <span class='pt-highlight'>away</span><div><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span></div></td><td><span class='cn-precise'>谈笑中消磨时间</span></td><td><span class='eq-verb'>dismiss, disregard</span></td><td class='def-en'><b>Meaning:</b> deal with a problem by laughing or pretending to be amused by it<div class='ex-sent'>“She laughs away all these problems”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>plug <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 1/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>坚持下去</span></td><td><span class='eq-verb'>plug, persevere</span></td><td class='def-en'><b>Meaning:</b> persist in working hard<div class='ex-sent'>“Students must plug away at this problem”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>plug <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 2 个核心义项'>义项 2/2</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>坚持下去</span></td><td><span class='eq-verb'>slog</span></td><td class='def-en'><b>Meaning:</b> work doggedly or persistently<div class='ex-sent'>“She keeps plugging away at her dissertation”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>fade <span class='pt-highlight'>away</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>溶解，解散，变成</span></td><td><span class='eq-verb'>dissolve, become</span></td><td class='def-en'><b>Meaning:</b> become weaker<div class='ex-sent'>“The sound faded out”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>blaze <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 1/3</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>连续发射</span></td><td><span class='eq-verb'>blaze, blast</span></td><td class='def-en'><b>Meaning:</b> shoot rapidly and repeatedly<div class='ex-sent'>“He blazed away at the men”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>blaze <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 2/3</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>进行，履行，完成</span></td><td><span class='eq-verb'>perform, execute</span></td><td class='def-en'><b>Meaning:</b> perform (an acting passage) brilliantly and rapidly<div class='ex-sent'>“Mr. Jones blazed away in one passage after another to loud applause”</div></td></tr>
+<tr data-sep='Intransitive'><td class='word'>blaze <span class='pt-highlight'>away</span><span class='sense-badge' title='该短语共有 3 个核心义项'>义项 3/3</span><div><span class='sep-Intransitive'>🟠 不及物/不拆分 (Intransitive)</span></div></td><td><span class='cn-precise'>连续发射</span></td><td><span class='eq-verb'>address, speak</span></td><td class='def-en'><b>Meaning:</b> speak with fire and passion<div class='ex-sent'>“He blazed away at his opponents in the Senate”</div></td></tr>
+</table></details>
+</body></html>

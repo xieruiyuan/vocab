@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>04 · 情绪状态、压力与心理极限 (Emotions, Stress, Grit & Resilience)</title>
+<style>
+  :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #1e293b; margin: 0; padding: 24px; line-height: 1.55; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .header-box { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 28px 32px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(15,23,42,0.12); }
+  .header-box h1 { margin: 0 0 8px 0; font-size: 26px; letter-spacing: -0.3px; }
+  .header-box p { margin: 0; color: #cbd5e1; font-size: 15px; }
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; background: white; padding: 14px; border-radius: 12px; border: 1px solid var(--border); position: sticky; top: 10px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .nav-btn { text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 600; color: #334155; background: #f1f5f9; transition: all 0.15s; }
+  .nav-btn:hover { background: #e2e8f0; color: #0f172a; }
+  .nav-btn.active { background: var(--accent); color: white; }
+  .search-input { margin-left: auto; padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; min-width: 240px; outline: none; }
+  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid var(--border); }
+  th { background: #f1f5f9; color: #334155; font-size: 13.5px; text-align: left; padding: 14px 18px; border-bottom: 2px solid var(--border); }
+  td { padding: 16px 18px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:hover td { background: #f8fafc; }
+  .expr-title { font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 11.5px; font-weight: 600; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .badge.slang { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+  .cn-meaning { font-size: 15.5px; font-weight: 700; color: #0f766e; margin-bottom: 4px; }
+  .en-def { font-size: 13.5px; color: #475569; }
+  .ex-box { background: #f8fafc; border-left: 3px solid #2563eb; padding: 10px 14px; border-radius: 6px; font-size: 14.5px; color: #1e293b; }
+  .ex-box b { color: #1d4ed8; }
+</style>
+<script>
+function filterTable() {
+  const q = document.getElementById('qInput').value.toLowerCase();
+  const rows = document.querySelectorAll('tbody tr');
+  rows.forEach(r => {
+    r.style.display = r.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head>
+<body>
+<div class="container">
+  <div class="header-box">
+    <h1>04 · 情绪状态、压力与心理极限 (Emotions, Stress, Grit & Resilience)</h1>
+    <p>用于描述高压环境下的情绪控制、咬牙坚持、筋疲力尽与心态调整。（共 75 条高频实战词条）</p>
+  </div>
+  <div class='nav-bar'><a class='nav-btn ' href='index.html'>🏠 总览 (600)</a><a class='nav-btn ' href='01_职场博弈、决策与执行.html'>01 职场博弈 (75)</a><a class='nav-btn ' href='02_冲突对抗、警告与街头治安.html'>02 冲突对抗 (75)</a><a class='nav-btn ' href='03_认知判断、真相与欺瞒.html'>03 认知判断 (75)</a><a class='nav-btn active' href='04_情绪状态、压力与心理极限.html'>04 情绪状态 (75)</a><a class='nav-btn ' href='05_人际社交、坦诚沟通与潜台词.html'>05 人际社交 (75)</a><a class='nav-btn ' href='06_金钱财务、得失与风险代价.html'>06 金钱财务 (75)</a><a class='nav-btn ' href='07_时间节奏、效率与危机处理.html'>07 时间节奏 (75)</a><a class='nav-btn ' href='08_北美高频日常俚语与街头口语.html'>08 北美高频 (75)</a><input id='qInput' class='search-input' type='text' placeholder='🔍 搜索习语 / 中文意思 / 例句...' onkeyup='filterTable()'></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Idiom / Slang • 语域属性</th>
+        <th>🎯 中文释义 & 英文核心定义</th>
+        <th>💬 地道语境例句 (Authentic Context)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td width='24%'><div class='expr-title'>1. bite the bullet</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>咬紧牙关硬着头皮上；直面难关</div><div class='en-def'>decide to do something difficult or unpleasant that one has been putting off</div></td><td width='42%'><div class='ex-box'>💬 I decided to bite the bullet and memorize all 5,000 abstract nouns.</div></td></tr><tr><td width='24%'><div class='expr-title'>2. keep one's cool</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>保持冷静；沉住气</div><div class='en-def'>maintain a calm and controlled attitude in a stressful situation</div></td><td width='42%'><div class='ex-box'>💬 A professional officer must keep their cool even when provoked.</div></td></tr><tr><td width='24%'><div class='expr-title'>3. at the end of one's rope</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>山穷水尽；忍耐到了极限</div><div class='en-def'>having no more patience, endurance, or resources left</div></td><td width='42%'><div class='ex-box'>💬 After months of sleepless nights, the exhausted caregiver was at the end of her rope.</div></td></tr><tr><td width='24%'><div class='expr-title'>4. under the weather</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>身体有些不舒服；小病微恙</div><div class='en-def'>slightly unwell or in low spirits</div></td><td width='42%'><div class='ex-box'>💬 I'm feeling a bit under the weather today, so I'll skip heavy squats.</div></td></tr><tr><td width='24%'><div class='expr-title'>5. keep one's chin up</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>别灰心；昂起头保持乐观</div><div class='en-def'>remain cheerful and resolute in a tough situation</div></td><td width='42%'><div class='ex-box'>💬 Keep your chin up—every tough sparring session makes you sharper.</div></td></tr><tr><td width='24%'><div class='expr-title'>6. burned out</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>精疲力竭；职业倦怠；身体被掏空</div><div class='en-def'>ruined one's health or become completely exhausted through overwork</div></td><td width='42%'><div class='ex-box'>💬 Working double shifts for three weeks straight left him completely burned out.</div></td></tr><tr><td width='24%'><div class='expr-title'>7. on edge</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>神经紧绷；坐立不安；高度紧张</div><div class='en-def'>tense, nervous, or irritable</div></td><td width='42%'><div class='ex-box'>💬 Everyone in the emergency room was on edge waiting for the test results.</div></td></tr><tr><td width='24%'><div class='expr-title'>8. blow off steam</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>宣泄压力；发泄精力或情绪</div><div class='en-def'>get rid of pent-up energy or strong emotion through physical activity</div></td><td width='42%'><div class='ex-box'>💬 A heavy session on the judo mat is the best way to blow off steam.</div></td></tr><tr><td width='24%'><div class='expr-title'>9. lose one's cool</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>情绪失控；发脾气</div><div class='en-def'>suddenly stop being calm and become angry or agitated</div></td><td width='42%'><div class='ex-box'>💬 He lost his cool during the heated debate and regretted it immediately.</div></td></tr><tr><td width='24%'><div class='expr-title'>10. bent out of shape</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>大为光火；气急败坏；过度较真</div><div class='en-def'>very angry, upset, or agitated over something minor</div></td><td width='42%'><div class='ex-box'>💬 Don't get all bent out of shape over a minor parking ticket.</div></td></tr><tr><td width='24%'><div class='expr-title'>11. take in stride</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>泰然处之；从容应对挫折</div><div class='en-def'>deal with something difficult or unpleasant calmly and without anxiety</div></td><td width='42%'><div class='ex-box'>💬 Seasoned athletes take both victory and defeat in stride.</div></td></tr><tr><td width='24%'><div class='expr-title'>12. walk on eggshells</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>小心翼翼；如履薄冰（生怕惹怒某人）</div><div class='en-def'>be extremely cautious about one's words or actions around someone sensitive</div></td><td width='42%'><div class='ex-box'>💬 Everyone in the office felt like they were walking on eggshells around the new director.</div></td></tr><tr><td width='24%'><div class='expr-title'>13. get cold feet</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>临阵退缩；临场胆怯</div><div class='en-def'>lose one's nerve or confidence just before a planned action</div></td><td width='42%'><div class='ex-box'>💬 He signed up for the tournament but got cold feet the night before.</div></td></tr><tr><td width='24%'><div class='expr-title'>14. over the moon</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>欣喜若狂；高兴极了</div><div class='en-def'>extremely happy and delighted</div></td><td width='42%'><div class='ex-box'>💬 She was over the moon when she received her official offer letter.</div></td></tr><tr><td width='24%'><div class='expr-title'>15. down in the dumps</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>情绪低落；闷闷不乐；沮丧</div><div class='en-def'>feeling depressed, unhappy, or dejected</div></td><td width='42%'><div class='ex-box'>💬 He's been a bit down in the dumps since injuring his shoulder.</div></td></tr><tr><td width='24%'><div class='expr-title'>16. pull oneself together</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>振作起来；控制住自己的情绪</div><div class='en-def'>recover control of one's emotions and calm down</div></td><td width='42%'><div class='ex-box'>💬 Take a deep breath, pull yourself together, and focus on the next round.</div></td></tr><tr><td width='24%'><div class='expr-title'>17. drive up the wall</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>使人抓狂；令人极其恼火</div><div class='en-def'>make someone extremely irritated or angry</div></td><td width='42%'><div class='ex-box'>💬 The constant buzzing of that broken fluorescent light is driving me up the wall.</div></td></tr><tr><td width='24%'><div class='expr-title'>18. beside oneself</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>方寸大乱；（因狂喜、暴怒或悲痛）情绪失控</div><div class='en-def'>overcome with worry, grief, or anger; distraught</div></td><td width='42%'><div class='ex-box'>💬 The mother was beside herself with worry when her child wandered off.</div></td></tr><tr><td width='24%'><div class='expr-title'>19. grit one's teeth</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>咬紧牙关坚持；强忍痛苦应对</div><div class='en-def'>summon up all one's determination to face a tough ordeal</div></td><td width='42%'><div class='ex-box'>💬 During the final stages of the Beep Test, you just have to grit your teeth and push.</div></td></tr><tr><td width='24%'><div class='expr-title'>20. have a chip on one's shoulder</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>怀恨在心；充满戒备与愤世嫉俗感</div><div class='en-def'>seem angry all the time because you think you have been treated unfairly</div></td><td width='42%'><div class='ex-box'>💬 He walked into the meeting with a huge chip on his shoulder.</div></td></tr><tr><td width='24%'><div class='expr-title'>21. swallow one's pride</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>放下身段；拉下脸面</div><div class='en-def'>accept something humiliating or admit a mistake in order to achieve something</div></td><td width='42%'><div class='ex-box'>💬 He swallowed his pride and asked the senior black belt for basic pointers.</div></td></tr><tr><td width='24%'><div class='expr-title'>22. no hard feelings</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>别往心里去；不记仇；依然是朋友</div><div class='en-def'>no resentment or bitterness after a conflict or competition</div></td><td width='42%'><div class='ex-box'>💬 We fought hard on the mat, but shook hands afterward with no hard feelings.</div></td></tr><tr><td width='24%'><div class='expr-title'>23. hit rock bottom</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>跌入人生谷底；降到最低点</div><div class='en-def'>reach the lowest possible level of despair or misfortune</div></td><td width='42%'><div class='ex-box'>💬 The outreach shelter helps individuals who feel they have hit rock bottom.</div></td></tr><tr><td width='24%'><div class='expr-title'>24. stressed out</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>压力山大；焦虑不堪</div><div class='en-def'>experiencing extreme mental or emotional strain</div></td><td width='42%'><div class='ex-box'>💬 Many students get stressed out right before final exams.</div></td></tr><tr><td width='24%'><div class='expr-title'>25. let one's guard down</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>放松警惕；卸下防备</div><div class='en-def'>stop being cautious or watchful against potential danger</div></td><td width='42%'><div class='ex-box'>💬 Never let your guard down until the suspect is fully secured.</div></td></tr><tr><td width='24%'><div class='expr-title'>26. every last</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>每一个, 全部</div><div class='en-def'>(used as intensive) every</div></td><td width='42%'><div class='ex-box'>💬 Every last one of you.</div></td></tr><tr><td width='24%'><div class='expr-title'>27. demonstrative of</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>证明的, 论证的, 令人信服的</div><div class='en-def'>serving to prove or demonstrate; - John Marshall</div></td><td width='42%'><div class='ex-box'>💬 The oath of office is...demonstrative of the legislative opinion on this subject.</div></td></tr><tr><td width='24%'><div class='expr-title'>28. broken in</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>na. 闯入；插嘴；驯(马)；训练(人)</div><div class='en-def'>tamed or trained to obey</div></td><td width='42%'><div class='ex-box'>💬 This old nag is well broken in.</div></td></tr><tr><td width='24%'><div class='expr-title'>29. pumped up</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>na. “pump up”的过去式和过去分词</div><div class='en-def'>tense with excitement and enthusiasm as from a rush of adrenaline</div></td><td width='42%'><div class='ex-box'>💬 We were really pumped up for the race.</div></td></tr><tr><td width='24%'><div class='expr-title'>30. paper thin</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>adj. 薄如纸的；极薄弱的</div><div class='en-def'>thin as paper</div></td><td width='42%'><div class='ex-box'>💬 Her blouse was paper thin.</div></td></tr><tr><td width='24%'><div class='expr-title'>31. well thought out</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>经过深思熟虑的；计划周密的</div><div class='en-def'>resulting from careful thought</div></td><td width='42%'><div class='ex-box'>💬 The paper was well thought out.</div></td></tr><tr><td width='24%'><div class='expr-title'>32. all in</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>疲乏到极点</div><div class='en-def'>very tired</div></td><td width='42%'><div class='ex-box'>💬 Was all in at the end of the day.</div></td></tr><tr><td width='24%'><div class='expr-title'>33. played out</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[体]使筋疲力尽</div><div class='en-def'>drained of energy or effectiveness; extremely tired; completely exhausted</div></td><td width='42%'><div class='ex-box'>💬 The trembling of his played out limbs.</div></td></tr><tr><td width='24%'><div class='expr-title'>34. worn out</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>磨穿; 疲乏</div><div class='en-def'>drained of energy or effectiveness; extremely tired; completely exhausted</div></td><td width='42%'><div class='ex-box'>💬 Only worn-out horses and cattle.</div></td></tr><tr><td width='24%'><div class='expr-title'>35. heavily traveled</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[网络] 重旅行</div><div class='en-def'>subject to much traffic or travel</div></td><td width='42%'><div class='ex-box'>💬 The region's most heavily traveled highways.</div></td></tr><tr><td width='24%'><div class='expr-title'>36. hard put</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>陷入困境</div><div class='en-def'>facing or experiencing financial trouble or difficulty</div></td><td width='42%'><div class='ex-box'>💬 We were hard put to meet the mortgage payment.</div></td></tr><tr><td width='24%'><div class='expr-title'>37. in a bad way</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>病情严重, 精神不好, 受伤</div><div class='en-def'>facing or experiencing financial trouble or difficulty</div></td><td width='42%'><div class='ex-box'>💬 Found themselves in a bad way financially.</div></td></tr><tr><td width='24%'><div class='expr-title'>38. in the lead</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>领先</div><div class='en-def'>having the leading position or higher score in a contest</div></td><td width='42%'><div class='ex-box'>💬 The leading team in the pennant race.</div></td></tr><tr><td width='24%'><div class='expr-title'>39. in use</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>在使用着, 在应用</div><div class='en-def'>currently being used</div></td><td width='42%'><div class='ex-box'>💬 Robots are in use throughout industry.</div></td></tr><tr><td width='24%'><div class='expr-title'>40. in sight</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>被看到</div><div class='en-def'>at or within a reasonable distance for seeing</div></td><td width='42%'><div class='ex-box'>💬 Not a policeman in sight.</div></td></tr><tr><td width='24%'><div class='expr-title'>41. out of sight</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>在看不见的地方, 极度</div><div class='en-def'>not accessible to view</div></td><td width='42%'><div class='ex-box'>💬 In stormy weather the stars are out of sight.</div></td></tr><tr><td width='24%'><div class='expr-title'>42. under fire</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>受攻击</div><div class='en-def'>subjected to enemy attack or censure</div></td><td width='42%'><div class='ex-box'>💬 An official under fire for mismanagement.</div></td></tr><tr><td width='24%'><div class='expr-title'>43. laid up</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>a. 困卧床席的, 幽闭于房内</div><div class='en-def'>ill and usually confined</div></td><td width='42%'><div class='ex-box'>💬 Laid up with a bad cold.</div></td></tr><tr><td width='24%'><div class='expr-title'>44. bone dry</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[化] 干透; 完全干燥</div><div class='en-def'>without a trace of moisture; as dry as a weathered bone</div></td><td width='42%'><div class='ex-box'>💬 Bone-dry leaves are a fire hazard.</div></td></tr><tr><td width='24%'><div class='expr-title'>45. good for you</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>真是了不起, 还不错哟, 你真行</div><div class='en-def'>promoting health; healthful; ; ; ; ; - C.B.Davis</div></td><td width='42%'><div class='ex-box'>💬 Carrots are good for you.</div></td></tr><tr><td width='24%'><div class='expr-title'>46. magna cum laude</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>n. <拉> (以)优等成绩</div><div class='en-def'>with high honor; with high academic distinction</div></td><td width='42%'><div class='ex-box'>💬 A magna cum laude graduate.</div></td></tr><tr><td width='24%'><div class='expr-title'>47. summa cum laude</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>n. 享有最高荣誉</div><div class='en-def'>with highest honor; with the highest academic distinction</div></td><td width='42%'><div class='ex-box'>💬 A summa cum laude graduate.</div></td></tr><tr><td width='24%'><div class='expr-title'>48. Costa Rican</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>哥斯达黎加的</div><div class='en-def'>of or relating to Costa Rica or its people</div></td><td width='42%'><div class='ex-box'>💬 The Costa Rican rain forest.</div></td></tr><tr><td width='24%'><div class='expr-title'>49. Sri Lankan</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>a. 斯里兰卡的</div><div class='en-def'>of or relating to Sri Lanka (formerly Ceylon) or its people or culture</div></td><td width='42%'><div class='ex-box'>💬 Sri Lankan forces fighting the Sinhalese rebels.</div></td></tr><tr><td width='24%'><div class='expr-title'>50. just about</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>几乎, 正是</div><div class='en-def'>(of quantities) imprecise but fairly close to correct</div></td><td width='42%'><div class='ex-box'>💬 In just about a minute.</div></td></tr><tr><td width='24%'><div class='expr-title'>51. more or less</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>或多或少</div><div class='en-def'>(of quantities) imprecise but fairly close to correct</div></td><td width='42%'><div class='ex-box'>💬 Holds 3 gallons, more or less.</div></td></tr><tr><td width='24%'><div class='expr-title'>52. or so</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>大约, 或许, ...左右</div><div class='en-def'>(of quantities) imprecise but fairly close to correct</div></td><td width='42%'><div class='ex-box'>💬 20 or so people were at the party.</div></td></tr><tr><td width='24%'><div class='expr-title'>53. even as</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>正巧在...的时候, 正如</div><div class='en-def'>at the same time as</div></td><td width='42%'><div class='ex-box'>💬 Even as he lay dying they argued over his estate.</div></td></tr><tr><td width='24%'><div class='expr-title'>54. just as</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>正象</div><div class='en-def'>at the same time as</div></td><td width='42%'><div class='ex-box'>💬 The building collapsed just as he arrived.</div></td></tr><tr><td width='24%'><div class='expr-title'>55. kind of</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'><口>稍微, 有点儿, 有几分</div><div class='en-def'>to some (great or small) extent</div></td><td width='42%'><div class='ex-box'>💬 He is kind of shy.</div></td></tr><tr><td width='24%'><div class='expr-title'>56. quite a</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'><尤美, 常褒>不寻常的</div><div class='en-def'>of an unusually noticeable or exceptional or remarkable kind (not used with a negative)</div></td><td width='42%'><div class='ex-box'>💬 Her victory was quite something.</div></td></tr><tr><td width='24%'><div class='expr-title'>57. quite an</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[网络] 形容词</div><div class='en-def'>of an unusually noticeable or exceptional or remarkable kind (not used with a negative)</div></td><td width='42%'><div class='ex-box'>💬 We've had quite an afternoon.</div></td></tr><tr><td width='24%'><div class='expr-title'>58. on occasion</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>有时</div><div class='en-def'>now and then or here and there</div></td><td width='42%'><div class='ex-box'>💬 He was arrogant and occasionally callous.</div></td></tr><tr><td width='24%'><div class='expr-title'>59. now and then</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>偶尔</div><div class='en-def'>now and then or here and there</div></td><td width='42%'><div class='ex-box'>💬 As we drove along, the beautiful scenery now and then attracted his attention.</div></td></tr><tr><td width='24%'><div class='expr-title'>60. now and again</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>时而</div><div class='en-def'>now and then or here and there</div></td><td width='42%'><div class='ex-box'>💬 Now and again she would take her favorite book from the shelf and read to us.</div></td></tr><tr><td width='24%'><div class='expr-title'>61. every bit</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>从头至尾, 完全</div><div class='en-def'>to the same degree (often followed by `as')</div></td><td width='42%'><div class='ex-box'>💬 He is every bit as mean as she is.</div></td></tr><tr><td width='24%'><div class='expr-title'>62. long ago</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>很久以前</div><div class='en-def'>of the distant or comparatively distant past; ; ; ; ; ;  is Scottish</div></td><td width='42%'><div class='ex-box'>💬 We met once long ago.</div></td></tr><tr><td width='24%'><div class='expr-title'>63. long since</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>很久以前, 早已</div><div class='en-def'>of the distant or comparatively distant past; ; ; ; ; ;  is Scottish</div></td><td width='42%'><div class='ex-box'>💬 He has long since given up mountain climbing.</div></td></tr><tr><td width='24%'><div class='expr-title'>64. pretty much</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>几乎, 几乎全部</div><div class='en-def'>to some degree</div></td><td width='42%'><div class='ex-box'>💬 We were pretty much lost when we met the forest ranger.</div></td></tr><tr><td width='24%'><div class='expr-title'>65. that much</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>那样多, 那些, 就那样多</div><div class='en-def'>to a certain degree</div></td><td width='42%'><div class='ex-box'>💬 We will be that much ahead of them.</div></td></tr><tr><td width='24%'><div class='expr-title'>66. all over</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>全部结束, 到处, 浑身</div><div class='en-def'>to or in any or all places; ; ; ; ; (`everyplace' is used informally for `everywhere')</div></td><td width='42%'><div class='ex-box'>💬 Looked all over for a suitable gift.</div></td></tr><tr><td width='24%'><div class='expr-title'>67. all the same</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>仍然</div><div class='en-def'>despite anything to the contrary (usually following a concession)</div></td><td width='42%'><div class='ex-box'>💬 Granted that it is dangerous, all the same I still want to go.</div></td></tr><tr><td width='24%'><div class='expr-title'>68. so far</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>迄今为止</div><div class='en-def'>used after a superlative</div></td><td width='42%'><div class='ex-box'>💬 This is the best so far.</div></td></tr><tr><td width='24%'><div class='expr-title'>69. in any case</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>无论如何</div><div class='en-def'>making an additional point; anyway</div></td><td width='42%'><div class='ex-box'>💬 She couldn't shelter behind him all the time and in any case he wasn't always with her.</div></td></tr><tr><td width='24%'><div class='expr-title'>70. what is more</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>而且</div><div class='en-def'>in addition</div></td><td width='42%'><div class='ex-box'>💬 What is more, there's no sign of a change.</div></td></tr><tr><td width='24%'><div class='expr-title'>71. good and</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>非常, 完全</div><div class='en-def'>completely or thoroughly</div></td><td width='42%'><div class='ex-box'>💬 When I'm good and ready.</div></td></tr><tr><td width='24%'><div class='expr-title'>72. just now</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>刚刚</div><div class='en-def'>only a moment ago</div></td><td width='42%'><div class='ex-box'>💬 The sun just now came out.</div></td></tr><tr><td width='24%'><div class='expr-title'>73. before long</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>不久以后</div><div class='en-def'>in the near future</div></td><td width='42%'><div class='ex-box'>💬 We should have news before long.</div></td></tr><tr><td width='24%'><div class='expr-title'>74. per se</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>adv. 本身, 本质上</div><div class='en-def'>with respect to its inherent nature</div></td><td width='42%'><div class='ex-box'>💬 This statement is interesting per se.</div></td></tr><tr><td width='24%'><div class='expr-title'>75. in spades</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>肯定地, 坦率地</div><div class='en-def'>without question and beyond doubt</div></td><td width='42%'><div class='ex-box'>💬 She told him off in spades.</div></td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

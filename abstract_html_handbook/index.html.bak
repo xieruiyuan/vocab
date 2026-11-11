@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>母语者高阶抽象名词库 (12大类二级精排) - 总目录</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #1e1b4b; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; transition: all 0.15s; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #4f46e5; color: #fff; font-weight: 600; }
+.nav-link.home { background: #1e1b4b; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.13em; font-weight: 700; color: #0f172a; }
+.badge-comp { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; vertical-align: middle; }
+.badge-conv { display: inline-block; padding: 2px 6px; font-size: 0.72em; font-weight: 600; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #7e22ce; vertical-align: middle; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #4338ca; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #334155; font-size: 0.92em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #818cf8; }
+.card h3 { margin: 0 0 8px 0; color: #3730a3; font-size: 1.08em; }
+.meta { font-size: 0.86em; color: #64748b; line-height: 1.6; }
+</style></head><body>
+<h1>🏛️ 母语者高阶抽象概念词库（12大领域 • 48二级子表 • 英法双语版）</h1>
+<p style='color:#475569;font-size:1.05em;'>全库共收录 <b>10185</b> 个纯抽象概念名词（与具象实物词库 100% 互补隔离），涵盖学术学科、心理特质、逻辑思辨、法政经社与境遇状态。</p><div class='grid'>
+<a class='card' href='01_学校教育、学科专业与学术理论.html'><h3>01_学校教育、学科专业与学术理论</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Education, Academic Disciplines & Theories</div><div class='meta'>• 子类：自然科学、数学与工程学科 / 人文社科、哲学、语言与艺术学科 / 几何形状、数学概念与度量体系 等 4 类<br>• 词汇量：<b>1279</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='02_情绪感受、心理状态与性格特质.html'><h3>02_情绪感受、心理状态与性格特质</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Emotions, Psychology & Personality Traits</div><div class='meta'>• 子类：喜悦、热爱、同情与积极情感 / 悲伤、恐惧、愤怒与负面情绪 / 性格脾气、品格操守与为人作风 等 4 类<br>• 词汇量：<b>590</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='03_认知思维、逻辑推理与智力才华.html'><h3>03_认知思维、逻辑推理与智力才华</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Cognition, Logic & Intelligence</div><div class='meta'>• 子类：逻辑推理、假设求证与理性分析 / 洞察力、直觉、智慧与专业造诣 / 记忆、注意力、感知与意识思维 等 4 类<br>• 词汇量：<b>1109</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='04_语言修辞、言谈表达与信息传播.html'><h3>04_语言修辞、言谈表达与信息传播</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Language, Rhetoric & Communication</div><div class='meta'>• 子类：修辞手法、隐喻讽刺与文体风格 / 争辩、反驳、劝说与公共演说 / 赞美、谴责、诽谤与言辞表态 等 4 类<br>• 词汇量：<b>1955</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='05_法律规范、犯罪惩戒与权利义务.html'><h3>05_法律规范、犯罪惩戒与权利义务</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Law, Justice, Crime & Rights</div><div class='meta'>• 子类：法律法规、司法管辖与宪政条例 / 权利、自由、特权与法定义务 / 违法犯罪、欺诈腐败与侵权行为 等 4 类<br>• 词汇量：<b>207</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='06_政治体制、意识形态与权力治理.html'><h3>06_政治体制、意识形态与权力治理</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Politics, Ideology & Governance</div><div class='meta'>• 子类：政体制度、主权民主与专制独裁 / 意识形态、主义学说与政治运动 / 行政权威、外交联盟与地缘博弈 等 4 类<br>• 词汇量：<b>95</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='07_经济金融、商业贸易与资产收支.html'><h3>07_经济金融、商业贸易与资产收支</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Economics, Finance & Commerce</div><div class='meta'>• 子类：宏观经济、通胀萧条与市场垄断 / 资本投资、信贷债务与预算赤字 / 税务、补贴、薪酬福利与收益利润 等 4 类<br>• 词汇量：<b>446</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='08_社会关系、文化习俗与道德伦理.html'><h3>08_社会关系、文化习俗与道德伦理</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Society, Culture, Kinship & Ethics</div><div class='meta'>• 子类：社会阶层、声望地位与群体归属 / 人际交往、友谊敌意与默契羁绊 / 道德伦理、美德善恶与良知操守 等 4 类<br>• 词汇量：<b>199</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='09_境遇状态、命运祸福与危机困境.html'><h3>09_境遇状态、命运祸福与危机困境</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>States, Circumstances, Fate & Dilemmas</div><div class='meta'>• 子类：困境、僵局、危机与两难抉择 / 繁荣、福祉、逆境与贫富际遇 / 命运、机缘、巧合与因果气数 等 4 类<br>• 词汇量：<b>1020</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='10_变化过程、兴衰趋势与行为动作.html'><h3>10_变化过程、兴衰趋势与行为动作</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Processes, Trends, Decay & Actions</div><div class='meta'>• 子类：增长、扩张、繁荣与演进升级 / 衰退、枯竭、瓦解与恶化腐蚀 / 转变、过渡、波动与更替循环 等 4 类<br>• 词汇量：<b>2008</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='11_时间纪元、阶段周期与空间方位.html'><h3>11_时间纪元、阶段周期与空间方位</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Time, Eras, Intervals & Spatial Concepts</div><div class='meta'>• 子类：时代、纪元、千禧年与历史时期 / 间隔、期限、瞬间与持久永恒 / 开端、巅峰、尾声与转折节点 等 4 类<br>• 词汇量：<b>70</b> 词（含语境例句与英法同源对照）</div></a>
+<a class='card' href='12_系统属性、优劣特征与因果关联.html'><h3>12_系统属性、优劣特征与因果关联</h3><div style='color:#4f46e5;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Attributes, Qualities, Flaws & Relations</div><div class='meta'>• 子类：优势、效能、精髓与核心价值 / 缺陷、漏洞、弊端与反常异象 / 特征、属性、真实性与复杂程度 等 4 类<br>• 词汇量：<b>1207</b> 词（含语境例句与英法同源对照）</div></a>
+</div></body></html>

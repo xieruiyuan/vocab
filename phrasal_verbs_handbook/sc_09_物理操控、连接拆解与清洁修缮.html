@@ -1,0 +1,829 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>09 · 物理操控、连接拆解与清洁修缮</title><style>
+
+/* 首页现代控制台样式 */
+.index-hero {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 16px;
+    padding: 32px 36px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(15,23,42,0.03);
+}
+.index-title { font-size: 1.85em; font-weight: 800; color: #0f172a; margin: 0 0 10px 0; letter-spacing: -0.02em; }
+.index-desc { font-size: 0.98em; color: #475569; line-height: 1.65; margin: 0; max-width: 900px; }
+.index-sec-title {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 1.25em; font-weight: 800; color: #0f172a; margin: 32px 0 16px 0;
+    padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+}
+.sec-pt-title { border-bottom-color: #c7d2fe; color: #312e81; }
+.sec-sc-title { border-bottom-color: #99f6e4; color: #134e4a; }
+
+.index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 18px; margin-bottom: 36px; }
+
+.index-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px;
+    text-decoration: none; color: inherit; display: flex; flex-direction: column; justify-content: space-between;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+}
+.index-card:hover {
+    transform: translateY(-3px); box-shadow: 0 10px 25px rgba(15,23,42,0.08); border-color: #cbd5e1;
+}
+.pt-theme:hover { border-color: #6366f1; }
+.sc-theme:hover { border-color: #0d9488; }
+
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.card-badge {
+    font-size: 0.92em; font-weight: 800; padding: 4px 10px; border-radius: 7px;
+    letter-spacing: 0.02em;
+}
+.pt-badge { background: #eef2ff; color: #4338ca; border: 1px solid #c7d2fe; }
+.sc-badge { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
+
+.card-count {
+    font-size: 0.78em; font-weight: 700; color: #64748b; background: #f1f5f9;
+    padding: 3px 8px; border-radius: 99px;
+}
+.card-main-title {
+    font-size: 1.12em; font-weight: 700; color: #0f172a; margin: 0 0 6px 0;
+    line-height: 1.4; text-decoration: none;
+}
+.card-epe-ref { font-size: 0.78em; font-weight: 600; color: #6366f1; margin-bottom: 12px; }
+.sc-theme .card-epe-ref { color: #0d9488; }
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 10px; }
+.card-tag {
+    font-size: 0.75em; font-weight: 500; color: #475569; background: #f8fafc;
+    border: 1px solid #e2e8f0; padding: 2px 7px; border-radius: 5px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    max-width: 1340px; margin: 0 auto; padding: 20px 24px; background: #f1f5f9; color: #1e293b;
+    scroll-behavior: smooth; -webkit-font-smoothing: antialiased;
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 16px; margin-bottom: 32px; }
+.card { background: white; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #0d9488; box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+.card.pt-card:hover { border-color: #4f46e5; }
+.card h3 { margin: 0 0 6px 0; color: #0f766e; font-size: 1.06em; }
+.card.pt-card h3 { color: #4338ca; }
+.meta { font-size: 0.85em; color: #64748b; line-height: 1.55; }
+</style>
+<style>
+:root {
+    --primary: #0d9488;
+    --primary-light: #f0fdfa;
+    --primary-border: #ccfbf1;
+}
+body.pt-mode {
+    --primary: #4f46e5;
+    --primary-light: #eef2ff;
+    --primary-border: #e0e7ff;
+}
+
+/* 顶部模式切换栏 */
+.mode-switch-bar {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    background: #0f172a; padding: 10px 18px; border-radius: 12px; margin-bottom: 12px;
+    color: #fff; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(15,23,42,0.08);
+}
+.mode-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.mode-btn {
+    text-decoration: none; padding: 7px 14px; border-radius: 8px; font-size: 0.86em;
+    font-weight: 600; color: #cbd5e1; background: rgba(255,255,255,0.08); transition: all 0.15s;
+}
+.mode-btn:hover { background: rgba(255,255,255,0.16); color: #fff; }
+.mode-btn.active-sc { background: #0d9488; color: #fff; }
+.mode-btn.active-pt { background: #4f46e5; color: #fff; }
+
+/* 极简 1 行式顶部导航栏 */
+.nav-bar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(10px);
+    padding: 10px 14px; border-radius: 12px; box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+    margin-bottom: 18px; position: sticky; top: 8px; z-index: 30; border: 1px solid #e2e8f0;
+}
+.nav-link {
+    text-decoration: none; padding: 5px 11px; border-radius: 7px; font-size: 0.82em;
+    font-weight: 600; color: #475569; background: #f8fafc; border: 1px solid #e2e8f0;
+    transition: all 0.15s; white-space: nowrap;
+}
+.nav-link:hover { background: #f1f5f9; color: #0f172a; border-color: #cbd5e1; }
+.nav-link.active {
+    background: var(--primary); color: #fff; border-color: var(--primary);
+}
+.nav-cnt { font-size: 0.84em; opacity: 0.8; font-weight: 500; margin-left: 2px; }
+
+/* 清爽页面主标题区 */
+.page-hero {
+    background: #fff; padding: 20px 24px; border-radius: 12px; border: 1px solid #e2e8f0;
+    margin-bottom: 14px; display: flex; justify-content: space-between; align-items: flex-end;
+    flex-wrap: wrap; gap: 12px;
+}
+.hero-title { font-size: 1.5em; font-weight: 800; color: #0f172a; margin: 0 0 6px 0; letter-spacing: -0.01em; }
+.hero-sub { font-size: 0.92em; color: #64748b; margin: 0; font-weight: 500; }
+.hero-badge {
+    display: inline-block; background: var(--primary-light); color: var(--primary);
+    border: 1px solid var(--primary-border); font-size: 0.78em; font-weight: 700;
+    padding: 3px 10px; border-radius: 6px; margin-left: 10px; vertical-align: middle;
+}
+
+/* 结构化工具栏：分段筛选器 + 实时搜索 + 章节直达 */
+.toolbar-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px 18px;
+    margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;
+}
+.toolbar-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-label { font-size: 0.78em; font-weight: 700; color: #64748b; margin-right: 4px; }
+
+.seg-bar { display: inline-flex; background: #f1f5f9; padding: 3px; border-radius: 8px; gap: 2px; flex-wrap: wrap; }
+.seg-btn {
+    border: none; background: transparent; padding: 5px 11px; border-radius: 6px;
+    font-size: 0.82em; font-weight: 600; color: #475569; cursor: pointer; transition: all 0.15s;
+}
+.seg-btn:hover { color: #0f172a; }
+.seg-btn.active { background: #fff; color: #0f172a; box-shadow: 0 1px 2px rgba(0,0,0,0.08); font-weight: 700; }
+
+.search-box {
+    padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.84em;
+    width: 220px; outline: none; transition: border 0.15s; background: #f8fafc;
+}
+.search-box:focus { border-color: var(--primary); background: #fff; }
+
+.anchor-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    padding-top: 10px; border-top: 1px dashed #e2e8f0;
+}
+.sub-pill {
+    text-decoration: none; padding: 4px 11px; border-radius: 6px; font-size: 0.82em;
+    font-weight: 600; color: #334155; background: #f8fafc; border: 1px solid #cbd5e1;
+    cursor: pointer; transition: all 0.15s;
+}
+.sub-pill:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* 折叠章节与低饱和度深色表头 */
+details.sub-section {
+    margin-bottom: 18px; background: #fff; border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(15,23,42,0.04); border: 1px solid #e2e8f0; overflow: hidden;
+}
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 20px; background: #1e293b; color: #f8fafc;
+    cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.02em; font-weight: 700; transition: background 0.15s;
+}
+body.pt-mode summary.sub-header { background: #1e1b4b; }
+summary.sub-header:hover { background: #334155; }
+body.pt-mode summary.sub-header:hover { background: #312e81; }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.82em; color: #94a3b8; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); color: #38bdf8; }
+.sub-meta { font-size: 0.8em; font-weight: 600; color: #e2e8f0; background: rgba(255,255,255,0.12); padding: 3px 10px; border-radius: 99px; }
+
+
+/* EPE 原著章节精要折叠抽屉（保持首屏简洁，展开即读原书精髓） */
+details.epe-book-drawer {
+    background: #fff; border: 1px solid #c7d2fe; border-radius: 12px;
+    margin-bottom: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(79,70,229,0.05);
+}
+body:not(.pt-mode) details.epe-book-drawer { border-color: #99f6e4; }
+summary.epe-drawer-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 18px; background: linear-gradient(90deg, #eef2ff, #f8fafc);
+    color: #312e81; font-size: 0.92em; font-weight: 700; cursor: pointer;
+    list-style: none; user-select: none;
+}
+body:not(.pt-mode) summary.epe-drawer-bar {
+    background: linear-gradient(90deg, #f0fdfa, #f8fafc); color: #115e59;
+}
+summary.epe-drawer-bar::-webkit-details-marker { display: none; }
+.epe-drawer-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px;
+    padding: 16px 20px; border-top: 1px solid #e0e7ff; background: #fcfcff;
+    font-size: 0.88em; line-height: 1.65; color: #334155;
+}
+@media (max-width: 860px) { .epe-drawer-grid { grid-template-columns: 1fr; } }
+.epe-box-card {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 15px;
+}
+.epe-box-title {
+    font-size: 0.82em; font-weight: 800; color: var(--primary);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+}
+.epe-contrast-list { margin: 6px 0 0 0; padding-left: 18px; }
+.epe-contrast-list li { margin-bottom: 6px; }
+.epe-quote-chip {
+    margin-top: 8px; padding: 7px 10px; background: #f8fafc;
+    border-left: 3px solid var(--primary); font-size: 0.92em; color: #475569; border-radius: 0 6px 6px 0;
+}
+
+/* EPE 认知图式导读框 */
+.epe-explain-box {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 12px 20px; font-size: 0.9em; line-height: 1.65;
+    color: #1e293b; border-bottom: 1px solid #e2e8f0;
+}
+
+/* 词条表格与无下划线排版 */
+table { width: 100%; border-collapse: collapse; background: #fff; table-layout: fixed; }
+th {
+    background: #f8fafc; font-weight: 700; font-size: 0.82em; color: #475569;
+    padding: 11px 16px; border-bottom: 2px solid #e2e8f0; text-align: left;
+}
+td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+tr:hover { background: #fcfcfd; }
+
+.word-line { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.word { font-size: 1.16em; font-weight: 800; color: #0f172a; letter-spacing: -0.01em; }
+.pt-highlight { color: var(--primary); font-weight: 800; text-decoration: none; }
+.sense-badge {
+    font-size: 0.7em; font-weight: 700; padding: 1px 6px; border-radius: 4px;
+    background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0;
+}
+.badge-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 4px; }
+
+.sep-Separable { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.sep-Inseparable { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.sep-Intransitive { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+
+.reg-Formal { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+.reg-Neutral { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+.reg-Informal { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fefce8; color: #a16207; border: 1px solid #fef08a; }
+.reg-Slang { display: inline-block; padding: 2px 8px; font-size: 0.72em; font-weight: 600; border-radius: 5px; background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+
+.cn-precise { font-size: 1.02em; font-weight: 700; color: #0f172a; line-height: 1.45; display: block; margin-bottom: 6px; }
+.def-en-sub { font-size: 0.84em; color: #64748b; line-height: 1.45; }
+.eq-verb {
+    display: inline-block; font-size: 0.9em; font-weight: 700; color: #4338ca;
+    background: #eef2ff; padding: 4px 10px; border-radius: 6px; border: 1px solid #c7d2fe;
+}
+
+/* 3 组双语例句的清爽无下划线卡片 */
+.ex-list { display: flex; flex-direction: column; gap: 7px; }
+.ex-item {
+    background: #f8fafc; border-left: 3px solid #cbd5e1; padding: 6px 12px;
+    border-radius: 0 6px 6px 0; transition: border-color 0.15s;
+}
+tr:hover .ex-item { border-left-color: var(--primary); }
+.ex-num { font-weight: 700; color: var(--primary); margin-right: 5px; font-style: normal; }
+.ex-en { color: #1e293b; font-size: 0.9em; line-height: 1.45; }
+.ex-en b { color: var(--primary); font-weight: 700; text-decoration: none; }
+.orig-word { color: #64748b; border-bottom: 1px dashed #94a3b8; font-weight: 600; }
+.swap-pv-tag {
+    display: inline-block; background: var(--primary-light); color: var(--primary);
+    border: 1px solid var(--primary-border); padding: 0px 6px; border-radius: 4px;
+    font-size: 0.88em; font-weight: 600; margin: 0 2px;
+}
+.swap-tag {
+    display: inline-block; background: #f1f5f9; color: #475569;
+    border: 1px solid #e2e8f0; padding: 0px 6px; border-radius: 4px;
+    font-size: 0.85em; font-weight: 600; margin: 0 2px;
+}
+.ex-zh { color: #64748b; font-size: 0.84em; margin-top: 2px; line-height: 1.4; padding-left: 18px; }
+</style>
+
+<script>
+let currentSep = "all";
+let currentReg = "all";
+let currentQuery = "";
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function applyDualFilter() {
+    const q = currentQuery.trim().toLowerCase();
+    document.querySelectorAll("tr[data-sep]").forEach(row => {
+        const matchSep = (currentSep === "all" || row.dataset.sep === currentSep);
+        const matchReg = (currentReg === "all" || row.dataset.reg === currentReg);
+        const matchQ = (!q || row.innerText.toLowerCase().includes(q));
+        row.style.display = (matchSep && matchReg && matchQ) ? "" : "none";
+    });
+}
+
+function filterSeparability(sepType, btn) {
+    currentSep = sepType;
+    if (btn) {
+        btn.parentElement.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    }
+    applyDualFilter();
+}
+
+function filterRegister(regType, btn) {
+    currentReg = regType;
+    if (btn) {
+        btn.parentElement.querySelectorAll(".seg-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+    }
+    applyDualFilter();
+}
+
+function filterSearch(val) {
+    currentQuery = val;
+    toggleAllSections(true);
+    applyDualFilter();
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body id='top'>
+<div class='mode-switch-bar'><div class='mode-group'><a class='mode-btn' href='index.html'>🏠 总目录首页</a><a class='mode-btn active-sc' href='sc_09_物理操控、连接拆解与清洁修缮.html'>🎭 视图一：12 大动作场景</a><a class='mode-btn' href='pt_01_UP_向上、完结体、视线显露与靠近.html'>🧭 视图二：EPE 小品词认知图式</a></div><div style='font-size:0.82em;color:#94a3b8;'>💡 悬停语域标签可看判定依据 • 100% 真实词典与语料库例句（零机械拼凑）</div></div>
+<div class="nav-bar"><a class="nav-link" href="sc_01_时间推进、开始结束与拖延持续.html" title="01_时间推进、开始结束与拖延持续">01 时间推进 <span class="nav-cnt">(473)</span></a><a class="nav-link" href="sc_02_认知思考、排查发现与计划构想.html" title="02_认知思考、排查发现与计划构想">02 认知思考 <span class="nav-cnt">(270)</span></a><a class="nav-link" href="sc_03_言语沟通、争辩劝说与信息披露.html" title="03_言语沟通、争辩劝说与信息披露">03 言语沟通 <span class="nav-cnt">(173)</span></a><a class="nav-link" href="sc_04_情绪起伏、心理爆发与安抚释放.html" title="04_情绪起伏、心理爆发与安抚释放">04 情绪起伏 <span class="nav-cnt">(252)</span></a><a class="nav-link" href="sc_05_人际关系、社交聚散与支持背叛.html" title="05_人际关系、社交聚散与支持背叛">05 人际关系 <span class="nav-cnt">(95)</span></a><a class="nav-link" href="sc_06_对抗冲突、屈服妥协与防御逃避.html" title="06_对抗冲突、屈服妥协与防御逃避">06 对抗冲突 <span class="nav-cnt">(124)</span></a><a class="nav-link" href="sc_07_商业财务、资源消耗与分配积累.html" title="07_商业财务、资源消耗与分配积累">07 商业财务 <span class="nav-cnt">(176)</span></a><a class="nav-link" href="sc_08_物理位移、进出升降与穿戴安置.html" title="08_物理位移、进出升降与穿戴安置">08 物理位移 <span class="nav-cnt">(298)</span></a><a class="nav-link active" href="sc_09_物理操控、连接拆解与清洁修缮.html" title="09_物理操控、连接拆解与清洁修缮">09 物理操控 <span class="nav-cnt">(133)</span></a><a class="nav-link" href="sc_10_生理机能、健康疾病与饮食睡眠.html" title="10_生理机能、健康疾病与饮食睡眠">10 生理机能 <span class="nav-cnt">(57)</span></a><a class="nav-link" href="sc_11_工作执行、职责接替与成败结果.html" title="11_工作执行、职责接替与成败结果">11 工作执行 <span class="nav-cnt">(70)</span></a><a class="nav-link" href="sc_12_数量增减、程度变化与逻辑关联.html" title="12_数量增减、程度变化与逻辑关联">12 数量增减 <span class="nav-cnt">(945)</span></a></div>
+<div class='page-hero'><div><h1 class='hero-title'>09 · 物理操控、连接拆解与清洁修缮</h1><p class='hero-sub'>Manipulation, Assembly, Destruction & Cleaning</p></div><div style='font-size:0.88em;color:#475569;font-weight:600;'>共 <b>133</b> 个独立义项 • <b>399</b> 句中英对照例句</div></div>
+
+
+        <div class='toolbar-card'>
+            <div class='toolbar-row'>
+                <div class='filter-group'>
+                    <span class='filter-label'>语法属性</span>
+                    <div class='seg-bar'>
+                        <button class='seg-btn active' onclick="filterSeparability('all', this)">全部 (133)</button>
+                        <button class='seg-btn' onclick="filterSeparability('Separable', this)">🟢 可拆分</button>
+                        <button class='seg-btn' onclick="filterSeparability('Inseparable', this)">🔵 不可拆分</button>
+                        <button class='seg-btn' onclick="filterSeparability('Intransitive', this)">🟠 不及物</button>
+                    </div>
+                </div>
+                <div class='filter-group'>
+                    <span class='filter-label'>语域色彩</span>
+                    <div class='seg-bar'>
+                        <button class='seg-btn active' onclick="filterRegister('all', this)">全部语域</button>
+                        <button class='seg-btn' onclick="filterRegister('Formal', this)">🏛️ 正式</button>
+                        <button class='seg-btn' onclick="filterRegister('Neutral', this)">⚖️ 通用</button>
+                        <button class='seg-btn' onclick="filterRegister('Informal', this)">💬 口语</button>
+                        <button class='seg-btn' onclick="filterRegister('Slang', this)">🌶️ 俚语</button>
+                    </div>
+                </div>
+                <div class='filter-group'>
+                    <input type='text' class='search-box' placeholder='🔍 搜索短语、释义或例句...' oninput="filterSearch(this.value)">
+                    <div class='seg-bar'>
+                        <button class='seg-btn' onclick="toggleAllSections(true)">展开</button>
+                        <button class='seg-btn' onclick="toggleAllSections(false)">收起</button>
+                    </div>
+                </div>
+            </div>
+            <div class='anchor-row'><span class='filter-label'>📌 章节直达：</span><a class="sub-pill" onclick="jumpToSection("sub_0")">01 组装、连接、固定与打包 (57)</a><a class="sub-pill" onclick="jumpToSection("sub_1")">02 拆解、撕碎、砸毁与炸掉 (22)</a><a class="sub-pill" onclick="jumpToSection("sub_2")">03 打扫、擦拭、整理与丢弃 (33)</a><a class="sub-pill" onclick="jumpToSection("sub_3")">04 修补、翻新、开启与关闭 (21)</a></div>
+        </div>
+        
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 组装、连接、固定与打包 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Putting together, Hooking up & Packing up</span></span><span class='sub-meta'>57 义项</span></summary><div class='epe-explain-box'>🎭 <b>场景认知导读：</b>将分散部件收拢紧固成一个完整整体用 TOGETHER 或 UP（pack/tie/bind/hook up）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>set <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 11 个核心义项'>2/11</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [assemble] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>create by putting components or members together</span></td><td><span class='eq-verb'>assemble, piece</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>She pieced a quilt.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>He tacked together some verses.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>They <b>set</b> <b>up</b> a committee.</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>have <span class='pt-highlight'>it away</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: love)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>have <span class='pt-highlight'>it off</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: love)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>get <span class='pt-highlight'>it on</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + adv. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>make <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 10 个核心义项'>10/10</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: love)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>put <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [assemble] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>create by putting components or members together</span></td><td><span class='eq-verb'>assemble, piece</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>She pieced a quilt.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>He tacked together some verses.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>They set up a committee.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bring <span class='pt-highlight'>together</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: join)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to become joined or linked</span></td><td><span class='eq-verb'>join, connect</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Join these two parts so that they fit together.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>put <span class='pt-highlight'>through</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [connect] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>connect by telephone</span></td><td><span class='eq-verb'>connect, link</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The operator <b>put</b> a call <b>through</b> to Rio.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>run <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>2/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fasten by sewing; do needlework</span></td><td><span class='eq-verb'>sew, stitch</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>run</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>close <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: close)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>unite or bring into contact or bring together the edges of</span></td><td><span class='eq-verb'>close, join</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Close the circuit.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Close a wound.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Close a book.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>couple <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>link together</span></td><td><span class='eq-verb'>couple, attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Can we couple these proposals?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>couple <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>link together</span></td><td><span class='eq-verb'>couple, attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Can we couple these proposals?</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>sleep <span class='pt-highlight'>with</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student <b>sleeps</b> <b>with</b> everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>add <span class='pt-highlight'>on</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (3.174x) + 作为正式词 [append] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>add to the very end</span></td><td><span class='eq-verb'>append, supplement</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He appended a glossary to his novel where he used an invented language.</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Informal'><td><div class='word-line'><span class='word'>stick <span class='pt-highlight'>to</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + prep. + O)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [adhere] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>stick to firmly</span></td><td><span class='eq-verb'>adhere, bond</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Will this wallpaper adhere to the wall?</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>sleep <span class='pt-highlight'>around</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be sexually active with more than one partner</span></td><td><span class='eq-verb'>bedhop, fornicate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>His wife bed hops.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>sleep <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>link <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [connect] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>connect, fasten, or put together two or more pieces</span></td><td><span class='eq-verb'>connect, link</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Can you connect the two loudspeakers?</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Tie the ropes together.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Link arms.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>hang <span class='pt-highlight'>on</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>1/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [append] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fix to; attach</span></td><td><span class='eq-verb'>append, tack</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Append a charm to the necklace.</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lie <span class='pt-highlight'>with</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: love)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>have sexual intercourse with</span></td><td><span class='eq-verb'>love, know</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>This student sleeps with everyone in her dorm.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Adam knew Eve.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Were you ever intimate with this man?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>hang <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to be hanging or suspended</span></td><td><span class='eq-verb'>hang, fasten</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Hang that picture on the wall.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>pack <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>gain (weight)</span></td><td><span class='eq-verb'>gain</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He <b>packed</b> <b>on</b> two pounds over the summer.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>off</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make the last row of stitches when knitting</span></td><td><span class='eq-verb'>sew, stitch</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>cast</b> it <b>off</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make the first row of stitches when knitting</span></td><td><span class='eq-verb'>sew, stitch</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>cast</b> it <b>on</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bridge <span class='pt-highlight'>over</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: bridge)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>connect or reduce the distance between</span></td><td><span class='eq-verb'>bridge, connect</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>bridge</b> it <b>over</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>roll <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>4/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make into a bundle</span></td><td><span class='eq-verb'>bundle, pack</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He bundled up his few possessions.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>stick <span class='pt-highlight'>on</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>attach to</span></td><td><span class='eq-verb'>affix, attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Affix the seal here.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>secure by locking</span></td><td><span class='eq-verb'>fasten, fix</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Lock</b> <b>up</b> the house before you go on vacation.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>mix <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [jumble] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>assemble without order or sense</span></td><td><span class='eq-verb'>jumble, confuse</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>She jumbles the words when she is supposed to write a sentence.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>hang <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [interdepend] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be connected</span></td><td><span class='eq-verb'>interdepend, connect</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>In my heart I can make the world <b>hang</b> <b>together</b>.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>pack <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [compress] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make more compact by or as if by pressing</span></td><td><span class='eq-verb'>compress, compact</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Compress the data.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>tie <span class='pt-highlight'>in</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [relate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be in connection with something relevant</span></td><td><span class='eq-verb'>relate, interrelate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>This <b>ties</b> <b>in</b> closely with his earlier remarks.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tie <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [oblige] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>restrain from independence by an obligation</span></td><td><span class='eq-verb'>oblige, bind</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He was <b>tied</b> <b>down</b> by his work.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>tie <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>2/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>finish the last row</span></td><td><span class='eq-verb'>tie, bind</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>tie</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>tie <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>3/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>secure in or as if in a berth or dock</span></td><td><span class='eq-verb'>moor, berth</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Tie</b> <b>up</b> the boat.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tie <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>4/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [obstruct] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>restrain from moving or operating normally</span></td><td><span class='eq-verb'>obstruct, obturate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Traffic is <b>tied</b> <b>up</b> for miles around the bridge where the accident occurred.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>hook <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [attach] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>connect or link</span></td><td><span class='eq-verb'>attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span><b>Hook</b> <b>up</b> the houses to the gas supply line.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span><b>Hook</b> <b>up</b> the components of the new sound system.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tag <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [append] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fix to; attach</span></td><td><span class='eq-verb'>append, tack</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Append a charm to the necklace.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>pin <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>1/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>define clearly</span></td><td><span class='eq-verb'>narrow, specify</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>I cannot narrow down the rules for this game.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>plug <span class='pt-highlight'>in</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (4.651x) + 作为正式词 [connect] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>plug into an outlet</span></td><td><span class='eq-verb'>connect, insert</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Please <b>plug</b> <b>in</b> the toaster!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Connect the TV so we can watch the football game tonight.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>pin <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [attach] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>attach with or as if with a pin</span></td><td><span class='eq-verb'>attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Pin up a picture.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>pin <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>place in a confining or embarrassing position</span></td><td><span class='eq-verb'>trap, confine</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He was trapped in a difficult situation.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>pin <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [attach] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>attach with or as if with a pin</span></td><td><span class='eq-verb'>attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Pin</b> <b>up</b> a picture.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>nail <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>define clearly</span></td><td><span class='eq-verb'>narrow, specify</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>I cannot narrow down the rules for this game.</div></div></div></td></tr>
+<tr data-sep='Inseparable' data-reg='Neutral'><td><div class='word-line'><span class='word'>plug <span class='pt-highlight'>into</span></span></div><div class='badge-stack'><span class='sep-Inseparable'>🔵 不可拆分 (v. + prep. + O)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (4.651x) + 作为正式词 [connect] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>plug into an outlet</span></td><td><span class='eq-verb'>connect, insert</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Please plug in the toaster!</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Connect the TV so we can watch the football game tonight.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>rope <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>attach to one another, for safety</span></td><td><span class='eq-verb'>fasten, fix</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The mountaineers <b>roped</b> <b>up</b> when they started the final ascent.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>rig <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [assemble] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>erect or construct, especially as a temporary measure</span></td><td><span class='eq-verb'>assemble, piece</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Can he <b>rig</b> <b>up</b> a P.A. system?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bundle <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make into a bundle</span></td><td><span class='eq-verb'>bundle, pack</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He <b>bundled</b> <b>up</b> his few possessions.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>zip <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [zipper] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>close with a zipper</span></td><td><span class='eq-verb'>zipper, zip</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Zip</b> <b>up</b> your jacket--it's cold.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>bind <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: tie)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>finish the last row</span></td><td><span class='eq-verb'>tie, bind</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>bind</b> it <b>off</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lace <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>draw through eyes or holes</span></td><td><span class='eq-verb'>lace, tie</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Lace the shoelaces.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>bind <span class='pt-highlight'>over</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [confine] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>order a defendant to be placed in custody pending the outcome of a proceedings against him or her</span></td><td><span class='eq-verb'>confine, detain</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The defendant was bound over for trial.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>peg <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fasten or secure with a wooden pin</span></td><td><span class='eq-verb'>peg, attach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Peg a tent.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lash <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>bind together with a cord or rope</span></td><td><span class='eq-verb'>tie, bind</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Lash</b> <b>together</b> these barrels!</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>sew <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: sew)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fasten by sewing; do needlework</span></td><td><span class='eq-verb'>sew, stitch</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>sew</b> it <b>together</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tack <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [append] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fix to; attach</span></td><td><span class='eq-verb'>append, tack</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Append a charm to the necklace.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tack <span class='pt-highlight'>together</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [assemble] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>create by putting components or members together</span></td><td><span class='eq-verb'>assemble, piece</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>She pieced a quilt.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>He <b>tacked</b> <b>together</b> some verses.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>They set up a committee.</div></div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 拆解、撕碎、砸毁与炸掉 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Taking apart, Tearing down & Blowing up</span></span><span class='sub-meta'>22 义项</span></summary><div class='epe-explain-box'>🎭 <b>场景认知导读：</b>使组件彼此分离用 APART（take apart）；使高耸建筑轰然倒地用 DOWN（tear/knock down）；使物体彻底碎裂成小块用 UP（tear/cut/blow up）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>blow <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 7 个核心义项'>1/7</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [explode] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to burst with a violent release of energy</span></td><td><span class='eq-verb'>explode, detonate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We exploded the nuclear bomb.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>set <span class='pt-highlight'>off</span></span><span class='sense-badge' title='该短语共有 7 个核心义项'>3/7</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [explode] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to burst with a violent release of energy</span></td><td><span class='eq-verb'>explode, detonate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>We exploded the nuclear bomb.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>keep <span class='pt-highlight'>apart</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [sequester] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>set apart from others</span></td><td><span class='eq-verb'>sequester, sequestrate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The dentist sequesters the tooth he is working on.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>set <span class='pt-highlight'>apart</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [sequester] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>set apart from others</span></td><td><span class='eq-verb'>sequester, sequestrate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The dentist sequesters the tooth he is working on.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>1/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: carve)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut to pieces</span></td><td><span class='eq-verb'>carve, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Father carved the ham.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>4/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: slash)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut with sweeping strokes; as with an ax or machete</span></td><td><span class='eq-verb'>slash, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>cut</b> it <b>down</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>across</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [crosscut] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut using a diagonal line</span></td><td><span class='eq-verb'>crosscut, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>cut</b> it <b>across</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>5/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: fell)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to fall by or as if by delivering a blow</span></td><td><span class='eq-verb'>fell, drop</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Strike down a tree.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Lightning struck down the hikers.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>6/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: mow)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut with a blade or mower</span></td><td><span class='eq-verb'>mow, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Mow the grass.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>off</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>5/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: chip)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>break a small piece off from</span></td><td><span class='eq-verb'>chip, knap</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Chip the glass.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Chip a tooth.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>cut <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>4/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [compartmentalize] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>separate into isolated compartments or categories</span></td><td><span class='eq-verb'>compartmentalize, compartmentalise</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>You cannot compartmentalize your life like this!</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>break <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 15 个核心义项'>12/15</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [sever] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>set or keep apart</span></td><td><span class='eq-verb'>sever, discerp</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Sever a relationship.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>strike <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>1/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: fell)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to fall by or as if by delivering a blow</span></td><td><span class='eq-verb'>fell, drop</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span><b>Strike</b> <b>down</b> a tree.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Lightning struck down the hikers.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>tear <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: shred)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>tear into shreds</span></td><td><span class='eq-verb'>shred, tear</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>tear</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>rip <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>tear into shreds</span></td><td><span class='eq-verb'>shred, tear</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>rip</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>snap <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>break a piece from a whole</span></td><td><span class='eq-verb'>break, detach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Break a branch from a tree.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>scratch <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut the surface of; wear away the surface of</span></td><td><span class='eq-verb'>scratch, scrape</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>scratch</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>slice <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut into slices</span></td><td><span class='eq-verb'>slice, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Slice the salami, please.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>chop <span class='pt-highlight'>down</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: fell)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut down</span></td><td><span class='eq-verb'>fell, drop</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>George <b>chopped</b> <b>down</b> the cherry tree.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>chop <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [detach] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>remove by or as if by cutting</span></td><td><span class='eq-verb'>detach</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Cut off the ear.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Lop off the dead branch.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>chop <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: chop)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cut into pieces</span></td><td><span class='eq-verb'>chop, cut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Chop wood.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Chop meat.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>nip <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: nip)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>sever or remove by pinching or snipping</span></td><td><span class='eq-verb'>nip, clip</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Nip</b> <b>off</b> the flowers.</div></div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 打扫、擦拭、整理与丢弃 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Cleaning up, Wiping off & Throwing away</span></span><span class='sub-meta'>33 义项</span></summary><div class='epe-explain-box'>🎭 <b>场景认知导读：</b>使环境恢复彻底整洁用完结体 UP（clean/tidy up）；使污渍脱离物体表面用 OFF（wipe/wash off）；使垃圾远离自己用 AWAY（throw away）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>put <span class='pt-highlight'>away</span></span><span class='sense-badge' title='该短语共有 7 个核心义项'>2/7</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Put</b> <b>away</b> your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>close <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>terminate by selling off or disposing of</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>He <b>closed</b> <b>out</b> his line of sports cars.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>throw <span class='pt-highlight'>away</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>sort <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: clear)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make free from confusion or ambiguity; make clear</span></td><td><span class='eq-verb'>clear, crystallize</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Could you clarify these remarks?</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Clear up the question of who is at fault.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>sell <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [liquidize] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>get rid of all one's merchandise</span></td><td><span class='eq-verb'>liquidize, discard</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>sell</b> it <b>out</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>throw <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>1/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>sort <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [discipline] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>punish in order to gain control or enforce obedience</span></td><td><span class='eq-verb'>discipline, correct</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The teacher disciplined the pupils rather frequently.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>sell <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [liquidize] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>get rid of all one's merchandise</span></td><td><span class='eq-verb'>liquidize, discard</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>sell</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>clean <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>2/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [deprive] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>deprive completely of money or goods</span></td><td><span class='eq-verb'>deprive, strip</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The robbers <b>cleaned</b> us <b>out</b> in a couple of hours.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>clean <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 3 个核心义项'>3/3</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [displace] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>force out</span></td><td><span class='eq-verb'>displace, fire</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The new boss <b>cleaned</b> <b>out</b> the lazy workers.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>clean <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>3/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [settle] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>dispose of</span></td><td><span class='eq-verb'>settle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Settle the bills.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>clean <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>4/4</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [profit] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make a big profit; often in a short period of time</span></td><td><span class='eq-verb'>profit</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The investor really <b>cleaned</b> <b>up</b> when the stock market went up.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>aside</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x) + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>away</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x) + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cast <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (1.78x) + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>down</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: flush)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>flow freely</span></td><td><span class='eq-verb'>flush</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The body <b>washed</b> <b>down</b> the river.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>1/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: wash)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wash free from unwanted substances, such as dirt</span></td><td><span class='eq-verb'>wash, launder</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Wash</b> <b>out</b> your dirty shirt in the sink.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>2/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [prevent] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>prevent or interrupt due to rain</span></td><td><span class='eq-verb'>prevent</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The storm had <b>washed</b> <b>out</b> the game.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>1/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: lave)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wash one's face and hands</span></td><td><span class='eq-verb'>lave, freshen</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>She freshened up in the bathroom.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>away</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [remove] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>eliminate</span></td><td><span class='eq-verb'>remove</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Wash</b> <b>away</b> all the differences.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>3/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [discolor] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>lose color in the process of being washed</span></td><td><span class='eq-verb'>discolor</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The expensive shirt <b>washed</b> <b>out</b> in the German washing machine.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>5/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [destroy] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wear or destroy by the force of water</span></td><td><span class='eq-verb'>destroy, ruin</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The hail storms had <b>washed</b> <b>out</b> the bridges.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>3/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [appear] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>be carried somewhere by water or as if by water</span></td><td><span class='eq-verb'>appear</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The body <b>washed</b> <b>up</b> on the beach.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Neutral'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>4/5</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: clean)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wash dishes</span></td><td><span class='eq-verb'>clean</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>I cook and my husband <b>washes</b> <b>up</b> after dinner.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>wash <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>5/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [impart] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>carry somewhere (of water or current or waves)</span></td><td><span class='eq-verb'>impart, conduct</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The tide <b>washed</b> <b>up</b> the corpse.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>sweep <span class='pt-highlight'>over</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [overwhelm] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>overcome, as with emotions or perceptual stimuli</span></td><td><span class='eq-verb'>overwhelm, overpower</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>sweep</b> it <b>over</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>chuck <span class='pt-highlight'>out</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>toss <span class='pt-highlight'>away</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>sweep <span class='pt-highlight'>away</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: affect)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>overwhelm emotionally</span></td><td><span class='eq-verb'>affect, impress</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her swept her away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>sweep <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [embroil] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>force into some kind of situation, condition, or course of action</span></td><td><span class='eq-verb'>embroil, tangle</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>They were swept up by the events.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Don't drag me into this business.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>sweep <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: affect)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>overwhelm emotionally</span></td><td><span class='eq-verb'>affect, impress</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Her swept her away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>toss <span class='pt-highlight'>out</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [discard] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>throw or cast away</span></td><td><span class='eq-verb'>discard, fling</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Put away your worries.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>rinse <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (3.1x)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>wash off soap or remaining dirt</span></td><td><span class='eq-verb'>rinse, wash</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>rinse</b> it <b>off</b> right away.</div></div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_3'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>04 · 修补、翻新、开启与关闭 <span style='font-weight:400;font-size:0.86em;color:#cbd5e1;margin-left:8px;'>Fixing up, Doing up & Turning off</span></span><span class='sub-meta'>21 义项</span></summary><div class='epe-explain-box'>🎭 <b>场景认知导读：</b>接通电路/水源使设备处于工作状态用 ON¹（turn/switch on）；切断连接停止运转用 OFF（turn/switch/shut off）。</div><table><tr><th width='21%'>Phrasal Verb • 语法与语域</th><th width='24%'>🎯 English Definition (WordNet)</th><th width='14%'>🔄 Single-Word Verb</th><th width='41%'>💬 Authentic Examples</th></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>stop <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fill or close tightly with or as if with a plug</span></td><td><span class='eq-verb'>plug, secure</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Plug the hole.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span><b>Stop</b> <b>up</b> the leak.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>board <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (2.196x) + 作为正式词 [cover] 的日常短语替身' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cover with wooden boards</span></td><td><span class='eq-verb'>cover</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span><b>Board</b> <b>up</b> windows before the hurricane.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>fix <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [provide] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>find (something or someone) for</span></td><td><span class='eq-verb'>provide, supply</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>I'll <b>fix</b> you <b>up</b> with a nice girl.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>switch <span class='pt-highlight'>on</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: throw)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to operate by flipping a switch</span></td><td><span class='eq-verb'>throw, flip</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span><b>Switch</b> <b>on</b> the light.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Turn on the stereo.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>fix <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [arrange] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make arrangements for</span></td><td><span class='eq-verb'>arrange, agree</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Can you arrange a meeting with the President?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>touch <span class='pt-highlight'>on</span></span><span class='sense-badge' title='该短语共有 4 个核心义项'>4/4</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [repair] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>restore by replacing a part or putting together what is torn or broken</span></td><td><span class='eq-verb'>repair, mend</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>She repaired her TV set.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Repair my shoes please.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>dress <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 5 个核心义项'>5/5</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [caparison] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>put a caparison on</span></td><td><span class='eq-verb'>caparison, bard</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Caparison the horses for the festive occasion.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>roll <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 6 个核心义项'>3/6</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>close (a car window) by causing it to move up, as with a handle</span></td><td><span class='eq-verb'>close, shut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>She <b>rolled</b> <b>up</b> the window when it started to rain.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>switch <span class='pt-highlight'>off</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: cut)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>cause to stop operating by disengaging a switch</span></td><td><span class='eq-verb'>cut, throw</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>Turn off the stereo, please.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>Cut the engine.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>③</span>Turn out the lights.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>place in a place where something cannot be removed or someone cannot escape</span></td><td><span class='eq-verb'>lock, confine</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The parents <b>locked</b> her daughter <b>up</b> for the weekend.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>She locked her jewels in the safe.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>fill <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: close)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>fill or stop up</span></td><td><span class='eq-verb'>close, fill</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Can you close the cracks with caulking?</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>switch <span class='pt-highlight'>over</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：标准通用语域 (对应: switch)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>change over, change around, as to a new order or sequence</span></td><td><span class='eq-verb'>switch, exchange</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>switch</b> it <b>over</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>in</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>place in a place where something cannot be removed or someone cannot escape</span></td><td><span class='eq-verb'>lock, confine</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The parents locked her daughter up for the weekend.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>She <b>locked</b> her jewels <b>in</b> the safe.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>in</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [confine] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>close with or as if with a tight seal</span></td><td><span class='eq-verb'>confine</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>This vacuum pack <b>locks</b> <b>in</b> the flavor!</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>seal <span class='pt-highlight'>off</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库学术/公文分布比高 (2.584x)' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>make tight; secure against leakage</span></td><td><span class='eq-verb'>seal, close</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Seal the windows.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>away</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>place in a place where something cannot be removed or someone cannot escape</span></td><td><span class='eq-verb'>lock, confine</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>①</span>The parents locked her daughter up for the weekend.</div></div>
+<div class='ex-item'><div class='ex-en'><span class='ex-num'>②</span>She locked her jewels in the safe.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>lock <span class='pt-highlight'>out</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [exclude] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>prevent employees from working during a strike</span></td><td><span class='eq-verb'>exclude, shut</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>lock</b> it <b>out</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>patch <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>1/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>mend by putting a patch on</span></td><td><span class='eq-verb'>patch, repair</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>Patch a hole.</div></div></div></td></tr>
+<tr data-sep='Intransitive' data-reg='Informal'><td><div class='word-line'><span class='word'>patch <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Intransitive'>🟠 不及物 (Intransitive)</span><span class='reg-Informal' title='🤖 自动判定依据：语料库日常/小说会话分布活跃 + 作为正式词 [reconcile] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>come to terms</span></td><td><span class='eq-verb'>reconcile, conciliate</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>After some discussion we finally made up.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Neutral'><td><div class='word-line'><span class='word'>cork <span class='pt-highlight'>up</span></span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Neutral' title='🤖 自动判定依据：语料库日常/小说会话分布活跃' style='cursor:help;'>⚖️ 通用/中性 (Neutral)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>close a bottle with a cork</span></td><td><span class='eq-verb'>cork, plug</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>They decided to <b>cork</b> it <b>up</b> right away.</div></div></div></td></tr>
+<tr data-sep='Separable' data-reg='Informal'><td><div class='word-line'><span class='word'>tart <span class='pt-highlight'>up</span></span><span class='sense-badge' title='该短语共有 2 个核心义项'>2/2</span></div><div class='badge-stack'><span class='sep-Separable'>🟢 可拆分 (v. + O + adv.)</span><span class='reg-Informal' title='🤖 自动判定依据：作为正式词 [decorate] 的日常短语替身' style='cursor:help;'>💬 口语/日常 (Informal)</span></div></td><td><span class='cn-precise' style='font-weight:600;color:#1e293b;'>decorate in a cheap and flashy way</span></td><td><span class='eq-verb'>decorate, adorn</span></td><td><div class='ex-list'><div class='ex-item'><div class='ex-en'><span class='ex-num'>📌</span>The small-town bar was all <b>tarted</b> <b>up</b>.</div></div></div></td></tr>
+</table></details>
+</body></html>

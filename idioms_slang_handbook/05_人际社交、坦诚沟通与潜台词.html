@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>05 · 人际社交、坦诚沟通与潜台词 (Socializing, Communication & Subtext)</title>
+<style>
+  :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #1e293b; margin: 0; padding: 24px; line-height: 1.55; }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .header-box { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; padding: 28px 32px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 25px rgba(15,23,42,0.12); }
+  .header-box h1 { margin: 0 0 8px 0; font-size: 26px; letter-spacing: -0.3px; }
+  .header-box p { margin: 0; color: #cbd5e1; font-size: 15px; }
+  .nav-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; background: white; padding: 14px; border-radius: 12px; border: 1px solid var(--border); position: sticky; top: 10px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+  .nav-btn { text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13.5px; font-weight: 600; color: #334155; background: #f1f5f9; transition: all 0.15s; }
+  .nav-btn:hover { background: #e2e8f0; color: #0f172a; }
+  .nav-btn.active { background: var(--accent); color: white; }
+  .search-input { margin-left: auto; padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; min-width: 240px; outline: none; }
+  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid var(--border); }
+  th { background: #f1f5f9; color: #334155; font-size: 13.5px; text-align: left; padding: 14px 18px; border-bottom: 2px solid var(--border); }
+  td { padding: 16px 18px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+  tr:hover td { background: #f8fafc; }
+  .expr-title { font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 6px; font-size: 11.5px; font-weight: 600; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .badge.slang { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+  .cn-meaning { font-size: 15.5px; font-weight: 700; color: #0f766e; margin-bottom: 4px; }
+  .en-def { font-size: 13.5px; color: #475569; }
+  .ex-box { background: #f8fafc; border-left: 3px solid #2563eb; padding: 10px 14px; border-radius: 6px; font-size: 14.5px; color: #1e293b; }
+  .ex-box b { color: #1d4ed8; }
+</style>
+<script>
+function filterTable() {
+  const q = document.getElementById('qInput').value.toLowerCase();
+  const rows = document.querySelectorAll('tbody tr');
+  rows.forEach(r => {
+    r.style.display = r.innerText.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+</script>
+
+
+
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head>
+<body>
+<div class="container">
+  <div class="header-box">
+    <h1>05 · 人际社交、坦诚沟通与潜台词 (Socializing, Communication & Subtext)</h1>
+    <p>用于处理人际往来、打破僵局、直抒胸臆或应对社交摩擦。（共 75 条高频实战词条）</p>
+  </div>
+  <div class='nav-bar'><a class='nav-btn ' href='index.html'>🏠 总览 (600)</a><a class='nav-btn ' href='01_职场博弈、决策与执行.html'>01 职场博弈 (75)</a><a class='nav-btn ' href='02_冲突对抗、警告与街头治安.html'>02 冲突对抗 (75)</a><a class='nav-btn ' href='03_认知判断、真相与欺瞒.html'>03 认知判断 (75)</a><a class='nav-btn ' href='04_情绪状态、压力与心理极限.html'>04 情绪状态 (75)</a><a class='nav-btn active' href='05_人际社交、坦诚沟通与潜台词.html'>05 人际社交 (75)</a><a class='nav-btn ' href='06_金钱财务、得失与风险代价.html'>06 金钱财务 (75)</a><a class='nav-btn ' href='07_时间节奏、效率与危机处理.html'>07 时间节奏 (75)</a><a class='nav-btn ' href='08_北美高频日常俚语与街头口语.html'>08 北美高频 (75)</a><input id='qInput' class='search-input' type='text' placeholder='🔍 搜索习语 / 中文意思 / 例句...' onkeyup='filterTable()'></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Idiom / Slang • 语域属性</th>
+        <th>🎯 中文释义 & 英文核心定义</th>
+        <th>💬 地道语境例句 (Authentic Context)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td width='24%'><div class='expr-title'>1. beat around the bush</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>拐弯抹角；绕圈子；吞吞吐吐</div><div class='en-def'>avoid talking about what is important; delay getting to the point</div></td><td width='42%'><div class='ex-box'>💬 Stop beating around the bush and tell me exactly what happened.</div></td></tr><tr><td width='24%'><div class='expr-title'>2. clear the air</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>消除误会；把话摊开说清楚以缓解紧张</div><div class='en-def'>defuse a tense situation by having a frank discussion</div></td><td width='42%'><div class='ex-box'>💬 We had an honest conversation after training to clear the air.</div></td></tr><tr><td width='24%'><div class='expr-title'>3. see eye to eye</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>看法完全一致；英雄所见略同</div><div class='en-def'>be in full agreement with someone</div></td><td width='42%'><div class='ex-box'>💬 We don't always see eye to eye on politics, but we respect each other.</div></td></tr><tr><td width='24%'><div class='expr-title'>4. spill the beans</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>泄密；说漏嘴；把内情全抖出来</div><div class='en-def'>reveal secret information unintentionally or indiscreetly</div></td><td width='42%'><div class='ex-box'>💬 Who spilled the beans about the surprise retirement party?</div></td></tr><tr><td width='24%'><div class='expr-title'>5. give the cold shoulder</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>冷落某人；给某人甩冷脸</div><div class='en-def'>intentionally be unfriendly or ignore someone</div></td><td width='42%'><div class='ex-box'>💬 Ever since the dispute over parking, the neighbor has given us the cold shoulder.</div></td></tr><tr><td width='24%'><div class='expr-title'>6. break the ice</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>打破僵局；破冰缓和气氛</div><div class='en-def'>do or say something to relieve tension and get conversation going</div></td><td width='42%'><div class='ex-box'>💬 Sharing a cup of hot coffee helped break the ice with the new volunteers.</div></td></tr><tr><td width='24%'><div class='expr-title'>7. get off on the wrong foot</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>出师不利；初次接触就闹不愉快</div><div class='en-def'>make a bad start to a relationship or task</div></td><td width='42%'><div class='ex-box'>💬 We got off on the wrong foot on day one, but now we work great together.</div></td></tr><tr><td width='24%'><div class='expr-title'>8. bite one's tongue</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>忍住不说；强把话咽回去</div><div class='en-def'>make a desperate effort to avoid saying something that might cause offense</div></td><td width='42%'><div class='ex-box'>💬 I wanted to correct his mistake in front of the client, but I bit my tongue.</div></td></tr><tr><td width='24%'><div class='expr-title'>9. hear through the grapevine</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>道听途说；听到小道消息</div><div class='en-def'>learn of something informally via gossip or rumor</div></td><td width='42%'><div class='ex-box'>💬 I heard through the grapevine that our department is hiring five new constables.</div></td></tr><tr><td width='24%'><div class='expr-title'>10. put one's foot in one's mouth</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>说错话出丑；失言得罪人</div><div class='en-def'>say something tactless, embarrassing, or offensive by mistake</div></td><td width='42%'><div class='ex-box'>💬 I really put my foot in my mouth when I asked when her baby was due.</div></td></tr><tr><td width='24%'><div class='expr-title'>11. get something off one's chest</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>一吐为快；倾诉心头积压的事</div><div class='en-def'>say something that one has wanted to say for a long time, resulting in relief</div></td><td width='42%'><div class='ex-box'>💬 He needed someone to listen so he could get his worries off his chest.</div></td></tr><tr><td width='24%'><div class='expr-title'>12. hit it off</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>一见如故；立刻合得来</div><div class='en-def'>be naturally friendly or well suited right from the first meeting</div></td><td width='42%'><div class='ex-box'>💬 We met at the judo club and hit it off right away.</div></td></tr><tr><td width='24%'><div class='expr-title'>13. burn bridges</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>自断后路；把关系彻底闹僵</div><div class='en-def'>destroy one's path, connections, or reputation, making it impossible to go back</div></td><td width='42%'><div class='ex-box'>💬 Always leave a job professionally—never burn bridges.</div></td></tr><tr><td width='24%'><div class='expr-title'>14. keep at arm's length</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>与……保持距离；避免过于亲密</div><div class='en-def'>avoid intimacy or close familiarity with someone</div></td><td width='42%'><div class='ex-box'>💬 It's wise to keep overly pushy salespeople at arm's length.</div></td></tr><tr><td width='24%'><div class='expr-title'>15. meet halfway</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>各让一步；妥协折中</div><div class='en-def'>make a compromise with someone</div></td><td width='42%'><div class='ex-box'>💬 The landlord and tenant agreed to meet halfway on the repair costs.</div></td></tr><tr><td width='24%'><div class='expr-title'>16. speak one's mind</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>直言不讳；畅所欲言</div><div class='en-def'>express one's honest feelings or opinions frankly</div></td><td width='42%'><div class='ex-box'>💬 She has never been afraid to speak her mind during town hall meetings.</div></td></tr><tr><td width='24%'><div class='expr-title'>17. take a rain check</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>改天再约；婉拒本次邀请但保留下次机会</div><div class='en-def'>politely decline an offer with the implication that one may take it up at a later date</div></td><td width='42%'><div class='ex-box'>💬 I have an early shift tomorrow, so I'll have to take a rain check on dinner.</div></td></tr><tr><td width='24%'><div class='expr-title'>18. give the benefit of the doubt</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>姑且相信某人没有恶意</div><div class='en-def'>choose to believe that someone is honest despite uncertainty</div></td><td width='42%'><div class='ex-box'>💬 Maybe he just missed the message—let's give him the benefit of the doubt.</div></td></tr><tr><td width='24%'><div class='expr-title'>19. rub the wrong way</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>莫名惹某人不快；让人反感</div><div class='en-def'>irritate, annoy, or repel someone without necessarily intending to</div></td><td width='42%'><div class='ex-box'>💬 His arrogant tone rubbed the entire interview panel the wrong way.</div></td></tr><tr><td width='24%'><div class='expr-title'>20. on good terms</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>关系融洽；交情好</div><div class='en-def'>having a friendly relationship with someone</div></td><td width='42%'><div class='ex-box'>💬 We are still on very good terms with our former tenants.</div></td></tr><tr><td width='24%'><div class='expr-title'>21. word of mouth</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>口耳相传；口碑</div><div class='en-def'>spoken communication as a means of transmitting information</div></td><td width='42%'><div class='ex-box'>💬 The best local restaurants in Toronto thrive purely on word of mouth.</div></td></tr><tr><td width='24%'><div class='expr-title'>22. behind someone's back</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>背着某人；在背后议论或搞小动作</div><div class='en-def'>without a person's knowledge and in an unfair way</div></td><td width='42%'><div class='ex-box'>💬 If you have an issue with a teammate, address it directly, not behind their back.</div></td></tr><tr><td width='24%'><div class='expr-title'>23. go out on a limb</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>冒险进言；孤注一掷表态支持</div><div class='en-def'>put oneself in a vulnerable position in order to support someone or state a bold opinion</div></td><td width='42%'><div class='ex-box'>💬 I'll go out on a limb and say he's the strongest contender in the 73kg division.</div></td></tr><tr><td width='24%'><div class='expr-title'>24. Bend over backwards</div><span class='badge'>Idiom • Neutral</span></td><td width='34%'><div class='cn-meaning'>竭尽全力讨好或帮助；煞费苦心</div><div class='en-def'>make every effort to achieve something, especially to be fair or helpful</div></td><td width='42%'><div class='ex-box'>💬 The staff bent over backwards to accommodate the elderly guests.</div></td></tr><tr><td width='24%'><div class='expr-title'>25. drop a line</div><span class='badge'>Idiom • Informal</span></td><td width='34%'><div class='cn-meaning'>发个简短信息/写封信联系</div><div class='en-def'>send a brief note, message, or email to someone</div></td><td width='42%'><div class='ex-box'>💬 Drop me a line once you arrive safely in Shanghai.</div></td></tr><tr><td width='24%'><div class='expr-title'>26. by all odds</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>毫无疑问地：在每个可能的方法上, 毫无疑问地</div><div class='en-def'>without question and beyond doubt</div></td><td width='42%'><div class='ex-box'>💬 By all odds they should win.</div></td></tr><tr><td width='24%'><div class='expr-title'>27. in the lurch</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>处于困境：处于一种困难或尴尬的境地</div><div class='en-def'>in a difficult or vulnerable position</div></td><td width='42%'><div class='ex-box'>💬 He resigned and left me in the lurch.</div></td></tr><tr><td width='24%'><div class='expr-title'>28. in utero</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[医] 在子宫内</div><div class='en-def'>in the uterus</div></td><td width='42%'><div class='ex-box'>💬 The child was infected in utero from the mother.</div></td></tr><tr><td width='24%'><div class='expr-title'>29. on the face of it</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>从表面判断, 乍看起来</div><div class='en-def'>from appearances alone; ; ; -Thomas Hardy</div></td><td width='42%'><div class='ex-box'>💬 Had been ostensibly frank as to his purpose while really concealing it.</div></td></tr><tr><td width='24%'><div class='expr-title'>30. out of the way</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>不挡道, 不恰当, 异常, 偏僻</div><div class='en-def'>so as not to obstruct or hinder</div></td><td width='42%'><div class='ex-box'>💬 Put that box out of the way so that no one trips on it.</div></td></tr><tr><td width='24%'><div class='expr-title'>31. in the way</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>挡道</div><div class='en-def'>forming a hindrance, impediment, or obstruction</div></td><td width='42%'><div class='ex-box'>💬 She might have succeeded in her ambition, had not circumstances been in her way.</div></td></tr><tr><td width='24%'><div class='expr-title'>32. in someone's way</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>[网络] 在某人的方式</div><div class='en-def'>forming a hindrance, impediment, or obstruction</div></td><td width='42%'><div class='ex-box'>💬 She might have succeeded in her ambition, had not circumstances been in her way.</div></td></tr><tr><td width='24%'><div class='expr-title'>33. in general</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>大多数</div><div class='en-def'>without distinction of one from others</div></td><td width='42%'><div class='ex-box'>💬 He is interested in snakes in general.</div></td></tr><tr><td width='24%'><div class='expr-title'>34. if not</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>要不, 不然; 若非</div><div class='en-def'>perhaps; indicating possibility of being more remarkable (greater or better or sooner) than</div></td><td width='42%'><div class='ex-box'>💬 Will yield 10% if not more.</div></td></tr><tr><td width='24%'><div class='expr-title'>35. by far</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>显然</div><div class='en-def'>by a considerable margin</div></td><td width='42%'><div class='ex-box'>💬 She was by far the smartest student.</div></td></tr><tr><td width='24%'><div class='expr-title'>36. far and away</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>显然, 无疑地</div><div class='en-def'>by a considerable margin</div></td><td width='42%'><div class='ex-box'>💬 It was far and away the best meal he had ever eaten.</div></td></tr><tr><td width='24%'><div class='expr-title'>37. head and shoulders above</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>远远超出</div><div class='en-def'>outstandingly superior to</div></td><td width='42%'><div class='ex-box'>💬 In intelligence he was head and shoulders above the others in his class.</div></td></tr><tr><td width='24%'><div class='expr-title'>38. in time</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>及时</div><div class='en-def'>within an indefinite time or at an unspecified future time</div></td><td width='42%'><div class='ex-box'>💬 In time they came to accept the harsh reality.</div></td></tr><tr><td width='24%'><div class='expr-title'>39. at last</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>终于</div><div class='en-def'>as the end result of a succession or process</div></td><td width='42%'><div class='ex-box'>💬 At long last the winter was over.</div></td></tr><tr><td width='24%'><div class='expr-title'>40. at long last</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>终于, 最后</div><div class='en-def'>as the end result of a succession or process</div></td><td width='42%'><div class='ex-box'>💬 At long last the winter was over.</div></td></tr><tr><td width='24%'><div class='expr-title'>41. at present</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>现在, 目前</div><div class='en-def'>at the present moment</div></td><td width='42%'><div class='ex-box'>💬 He is busy at present writing a new novel.</div></td></tr><tr><td width='24%'><div class='expr-title'>42. for the time being</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>暂时</div><div class='en-def'>temporarily</div></td><td width='42%'><div class='ex-box'>💬 We'll stop for the time being.</div></td></tr><tr><td width='24%'><div class='expr-title'>43. by hand</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>用手</div><div class='en-def'>without the use of a machine</div></td><td width='42%'><div class='ex-box'>💬 This dress is sewn by hand.</div></td></tr><tr><td width='24%'><div class='expr-title'>44. by machine</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[网络] 按机器</div><div class='en-def'>with the use of a machine</div></td><td width='42%'><div class='ex-box'>💬 The shirt is sewn by machine.</div></td></tr><tr><td width='24%'><div class='expr-title'>45. hand to mouth</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>心手相牵（歌名）</div><div class='en-def'>with barely enough money for immediate needs</div></td><td width='42%'><div class='ex-box'>💬 They lived form hand to mouth.</div></td></tr><tr><td width='24%'><div class='expr-title'>46. at all</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>根本, 完全</div><div class='en-def'>in the slightest degree or in any respect</div></td><td width='42%'><div class='ex-box'>💬 Are you at all interested? No, not at all.</div></td></tr><tr><td width='24%'><div class='expr-title'>47. in the least</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>丝毫</div><div class='en-def'>in the slightest degree or in any respect</div></td><td width='42%'><div class='ex-box'>💬 Was not in the least unfriendly.</div></td></tr><tr><td width='24%'><div class='expr-title'>48. by all means</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>尽一切办法, 一定</div><div class='en-def'>definitely or certainly</div></td><td width='42%'><div class='ex-box'>💬 Visit us by all means.</div></td></tr><tr><td width='24%'><div class='expr-title'>49. by no means</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>决不</div><div class='en-def'>definitely not</div></td><td width='42%'><div class='ex-box'>💬 The prize is by no means certain.</div></td></tr><tr><td width='24%'><div class='expr-title'>50. not by a long sight</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>根本不</div><div class='en-def'>definitely not</div></td><td width='42%'><div class='ex-box'>💬 And that isn't all, not by a long sight.</div></td></tr><tr><td width='24%'><div class='expr-title'>51. not by a blame sight</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>[网络] 不是被责备的视线</div><div class='en-def'>definitely not</div></td><td width='42%'><div class='ex-box'>💬 And that isn't all, not by a long sight.</div></td></tr><tr><td width='24%'><div class='expr-title'>52. through and through</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>完全, 彻底</div><div class='en-def'>throughout the entire extent</div></td><td width='42%'><div class='ex-box'>💬 Got soaked through in the rain.</div></td></tr><tr><td width='24%'><div class='expr-title'>53. a lot</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>大量, 很, 非常</div><div class='en-def'>to a very great degree or extent</div></td><td width='42%'><div class='ex-box'>💬 I feel a lot better.</div></td></tr><tr><td width='24%'><div class='expr-title'>54. a good deal</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>许多</div><div class='en-def'>to a very great degree or extent</div></td><td width='42%'><div class='ex-box'>💬 This would help a great deal.</div></td></tr><tr><td width='24%'><div class='expr-title'>55. a great deal</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>大量</div><div class='en-def'>to a very great degree or extent</div></td><td width='42%'><div class='ex-box'>💬 This would help a great deal.</div></td></tr><tr><td width='24%'><div class='expr-title'>56. very much</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>非常; 良; 无可不可</div><div class='en-def'>to a very great degree or extent</div></td><td width='42%'><div class='ex-box'>💬 We enjoyed ourselves very much.</div></td></tr><tr><td width='24%'><div class='expr-title'>57. by choice</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>出于选择</div><div class='en-def'>with intention; in an intentional manner</div></td><td width='42%'><div class='ex-box'>💬 I did this by choice.</div></td></tr><tr><td width='24%'><div class='expr-title'>58. let alone</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>不管</div><div class='en-def'>much less</div></td><td width='42%'><div class='ex-box'>💬 She can't boil potatoes, let alone cook a meal.</div></td></tr><tr><td width='24%'><div class='expr-title'>59. a fortiori</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>更加</div><div class='en-def'>with greater reason; for a still stronger, more certain reason</div></td><td width='42%'><div class='ex-box'>💬 If you are wrong then, a fortiori, so am I.</div></td></tr><tr><td width='24%'><div class='expr-title'>60. in the meantime</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>在此期间</div><div class='en-def'>during the intervening time</div></td><td width='42%'><div class='ex-box'>💬 Meantime he was attentive to his other interests.</div></td></tr><tr><td width='24%'><div class='expr-title'>61. at length</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>最后, 详细地</div><div class='en-def'>in a lengthy or prolix manner</div></td><td width='42%'><div class='ex-box'>💬 She talked at length about the problem.</div></td></tr><tr><td width='24%'><div class='expr-title'>62. last but not least</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>最后但并不是最不重要的(一点)</div><div class='en-def'>in addition to all the foregoing</div></td><td width='42%'><div class='ex-box'>💬 Last not least he plays the saxophone.</div></td></tr><tr><td width='24%'><div class='expr-title'>63. last not least</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>[网络] 最后一点</div><div class='en-def'>in addition to all the foregoing</div></td><td width='42%'><div class='ex-box'>💬 Last not least he plays the saxophone.</div></td></tr><tr><td width='24%'><div class='expr-title'>64. in front</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>在前面</div><div class='en-def'>at or in the front</div></td><td width='42%'><div class='ex-box'>💬 We couldn't see over the heads of the people in front.</div></td></tr><tr><td width='24%'><div class='expr-title'>65. in advance</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>预先</div><div class='en-def'>ahead of time; in anticipation</div></td><td width='42%'><div class='ex-box'>💬 When you pay ahead (or in advance) you receive a discount.</div></td></tr><tr><td width='24%'><div class='expr-title'>66. out front</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>在门外, 在(竞争者)前列, 在观众中</div><div class='en-def'>leading or ahead in a competition</div></td><td width='42%'><div class='ex-box'>💬 Way out front in the race.</div></td></tr><tr><td width='24%'><div class='expr-title'>67. all along</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>始终, 一直</div><div class='en-def'>all the time or over a period of time</div></td><td width='42%'><div class='ex-box'>💬 She had known all along.</div></td></tr><tr><td width='24%'><div class='expr-title'>68. at random</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>胡乱地, 随便地</div><div class='en-def'>in a random manner</div></td><td width='42%'><div class='ex-box'>💬 The houses were randomly scattered.</div></td></tr><tr><td width='24%'><div class='expr-title'>69. here and there</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>各处, 到处, 四处</div><div class='en-def'>in or to various places; first this place and then that</div></td><td width='42%'><div class='ex-box'>💬 He worked here and there but never for long in one town.</div></td></tr><tr><td width='24%'><div class='expr-title'>70. in the main</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>大体上</div><div class='en-def'>for the most part</div></td><td width='42%'><div class='ex-box'>💬 He is mainly interested in butterflies.</div></td></tr><tr><td width='24%'><div class='expr-title'>71. back and forth</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>来回地</div><div class='en-def'>moving from one place to another and back again</div></td><td width='42%'><div class='ex-box'>💬 He traveled back and forth between Los Angeles and New York.</div></td></tr><tr><td width='24%'><div class='expr-title'>72. to and fro</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>来回</div><div class='en-def'>moving from one place to another and back again</div></td><td width='42%'><div class='ex-box'>💬 The treetops whipped to and fro in a frightening manner.</div></td></tr><tr><td width='24%'><div class='expr-title'>73. in the bargain</div><span class='badge'>Idiom • Phrase</span></td><td width='34%'><div class='cn-meaning'>外加, 另外, 而且（在议定的条件外再加上）</div><div class='en-def'>in addition; over and above what is expected</div></td><td width='42%'><div class='ex-box'>💬 He lost his wife in the bargain.</div></td></tr><tr><td width='24%'><div class='expr-title'>74. ex cathedra</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>[法] 有权威, 命令式的, 用职权</div><div class='en-def'>with the full authority of the office</div></td><td width='42%'><div class='ex-box'>💬 The pope must speak ex cathedra for an encyclical to be infallible.</div></td></tr><tr><td width='24%'><div class='expr-title'>75. flat out</div><span class='badge'>Collocation • Idiom</span></td><td width='34%'><div class='cn-meaning'>竭尽全力, 疲惫</div><div class='en-def'>at top speed</div></td><td width='42%'><div class='ex-box'>💬 He ran flat out to catch the bus.</div></td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

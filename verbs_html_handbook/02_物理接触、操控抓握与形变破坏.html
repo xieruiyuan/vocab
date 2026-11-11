@@ -1,0 +1,489 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>02 · 物理接触、操控抓握与形变破坏 (Physical Contact, Manipulation & Impact)</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #78350f; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #b45309; color: #fff; font-weight: 600; }
+.nav-link.home { background: #78350f; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.14em; font-weight: 700; color: #0f172a; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #b45309; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #334155; font-size: 0.91em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #f59e0b; }
+.card h3 { margin: 0 0 8px 0; color: #92400e; font-size: 1.08em; }
+.meta { font-size: 0.86em; color: #64748b; line-height: 1.6; }
+</style>
+<style>
+.lang-switch-box {
+    display: inline-flex; background: #e2e8f0; padding: 3px; border-radius: 99px;
+    border: 1px solid #cbd5e1; margin-left: auto; align-items: center;
+}
+.lang-btn {
+    border: none; background: transparent; padding: 5px 14px; border-radius: 99px;
+    font-size: 0.86em; font-weight: 700; color: #475569; cursor: pointer; transition: all 0.18s;
+}
+.lang-btn.active { background: #b45309; color: #fff; box-shadow: 0 1px 3px rgba(180,83,9,0.3); }
+body.lang-fr .lang-btn.fr-btn { background: #dc2626; color: #fff; }
+
+.word-fr-box { display: none; }
+.en-sub-hint { display: block; font-size: 0.75em; font-weight: 500; color: #64748b; margin-top: 3px; }
+body.lang-fr .word-en-box { display: none; }
+body.lang-fr .word-fr-box { display: inline; color: #0f172a; }
+
+/* 语域徽章：Formal(紫金)、Neutral(宝蓝)、Vivid(玫瑰红)、法语变位组(勃艮第红) */
+.reg-Formal { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #f3e8ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+.reg-Neutral { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.reg-Vivid { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+.fr-gr-badge { display: inline-block; padding: 2px 6px; font-size: 0.71em; font-weight: 700; border-radius: 4px; margin-left: 6px; background: #fee2e2; color: #991b1b; }
+
+.ph-fr-text { display: none; color: #b91c1c; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+body.lang-fr .ph-en-text { display: none; }
+body.lang-fr .ph-fr-text { display: inline; }
+
+.audio-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; font-size: 1.05em;
+    padding: 2px 6px; margin-left: 5px; color: #64748b; border-radius: 4px;
+}
+.audio-btn:hover { color: #b45309; background: #e2e8f0; transform: scale(1.15); }
+
+.sub-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #fffbeb; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #fde68a; }
+.sub-pill { text-decoration: none; padding: 5px 11px; border-radius: 99px; font-size: 0.85em; font-weight: 600; color: #92400e; background: #fff; border: 1px solid #fcd34d; cursor: pointer; }
+.sub-pill:hover { background: #b45309; color: #fff; }
+.ctrl-btn { padding: 5px 12px; border-radius: 6px; font-size: 0.85em; font-weight: 600; cursor: pointer; border: 1px solid #78350f; background: #78350f; color: #fff; }
+.ctrl-btn.secondary { background: #fff; color: #78350f; }
+
+details.sub-section { margin-bottom: 14px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #cbd5e1; overflow: hidden; }
+summary.sub-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; background: linear-gradient(90deg, #78350f, #b45309);
+    color: #fff; cursor: pointer; user-select: none; list-style: none;
+    font-size: 1.12em; font-weight: 700;
+}
+body.lang-fr summary.sub-header { background: linear-gradient(90deg, #7f1d1d, #dc2626); }
+summary.sub-header::-webkit-details-marker { display: none; }
+.arrow-icon { display: inline-block; transition: transform 0.2s ease; margin-right: 10px; font-size: 0.9em; }
+details[open] > summary.sub-header .arrow-icon { transform: rotate(90deg); }
+.sub-meta { font-size: 0.82em; font-weight: 500; color: #fef3c7; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px; }
+
+/* 语域阶梯与 Phrasal Verb 胶囊样式 */
+.ladder-box { font-size: 0.86em; line-height: 1.65; }
+.pv-pill { display: inline-block; background: #dcfce7; color: #166534; font-weight: 700; padding: 1px 7px; border-radius: 4px; border: 1px solid #86efac; margin-right: 4px; }
+.fm-pill { display: inline-block; background: #f3e8ff; color: #6b21a8; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid #e9d5ff; margin-right: 4px; }
+.nt-pill { display: inline-block; background: #f1f5f9; color: #334155; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid #cbd5e1; margin-right: 4px; }
+.ex-line { color: #475569; font-style: italic; font-size: 0.92em; margin-top: 4px; border-left: 3px solid #f59e0b; padding-left: 7px; }
+</style>
+
+<script>
+const audioPlayer = new Audio();
+let currentLang = localStorage.getItem("verbs_vocab_lang") || "en";
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("verbs_vocab_lang", lang);
+    document.body.classList.toggle("lang-fr", lang === "fr");
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+}
+
+function speakNative(text, langCode) {
+    if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = langCode; u.rate = 0.92;
+        window.speechSynthesis.speak(u);
+    }
+}
+
+function playWord(enWord, frAudioText) {
+    if (currentLang === "fr") {
+        const cleanFr = frAudioText.trim() || enWord;
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(cleanFr)}&le=fr`;
+        audioPlayer.play().catch(() => speakNative(cleanFr, "fr-FR"));
+    } else {
+        audioPlayer.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(enWord.trim())}&type=2`;
+        audioPlayer.play().catch(() => speakNative(enWord, "en-US"));
+    }
+}
+
+function toggleAllSections(expand) {
+    document.querySelectorAll("details.sub-section").forEach(d => d.open = expand);
+}
+
+function jumpToSection(secId) {
+    const el = document.getElementById(secId);
+    if (el) { el.open = true; el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+}
+
+function filterRegister(filterType) {
+    document.querySelectorAll("tr[data-reg]").forEach(row => {
+        if (filterType === "all") row.style.display = "";
+        else if (filterType === "phrasal") row.style.display = (row.dataset.pv === "1") ? "" : "none";
+        else row.style.display = (row.dataset.reg === filterType) ? "" : "none";
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => setLanguage(currentLang));
+</script>
+
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body id='top'>
+<div class="nav-bar"><a class="nav-link home" href="index.html">⚡ 4000动词总目录</a><a class="nav-link" href="01_物理位移、步态姿势与空间运动.html">01 物理位移、步态姿势与空间运动 (226)</a><a class="nav-link active" href="02_物理接触、操控抓握与形变破坏.html">02 物理接触、操控抓握与形变破坏 (69)</a><a class="nav-link" href="03_数量增减、程度兴衰与状态演变.html">03 数量增减、程度兴衰与状态演变 (387)</a><a class="nav-link" href="04_认知思维、逻辑推理与记忆评估.html">04 认知思维、逻辑推理与记忆评估 (168)</a><a class="nav-link" href="05_言语表达、修辞争辩与信息传递.html">05 言语表达、修辞争辩与信息传递 (197)</a><a class="nav-link" href="06_情绪起伏、心理反应与人际感召.html">06 情绪起伏、心理反应与人际感召 (58)</a><a class="nav-link" href="07_对抗冲突、压制防御与胜负博弈.html">07 对抗冲突、压制防御与胜负博弈 (52)</a><a class="nav-link" href="08_法律规范、行政指令与社会交互.html">08 法律规范、行政指令与社会交互 (100)</a><a class="nav-link" href="09_经济交易、资产配置与资源消耗.html">09 经济交易、资产配置与资源消耗 (100)</a><a class="nav-link" href="10_创造构建、修饰拼合与清除销毁.html">10 创造构建、修饰拼合与清除销毁 (150)</a><a class="nav-link" href="11_感官知觉、生理机能与日常照料.html">11 感官知觉、生理机能与日常照料 (30)</a><a class="nav-link" href="12_因果触发、阻碍促进与时间存续.html">12 因果触发、阻碍促进与时间存续 (726)</a><div class="lang-switch-box"><button class="lang-btn en-btn active" data-lang="en" onclick="setLanguage('en')">🇬🇧 English Verbs</button><button class="lang-btn fr-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 Verbes Français</button></div></div>
+<h1>02 · 物理接触、操控抓握与形变破坏 (Physical Contact, Manipulation & Impact)</h1>
+<p style='color:#64748b;margin-bottom:14px;'>本领域共 <b>69</b> 个核心动词 • 右侧直接展示 <b>💬 口语 Phrasal Verb 短语替换 ↔ ⚖️ 通用同义词 ↔ 🏛️ 正式学术升级词</b></p>
+<div class="sub-nav"><button class='ctrl-btn' onclick='toggleAllSections(true)'>📂 全部展开</button><button class='ctrl-btn secondary' onclick='toggleAllSections(false)'>📁 全部收起</button><button class='sub-pill' onclick="filterRegister('all')">全部动词</button><button class='sub-pill' onclick="filterRegister('phrasal')">🔄 仅看含 Phrasal Verb 替换</button><button class='sub-pill' onclick="filterRegister('Formal')">🏛️ 仅看正式/学术语域</button><button class='sub-pill' onclick="filterRegister('Vivid')">🎨 仅看生动/叙事动词</button><span style='color:#fcd34d;margin:0 4px;'>|</span><a class='sub-pill' onclick="jumpToSection('sub_0')">01 抓握、紧捏、投掷与牵引拖拽 (9)</a><a class='sub-pill' onclick="jumpToSection('sub_1')">02 击打、鞭抽、碰撞与猛烈冲击 (32)</a><a class='sub-pill' onclick="jumpToSection('sub_2')">03 切割、撕裂、穿透与研磨粉碎 (12)</a><a class='sub-pill' onclick="jumpToSection('sub_3')">04 捆绑、缠绕、弯曲与物理形变 (16)</a></div>
+<details class='sub-section' id='sub_0' open><summary class='sub-header'><span><span class='arrow-icon'>▶</span>01 · 抓握、紧捏、投掷与牵引拖拽 (Grasping, Clutching, Hurling & Dragging)</span><span class='sub-meta'>共 9 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>seize<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>embrayage<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to seize</span></span></td><td class='phonetic'><span class='ph-en-text'>/si:z/</span><span class='ph-fr-text'>/ɑ̃bʁɛjaʒ/</span> <button class='audio-btn' onclick="playWord('seize', 'embrayage')">🔊</button></td><td>vt. 抓住, 逮捕, 俘获, 没收, 扣押, 掌握；vi. 突然抓住, 利用</td><td class='def-en'>take hold of; grab</td><td>3.8</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>get hold of</span><span class='pv-pill'>take hold of</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>prehend</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>clutch</span></div><div class='ex-line'>“The sales clerk quickly seized the money on the counter”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>intercept<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>intercepter<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to intercept</span></span></td><td class='phonetic'><span class='ph-en-text'>/.intә'sept/</span><span class='ph-fr-text'>/ɛ̃tɛʁsɛpte/</span> <button class='audio-btn' onclick="playWord('intercept', 'intercepter')">🔊</button></td><td>vt. 拦截, 阻止, 截取</td><td class='def-en'>seize on its way</td><td>3.57</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>cut off</span><span class='pv-pill'>cut out</span><span class='pv-pill'>take hold of</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>wiretap</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>stop</span><span class='nt-pill'>tap</span><span class='nt-pill'>bug</span></div><div class='ex-line'>“The fighter plane was ordered to intercept an aircraft that had entered the country's airspace”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>cuddle<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>nid<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to cuddle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kʌdl/</span><span class='ph-fr-text'>/ni/</span> <button class='audio-btn' onclick="playWord('cuddle', 'nid')">🔊</button></td><td>vt. 抚抱, 抱着睡, 拥抱；vi. 依偎, 依偎着躺在一起</td><td class='def-en'>move or arrange oneself in a comfortable and cozy position</td><td>3.4</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>cling to</span><span class='pv-pill'>draw close</span><span class='pv-pill'>hold close</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>snuggle</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>nestle</span><span class='nt-pill'>nest</span><span class='nt-pill'>nuzzle</span></div><div class='ex-line'>“We cuddled against each other to keep warm”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>tweak<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>tweak<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to tweak</span></span></td><td class='phonetic'><span class='ph-en-text'>/twi:k/</span><span class='ph-fr-text'>/tweak/</span> <button class='audio-btn' onclick="playWord('tweak', 'tweak')">🔊</button></td><td>vt. 扭, 开足马力</td><td class='def-en'>pinch or squeeze sharply</td><td>3.27</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>pick off</span><span class='pv-pill'>pull off</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pluck</span></div><div class='ex-line'>“They decided to tweak (pinch or squeeze sharply).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>snuggle<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>nid<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to snuggle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'snʌgl/</span><span class='ph-fr-text'>/ni/</span> <button class='audio-btn' onclick="playWord('snuggle', 'nid')">🔊</button></td><td>vi. 偎依；vt. 使舒适温暖, 紧抱</td><td class='def-en'>move or arrange oneself in a comfortable and cozy position</td><td>3.04</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>cling to</span><span class='pv-pill'>draw close</span><span class='pv-pill'>hold close</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>cuddle</span><span class='nt-pill'>nestle</span><span class='nt-pill'>nest</span></div><div class='ex-line'>“We cuddled against each other to keep warm”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>nestle<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>nid<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to nestle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'nesl/</span><span class='ph-fr-text'>/ni/</span> <button class='audio-btn' onclick="playWord('nestle', 'nid')">🔊</button></td><td>vi. 舒适地坐定, 挨靠, 偎依；vt. 抱, 安置</td><td class='def-en'>move or arrange oneself in a comfortable and cozy position</td><td>2.99</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>cling to</span><span class='pv-pill'>draw close</span><span class='pv-pill'>hold close</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>snuggle</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>cuddle</span><span class='nt-pill'>nest</span><span class='nt-pill'>nuzzle</span></div><div class='ex-line'>“We cuddled against each other to keep warm”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>harpoon<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>harpon<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to harpoon</span></span></td><td class='phonetic'><span class='ph-en-text'>/hɑ:'pu:n/</span><span class='ph-fr-text'>/ʼaʁpɔ̃/</span> <button class='audio-btn' onclick="playWord('harpoon', 'harpon')">🔊</button></td><td>vt. 用鱼叉叉, 用鱼叉捕获</td><td class='def-en'>spear with a harpoon</td><td>2.83</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>take hold of</span></div><div class='ex-line'>“harpoon whales”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>gnaw<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>ronger<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to gnaw</span></span></td><td class='phonetic'><span class='ph-en-text'>/nɒ:/</span><span class='ph-fr-text'>/ʁɔ̃ʒe/</span> <button class='audio-btn' onclick="playWord('gnaw', 'ronger')">🔊</button></td><td>v. 咬, 啃, 侵蚀, 消耗, 折磨</td><td class='def-en'>bite or chew on with the teeth</td><td>2.56</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>eat at</span><span class='pv-pill'>gnaw at</span><span class='pv-pill'>seize with teeth</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>erode</span></div><div class='ex-line'>“gnaw an old cracker”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>hug<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>accolade<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to hug</span></span></td><td class='phonetic'><span class='ph-en-text'>/hʌg/</span><span class='ph-fr-text'>/akɔlad/</span> <button class='audio-btn' onclick="playWord('hug', 'accolade')">🔊</button></td><td>vt. 紧抱, 坚持, 使沾沾自喜</td><td class='def-en'>squeeze (someone) tightly in your arms, usually with fondness</td><td>4.09</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>embrace</span><span class='nt-pill'>bosom</span><span class='nt-pill'>squeeze</span></div><div class='ex-line'>“Hug me, please”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_1'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>02 · 击打、鞭抽、碰撞与猛烈冲击 (Striking, Lashing, Colliding & Smashing)</span><span class='sub-meta'>共 32 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>massage<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>malaxer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to massage</span></span></td><td class='phonetic'><span class='ph-en-text'>/'mæsɑ:ʒ/</span><span class='ph-fr-text'>/malakse/</span> <button class='audio-btn' onclick="playWord('massage', 'malaxer')">🔊</button></td><td>vt. 按摩, 揉</td><td class='def-en'>manually manipulate (someone's body), usually for medicinal or relaxation purposes</td><td>4.01</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>rub down</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>knead</span></div><div class='ex-line'>“She rubbed down her child with a sponge”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>batter<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>frappeur<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to batter</span></span></td><td class='phonetic'><span class='ph-en-text'>/'bætә/</span><span class='ph-fr-text'>/frappeur/</span> <button class='audio-btn' onclick="playWord('batter', 'frappeur')">🔊</button></td><td>v. 连续猛打（尤其指妇女），猛击</td><td class='def-en'>strike against forcefully</td><td>3.56</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>knock about</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>clobber</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>buffet</span><span class='nt-pill'>baste</span></div><div class='ex-line'>“Winds buffeted the tent”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>outcry<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>outcry<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to outcry</span></span></td><td class='phonetic'><span class='ph-en-text'>/'autkrai/</span><span class='ph-fr-text'>/outcry/</span> <button class='audio-btn' onclick="playWord('outcry', 'outcry')">🔊</button></td><td>vi. 喊叫；vt. 叫得比...响</td><td class='def-en'>shout louder than</td><td>3.21</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>call out</span><span class='pv-pill'>cry out</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>outshout</span><span class='fm-pill'>exclaim</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>cry</span><span class='nt-pill'>shout</span></div><div class='ex-line'>“They decided to outcry (shout louder than).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>nab<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>saisir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to nab</span></span></td><td class='phonetic'><span class='ph-en-text'>/næb/</span><span class='ph-fr-text'>/seziʁ/</span> <button class='audio-btn' onclick="playWord('nab', 'saisir')">🔊</button></td><td>vt. 捉住, 逮捕, 抢夺</td><td class='def-en'>tag the base runner to get him out</td><td>3.12</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>pick up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>apprehend</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>collar</span><span class='nt-pill'>nail</span><span class='nt-pill'>arrest</span></div><div class='ex-line'>“They decided to nab (tag the base runner to get him out).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>outperform<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>dominer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to outperform</span></span></td><td class='phonetic'><span class='ph-en-text'>/.autpә'fɔ:m/</span><span class='ph-fr-text'>/dɔmine/</span> <button class='audio-btn' onclick="playWord('outperform', 'dominer')">🔊</button></td><td>vt. 胜过；做得比……好</td><td class='def-en'>be or do something to a greater degree</td><td>3.01</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>beat out</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>surpass</span><span class='fm-pill'>outstrip</span><span class='fm-pill'>outmatch</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>outgo</span><span class='nt-pill'>exceed</span><span class='nt-pill'>outdo</span></div><div class='ex-line'>“her performance surpasses that of any other student I know”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>overpower<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>dépasser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to overpower</span></span></td><td class='phonetic'><span class='ph-en-text'>/.әuvә'pauә/</span><span class='ph-fr-text'>/depase/</span> <button class='audio-btn' onclick="playWord('overpower', 'dépasser')">🔊</button></td><td>vt. 击败, 打胜, 克服</td><td class='def-en'>overcome by superior force</td><td>2.85</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>beat out</span><span class='pv-pill'>sweep over</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>overmaster</span><span class='fm-pill'>overwhelm</span><span class='fm-pill'>overtake</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>whelm</span><span class='nt-pill'>overcome</span></div><div class='ex-line'>“They decided to overpower (overcome by superior force).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>outdo<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>dominer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to outdo</span></span></td><td class='phonetic'><span class='ph-en-text'>/.aut'du:/</span><span class='ph-fr-text'>/dɔmine/</span> <button class='audio-btn' onclick="playWord('outdo', 'dominer')">🔊</button></td><td>vt. 超越, 胜过, 战胜</td><td class='def-en'>be or do something to a greater degree</td><td>2.72</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>beat out</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>surpass</span><span class='fm-pill'>outstrip</span><span class='fm-pill'>outmatch</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>outgo</span><span class='nt-pill'>exceed</span><span class='nt-pill'>trump</span></div><div class='ex-line'>“her performance surpasses that of any other student I know”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>flog<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>flageller<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to flog</span></span></td><td class='phonetic'><span class='ph-en-text'>/flɒg/</span><span class='ph-fr-text'>/flaʒɛle/</span> <button class='audio-btn' onclick="playWord('flog', 'flageller')">🔊</button></td><td>vt. 鞭打, 鞭策, 严厉的批评, 迫使</td><td class='def-en'>beat severely with a whip or rod</td><td>2.7</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>beat up</span><span class='pv-pill'>work over</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>trounce</span><span class='fm-pill'>lambaste</span><span class='fm-pill'>lambast</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>welt</span><span class='nt-pill'>whip</span><span class='nt-pill'>lather</span></div><div class='ex-line'>“The teacher often flogged the students”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>vanquish<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>abattre<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to vanquish</span></span></td><td class='phonetic'><span class='ph-en-text'>/'væŋkwiʃ/</span><span class='ph-fr-text'>/abatʁ/</span> <button class='audio-btn' onclick="playWord('vanquish', 'abattre')">🔊</button></td><td>vt. 打败, 征服, 克服</td><td class='def-en'>come out better in a competition, race, or conflict</td><td>2.62</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>beat out</span><span class='pv-pill'>get the better of</span><span class='pv-pill'>get the jump</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>trounce</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>beat</span><span class='nt-pill'>crush</span><span class='nt-pill'>shell</span></div><div class='ex-line'>“Agassi beat Becker in the tennis championship”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>knead<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>pétrir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to knead</span></span></td><td class='phonetic'><span class='ph-en-text'>/ni:d/</span><span class='ph-fr-text'>/petʁiʁ/</span> <button class='audio-btn' onclick="playWord('knead', 'pétrir')">🔊</button></td><td>vt. 揉, 按摩, 捏</td><td class='def-en'>make uniform</td><td>2.57</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>rub down</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>work</span><span class='nt-pill'>massage</span></div><div class='ex-line'>“knead dough”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>smooch<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>caresser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to smooch</span></span></td><td class='phonetic'><span class='ph-en-text'>/smu:tʃ/</span><span class='ph-fr-text'>/kaʁɛse/</span> <button class='audio-btn' onclick="playWord('smooch', 'caresser')">🔊</button></td><td>vi. 搂抱着接吻；vt. 与...搂抱接吻, 弄脏</td><td class='def-en'>snuggle and lie in a position where one person faces the back of the others</td><td>2.49</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>make out</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>spoon</span></div><div class='ex-line'>“They decided to smooch (snuggle and lie in a position where one person faces the back of the others).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>leather<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>leather<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to leather</span></span></td><td class='phonetic'><span class='ph-en-text'>/'leðә/</span><span class='ph-fr-text'>/leather/</span> <button class='audio-btn' onclick="playWord('leather', 'leather')">🔊</button></td><td>vt. 覆以皮革, 鞭苔, 抽打</td><td class='def-en'>whip with a leather strap</td><td>4.35</td><td><div class='ladder-box'><div class='ex-line'>“They decided to leather (whip with a leather strap).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>bash<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>chaussette<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to bash</span></span></td><td class='phonetic'><span class='ph-en-text'>/bæʃ/</span><span class='ph-fr-text'>/ʃosɛt/</span> <button class='audio-btn' onclick="playWord('bash', 'chaussette')">🔊</button></td><td>v. 猛击, 打坏</td><td class='def-en'>hit hard</td><td>3.81</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>sock</span><span class='nt-pill'>bop</span><span class='nt-pill'>whop</span></div><div class='ex-line'>“They decided to bash (hit hard).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>telescope<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>longue-vue<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to telescope</span></span></td><td class='phonetic'><span class='ph-en-text'>/'teliskәup/</span><span class='ph-fr-text'>/lɔ̃gvy/</span> <button class='audio-btn' onclick="playWord('telescope', 'longue-vue')">🔊</button></td><td>vi. 叠缩, 嵌进, 缩短；vt. 使叠缩, 使缩短</td><td class='def-en'>crush together or collapse</td><td>3.75</td><td><div class='ladder-box'><div class='ex-line'>“In the accident, the cars telescoped”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>swipe<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>swipe<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to swipe</span></span></td><td class='phonetic'><span class='ph-en-text'>/swaip/</span><span class='ph-fr-text'>/swipe/</span> <button class='audio-btn' onclick="playWord('swipe', 'swipe')">🔊</button></td><td>vt. 强打, 用力挥击, 偷</td><td class='def-en'>strike with a swiping motion</td><td>3.58</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>cabbage</span><span class='fm-pill'>purloin</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pilfer</span><span class='nt-pill'>pinch</span><span class='nt-pill'>abstract</span></div><div class='ex-line'>“They decided to swipe (strike with a swiping motion).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>swat<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>frapper<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to swat</span></span></td><td class='phonetic'><span class='ph-en-text'>/swɒt/</span><span class='ph-fr-text'>/fʁape/</span> <button class='audio-btn' onclick="playWord('swat', 'frapper')">🔊</button></td><td>vt. 用力打下去, 重拍</td><td class='def-en'>hit swiftly with a violent blow</td><td>3.46</td><td><div class='ladder-box'><div class='ex-line'>“Swat flies”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>whack<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>frapper<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to whack</span></span></td><td class='phonetic'><span class='ph-en-text'>/hwæk/</span><span class='ph-fr-text'>/fʁape/</span> <button class='audio-btn' onclick="playWord('whack', 'frapper')">🔊</button></td><td>vt. 猛击, 重打, 削减；vi. 重击</td><td class='def-en'>hit hard</td><td>3.43</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>wham</span><span class='nt-pill'>whop</span><span class='nt-pill'>wallop</span></div><div class='ex-line'>“The teacher whacked the boy”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>collide<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>collide<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to collide</span></span></td><td class='phonetic'><span class='ph-en-text'>/kә'laid/</span><span class='ph-fr-text'>/collide/</span> <button class='audio-btn' onclick="playWord('collide', 'collide')">🔊</button></td><td>vi. 碰撞, 互撞, 抵触</td><td class='def-en'>be incompatible; be or come into conflict</td><td>3.29</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>clash</span><span class='nt-pill'>jar</span></div><div class='ex-line'>“These colors clash”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>outweigh<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>outweigh<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to outweigh</span></span></td><td class='phonetic'><span class='ph-en-text'>/.aut'wei/</span><span class='ph-fr-text'>/outweigh/</span> <button class='audio-btn' onclick="playWord('outweigh', 'outweigh')">🔊</button></td><td>vt. 比...重, 比...重要, 比...有价值</td><td class='def-en'>be heavier than</td><td>3.27</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>preponderate</span><span class='fm-pill'>overbalance</span><span class='fm-pill'>outbalance</span></div><div class='ex-line'>“They decided to outweigh (be heavier than).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>knuckle<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>knuckle<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to knuckle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'nʌkl/</span><span class='ph-fr-text'>/knuckle/</span> <button class='audio-btn' onclick="playWord('knuckle', 'knuckle')">🔊</button></td><td>v. 以指节打, 以手指射</td><td class='def-en'>press or rub with the knuckles</td><td>3.22</td><td><div class='ladder-box'><div class='ex-line'>“They decided to knuckle (press or rub with the knuckles).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>caress<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>caresser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to caress</span></span></td><td class='phonetic'><span class='ph-en-text'>/kә'res/</span><span class='ph-fr-text'>/kaʁɛse/</span> <button class='audio-btn' onclick="playWord('caress', 'caresser')">🔊</button></td><td>vt. 爱抚, 抱, 宠爱</td><td class='def-en'>touch or stroke lightly in a loving or endearing manner</td><td>2.94</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>fondle</span></div><div class='ex-line'>“He caressed her face”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>sledgehammer<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>traîneau<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to sledgehammer</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sledʒ.hæmә/</span><span class='ph-fr-text'>/tʁɛno/</span> <button class='audio-btn' onclick="playWord('sledgehammer', 'traîneau')">🔊</button></td><td>v. 用大锤打, 沉重打击</td><td class='def-en'>beat with a sledgehammer</td><td>2.93</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>sledge</span></div><div class='ex-line'>“They decided to sledgehammer (beat with a sledgehammer).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>smite<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>smite<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to smite</span></span></td><td class='phonetic'><span class='ph-en-text'>/smait/</span><span class='ph-fr-text'>/smite/</span> <button class='audio-btn' onclick="playWord('smite', 'smite')">🔊</button></td><td>vt. 重击, 打, 击败, 毁灭, 侵袭, 打动；vi. 重击, 打</td><td class='def-en'>inflict a heavy blow on, with the hand, a tool, or a weapon</td><td>2.93</td><td><div class='ladder-box'><div class='ex-line'>“They decided to smite (inflict a heavy blow on, with the hand, a tool, or a weapon).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>tamper<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>singe<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to tamper</span></span></td><td class='phonetic'><span class='ph-en-text'>/'tæmpә/</span><span class='ph-fr-text'>/sɛ̃ʒ/</span> <button class='audio-btn' onclick="playWord('tamper', 'singe')">🔊</button></td><td>vi. 干预, 拨弄, 贿赂, 损害, 篡改；vt. 篡改</td><td class='def-en'>play around with or alter or falsify, usually secretively or dishonestly</td><td>2.89</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>fiddle</span><span class='nt-pill'>monkey</span><span class='nt-pill'>meddle</span></div><div class='ex-line'>“Someone tampered with the documents on my desk”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>reshuffle<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>reshuffle<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to reshuffle</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri:'ʃʌfl/</span><span class='ph-fr-text'>/reshuffle/</span> <button class='audio-btn' onclick="playWord('reshuffle', 'reshuffle')">🔊</button></td><td>vt. 重新洗牌, 改组, 撤换</td><td class='def-en'>shuffle again</td><td>2.81</td><td><div class='ladder-box'><div class='ex-line'>“So as to prevent cheating, he was asked to reshuffle the cards”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>biff<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>pommeau<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to biff</span></span></td><td class='phonetic'><span class='ph-en-text'>/bif/</span><span class='ph-fr-text'>/pɔmo/</span> <button class='audio-btn' onclick="playWord('biff', 'pommeau')">🔊</button></td><td>vt. 打</td><td class='def-en'>strike, usually with the fist</td><td>2.8</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pummel</span><span class='nt-pill'>pommel</span></div><div class='ex-line'>“The pedestrians pummeled the demonstrators”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>wham<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>frapper<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to wham</span></span></td><td class='phonetic'><span class='ph-en-text'>/hwæm/</span><span class='ph-fr-text'>/fʁape/</span> <button class='audio-btn' onclick="playWord('wham', 'frapper')">🔊</button></td><td>v. 重打</td><td class='def-en'>hit hard</td><td>2.78</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>whack</span><span class='nt-pill'>whop</span><span class='nt-pill'>wallop</span></div><div class='ex-line'>“The teacher whacked the boy”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>outsmart<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>battre<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to outsmart</span></span></td><td class='phonetic'><span class='ph-en-text'>/.aut'smɑ:t/</span><span class='ph-fr-text'>/batʁ/</span> <button class='audio-btn' onclick="playWord('outsmart', 'battre')">🔊</button></td><td>vt. 比...更聪明, 打败, 瞒过</td><td class='def-en'>beat through cleverness and wit</td><td>2.67</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>overreach</span><span class='fm-pill'>circumvent</span><span class='fm-pill'>outmaneuver</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>outwit</span><span class='nt-pill'>outfox</span><span class='nt-pill'>beat</span></div><div class='ex-line'>“I beat the traffic”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>wallop<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>frapper<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to wallop</span></span></td><td class='phonetic'><span class='ph-en-text'>/'wɒlәp/</span><span class='ph-fr-text'>/fʁape/</span> <button class='audio-btn' onclick="playWord('wallop', 'frapper')">🔊</button></td><td>vi. 乱窜, 猛冲；vt. 猛击, 击溃</td><td class='def-en'>hit hard</td><td>2.62</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>whack</span><span class='nt-pill'>wham</span><span class='nt-pill'>whop</span></div><div class='ex-line'>“The teacher whacked the boy”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>swig<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>limace<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to swig</span></span></td><td class='phonetic'><span class='ph-en-text'>/swig/</span><span class='ph-fr-text'>/limas/</span> <button class='audio-btn' onclick="playWord('swig', 'limace')">🔊</button></td><td>v. 满满一口喝下, 牛饮, 大喝特喝</td><td class='def-en'>strike heavily, especially with the fist or a bat</td><td>2.61</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>slug</span><span class='nt-pill'>slog</span><span class='nt-pill'>gulp</span></div><div class='ex-line'>“He slugged me so hard that I passed out”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>fondle<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>caresser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to fondle</span></span></td><td class='phonetic'><span class='ph-en-text'>/'fɒndl/</span><span class='ph-fr-text'>/kaʁɛse/</span> <button class='audio-btn' onclick="playWord('fondle', 'caresser')">🔊</button></td><td>vt. 爱, 爱抚, 溺爱；vi. 爱抚</td><td class='def-en'>touch or stroke lightly in a loving or endearing manner</td><td>2.52</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>caress</span></div><div class='ex-line'>“He caressed her face”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>outwit<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>battre<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to outwit</span></span></td><td class='phonetic'><span class='ph-en-text'>/.aut'wit/</span><span class='ph-fr-text'>/batʁ/</span> <button class='audio-btn' onclick="playWord('outwit', 'battre')">🔊</button></td><td>vt. 瞒骗, 以智取胜</td><td class='def-en'>beat through cleverness and wit</td><td>2.48</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>overreach</span><span class='fm-pill'>outsmart</span><span class='fm-pill'>circumvent</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>outfox</span><span class='nt-pill'>beat</span></div><div class='ex-line'>“I beat the traffic”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_2'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>03 · 切割、撕裂、穿透与研磨粉碎 (Cutting, Tearing, Piercing & Grinding)</span><span class='sub-meta'>共 12 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>pierce<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>entrer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to pierce</span></span></td><td class='phonetic'><span class='ph-en-text'>/piәs/</span><span class='ph-fr-text'>/ɑ̃tʁe/</span> <button class='audio-btn' onclick="playWord('pierce', 'entrer')">🔊</button></td><td>vt. 刺穿, 穿透, 打眼于, 洞悉, (声音)响彻, (亮光)照进, 深深地打动；vi. 刺入, 穿入, 透入, 进入</td><td class='def-en'>cut or make a way through</td><td>3.93</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>break up</span></div><div class='ex-line'>“the knife cut through the flesh”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>subdue<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>assujettir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to subdue</span></span></td><td class='phonetic'><span class='ph-en-text'>/sәb'dju:/</span><span class='ph-fr-text'>/asyʒetiʁ/</span> <button class='audio-btn' onclick="playWord('subdue', 'assujettir')">🔊</button></td><td>vt. 使服从, 压制, 减弱, 抑制, 克制</td><td class='def-en'>put down by force or intimidation</td><td>3.06</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>keep down</span><span class='pv-pill'>stamp down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>repress</span><span class='fm-pill'>subjugate</span><span class='fm-pill'>inhibit</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>quash</span><span class='nt-pill'>reduce</span><span class='nt-pill'>suppress</span></div><div class='ex-line'>“The government quashes any attempt of an uprising”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>oppress<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>opprimer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to oppress</span></span></td><td class='phonetic'><span class='ph-en-text'>/ә'pres/</span><span class='ph-fr-text'>/ɔpʁime/</span> <button class='audio-btn' onclick="playWord('oppress', 'opprimer')">🔊</button></td><td>vt. 压迫, 压抑, 使烦恼</td><td class='def-en'>come down on or keep down by unjust use of one's authority</td><td>2.88</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>keep down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>persecute</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>suppress</span><span class='nt-pill'>crush</span></div><div class='ex-line'>“The government oppresses political activists”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>repress<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>assujettir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to repress</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'pres/</span><span class='ph-fr-text'>/asyʒetiʁ/</span> <button class='audio-btn' onclick="playWord('repress', 'assujettir')">🔊</button></td><td>vt. 镇压, 抑制, 压制；vi. 压制</td><td class='def-en'>put down by force or intimidation</td><td>2.82</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>keep down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>subjugate</span><span class='fm-pill'>smother</span><span class='fm-pill'>strangle</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>quash</span><span class='nt-pill'>subdue</span><span class='nt-pill'>reduce</span></div><div class='ex-line'>“The government quashes any attempt of an uprising”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>quash<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>assujettir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to quash</span></span></td><td class='phonetic'><span class='ph-en-text'>/kwɒʃ/</span><span class='ph-fr-text'>/asyʒetiʁ/</span> <button class='audio-btn' onclick="playWord('quash', 'assujettir')">🔊</button></td><td>vt. 撤销, 平息, 镇压</td><td class='def-en'>put down by force or intimidation</td><td>2.75</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>keep down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>repress</span><span class='fm-pill'>subjugate</span><span class='fm-pill'>invalidate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>subdue</span><span class='nt-pill'>reduce</span><span class='nt-pill'>annul</span></div><div class='ex-line'>“The government quashes any attempt of an uprising”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>subjugate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>assujettir<span class='fr-gr-badge'>v. 2e gr.</span><span class='en-sub-hint'>🇬🇧 to subjugate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sʌbdʒugeit/</span><span class='ph-fr-text'>/asyʒetiʁ/</span> <button class='audio-btn' onclick="playWord('subjugate', 'assujettir')">🔊</button></td><td>vt. 征服, 使服从, 抑制, 克制</td><td class='def-en'>put down by force or intimidation</td><td>2.47</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>keep down</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>repress</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>quash</span><span class='nt-pill'>subdue</span><span class='nt-pill'>reduce</span></div><div class='ex-line'>“The government quashes any attempt of an uprising”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>sunder<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>sunder<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to sunder</span></span></td><td class='phonetic'><span class='ph-en-text'>/'sʌndә/</span><span class='ph-fr-text'>/sunder/</span> <button class='audio-btn' onclick="playWord('sunder', 'sunder')">🔊</button></td><td>v. 切开, 分离</td><td class='def-en'>break apart or in two, using violence</td><td>2.47</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>break up</span></div><div class='ex-line'>“They decided to sunder (break apart or in two, using violence).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>champ<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>champ<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to champ</span></span></td><td class='phonetic'><span class='ph-en-text'>/tʃæmp/</span><span class='ph-fr-text'>/ʃɑ̃/</span> <button class='audio-btn' onclick="playWord('champ', 'champ')">🔊</button></td><td>v. 大声地嚼, 格格地咬</td><td class='def-en'>chafe at the bit, like horses</td><td>3.9</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>chomp</span></div><div class='ex-line'>“They decided to champ (chafe at the bit, like horses).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>chew<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>mastiquer<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to chew</span></span></td><td class='phonetic'><span class='ph-en-text'>/tʃu:/</span><span class='ph-fr-text'>/mastike/</span> <button class='audio-btn' onclick="playWord('chew', 'mastiquer')">🔊</button></td><td>vt. 咀嚼, 嚼碎；vi. 咀嚼, 细想</td><td class='def-en'>chew (food); to bite and grind with the teeth</td><td>3.66</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>masticate</span><span class='fm-pill'>manducate</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>jaw</span></div><div class='ex-line'>“He jawed his bubble gum”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>shatter<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>shatter<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to shatter</span></span></td><td class='phonetic'><span class='ph-en-text'>/'ʃætә/</span><span class='ph-fr-text'>/shatter/</span> <button class='audio-btn' onclick="playWord('shatter', 'shatter')">🔊</button></td><td>vt. 打碎, 使散开, 粉碎, 破坏；vi. 粉碎, 损坏, 脱落</td><td class='def-en'>break into many pieces</td><td>3.22</td><td><div class='ladder-box'><div class='ex-line'>“The wine glass shattered”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>munch<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>munch<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to munch</span></span></td><td class='phonetic'><span class='ph-en-text'>/mʌntʃ/</span><span class='ph-fr-text'>/munch/</span> <button class='audio-btn' onclick="playWord('munch', 'munch')">🔊</button></td><td>v. 用力咀嚼, 大声咀嚼</td><td class='def-en'>chew noisily</td><td>3.08</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>crunch</span></div><div class='ex-line'>“The children crunched the celery sticks”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>chomp<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>chomp<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to chomp</span></span></td><td class='phonetic'><span class='ph-en-text'>/tʃɒmp/</span><span class='ph-fr-text'>/chomp/</span> <button class='audio-btn' onclick="playWord('chomp', 'chomp')">🔊</button></td><td>vi. 使劲地嚼, 格格地咬</td><td class='def-en'>chew noisily</td><td>2.53</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>champ</span></div><div class='ex-line'>“The boy chomped his sandwich”</div></div></td></tr>
+</table></details>
+<details class='sub-section' id='sub_3'><summary class='sub-header'><span><span class='arrow-icon'>▶</span>04 · 捆绑、缠绕、弯曲与物理形变 (Binding, Twisting, Bending & Deforming)</span><span class='sub-meta'>共 16 词 • 点击展开 / 收起</span></summary><table><tr><th width='19%'>核心动词 & 语域层级</th><th width='12%'>音标 / 发音</th><th width='19%'>中文释义</th><th width='18%'>英文精准定义</th><th width='5%'>词频</th><th width='27%'>🔄 Phrasal Verb 替换 & 语域阶梯</th></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>lean<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>incliner<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to lean</span></span></td><td class='phonetic'><span class='ph-en-text'>/li:n/</span><span class='ph-fr-text'>/ɛ̃kline/</span> <button class='audio-btn' onclick="playWord('lean', 'incliner')">🔊</button></td><td>vi. 倚靠, 倾斜, 依赖；vt. 使倾斜</td><td class='def-en'>to incline or bend from a vertical position</td><td>4.14</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>lean back</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>tilt</span><span class='nt-pill'>tip</span><span class='nt-pill'>slant</span></div><div class='ex-line'>“She leaned over the banister”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>bend<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>bend<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to bend</span></span></td><td class='phonetic'><span class='ph-en-text'>/bend/</span><span class='ph-fr-text'>/bend/</span> <button class='audio-btn' onclick="playWord('bend', 'bend')">🔊</button></td><td>vi. 变弯曲, 屈服；vt. 使弯曲, 使屈服</td><td class='def-en'>form a curve</td><td>4.13</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>change form</span><span class='pv-pill'>change shape</span><span class='pv-pill'>curl up</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>flex</span></div><div class='ex-line'>“The stick does not bend”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>pal<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>pal<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to pal</span></span></td><td class='phonetic'><span class='ph-en-text'>/pæl/</span><span class='ph-fr-text'>/pal/</span> <button class='audio-btn' onclick="playWord('pal', 'pal')">🔊</button></td><td>vi. 交友, 结伴</td><td class='def-en'>become friends; act friendly towards</td><td>3.99</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>chum up</span><span class='pv-pill'>pal up</span></div><div class='ex-line'>“They decided to pal (become friends).”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='1'><td class='word'><span class='word-en-box'>crisp<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>froisser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to crisp</span></span></td><td class='phonetic'><span class='ph-en-text'>/krisp/</span><span class='ph-fr-text'>/fʁwase/</span> <button class='audio-btn' onclick="playWord('crisp', 'froisser')">🔊</button></td><td>v. (使)烘脆, (使)拳曲, (使)起皱</td><td class='def-en'>make wrinkles or creases on a smooth surface; make a pressed, folded or wrinkled line in</td><td>3.7</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>fold up</span><span class='pv-pill'>ruck up</span><span class='pv-pill'>scrunch up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>wrinkle</span><span class='fm-pill'>crinkle</span><span class='fm-pill'>scrunch</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>ruckle</span><span class='nt-pill'>crease</span><span class='nt-pill'>toast</span></div><div class='ex-line'>“The dress got wrinkled”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>truss<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>truss<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to truss</span></span></td><td class='phonetic'><span class='ph-en-text'>/trʌs/</span><span class='ph-fr-text'>/truss/</span> <button class='audio-btn' onclick="playWord('truss', 'truss')">🔊</button></td><td>vt. 捆绑</td><td class='def-en'>tie the wings and legs of a bird before cooking it</td><td>3.29</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>tie down</span><span class='pv-pill'>tie up</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>bind</span></div><div class='ex-line'>“They decided to truss (tie the wings and legs of a bird before cooking it).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>crouch<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>arc<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to crouch</span></span></td><td class='phonetic'><span class='ph-en-text'>/'krautʃ/</span><span class='ph-fr-text'>/aʁk/</span> <button class='audio-btn' onclick="playWord('crouch', 'arc')">🔊</button></td><td>vi. 蹲下, 蜷着, 缩着；vt. 低头</td><td class='def-en'>bend one's back forward from the waist on down</td><td>3.26</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>hunker down</span><span class='pv-pill'>scrunch up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>scrunch</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>stoop</span><span class='nt-pill'>bend</span><span class='nt-pill'>bow</span></div><div class='ex-line'>“he crouched down”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>befriend<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>copiner<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to befriend</span></span></td><td class='phonetic'><span class='ph-en-text'>/bi'frend/</span><span class='ph-fr-text'>/kɔpine/</span> <button class='audio-btn' onclick="playWord('befriend', 'copiner')">🔊</button></td><td>vt. 待人如友, 扶助</td><td class='def-en'>become friends with</td><td>2.93</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>chum up</span><span class='pv-pill'>pal up</span></div><div class='ex-line'>“John and Eric soon became friends”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>ruck<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>ruck<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to ruck</span></span></td><td class='phonetic'><span class='ph-en-text'>/rʌk/</span><span class='ph-fr-text'>/ruck/</span> <button class='audio-btn' onclick="playWord('ruck', 'ruck')">🔊</button></td><td>vt. 弄皱；vi. 变皱</td><td class='def-en'>become wrinkled or drawn together</td><td>2.76</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>ruck up</span><span class='pv-pill'>scrunch up</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>pucker</span></div><div class='ex-line'>“her lips puckered”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>deflate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>deflate<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to deflate</span></span></td><td class='phonetic'><span class='ph-en-text'>/di'fleit/</span><span class='ph-fr-text'>/deflate/</span> <button class='audio-btn' onclick="playWord('deflate', 'deflate')">🔊</button></td><td>vt. 放气, 抽出空气, 使缩小；vi. 缩小</td><td class='def-en'>collapse by releasing contained air or gas</td><td>2.61</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>break down</span><span class='pv-pill'>cave in</span><span class='pv-pill'>fall down</span></div><div class='ex-line'>“deflate a balloon”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='1'><td class='word'><span class='word-en-box'>pucker<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>chiffonner<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to pucker</span></span></td><td class='phonetic'><span class='ph-en-text'>/'pʌkә/</span><span class='ph-fr-text'>/ʃifɔne/</span> <button class='audio-btn' onclick="playWord('pucker', 'chiffonner')">🔊</button></td><td>vt. 使起皱；vi. 折成褶</td><td class='def-en'>to gather something into small wrinkles or folds</td><td>2.52</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>scrunch up</span></div><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>crumple</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>rumple</span><span class='nt-pill'>cockle</span><span class='nt-pill'>knit</span></div><div class='ex-line'>“She puckered her lips”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='1'><td class='word'><span class='word-en-box'>recline<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>recline<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to recline</span></span></td><td class='phonetic'><span class='ph-en-text'>/ri'klain/</span><span class='ph-fr-text'>/recline/</span> <button class='audio-btn' onclick="playWord('recline', 'recline')">🔊</button></td><td>vt. 使斜靠；vi. 靠, 斜倚, 依赖</td><td class='def-en'>move the upper body backwards and down</td><td>2.51</td><td><div class='ladder-box'><div>💬 <b>短语动词 (Phrasal):</b> <span class='pv-pill'>fall back</span><span class='pv-pill'>lean back</span></div><div class='ex-line'>“They decided to recline (move the upper body backwards and down).”</div></div></td></tr>
+<tr data-reg='Formal' data-pv='0'><td class='word'><span class='word-en-box'>replicate<span class='reg-Formal'>🏛️ 正式/学术</span></span><span class='word-fr-box'>rétroflexe<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to replicate</span></span></td><td class='phonetic'><span class='ph-en-text'>/'replikeit/</span><span class='ph-fr-text'>/rétroflexe/</span> <button class='audio-btn' onclick="playWord('replicate', 'rétroflexe')">🔊</button></td><td>vt. 折叠, 折转, 复制</td><td class='def-en'>bend or turn backward</td><td>3.55</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>retroflex</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>copy</span></div><div class='ex-line'>“They decided to replicate (bend or turn backward).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>weave<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>tisser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to weave</span></span></td><td class='phonetic'><span class='ph-en-text'>/wi:v/</span><span class='ph-fr-text'>/tise/</span> <button class='audio-btn' onclick="playWord('weave', 'tisser')">🔊</button></td><td>vt. 编织, 组合, 编排, 使迂回前进；vi. 纺织, 迂回行进</td><td class='def-en'>interlace by or as if by weaving</td><td>3.53</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>interweave</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>tissue</span></div><div class='ex-line'>“They decided to weave (interlace by or as if by weaving).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>twine<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>dentelle<span class='fr-gr-badge'>v. 3e gr.</span><span class='en-sub-hint'>🇬🇧 to twine</span></span></td><td class='phonetic'><span class='ph-en-text'>/twain/</span><span class='ph-fr-text'>/dɑ̃tɛl/</span> <button class='audio-btn' onclick="playWord('twine', 'dentelle')">🔊</button></td><td>v. 搓, (使)交织, 编饰, (使)缠绕</td><td class='def-en'>spin,wind, or twist together</td><td>2.93</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>intertwine</span><span class='fm-pill'>entwine</span><span class='fm-pill'>interlace</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>enlace</span><span class='nt-pill'>lace</span><span class='nt-pill'>wind</span></div><div class='ex-line'>“intertwine the ribbons”</div></div></td></tr>
+<tr data-reg='Neutral' data-pv='0'><td class='word'><span class='word-en-box'>interwoven<span class='reg-Neutral'>⚖️ 通用核心</span></span><span class='word-fr-box'>tisser<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to interwoven</span></span></td><td class='phonetic'><span class='ph-en-text'>/.intә'wәuvәn/</span><span class='ph-fr-text'>/tise/</span> <button class='audio-btn' onclick="playWord('interwoven', 'tisser')">🔊</button></td><td>v. 互相编织</td><td class='def-en'>interlace by or as if by weaving</td><td>2.81</td><td><div class='ladder-box'><div>🏛️ <b>正式/学术升级:</b> <span class='fm-pill'>interweave</span></div><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>weave</span></div><div class='ex-line'>“They decided to interwoven (interlace by or as if by weaving).”</div></div></td></tr>
+<tr data-reg='Vivid' data-pv='0'><td class='word'><span class='word-en-box'>cower<span class='reg-Vivid'>🎨 生动/叙事</span></span><span class='word-fr-box'>cower<span class='fr-gr-badge'>v. 1er gr.</span><span class='en-sub-hint'>🇬🇧 to cower</span></span></td><td class='phonetic'><span class='ph-en-text'>/'kauә/</span><span class='ph-fr-text'>/cower/</span> <button class='audio-btn' onclick="playWord('cower', 'cower')">🔊</button></td><td>vi. 畏缩, 退缩, 抖缩</td><td class='def-en'>crouch or curl up</td><td>2.55</td><td><div class='ladder-box'><div>⚖️ <b>通用同义替换:</b> <span class='nt-pill'>huddle</span><span class='nt-pill'>fawn</span><span class='nt-pill'>crawl</span></div><div class='ex-line'>“They huddled outside in the rain”</div></div></td></tr>
+</table></details>
+</body></html>

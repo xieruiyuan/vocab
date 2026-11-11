@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>母语者 4000 核心动词与语域替换库 - 总目录</title><style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 1280px; margin: 0 auto; padding: 24px; background: #f8fafc; color: #1e293b; scroll-behavior: smooth; }
+h1 { color: #78350f; margin-bottom: 8px; }
+.nav-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; background: #fff; padding: 12px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 20px; position: sticky; top: 8px; z-index: 20; border: 1px solid #e2e8f0; }
+.nav-link { text-decoration: none; padding: 5px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 500; color: #475569; background: #f1f5f9; }
+.nav-link:hover { background: #e2e8f0; color: #0f172a; }
+.nav-link.active { background: #b45309; color: #fff; font-weight: 600; }
+.nav-link.home { background: #78350f; color: #fff; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+th { background: #f1f5f9; font-weight: 600; color: #475569; }
+tr:hover { background: #f8fafc; }
+.word { font-size: 1.14em; font-weight: 700; color: #0f172a; }
+.phonetic { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: #b45309; font-size: 0.95em; white-space: nowrap; }
+.def-en { color: #334155; font-size: 0.91em; line-height: 1.45; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; margin-top: 20px; }
+.card { background: white; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.15s; }
+.card:hover { transform: translateY(-3px); border-color: #f59e0b; }
+.card h3 { margin: 0 0 8px 0; color: #92400e; font-size: 1.08em; }
+.meta { font-size: 0.86em; color: #64748b; line-height: 1.6; }
+</style>
+<!-- === UNIFIED HANDBOOK DESIGN SYSTEM === -->
+<style id="unified-theme-style">
+  :root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    background: var(--bg) !important;
+    color: var(--text-main) !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    line-height: 1.55 !important;
+  }
+  .container, .main-container, .wrapper, body > div:first-of-type {
+    max-width: 1360px !important;
+    margin: 0 auto !important;
+  }
+
+  /* 统一深海蓝渐变顶栏 */
+  .unified-header-box, header, .header, .hero, .banner, .top-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    padding: 28px 32px !important;
+    border-radius: 16px !important;
+    margin-bottom: 22px !important;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+    border: none !important;
+    text-align: left !important;
+  }
+  .unified-header-box h1, header h1, .header h1, .hero h1, h1 {
+    margin: 0 0 8px 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: -0.3px !important;
+    border: none !important;
+  }
+  .unified-header-box p, header p, .header p, .hero p, .subtitle, .desc {
+    margin: 0 !important;
+    color: #cbd5e1 !important;
+    font-size: 15px !important;
+  }
+
+  /* 统一 Sticky 悬浮胶囊导航栏与实时搜索框 */
+  .unified-nav-bar, nav, .nav-bar, .tabs, .category-nav, .nav-links, .toc-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 22px !important;
+    background: #ffffff !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 999 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+  .unified-nav-bar a, nav a, .nav-bar a, .nav-links a, .tab-btn, .category-btn, .nav-btn {
+    text-decoration: none !important;
+    padding: 7px 13px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #334155 !important;
+    background: #f1f5f9 !important;
+    border: 1px solid transparent !important;
+    transition: all 0.15s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+  .unified-nav-bar a:hover, nav a:hover, .nav-bar a:hover, .nav-links a:hover, .tab-btn:hover, .nav-btn:hover {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  .unified-nav-bar a.active, nav a.active, .nav-bar a.active, .nav-links a.active, .tab-btn.active, .nav-btn.active {
+    background: var(--accent) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25) !important;
+  }
+
+  .unified-search-input, input[type="search"], input[type="text"] {
+    margin-left: auto !important;
+    padding: 8px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    font-size: 13.5px !important;
+    min-width: 250px !important;
+    outline: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .unified-search-input:focus, input[type="search"]:focus, input[type="text"]:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+  }
+
+  /* 统一折叠面板 details / summary 样式（适配分主题折叠子表） */
+  details {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03) !important;
+    overflow: hidden !important;
+  }
+  summary {
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    background: #f8fafc !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--border) !important;
+    list-style: none !important;
+  }
+  summary:hover {
+    background: #f1f5f9 !important;
+  }
+
+  /* 统一表格与卡片样式 */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 24px !important;
+  }
+  details table {
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  th {
+    background: #f1f5f9 !important;
+    color: #334155 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    padding: 13px 16px !important;
+    border-bottom: 2px solid var(--border) !important;
+  }
+  td {
+    padding: 14px 16px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    vertical-align: top !important;
+    color: #1e293b !important;
+  }
+  tr:hover td {
+    background: #f8fafc !important;
+  }
+
+  .card, .word-card, .item-card, .topic-card, .index-card {
+    background: #ffffff !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease !important;
+  }
+  .card:hover, .word-card:hover, .item-card:hover, .topic-card:hover, .index-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.09) !important;
+    border-color: #93c5fd !important;
+  }
+
+  /* 词条主标题与中文青绿色高亮 */
+  .word, .term, .expr-title, td strong:first-child, td b:first-child {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+  }
+  .zh, .cn, .chinese, .meaning, .cn-meaning, .trans {
+    color: #0f766e !important;
+    font-weight: 600 !important;
+  }
+  .badge, .tag, .pos, .register-tag, .level-tag {
+    display: inline-block !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+  }
+</style>
+<script id="unified-theme-script">
+document.addEventListener("DOMContentLoaded", function() {
+  // 1. 自动将页面顶部的 h1 包装进深海蓝渐变 Header 盒子里
+  const h1 = document.querySelector("h1");
+  if (h1 && !h1.closest(".unified-header-box, .header-box, header, .header, .hero, .banner")) {
+    const box = document.createElement("div");
+    box.className = "unified-header-box";
+    h1.parentNode.insertBefore(box, h1);
+    box.appendChild(h1);
+    const nextEl = box.nextElementSibling;
+    if (nextEl && (nextEl.tagName === "P" || nextEl.classList.contains("subtitle") || nextEl.classList.contains("desc"))) {
+      box.appendChild(nextEl);
+    }
+  }
+
+  // 2. 自动为导航栏高亮当前激活页面按钮
+  const currentFile = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html");
+  document.querySelectorAll("nav a, .nav-bar a, .unified-nav-bar a, .tabs a, .nav-links a").forEach(a => {
+    const href = decodeURIComponent(a.getAttribute("href") || "");
+    if (href === currentFile || (currentFile === "" && href === "index.html")) {
+      a.classList.add("active");
+    }
+  });
+
+  // 3. 注入右上角实时搜索过滤框（若页面尚未配备输入框）
+  if (!document.querySelector("input[type='text'], input[type='search']")) {
+    let nav = document.querySelector("nav, .nav-bar, .unified-nav-bar, .tabs, .category-nav, .nav-links");
+    if (!nav) {
+      nav = document.createElement("div");
+      nav.className = "unified-nav-bar";
+      const hdr = document.querySelector(".unified-header-box, .header-box, header, .header");
+      if (hdr && hdr.nextSibling) {
+        hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+      } else {
+        document.body.prepend(nav);
+      }
+    } else {
+      nav.classList.add("unified-nav-bar");
+    }
+    const search = document.createElement("input");
+    search.type = "text";
+    search.className = "unified-search-input";
+    search.placeholder = "🔍 实时搜索词汇 / 中文释义 / 搭配 / 例句...";
+    search.addEventListener("keyup", function() {
+      const q = this.value.toLowerCase().trim();
+      // 打开所有 details 折叠框以便搜索结果直接显现
+      if (q.length > 0) {
+        document.querySelectorAll("details").forEach(d => d.open = true);
+      }
+      const items = document.querySelectorAll("tbody tr, .card, .word-card, .item-card");
+      items.forEach(el => {
+        el.style.display = el.innerText.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+    nav.appendChild(search);
+  }
+
+  // 4. 彻底清除所有标题、导航胶囊、折叠栏文字中的丑陋下划线（如 01_学校教育 -> 01 学校教育）
+  document.querySelectorAll("h1, h2, h3, h4, nav a, .unified-nav-bar a, .nav-bar a, .nav-btn, .tab-btn, .category-btn, summary, .card h3, .card-title, title").forEach(el => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes("_")) {
+        if (el.tagName === "H1") {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 · ").replace(/_/g, " ");
+        } else {
+          node.nodeValue = node.nodeValue.replace(/\b(?:sc_|pt_)?(\d{2})_+/g, "$1 ").replace(/_/g, " ");
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- === END UNIFIED HANDBOOK DESIGN SYSTEM === -->
+
+</head><body>
+<h1>⚡ 母语者 4,000 核心动词与语域互换库（Phrasal Verbs ↔ 学术动词双向打通）</h1>
+<p style='color:#475569;font-size:1.05em;'>全库共收录 <b>2263</b> 个核心单字动词（其中 <b>1339</b> 个直接绑定地道 Phrasal Verb 口语短语互换链），按 12 大动作语义场与三级语域（正式学术 / 通用标准 / 生动叙事）精排。</p><div class='grid'>
+<a class='card' href='01_物理位移、步态姿势与空间运动.html'><h3>01 · 物理位移、步态姿势与空间运动</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Motion, Gait, Posture & Spatial Movement</div><div class='meta'>• 动词总数：<b>226</b> 词<br>• 含短语动词互换：<b>128</b> 个 | 正式学术动词：<b>58</b> 个</div></a>
+<a class='card' href='02_物理接触、操控抓握与形变破坏.html'><h3>02 · 物理接触、操控抓握与形变破坏</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Physical Contact, Manipulation & Impact</div><div class='meta'>• 动词总数：<b>69</b> 词<br>• 含短语动词互换：<b>37</b> 个 | 正式学术动词：<b>16</b> 个</div></a>
+<a class='card' href='03_数量增减、程度兴衰与状态演变.html'><h3>03 · 数量增减、程度兴衰与状态演变</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Change, Growth, Decay & Fluctuation</div><div class='meta'>• 动词总数：<b>387</b> 词<br>• 含短语动词互换：<b>219</b> 个 | 正式学术动词：<b>147</b> 个</div></a>
+<a class='card' href='04_认知思维、逻辑推理与记忆评估.html'><h3>04 · 认知思维、逻辑推理与记忆评估</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Cognition, Reasoning, Memory & Evaluation</div><div class='meta'>• 动词总数：<b>168</b> 词<br>• 含短语动词互换：<b>121</b> 个 | 正式学术动词：<b>67</b> 个</div></a>
+<a class='card' href='05_言语表达、修辞争辩与信息传递.html'><h3>05 · 言语表达、修辞争辩与信息传递</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Communication, Rhetoric, Debate & Disclosure</div><div class='meta'>• 动词总数：<b>197</b> 词<br>• 含短语动词互换：<b>118</b> 个 | 正式学术动词：<b>57</b> 个</div></a>
+<a class='card' href='06_情绪起伏、心理反应与人际感召.html'><h3>06 · 情绪起伏、心理反应与人际感召</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Emotions, Psychological Reactions & Empathy</div><div class='meta'>• 动词总数：<b>58</b> 词<br>• 含短语动词互换：<b>39</b> 个 | 正式学术动词：<b>27</b> 个</div></a>
+<a class='card' href='07_对抗冲突、压制防御与胜负博弈.html'><h3>07 · 对抗冲突、压制防御与胜负博弈</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Conflict, Coercion, Defense & Subjugation</div><div class='meta'>• 动词总数：<b>52</b> 词<br>• 含短语动词互换：<b>35</b> 个 | 正式学术动词：<b>14</b> 个</div></a>
+<a class='card' href='08_法律规范、行政指令与社会交互.html'><h3>08 · 法律规范、行政指令与社会交互</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Law, Authority, Governance & Social Interaction</div><div class='meta'>• 动词总数：<b>100</b> 词<br>• 含短语动词互换：<b>60</b> 个 | 正式学术动词：<b>36</b> 个</div></a>
+<a class='card' href='09_经济交易、资产配置与资源消耗.html'><h3>09 · 经济交易、资产配置与资源消耗</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Commerce, Finance, Allocation & Consumption</div><div class='meta'>• 动词总数：<b>100</b> 词<br>• 含短语动词互换：<b>60</b> 个 | 正式学术动词：<b>25</b> 个</div></a>
+<a class='card' href='10_创造构建、修饰拼合与清除销毁.html'><h3>10 · 创造构建、修饰拼合与清除销毁</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Creation, Fabrication, Modification & Destruction</div><div class='meta'>• 动词总数：<b>150</b> 词<br>• 含短语动词互换：<b>95</b> 个 | 正式学术动词：<b>52</b> 个</div></a>
+<a class='card' href='11_感官知觉、生理机能与日常照料.html'><h3>11 · 感官知觉、生理机能与日常照料</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Perception, Bodily Functions & Sustenance</div><div class='meta'>• 动词总数：<b>30</b> 词<br>• 含短语动词互换：<b>17</b> 个 | 正式学术动词：<b>8</b> 个</div></a>
+<a class='card' href='12_因果触发、阻碍促进与时间存续.html'><h3>12 · 因果触发、阻碍促进与时间存续</h3><div style='color:#b45309;font-size:0.84em;margin-bottom:8px;font-weight:600;'>Causality, Hindrance, Facilitation & Duration</div><div class='meta'>• 动词总数：<b>726</b> 词<br>• 含短语动词互换：<b>410</b> 个 | 正式学术动词：<b>220</b> 个</div></a>
+</div></body></html>
